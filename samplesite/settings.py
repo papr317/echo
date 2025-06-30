@@ -26,8 +26,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
+# custom user model
+AUTH_USER_MODEL = 'users.CustomUser'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'users',  # Custom user app
     'echo_app',  # Custom app for echo functionality
 ]
 
