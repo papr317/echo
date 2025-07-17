@@ -11,6 +11,10 @@ from .serializers import RegisterSerializer
 def user_list(request):
     users = CustomUser.objects.all()
     return render(request, 'user_list.html', {'users': users})
+  
+def get_user_by_id(request, user_id):
+    user = CustomUser.objects.filter(id=user_id).first()
+    return render(request, 'user_detail.html', {'user': user})  
 
 def register_page(request):
     if request.method == 'POST':
@@ -46,7 +50,7 @@ def accept_policy_page(request):
     return render(request, 'accept_policy.html')
 
 def delete_user_page(request):
-    if request.method == 'POST' and request.user.is_authenticated:
+    if request.method == 'DELETE' and request.user.is_authenticated:
         request.user.delete()
         return redirect('register_page')
     return render(request, 'delete_user.html')
