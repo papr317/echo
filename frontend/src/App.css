@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-layout {
+  flex: 1;
+  display: flex;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  background: #fafafa;
+}
+

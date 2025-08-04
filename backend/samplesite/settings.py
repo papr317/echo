@@ -29,6 +29,9 @@ INSTALLED_APPS = [
     
     'users',  # Custom user app
     'echo_app',  # Custom app for echo functionality
+    
+    'corsheaders',
+    'rest_framework',  # Django REST Framework for API development
 ]
 
 MIDDLEWARE = [
