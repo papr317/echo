@@ -1,5 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import {
+  HomeOutlined,
+  SearchOutlined,
+  MessageOutlined,
+  NotificationOutlined,
+  TeamOutlined,
+  CrownOutlined,
+} from '@ant-design/icons';
 import './Sidebar.css';
 
 function Sidebar() {
@@ -7,18 +15,39 @@ function Sidebar() {
     <nav className="sidebar">
       <ul>
         <li>
-          <NavLink to="/">Главная</NavLink>
+          <NavLink to="/buy">
+            <CrownOutlined /> PRO
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/profile">Профиль</NavLink>
+          <NavLink to="/">
+            <HomeOutlined /> Главная
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/messages">Сообщения</NavLink>
+          <NavLink to="/search">
+            <SearchOutlined /> Поиск
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/settings">Настройки</NavLink>
+          <NavLink to="/notifications">
+            <NotificationOutlined /> Уведомления
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/groups">
+            <TeamOutlined /> Группы
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/messages">
+            <MessageOutlined /> Сообщения
+          </NavLink>
         </li>
       </ul>
+      <div className="sidebar-button-container">
+        <button className="public-post-button">Public Post</button>
+      </div>
     </nav>
   );
 }

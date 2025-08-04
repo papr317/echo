@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:8000",
   "dependencies": {
+    "@ant-design/icons": "^6.0.0",
     "@reduxjs/toolkit": "^2.8.2",
     "antd": "^5.26.7",
     "cra-template-redux": "2.0.0",

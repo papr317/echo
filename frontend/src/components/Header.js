@@ -5,19 +5,16 @@ import './Header.css';
 function Header() {
   const isLoggedIn = document.cookie.includes('user=');
 
-  const handleLogout = () => {
-    document.cookie = 'user=; Max-Age=0';
-    window.location.reload();
-  };
-
   return (
     <div className="echo-header">
       <img src="/assets/logo.png" alt="Echo Logo" className="echo-logo" />
+      {/* <input type="text" placeholder="Поиск..." className="search-input" /> */}
+
       <Space>
         {isLoggedIn ? (
-          <Button type="default" onClick={handleLogout}>
-            Выйти
-          </Button>
+          <a href="/profile">
+            <img src="/assets/profile-icon.png" alt="Профиль" className="profile-icon" />
+          </a>
         ) : (
           <>
             <a href="/login">
