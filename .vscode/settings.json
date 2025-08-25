@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["corsheaders", "noscript", "stylesheet", "xcopy"]
+  "cSpell.words": [
+    "corsheaders",
+    "noscript",
+    "runserver",
+    "samplesite",
+    "simplejwt",
+    "stylesheet",
+    "xcopy"
+  ]
 }

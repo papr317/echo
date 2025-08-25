@@ -9,16 +9,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=2dgtuw@%1#^eyw!odd=o7fx!5^2iq6w29vxj6%ttz10b6+9@l'
+# .env file should contain the following variables:
+SECRET_KEY = config('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# автоматически добавлять / в конце URL
+APPEND_SLASH = True
 
-# custom user model
-AUTH_USER_MODEL = 'users.CustomUser'
+ALLOWED_HOSTS = ['*']
+
+AUTH_USER_MODEL = 'users_api.CustomUser'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -28,12 +31,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'users',  # Custom user app
-    'echo_app',  # Custom app for echo functionality
+    'users_api',  # Custom user app
+    'echo_api', # Echo API app backend
     
     'corsheaders',
     'rest_framework',  # Django REST Framework for API development
+    'rest_framework_simplejwt',  # JWT authentication
 ]
+
+from datetime import timedelta
+
+# жизненный цикл токенов
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=120),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=16),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -44,9 +56,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True  
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React
+    "https://echo.site.com",  # твой фронт
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
 
 ROOT_URLCONF = 'samplesite.urls'
 
@@ -116,10 +139,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Default primary key field type

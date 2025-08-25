@@ -4,7 +4,6 @@ from django.db import models
 class CustomUser(AbstractUser):
     phone = models.CharField(max_length=15, unique=True, blank=True, null=True)
     email = models.EmailField(unique=True, blank=True, null=True)
-    # password in AbstractUser is already defined, so no need to redefine it here
     
     first_name = models.CharField(max_length=30, blank=True, null=True)
     last_name = models.CharField(max_length=30, blank=True, null=True)
