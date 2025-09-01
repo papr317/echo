@@ -4,7 +4,7 @@ import {
   HomeOutlined,
   SearchOutlined,
   MessageOutlined,
-  NotificationOutlined,
+  BellOutlined,
   TeamOutlined,
   CrownOutlined,
   MenuFoldOutlined,
@@ -53,7 +53,7 @@ function Sidebar({ collapsed, onToggle, position, onSideChange }) {
 
         <li>
           <NavLink to="/notifications" className={({ isActive }) => (isActive ? 'active' : '')}>
-            <NotificationOutlined />
+            <BellOutlined />
             {!collapsed && 'Уведомления'}
           </NavLink>
         </li>
@@ -61,12 +61,12 @@ function Sidebar({ collapsed, onToggle, position, onSideChange }) {
         <li>
           <NavLink to="/messages" className={({ isActive }) => (isActive ? 'active' : '')}>
             <MessageOutlined />
-            {!collapsed && 'Сообщения'}
+            {!collapsed && 'общение'}
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="/buy" className={({ isActive }) => (isActive ? 'active' : '')}>
+          <NavLink to="/explore-plan" className={({ isActive }) => (isActive ? 'active' : '')}>
             <CrownOutlined />
             {!collapsed && 'Стать PRO'}
           </NavLink>

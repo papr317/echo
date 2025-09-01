@@ -27,7 +27,7 @@ const LoginForm = () => {
   return (
     <div className="login-page">
       <form className="login-form" onSubmit={handleSubmit}>
-        <img src="/static/logo_2.png" alt="Logo" className="form-logo" />
+        <img src="/logo_2.png" alt="Logo" className="form-logo" />
         <input
           name="email"
           type="text"

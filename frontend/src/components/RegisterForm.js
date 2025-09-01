@@ -47,7 +47,7 @@ const RegisterForm = () => {
   return (
     <div className="register-page">
       <form className="register-form" onSubmit={handleSubmit}>
-        <img src="/static/logo_2.png" alt="Logo" className="form-logo" />
+        <img src="/logo_2.png" alt="Logo" className="form-logo" />
 
         {step === 1 && (
           <>
