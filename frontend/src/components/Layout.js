@@ -1,0 +1,93 @@
+import React, { useState } from 'react';
+import { Layout } from 'antd';
+import { Outlet } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
+import Sidebar from './Sidebar';
+
+const { Content } = Layout;
+
+export default function AppLayout() {
+  const [collapsed, setCollapsed] = useState(false);
+  const [sidebarPosition, setSidebarPosition] = useState('left');
+
+  const siderWidth = collapsed ? 60 : 200;
+
+  const handleSideChange = (newPosition) => {
+    setSidebarPosition(newPosition);
+  };
+
+  return (
+    <Layout style={{ minHeight: '100vh', background: 'transparent' }}>
+      <Header />
+
+      {/* Убираем Ant Design Layout и используем обычный div */}
+      <div
+        style={{
+          display: 'flex',
+          margin: 0,
+          padding: 0,
+          position: 'relative',
+        }}
+      >
+        {sidebarPosition === 'left' && (
+          <div
+            style={{
+              width: siderWidth,
+              minWidth: siderWidth,
+              background: '#000',
+              position: 'sticky',
+              top: 0,
+              height: '100vh',
+              alignSelf: 'flex-start',
+            }}
+          >
+            <Sidebar
+              collapsed={collapsed}
+              onToggle={() => setCollapsed(!collapsed)}
+              position={sidebarPosition}
+              onSideChange={handleSideChange}
+            />
+          </div>
+        )}
+
+        <Content
+          style={{
+            flex: 1,
+            padding: 16, // Твои кастомные отступы
+            margin: 0,
+            minHeight: 'calc(100vh - 128px)',
+            transition: 'all 0.3s ease',
+            marginLeft: 0, // Убираем автоматические margin
+            marginRight: 0,
+          }}
+        >
+          <Outlet />
+        </Content>
+
+        {sidebarPosition === 'right' && (
+          <div
+            style={{
+              width: siderWidth,
+              minWidth: siderWidth,
+              background: '#000',
+              position: 'sticky',
+              top: 0,
+              height: '100vh',
+              alignSelf: 'flex-start',
+            }}
+          >
+            <Sidebar
+              collapsed={collapsed}
+              onToggle={() => setCollapsed(!collapsed)}
+              position={sidebarPosition}
+              onSideChange={handleSideChange}
+            />
+          </div>
+        )}
+      </div>
+
+      <Footer />
+    </Layout>
+  );
+}

@@ -22,11 +22,9 @@ function Header() {
   return (
     <div className="echo-header">
       <img
-        src="/static/logo.png"
+        src="/logo.png"
         alt="Echo Logo"
         className="echo-logo"
-        onClick={() => navigate('/')}
-        style={{ cursor: 'pointer' }}
       />
 
       <Space>

@@ -1,20 +1,9 @@
-#!/bin/bash
+# нужно одновременно запустить и back & front
 
-cd frontend
-npm run build
-cd ..
+cd backend
+python manage.py runserver 
 
-# Создание папок, если их нет
-mkdir -p backend/templates
-mkdir -p backend/static
+cd ../frontend
+npm start
 
-# Копирование файлов
-cp frontend/build/index.html backend/templates/echo.html
-cp -r frontend/build/static/* backend/static/
-
-# Копирование статических файлов
-cp frontend/public/logo.png backend/static/
-cp frontend/public/logo_2.png backend/static/
-
-# chmod +x deploy.sh
-# bash deploy.sh
+# мобильной нет 

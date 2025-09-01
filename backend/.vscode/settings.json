@@ -1,6 +1,0 @@
-{
-  "cSpell.words": ["samplesite"],
-  "python.testing.pytestArgs": ["echo_app"],
-  "python.testing.unittestEnabled": false,
-  "python.testing.pytestEnabled": true
-}
