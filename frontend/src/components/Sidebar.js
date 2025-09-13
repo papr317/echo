@@ -11,6 +11,7 @@ import {
   MenuUnfoldOutlined,
   SwapOutlined,
   PlusOutlined,
+  QuestionCircleOutlined,
 } from '@ant-design/icons';
 import './Sidebar.css';
 
@@ -69,6 +70,12 @@ function Sidebar({ collapsed, onToggle, position, onSideChange }) {
           <NavLink to="/explore-plan" className={({ isActive }) => (isActive ? 'active' : '')}>
             <CrownOutlined />
             {!collapsed && 'Стать PRO'}
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/support" className={({ isActive }) => (isActive ? 'active' : '')}>
+          <QuestionCircleOutlined />
+            {!collapsed && ('Помощь')}
           </NavLink>
         </li>
       </ul>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
-import Footer from './Footer';
 import Sidebar from './Sidebar';
 
 const { Content } = Layout;
@@ -87,7 +86,6 @@ export default function AppLayout() {
         )}
       </div>
 
-      <Footer />
     </Layout>
   );
 }

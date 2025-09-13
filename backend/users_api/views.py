@@ -113,3 +113,4 @@ class DeleteUserView(APIView):
     def delete(self, request):
         request.user.delete()
         return Response({"message": "Аккаунт удалён"}, status=status.HTTP_204_NO_CONTENT)
+      
