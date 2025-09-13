@@ -7,7 +7,6 @@ import {
   XOutlined,
   GithubOutlined,
   DollarOutlined,
-  QuestionCircleOutlined,
   PhoneOutlined,
   MailOutlined,
 } from '@ant-design/icons';
@@ -37,6 +36,7 @@ const Footer = () => {
 
   return (
     <>
+      {contextHolder} {/* 👈 Я добавил этот компонент здесь */}
       <footer>
         <div className="footer-container">
           {/* Левая колонка: Контакты */}

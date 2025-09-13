@@ -8,7 +8,6 @@ from django.contrib.auth.hashers import check_password
 from .models import CustomUser
 from .serializers import RegisterSerializer, UserSerializer
 
-
 # регистрация с JWT
 class RegisterView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
@@ -35,12 +34,33 @@ class LoginView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request):
-        username = request.data.get("username")
+        credential = request.data.get("credential")  # Обобщаем поле
         password = request.data.get("password")
-        user = authenticate(username=username, password=password)
+
+        user = None
+
+        # Проверяем на email
+        if credential:
+            try:
+                user = CustomUser.objects.get(email=credential)
+            except CustomUser.DoesNotExist:
+                pass
         
-        if user:
-            # Генерируем JWT токены
+        # Если не нашли по email, пробуем по phone
+        if not user and credential:
+            try:
+                user = CustomUser.objects.get(phone=credential)
+            except CustomUser.DoesNotExist:
+                pass
+        
+        # Если не нашли по phone, пробуем по username
+        if not user and credential:
+            try:
+                user = CustomUser.objects.get(username=credential)
+            except CustomUser.DoesNotExist:
+                pass
+
+        if user and user.check_password(password):
             refresh = RefreshToken.for_user(user)
             return Response({
                 "message": "Успешный вход",
@@ -48,7 +68,8 @@ class LoginView(APIView):
                 "access": str(refresh.access_token),
                 "user": UserSerializer(user).data
             }, status=status.HTTP_200_OK)
-        return Response({"error": "Неверные данные"}, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response({"error": "Неверные учетные данные"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 # выход (с JWT обычно делается на клиенте)
@@ -113,4 +134,3 @@ class DeleteUserView(APIView):
     def delete(self, request):
         request.user.delete()
         return Response({"message": "Аккаунт удалён"}, status=status.HTTP_204_NO_CONTENT)
-      
