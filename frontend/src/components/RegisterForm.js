@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { message } from 'antd'; // 👈 Импортируем message из antd
+import { message, Space, Button } from 'antd';
+import {
+  MailOutlined,
+  UserOutlined,
+  PhoneOutlined,
+  GoogleOutlined,
+  AppleOutlined,
+  WechatOutlined,
+} from '@ant-design/icons';
 import './RegisterForm.css';
 
 const RegisterForm = () => {
-  // 👈 Объявляем хук message.useMessage()
   const [messageApi, contextHolder] = message.useMessage();
 
   const [step, setStep] = useState(1);
@@ -36,15 +43,10 @@ const RegisterForm = () => {
 
   const handleNext = () => {
     if (!formData.email || !formData.password) {
-      // 👈 Используем messageApi для вызова сообщений
       messageApi.error('Пожалуйста, заполните email и пароль.');
       return;
     }
     setStep(2);
-  };
-
-  const handleBack = () => {
-    setStep(1);
   };
 
   const handleSubmit = (e) => {
@@ -54,7 +56,6 @@ const RegisterForm = () => {
 
   const handleAccept = async () => {
     if (!formData.accepted_privacy_policy) {
-      // 👈 Используем messageApi для вызова сообщений
       messageApi.error('Вы должны принять политику конфиденциальности.');
       return;
     }
@@ -65,19 +66,27 @@ const RegisterForm = () => {
       console.log('Регистрация успешна:', response.data);
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
-      messageApi.success('Регистрация прошла успешно!'); // 👈 Используем messageApi
+      messageApi.success('Регистрация прошла успешно!');
       navigate('/');
     } catch (err) {
       console.error('Ошибка регистрации:', err.response?.data);
       const serverError = err.response?.data?.detail || JSON.stringify(err.response?.data);
-      messageApi.error(`Произошла ошибка: ${serverError}`); // 👈 Используем messageApi
+      messageApi.error(`Произошла ошибка: ${serverError}`);
       setShowPolicy(false);
     }
   };
 
+  const handleBack = () => {
+    setStep(1);
+  };
+
+  const handleSocialRegister = (platform) => {
+    messageApi.info(`Регистрация через ${platform} временно не работает.`);
+  };
+
   return (
     <div className="register-page">
-      {contextHolder} {/* 👈 Это обязательный компонент для отображения сообщений */}
+      {contextHolder}
       <form className="register-form" onSubmit={handleSubmit}>
         <img src="/logo_2.png" alt="Logo" className="form-logo" />
 
@@ -102,6 +111,26 @@ const RegisterForm = () => {
             <button type="button" className="main-button" onClick={handleNext}>
               Далее
             </button>
+
+            <div className="divider">или</div>
+
+            <Space className="social-login-buttons-compact" size="middle">
+              <Button
+                type="default"
+                icon={<GoogleOutlined />}
+                onClick={() => handleSocialRegister('Google')}
+              />
+              <Button
+                type="default"
+                icon={<AppleOutlined />}
+                onClick={() => handleSocialRegister('Apple')}
+              />
+              <Button
+                type="default"
+                icon={<WechatOutlined />}
+                onClick={() => handleSocialRegister('WeChat')}
+              />
+            </Space>
           </>
         )}
 
@@ -156,7 +185,15 @@ const RegisterForm = () => {
             </div>
           </>
         )}
+
+        <div className="register-options-bottom">
+          <p>есть аккаунт?</p>
+          <button onClick={() => navigate('/login')} className="link-button">
+            Войти
+          </button>
+        </div>
       </form>
+
       {showPolicy && (
         <div className="modal">
           <div className="modal-content policy-modal">
@@ -182,12 +219,6 @@ const RegisterForm = () => {
           </div>
         </div>
       )}
-      <div className="login-prompt">
-        <p>есть аккаунт?</p>
-        <button onClick={() => navigate('/login')} className="link-button">
-          Войти
-        </button>
-      </div>
     </div>
   );
 };

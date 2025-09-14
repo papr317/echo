@@ -1,0 +1,119 @@
+body {
+  background: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.login-form {
+  background: #fff;
+  padding: 40px;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+.form-logo {
+  width: 100px;
+  margin: 0 auto 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+p {
+  color: #555;
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+/* Стили для главных кнопок */
+.main-button {
+  padding: 12px !important;
+  /* Убедимся, что отступы работают */
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.main-button.ant-btn-primary {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #000 !important;
+}
+
+.main-button.ant-btn-primary:hover {
+  background-color: #333 !important;
+  border-color: #333 !important;
+}
+
+.main-button.ant-btn-default {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #ddd !important;
+}
+
+.main-button.ant-btn-default:hover {
+  background-color: #f0f0f0 !important;
+  border-color: #ccc !important;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin: 16px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.divider:not(:empty)::before {
+  margin-right: 1em;
+}
+
+.divider:not(:empty)::after {
+  margin-left: 1em;
+}
+
+.social-login-buttons-compact {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.social-login-buttons-compact .ant-btn {
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-size: 18px !important;
+  padding: 0 !important;
+}

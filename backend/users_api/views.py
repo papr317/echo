@@ -8,6 +8,67 @@ from django.contrib.auth.hashers import check_password
 from .models import CustomUser
 from .serializers import RegisterSerializer, UserSerializer
 
+# вход с JWT - ИСПРАВЛЕННАЯ ВЕРСИЯ
+class LoginView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request):
+        print("Request data:", request.data)  # Для отладки
+        print("Request POST:", request.POST)   # Для отладки
+        
+        # Пробуем получить данные из разных источников
+        credential = request.data.get("credential")
+        password = request.data.get("password")
+        
+        # Если не нашли в data, пробуем из POST (для form-data)
+        if credential is None:
+            credential = request.POST.get("credential")
+        if password is None:
+            password = request.POST.get("password")
+            
+        print(f"Credential: {credential}, Password: {password}")  # Для отладки
+
+        # Проверяем что данные есть
+        if not credential or not password:
+            return Response(
+                {"error": "Необходимо указать credential и password"}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        user = None
+
+        # Проверяем на email
+        try:
+            user = CustomUser.objects.get(email=credential)
+        except CustomUser.DoesNotExist:
+            pass
+        
+        # Если не нашли по email, пробуем по phone
+        if not user:
+            try:
+                user = CustomUser.objects.get(phone=credential)
+            except CustomUser.DoesNotExist:
+                pass
+        
+        # Если не нашли по phone, пробуем по username
+        if not user:
+            try:
+                user = CustomUser.objects.get(username=credential)
+            except CustomUser.DoesNotExist:
+                pass
+
+        if user and user.check_password(password):
+            refresh = RefreshToken.for_user(user)
+            return Response({
+                "message": "Успешный вход",
+                "refresh": str(refresh),
+                "access": str(refresh.access_token),
+                "user": UserSerializer(user).data
+            }, status=status.HTTP_200_OK)
+
+        return Response({"error": "Неверные учетные данные"}, status=status.HTTP_400_BAD_REQUEST)
+
+
 # регистрация с JWT
 class RegisterView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
@@ -29,55 +90,11 @@ class RegisterView(generics.CreateAPIView):
         }, status=status.HTTP_201_CREATED)
 
 
-# вход с JWT
-class LoginView(APIView):
-    permission_classes = [permissions.AllowAny]
-
-    def post(self, request):
-        credential = request.data.get("credential")  # Обобщаем поле
-        password = request.data.get("password")
-
-        user = None
-
-        # Проверяем на email
-        if credential:
-            try:
-                user = CustomUser.objects.get(email=credential)
-            except CustomUser.DoesNotExist:
-                pass
-        
-        # Если не нашли по email, пробуем по phone
-        if not user and credential:
-            try:
-                user = CustomUser.objects.get(phone=credential)
-            except CustomUser.DoesNotExist:
-                pass
-        
-        # Если не нашли по phone, пробуем по username
-        if not user and credential:
-            try:
-                user = CustomUser.objects.get(username=credential)
-            except CustomUser.DoesNotExist:
-                pass
-
-        if user and user.check_password(password):
-            refresh = RefreshToken.for_user(user)
-            return Response({
-                "message": "Успешный вход",
-                "refresh": str(refresh),
-                "access": str(refresh.access_token),
-                "user": UserSerializer(user).data
-            }, status=status.HTTP_200_OK)
-
-        return Response({"error": "Неверные учетные данные"}, status=status.HTTP_400_BAD_REQUEST)
-
-
 # выход (с JWT обычно делается на клиенте)
 class LogoutView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):
-        # Для JWT выход обрабатывается на клиенте (удаление токена)
         return Response({"message": "Вы вышли"}, status=status.HTTP_200_OK)
 
 

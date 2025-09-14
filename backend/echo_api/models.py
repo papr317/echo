@@ -10,7 +10,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     expires_at = models.DateTimeField()
     echo_count = models.IntegerField(default=0)    # лайки
-    disecho_count = models.IntegerField(default=0) # дизлайки
+    disecho_count = models.IntegerField(default=0) # дизлайк
     is_floating = models.BooleanField(default=False)  # для плавучих комментов
 
     def save(self, *args, **kwargs):
