@@ -21,7 +21,7 @@ import {
   CalendarOutlined,
   GlobalOutlined,
 } from '@ant-design/icons';
-import axios from 'axios';
+import axiosInstance from '../../api/axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 
@@ -41,7 +41,7 @@ const Profile = () => {
       return;
     }
     try {
-      const response = await axios.get('http://localhost:8000/users_api/me/', {
+      const response = await axiosInstance.get('http://localhost:8000/users_api/me/', {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

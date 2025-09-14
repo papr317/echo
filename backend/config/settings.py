@@ -23,6 +23,8 @@ ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'users_api.CustomUser'
 
+ASGI_APPLICATION = 'config.asgi.application'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -33,7 +35,7 @@ INSTALLED_APPS = [
     
     'users_api',  # Custom user app
     'echo_api', # Echo API app backend
-    'messenger',
+    # 'messenger',
     # 'subscription',
     
     'corsheaders',
@@ -64,6 +66,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React
     "https://echo.site.com",  # твой фронт
 ]
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -104,6 +108,15 @@ DATABASES = {
         'PORT': config('DB_PORT'),
     }
 }
+
+# MONGODB_DATABASE = {
+#     'name': config('MONGODB_NAME', default='echo_chat'),
+#     'host': config('MONGODB_HOST', default='localhost'),
+#     'port': config('MONGODB_PORT', default=27017, cast=int),
+#     'username': config('MONGODB_USER', default=''),
+#     'password': config('MONGODB_PASS', default=''),
+# }
+
 
 
 # Password validation
@@ -156,5 +169,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Настройки жизненного цикла постов и комментариев (в часах)
 POST_LIFETIME_HOURS = 24    # Пост живет 24 часа
 COMMENT_LIFETIME_HOURS = 240 # Коммент живет 10 дней
-ECHO_EXTEND_HOURS = 1       # Лайк продлевает жизнь на 1 час
+ECHO_EXTEND_HOURS = 1      # Лайк продлевает жизнь на 1 час
 DISECHO_REDUCE_HOURS = 1  # Дизлайк уменьшает жизнь на 1 час

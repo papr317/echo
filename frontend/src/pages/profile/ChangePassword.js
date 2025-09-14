@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Typography, Button, Form, Input, message, Space, Divider } from 'antd';
-import axios from 'axios';
+import axiosInstance from '../../api/axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 
@@ -15,7 +15,7 @@ const ChangePassword = () => {
     setLoading(true);
     const accessToken = localStorage.getItem('access_token');
     try {
-      await axios.post('http://localhost:8000/users_api/reset_password/', values, {
+      await axiosInstance.post('http://localhost:8000/users_api/reset_password/', values, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       message.success('Пароль успешно изменён!');

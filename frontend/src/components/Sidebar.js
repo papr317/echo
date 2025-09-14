@@ -15,7 +15,7 @@ import {
 } from '@ant-design/icons';
 import './Sidebar.css';
 
-function Sidebar({ collapsed, onToggle, position, onSideChange }) {
+function Sidebar({ collapsed, onToggle, position, onSideChange, onAddPostClick }) {
   const handlePositionChange = () => {
     const newPosition = position === 'left' ? 'right' : 'left';
     onSideChange(newPosition);
@@ -25,7 +25,8 @@ function Sidebar({ collapsed, onToggle, position, onSideChange }) {
     <nav className={`sidebar ${collapsed ? 'sidebar-collapsed' : ''} sidebar-${position}`}>
       <ul className="sidebar-nav">
         <div className="sidebar-button-container">
-          <button className="public-post-button">
+          {/* Добавляем обработчик onClick, который вызывает функцию, переданную через props */}
+          <button className="public-post-button" onClick={onAddPostClick}>
             <PlusOutlined />
             {!collapsed && 'Новый пост'}
           </button>
@@ -44,7 +45,7 @@ function Sidebar({ collapsed, onToggle, position, onSideChange }) {
             {!collapsed && 'Поиск'}
           </NavLink>
         </li>
-        
+
         <li>
           <NavLink to="/messages" className={({ isActive }) => (isActive ? 'active' : '')}>
             <MessageOutlined />

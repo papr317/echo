@@ -3,17 +3,29 @@ import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Sidebar from './Sidebar';
+import Modal_AddPost from './Modal_AddPost';
 
 const { Content } = Layout;
 
 export default function AppLayout() {
   const [collapsed, setCollapsed] = useState(false);
   const [sidebarPosition, setSidebarPosition] = useState('left');
+  // Состояние для управления видимостью модального окна
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const siderWidth = collapsed ? 60 : 200;
 
   const handleSideChange = (newPosition) => {
     setSidebarPosition(newPosition);
+  };
+
+  // Функции для открытия и закрытия модального окна
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
   };
 
   return (
@@ -46,6 +58,7 @@ export default function AppLayout() {
               onToggle={() => setCollapsed(!collapsed)}
               position={sidebarPosition}
               onSideChange={handleSideChange}
+              onAddPostClick={showModal} // Передаем функцию для открытия модалки
             />
           </div>
         )}
@@ -53,11 +66,11 @@ export default function AppLayout() {
         <Content
           style={{
             flex: 1,
-            padding: 16, // Твои кастомные отступы
+            padding: 16,
             margin: 0,
             minHeight: 'calc(100vh - 128px)',
             transition: 'all 0.3s ease',
-            marginLeft: 0, // Убираем автоматические margin
+            marginLeft: 0,
             marginRight: 0,
           }}
         >
@@ -81,11 +94,13 @@ export default function AppLayout() {
               onToggle={() => setCollapsed(!collapsed)}
               position={sidebarPosition}
               onSideChange={handleSideChange}
+              onAddPostClick={showModal} // Передаем функцию для открытия модалки
             />
           </div>
         )}
       </div>
 
+      <Modal_AddPost isVisible={isModalVisible} onClose={handleCancel} />
     </Layout>
   );
 }

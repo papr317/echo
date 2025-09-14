@@ -12,7 +12,7 @@ import {
   Select,
   Divider,
 } from 'antd';
-import axios from 'axios';
+import axiosInstance from '../../api/axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
@@ -34,7 +34,7 @@ const EditProfile = () => {
         return;
       }
       try {
-        const response = await axios.get('http://localhost:8000/users_api/me/', {
+        const response = await axiosInstance.get('http://localhost:8000/users_api/me/', {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         const userData = response.data;
@@ -68,7 +68,7 @@ const EditProfile = () => {
     };
 
     try {
-      await axios.put('http://localhost:8000/users_api/me/', dataToSend, {
+      await axiosInstance.put('http://localhost:8000/users_api/me/', dataToSend, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       message.success('Профиль успешно обновлён!');
