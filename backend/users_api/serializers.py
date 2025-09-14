@@ -8,7 +8,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = (
             'username', 'password', 'email', 'phone',
             'first_name', 'last_name', 'gender',
-            'date_of_birth', 'nickname', 'avatar',
+            'date_of_birth', 'nickname', 'avatar','bio',
             'accepted_privacy_policy'
         )
         extra_kwargs = {

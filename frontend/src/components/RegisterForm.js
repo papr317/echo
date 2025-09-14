@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axiosInstance from '../api/axiosInstance';
 import { message, Space, Button } from 'antd';
 import {
   MailOutlined,
@@ -61,7 +61,7 @@ const RegisterForm = () => {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/users_api/register/', formData);
+      const response = await axiosInstance.post('http://127.0.0.1:8000/users_api/register/', formData);
 
       console.log('Регистрация успешна:', response.data);
       localStorage.setItem('access_token', response.data.access);

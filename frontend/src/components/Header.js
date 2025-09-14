@@ -1,70 +1,85 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Space } from 'antd';
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Header.css';
 
-function Header() {
+const AppHeader = () => {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Проверяем наличие токена при загрузке компонента
   useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    setIsLoggedIn(!!token);
+    const fetchUserData = async () => {
+      const accessToken = localStorage.getItem('access_token');
+      if (!accessToken) {
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/users_api/me/', {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        setUserData(response.data);
+      } catch (error) {
+        console.error('Не удалось получить данные пользователя:', error);
+        localStorage.clear();
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
   }, []);
 
-  const goToProfile = () => {
-    navigate('/profile');
+  const handleAvatarClick = () => {
+    if (userData) {
+      navigate('/profile');
+    } else {
+      navigate('/login');
+    }
   };
 
-  const goToLogin = () => {
-    navigate('/login');
-  };
-
-  const goToRegister = () => {
-    navigate('/register');
-  };
-
-  const handleLogout = () => {
-    // Удаляем токены из localStorage
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
-    localStorage.removeItem('userData');
-    setIsLoggedIn(false);
-    navigate('/login');
-  };
+  if (loading) {
+    return (
+      <div className="echo-header">
+        <a href="/">
+          <img src="/logo_2.png" alt="Логотип" className="echo-logo" />
+        </a>
+        {/* Пока загружается, показываем белый круг с иконкой */}
+        <Avatar
+          size="large"
+          icon={<UserOutlined />}
+          style={{ backgroundColor: '#fff', color: '#000', cursor: 'pointer' }} // Белый круг, чёрная иконка
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="echo-header">
-      <img src="/logo.png" alt="Echo Logo" className="echo-logo" />
+      <a href="/">
+        <img src="/logo.png" alt="Логотип" className="echo-logo" />
+      </a>
 
-      <Space>
-        {isLoggedIn ? (
-          <Space>
-            <img
-              src="/assets/profile-icon.png"
-              alt="Профиль"
-              className="profile-icon"
-              onClick={goToProfile}
-              style={{ cursor: 'pointer', width: 32, height: 32 }}
-            />
-            <Button type="default" onClick={handleLogout}>
-              Выход
-            </Button>
-          </Space>
-        ) : (
-          <>
-            <Button type="default" onClick={goToLogin}>
-              Вход
-            </Button>
-            <Button type="default" onClick={goToRegister}>
-              Регистрация
-            </Button>
-          </>
-        )}
-      </Space>
+      <Avatar
+        size="large"
+        icon={<UserOutlined />}
+        src={userData?.avatar_url || undefined}
+        onClick={handleAvatarClick}
+        // Применяем белый фон только если нет URL аватарки
+        style={
+          !userData?.avatar_url
+            ? { backgroundColor: '#fff', color: '#000', cursor: 'pointer' }
+            : { cursor: 'pointer' }
+        }
+      />
     </div>
   );
-}
+};
 
-export default Header;
+export default AppHeader;

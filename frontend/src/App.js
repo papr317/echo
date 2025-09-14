@@ -1,5 +1,10 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+
+import Profile from './pages/profile/Profile';
+import EditProfile from './pages/profile/EditProfile';
+import ChangePassword from './pages/profile/ChangePassword';
+
 import Home from './pages/Home';
 import Search from './pages/Search';
 import Friends from './pages/Friends';
@@ -7,18 +12,19 @@ import Messages from './pages/Messages';
 import ExplorePlan from './pages/ExplorePlan';
 import Support from './pages/Support';
 import Donate from './pages/Donate';
+
 import Welcome from './pages/Welcome';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
+
 import Layout from './components/Layout';
-import ProtectedRoute from './components/ProtectedRoute';
-import PublicRoute from './components/PublicRoute';
+import ProtectedRoute from './api/ProtectedRoute';
+import PublicRoute from './api/PublicRoute';
 
 function App() {
   return (
     <Routes>
-      {/* Welcome страницы (публичные) */}
       <Route
         path="/welcome"
         element={
@@ -48,7 +54,7 @@ function App() {
 
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
-      {/* Защищенные маршруты с Layout */}
+      {/* Protected routes with Layout */}
       <Route
         path="/"
         element={
@@ -58,16 +64,19 @@ function App() {
         }
       >
         <Route index element={<Home />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/friends" element={<Friends />} />
-        <Route path="/messages" element={<Messages />} />
-        <Route path="/explore-plan" element={<ExplorePlan />} />
-        <Route path="/support" element={<Support />} />
-        <Route path="/donate" element={<Donate />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="profile/edit" element={<EditProfile />} />
+        <Route path="profile/change-password" element={<ChangePassword />} />
+        <Route path="search" element={<Search />} />
+        <Route path="friends" element={<Friends />} />
+        <Route path="messages" element={<Messages />} />
+        <Route path="explore-plan" element={<ExplorePlan />} />
+        <Route path="support" element={<Support />} />
+        <Route path="donate" element={<Donate />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Route>
 
-      {/* Редирект по умолчанию */}
+      {/* Default redirect for unmatched routes */}
       <Route path="*" element={<Navigate to="/welcome" replace />} />
     </Routes>
   );

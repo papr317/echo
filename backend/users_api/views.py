@@ -4,72 +4,54 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import check_password
+from django.db.models import Q # Импортируем Q для сложных запросов
 
 from .models import CustomUser
 from .serializers import RegisterSerializer, UserSerializer
 
-# вход с JWT - ИСПРАВЛЕННАЯ ВЕРСИЯ
+# Вход пользователя с JWT
 class LoginView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request):
-        print("Request data:", request.data)  # Для отладки
-        print("Request POST:", request.POST)   # Для отладки
-        
-        # Пробуем получить данные из разных источников
-        credential = request.data.get("credential")
-        password = request.data.get("password")
-        
-        # Если не нашли в data, пробуем из POST (для form-data)
-        if credential is None:
-            credential = request.POST.get("credential")
-        if password is None:
-            password = request.POST.get("password")
-            
-        print(f"Credential: {credential}, Password: {password}")  # Для отладки
+        учётные_данные = request.data.get("credential")
+        пароль = request.data.get("password")
 
-        # Проверяем что данные есть
-        if not credential or not password:
+        # Проверяем, что данные для входа предоставлены
+        if not учётные_данные or not пароль:
             return Response(
-                {"error": "Необходимо указать credential и password"}, 
+                {"ошибка": "Необходимо указать учётные данные и пароль"},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        user = None
+        пользователь = None
 
-        # Проверяем на email
+        # Ищем пользователя по имени, email или номеру телефона
         try:
-            user = CustomUser.objects.get(email=credential)
+            пользователь = CustomUser.objects.get(
+                Q(username=учётные_данные) | 
+                Q(email=учётные_данные) | 
+                Q(phone=учётные_данные)
+            )
         except CustomUser.DoesNotExist:
-            pass
-        
-        # Если не нашли по email, пробуем по phone
-        if not user:
-            try:
-                user = CustomUser.objects.get(phone=credential)
-            except CustomUser.DoesNotExist:
-                pass
-        
-        # Если не нашли по phone, пробуем по username
-        if not user:
-            try:
-                user = CustomUser.objects.get(username=credential)
-            except CustomUser.DoesNotExist:
-                pass
+            return Response(
+                {"ошибка": "Неверные учётные данные"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
-        if user and user.check_password(password):
-            refresh = RefreshToken.for_user(user)
+        # Безопасно проверяем пароль, используя встроенный метод
+        if пользователь and пользователь.check_password(пароль):
+            refresh = RefreshToken.for_user(пользователь)
             return Response({
-                "message": "Успешный вход",
+                "сообщение": "Успешный вход",
                 "refresh": str(refresh),
                 "access": str(refresh.access_token),
-                "user": UserSerializer(user).data
+                "пользователь": UserSerializer(пользователь).data
             }, status=status.HTTP_200_OK)
 
-        return Response({"error": "Неверные учетные данные"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"ошибка": "Неверные учётные данные"}, status=status.HTTP_400_BAD_REQUEST)
 
-
-# регистрация с JWT
+# Регистрация пользователя с JWT
 class RegisterView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = RegisterSerializer
@@ -78,57 +60,54 @@ class RegisterView(generics.CreateAPIView):
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        user = serializer.save()
+        пользователь = serializer.save()
         
-        # Генерируем JWT токены
-        refresh = RefreshToken.for_user(user)
+        # Генерируем JWT токены для нового пользователя
+        refresh = RefreshToken.for_user(пользователь)
         
         return Response({
-            'user': UserSerializer(user).data,
+            'пользователь': UserSerializer(пользователь).data,
             'refresh': str(refresh),
             'access': str(refresh.access_token),
         }, status=status.HTTP_201_CREATED)
 
-
-# выход (с JWT обычно делается на клиенте)
+# Выход (с JWT обычно делается на клиенте)
 class LogoutView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):
-        return Response({"message": "Вы вышли"}, status=status.HTTP_200_OK)
+        return Response({"сообщение": "Вы успешно вышли"}, status=status.HTTP_200_OK)
 
-
-# список пользователей (только админ)
+# Список пользователей (только для админа)
 class UserListView(generics.ListAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAdminUser]
 
-
-# детальная по id (только админ)
+# Детальная информация по пользователю по id (только для админа)
 class UserByIdView(generics.RetrieveUpdateDestroyAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAdminUser]
 
-
-# смена пароля
+# Смена пароля
 class ResetPasswordView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):
-        old_password = request.data.get("old_password")
-        new_password = request.data.get("new_password")
+        старый_пароль = request.data.get("old_password")
+        новый_пароль = request.data.get("new_password")
 
-        if not request.user.check_password(old_password):
-            return Response({"error": "Старый пароль неверный"}, status=status.HTTP_400_BAD_REQUEST)
+        # Проверяем, что старый пароль совпадает
+        if not request.user.check_password(старый_пароль):
+            return Response({"ошибка": "Старый пароль неверный"}, status=status.HTTP_400_BAD_REQUEST)
 
-        request.user.set_password(new_password)
+        # Устанавливаем новый пароль
+        request.user.set_password(новый_пароль)
         request.user.save()
-        return Response({"message": "Пароль изменён"}, status=status.HTTP_200_OK)
+        return Response({"сообщение": "Пароль изменён"}, status=status.HTTP_200_OK)
 
-
-# текущий пользователь
+# Текущий пользователь (просмотр и изменение)
 class UserDetailView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
@@ -143,11 +122,10 @@ class UserDetailView(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-# удаление аккаунта
+# Удаление аккаунта
 class DeleteUserView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def delete(self, request):
         request.user.delete()
-        return Response({"message": "Аккаунт удалён"}, status=status.HTTP_204_NO_CONTENT)
+        return Response({"сообщение": "Аккаунт удалён"}, status=status.HTTP_204_NO_CONTENT)

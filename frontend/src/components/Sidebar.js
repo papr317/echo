@@ -44,6 +44,13 @@ function Sidebar({ collapsed, onToggle, position, onSideChange }) {
             {!collapsed && 'Поиск'}
           </NavLink>
         </li>
+        
+        <li>
+          <NavLink to="/messages" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <MessageOutlined />
+            {!collapsed && 'общение'}
+          </NavLink>
+        </li>
 
         <li>
           <NavLink to="/friends" className={({ isActive }) => (isActive ? 'active' : '')}>
@@ -60,13 +67,6 @@ function Sidebar({ collapsed, onToggle, position, onSideChange }) {
         </li>
 
         <li>
-          <NavLink to="/messages" className={({ isActive }) => (isActive ? 'active' : '')}>
-            <MessageOutlined />
-            {!collapsed && 'общение'}
-          </NavLink>
-        </li>
-
-        <li>
           <NavLink to="/explore-plan" className={({ isActive }) => (isActive ? 'active' : '')}>
             <CrownOutlined />
             {!collapsed && 'Стать PRO'}
@@ -74,8 +74,8 @@ function Sidebar({ collapsed, onToggle, position, onSideChange }) {
         </li>
         <li>
           <NavLink to="/support" className={({ isActive }) => (isActive ? 'active' : '')}>
-          <QuestionCircleOutlined />
-            {!collapsed && ('Помощь')}
+            <QuestionCircleOutlined />
+            {!collapsed && 'Помощь'}
           </NavLink>
         </li>
       </ul>

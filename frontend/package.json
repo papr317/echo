@@ -10,6 +10,7 @@
     "antd-message": "^1.0.10",
     "axios": "^1.12.1",
     "cra-template-redux": "2.0.0",
+    "moment": "^2.30.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",

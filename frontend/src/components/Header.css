@@ -3,48 +3,20 @@
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  /* фиксированная высота */
   padding: 0 24px;
-  /* только по бокам */
   background: #000;
   color: #fff;
   box-sizing: border-box;
 }
 
 .echo-logo {
-  max-height: 60%;
-  /* занимает ~60% высоты шапки */
+  height: 60px;
   object-fit: contain;
-}
-
-.search-input {
-  flex: 1;
-  margin: 0 16px;
-  padding: 8px;
-  border: none;
-  border-radius: 4px;
-  background: #fff;
-}
-
-.ant-btn {
-  background: #000;
-  color: #fff;
-  border: 1px solid #fff;
-}
-
-.ant-btn:hover {
-  background: #fff;
-  color: #000;
-  border: 1px solid #000;
-}
-
-
-.echo-logo {
-  height: 60px; /* Было 40px */
   filter: grayscale(100%) brightness(200%);
 }
 
-.ant-btn {
-  font-size: 18px;
-  padding: 10px 20px;
+.ant-avatar {
+  border: 2px solid #fff;
+  cursor: pointer;
+  box-sizing: content-box;
 }
