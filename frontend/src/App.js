@@ -11,7 +11,6 @@ import Friends from './pages/Friends';
 import Messages from './pages/Messages';
 import ExplorePlan from './pages/ExplorePlan';
 import Support from './pages/Support';
-import Donate from './pages/Donate';
 
 import Welcome from './pages/Welcome';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -72,7 +71,6 @@ function App() {
         <Route path="messages" element={<Messages />} />
         <Route path="explore-plan" element={<ExplorePlan />} />
         <Route path="support" element={<Support />} />
-        <Route path="donate" element={<Donate />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Route>
 

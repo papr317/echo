@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Home() {
+function messages() {
   return <h1>чаты</h1>;
 }
 
-export default Home;
+export default messages;

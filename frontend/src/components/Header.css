@@ -1,3 +1,4 @@
+/* Header.css */
 .echo-header {
   display: flex;
   justify-content: space-between;
@@ -7,10 +8,18 @@
   background: #000;
   color: #fff;
   box-sizing: border-box;
+
+  /* Закрепляем хедер вверху экрана */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .echo-logo {
   height: 60px;
+  border-radius: 20px;
   object-fit: contain;
   filter: grayscale(100%) brightness(200%);
 }

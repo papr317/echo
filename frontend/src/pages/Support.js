@@ -6,41 +6,90 @@ import {
   InstagramOutlined,
   XOutlined,
   GithubOutlined,
-  DollarOutlined,
   PhoneOutlined,
   MailOutlined,
+  QuestionCircleOutlined,
 } from '@ant-design/icons';
 import { Modal, Typography, Button, message } from 'antd';
 
 const { Title, Paragraph } = Typography;
 
-const Footer = () => {
-  const year = new Date().getFullYear();
+const Support = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  // Правильное использование хука message.useMessage()
+  const [isFaqModalVisible, setIsFaqModalVisible] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
 
   const showTechModal = () => {
     setIsModalVisible(true);
   };
 
+  const showFaqModal = () => {
+    setIsFaqModalVisible(true);
+  };
+
   const handleTechModalCancel = () => {
     setIsModalVisible(false);
   };
 
+  const handleFaqModalCancel = () => {
+    setIsFaqModalVisible(false);
+  };
+
   const copyToClipboard = (text, type) => {
     navigator.clipboard.writeText(text);
-    // Теперь messageApi доступен и будет работать
     messageApi.success(`${type} успешно скопирован!`);
   };
 
   return (
     <>
-      {contextHolder} {/* 👈 Я добавил этот компонент здесь */}
-      <footer>
-        <div className="footer-container">
-          {/* Левая колонка: Контакты */}
-          <div className="footer-left">
+      {contextHolder}
+      <div className="support-page-container">
+        {/* Описание проекта */}
+        <div className="about-section">
+          <Title level={2}>
+            <img src="/logo_2.png" alt="Echo Logo" className="echo-logo" /> Echo: Социальная сеть,
+            которая живёт и дышит
+          </Title>
+          <p>
+            Echo — это совершенно новый взгляд на социальные медиа, где контент не застывает во
+            времени, а существует, как волны, — временно, но ярко. Мы создали платформу, где каждое
+            сообщение имеет свой жизненный цикл, и именно ваше взаимодействие определяет его
+            продолжительность. Здесь нет бесконечной ленты, которая поглощает ваше внимание. Есть
+            только моменты, которые нужно успеть запечатлеть.
+          </p>
+
+          <Title level={3}>✨ Ключевые особенности</Title>
+          <Paragraph>
+            <span style={{ fontWeight: 'bold' }}>⏳ Динамическая жизнь контента:</span> Посты живут
+            24 часа, а комментарии — до 240 часов. Каждое "Эхо" (лайк) продлевает жизнь поста на +1
+            час, "Раз эхо" (дизлайк) сокращает время на -1 час.
+          </Paragraph>
+          <Paragraph>
+            <span style={{ fontWeight: 'bold' }}>👻 Плавучие комментарии:</span> Когда пост
+            "умирает", его комментарии не исчезают, а начинают "плавать" по общей ленте.
+          </Paragraph>
+          <Paragraph>
+            <span style={{ fontWeight: 'bold' }}>📱 Уникальная навигация:</span> Забудьте о
+            вертикальном скролле! Лента Echo движется горизонтально. Свайп вправо → следующий пост,
+            свайп влево ← предыдущий.
+          </Paragraph>
+
+          <Title level={3}>🚀 PRO подписка</Title>
+          <Paragraph>
+            <span style={{ fontWeight: 'bold' }}>
+              Синяя галочка, GIF-аватарки, МегаЭхо, персонализация, расширенная статистика, "Капсула
+              времени"
+            </span>{' '}
+            — все это доступно для PRO-пользователей.
+          </Paragraph>
+
+          <Title level={3}>👥 Авторы</Title>
+          <Paragraph> @papr317</Paragraph>
+        </div>
+
+        {/* Колонки с контактами и помощью, стилизованные для горизонтального отображения */}
+        <div className="support-columns-container">
+          <div className="column">
             <h3>Контакты</h3>
             <ul className="contact-list">
               <li>
@@ -73,16 +122,22 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Центральная колонка: Соцсети */}
-          <div className="footer-center">
-            <h3>
-              <img src="/logo_2.png" alt="Echo Logo" className="echo-logo" /> — ваш надёжный партнёр
-            </h3>
-            <p>
-              Мы создаём инновационные решения.
-              <br />
-              Свяжитесь с нами, чтобы узнать больше!
-            </p>
+          <div className="column">
+            <h3>Помощь</h3>
+            <div className="help-links">
+              <button onClick={showTechModal} className="help-link-button">
+                Используемые технологии
+                <InfoCircleOutlined style={{ marginLeft: '8px' }} />
+              </button>
+              <button onClick={showFaqModal} className="help-link-button">
+                Часто задаваемые вопросы
+                <QuestionCircleOutlined style={{ marginLeft: '8px' }} />
+              </button>
+            </div>
+          </div>
+
+          <div className="column">
+            <Title level={4}>Мы в соцсетях</Title>
             <div className="social-icons">
               <a href="https://wa.me/7777130XXXX" target="_blank" rel="noreferrer">
                 <WhatsAppOutlined />
@@ -98,48 +153,57 @@ const Footer = () => {
               </a>
             </div>
           </div>
-
-          {/* Правая колонка: Помощь */}
-          <div className="footer-right">
-            <h3>Помощь</h3>
-            <div className="help-links">
-              <button onClick={showTechModal} className="help-link-button">
-                О проекте
-                <InfoCircleOutlined style={{ marginLeft: '8px' }} />
-              </button>
-
-              <a href="./donate">
-                Поддержать проект
-                <DollarOutlined style={{ marginLeft: '8px' }} />
-              </a>
-            </div>
-          </div>
         </div>
+      </div>
 
-        <div className="footer-bottom">&copy; {year} PaprCorp. Все права защищены.</div>
+      {/* Модальное окно для технологий */}
+      <Modal
+        title="Используемые технологии"
+        open={isModalVisible}
+        onCancel={handleTechModalCancel}
+        footer={[
+          <Button key="close" onClick={handleTechModalCancel} className="modal-close-btn">
+            Закрыть
+          </Button>,
+        ]}
+      >
+        <div className="modal-content">
+          <Paragraph>
+            **Backend:** Python 3.11+, Django 4.2+, Django REST Framework, PostgreSQL.
+            <br />
+            **Frontend:** React / Next.js (Web), iOS / Android на Flutter (планируется).
+          </Paragraph>
+          <a href="https://github.com/papr317/echo" target="_blank" rel="noreferrer">
+            <GithubOutlined />
+          </a>
+        </div>
+      </Modal>
 
-        {/* Модальное окно для технологий */}
-        <Modal
-          title="О проекте"
-          open={isModalVisible}
-          onCancel={handleTechModalCancel}
-          footer={[
-            <Button key="close" onClick={handleTechModalCancel} className="modal-close-btn">
-              Закрыть
-            </Button>,
-          ]}
-        >
-          <div className="modal-content">
-            <Title level={4}>Используемые технологии</Title>
-            <Paragraph>
-              Наш сайт разработан с использованием современных технологий и библиотек. Например:
-              React, Ant Design, CSS3 и JavaScript.
-            </Paragraph>
-          </div>
-        </Modal>
-      </footer>
+      <Modal
+        title="Часто задаваемые вопросы"
+        open={isFaqModalVisible}
+        onCancel={handleFaqModalCancel}
+        footer={[
+          <Button key="close" onClick={handleFaqModalCancel} className="modal-close-btn">
+            Закрыть
+          </Button>,
+        ]}
+      >
+        <div className="modal-content">
+          <Title level={4}>Как создать аккаунт?</Title>
+          <Paragraph>
+            Чтобы создать аккаунт, перейдите на страницу регистрации и заполните необходимые поля.
+          </Paragraph>
+
+          <Title level={4}>Как опубликовать пост?</Title>
+          <Paragraph>
+            После входа в аккаунт вы сможете создать пост, нажав на кнопку "Создать пост" в верхнем
+            меню.
+          </Paragraph>
+        </div>
+      </Modal>
     </>
   );
 };
 
-export default Footer;
+export default Support;

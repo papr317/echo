@@ -1,0 +1,224 @@
+/* Home.css */
+
+.home-container {
+  padding: 20px;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.feed-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 30px 0;
+}
+
+.post-card {
+  flex: 0 0 350px;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.author-info p {
+  margin: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #6c757d;
+  /* Цвет аватара */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.post-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  /* Обрезает изображение, чтобы оно поместилось */
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.post-content {
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+/* Home.css */
+
+.post-lifebar-container {
+  display: flex;
+  align-items: center;
+  /* Выравнивает элементы по центру по вертикали */
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.post-lifebar-container .ant-progress {
+  flex-grow: 1;
+  /* Полоса прогресса будет занимать всё доступное пространство */
+}
+
+.time-left-text {
+  font-weight: bold;
+  font-size: 0.9em;
+  white-space: nowrap;
+  /* Запрещает перенос строки для времени */
+}
+/* Основной контейнер, который будет располагать элементы вертикально */
+.post-actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #000000;
+  width: 100%;
+}
+
+/* Контейнер для кнопок */
+.likes-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Общие стили для всех кнопок и счетчиков */
+.echo-button,
+.disecho-button,
+.comment-count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  border-radius: 25px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+
+/* Ключевые кадры для медленной и заметной анимации волны */
+@keyframes press-wave {
+  0% {
+    transform: scale(0.7);
+    /* Начинается чуть меньше */
+    opacity: 1;
+    /* Полностью видимая */
+  }
+
+  100% {
+    transform: scale(2.5);
+    /* Расходится на большее расстояние */
+    opacity: 0;
+    /* Полностью исчезает */
+  }
+}
+
+/* Псевдоэлемент, который создаёт волну*/
+.echo-button::after,
+.disecho-button::after,
+.comment-count::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  opacity: 0;
+  z-index: -1;
+}
+
+.echo-button:hover::after,
+.disecho-button:hover::after,
+.comment-count:hover::after {
+  animation: press-wave 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+
+.echo-button {
+  background-color: #2ECC71;
+  color: white;
+  box-shadow: 0 4px 6px rgba(46, 204, 113, 0.3);
+}
+
+.echo-button:hover {
+  background-color: #27AE60;
+  box-shadow: 0 6px 12px rgba(46, 204, 113, 0.4);
+}
+
+.disecho-button {
+  background-color: #E74C3C;
+  color: white;
+  box-shadow: 0 4px 6px rgba(231, 76, 60, 0.3);
+}
+
+.disecho-button:hover {
+  background-color: #C0392B;
+  box-shadow: 0 6px 12px rgba(231, 76, 60, 0.4);
+}
+
+.comment-count {
+  background-color: #3498DB;
+  color: white;
+  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
+  align-self: flex-start;
+}
+
+.comment-count:hover {
+  background-color: #2980B9;
+  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+}
+
+.post-image-placeholder {
+  width: 100%;
+  height: 150px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+  font-size: 0.9em;
+}

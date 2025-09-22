@@ -1,54 +1,59 @@
-footer {
-  background-color: #ffffff;
-  color: #000000;
-  padding: 30px 20px;
-  margin-top: auto;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+/* Support.css */
 
-.footer-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 30px;
+.support-page-container {
+  padding: 40px;
   max-width: 1200px;
   margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
 }
 
-.footer-left,
-.footer-center,
-.footer-right {
-  flex: 1;
-  min-width: 250px;
-  text-align: left;
+/* Стили для секции "О проекте" */
+.about-section {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
 }
 
-.footer-center {
-  text-align: center;
+.about-section p {
+  line-height: 1.6;
 }
-.echo-logo{
+
+.echo-logo {
   height: 40px;
   vertical-align: middle;
   margin-right: 10px;
 }
 
-h3 {
+/* Контейнер для трех колонок (контакты, помощь, соцсети) */
+.support-columns-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.column h3 {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 15px;
+  color: #000;
 }
 
-.footer-center h3 {
-  font-size: 24px;
-}
-
-.footer-left p {
-  line-height: 1.5;
-  margin-bottom: 0;
-}
-
-/* Новые стили для списка контактов */
+/* Стили для списка контактов */
 .contact-list {
   list-style: none;
   padding: 0;
@@ -63,7 +68,7 @@ h3 {
 
 .contact-list li .anticon {
   margin-right: 8px;
-  font-size: 18px; /* Немного увеличим размер иконок */
+  font-size: 18px;
 }
 
 .contact-link {
@@ -73,35 +78,39 @@ h3 {
 
 .contact-link:hover {
   color: #1d1d1d;
-  text-decoration: underline; /* Добавим подчеркивание при наведении */
+  text-decoration: underline;
 }
 
-.help-links a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.help-links a {
-  color: #000000;
-  text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-
-.help-links a:hover {
-  color: #1d1d1d;
-}
-
+/* Стили для кнопок-ссылок (Помощь) */
 .help-links {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+.help-links a,
+.help-links button {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  border-radius: 4px;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.help-links a:hover,
+.help-links button:hover {
+  background-color: #f0f0f0;
+  border-color: #aaa;
+}
+
+/* Стили для иконок соцсетей */
 .social-icons {
   display: flex;
-  justify-content: center;
   gap: 25px;
   font-size: 28px;
   margin-top: 15px;
@@ -117,14 +126,7 @@ h3 {
   color: #111111;
 }
 
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 15px;
-  margin-top: 30px;
-  font-size: 14px;
-}
-
+/* Стили модального окна */
 .modal-close-btn {
   background-color: #ffffff;
   color: #000000;
@@ -137,22 +139,5 @@ h3 {
 
 .modal-close-btn:hover {
   background-color: #2b2b2b;
-}
-
-.help-links button.help-link-button {
-  background: none;
-  border: none;
-  color: #000000;
-  font-size: 16px;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.help-links button.help-link-button:hover {
-  color: #1d1d1d;
+  color: #fff;
 }
