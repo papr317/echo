@@ -4,7 +4,6 @@ import {
   HomeOutlined,
   SearchOutlined,
   MessageOutlined,
-  BellOutlined,
   TeamOutlined,
   CrownOutlined,
   MenuFoldOutlined,
@@ -57,13 +56,6 @@ function Sidebar({ collapsed, onToggle, position, onSideChange, onAddPostClick }
           <NavLink to="/friends" className={({ isActive }) => (isActive ? 'active' : '')}>
             <TeamOutlined />
             {!collapsed && 'Друзья'}
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/notifications" className={({ isActive }) => (isActive ? 'active' : '')}>
-            <BellOutlined />
-            {!collapsed && 'Уведомления'}
           </NavLink>
         </li>
 

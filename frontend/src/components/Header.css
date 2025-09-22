@@ -24,6 +24,32 @@
   filter: grayscale(100%) brightness(200%);
 }
 
+/* Контейнер для иконок и аватара */
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* Отступ между иконками и аватаром */
+}
+
+/* Общие стили для всех иконок в шапке */
+.header-icon {
+  font-size: 24px;
+  /* Размер иконки */
+  color: #fff;
+  /* Цвет иконки */
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  /* Плавные переходы */
+}
+
+.header-icon:hover {
+  color: #ccc;
+  /* Цвет при наведении */
+  transform: scale(1.1);
+  /* Небольшое увеличение */
+}
+
 .ant-avatar {
   border: 2px solid #fff;
   cursor: pointer;
