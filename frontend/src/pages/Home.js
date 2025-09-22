@@ -152,17 +152,17 @@ function Home() {
               <PostLifeBar expiresAt={post.expires_at} />
 
               {/* нижняя часть  */}
-              <div class="post-actions-container">
-                <div class="likes-actions">
-                  <span class="echo-button">
+              <div className="post-actions-container">
+                <div className="likes-actions">
+                  <span className="echo-button">
                     <SoundOutlined /> крикнуть {post.echo_count}
                   </span>
-                  <span class="disecho-button">
+                  <span className="disecho-button">
                     <MutedOutlined />
                     заглушить {post.disecho_count}
                   </span>
                 </div>
-                <div class="comment-count">
+                <div className="comment-count">
                   <MessageFilled /> комментарии {post.comments_count}
                 </div>
               </div>

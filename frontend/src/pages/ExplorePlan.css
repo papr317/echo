@@ -1,0 +1,112 @@
+/* SubscriptionPage.css */
+
+.subscription-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-title {
+  color: #000 !important;
+  font-weight: bold;
+}
+
+.page-description {
+  margin-bottom: 40px;
+  color: #555;
+  font-size: 1.1em;
+}
+
+.page-description .ant-typography-strong {
+  color: #000;
+}
+
+.plans-wrapper {
+  justify-content: center;
+}
+
+.subscription-card {
+  width: 250px;
+  border-radius: 12px !important;
+  border: 2px solid #ddd !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  background-color: #fff !important;
+  padding: 0;
+  overflow: hidden;
+  min-height: 330px;
+  max-height: 330px;
+  display: flex !important;
+  /* Делаем саму карточку flex-контейнером */
+  flex-direction: column !important;
+  /* Упорядочиваем элементы по вертикали */
+}
+
+.subscription-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: #000 !important;
+}
+
+.subscription-card .ant-card-head {
+  background-color: #f5f5f5 !important;
+  border-bottom: 1px solid #ddd !important;
+}
+
+.subscription-card .ant-card-body {
+  /* Занимаем всё доступное пространство внутри карточки */
+  flex: 1;
+  display: flex;
+  /* Делаем тело карточки flex-контейнером */
+  flex-direction: column;
+  /* Упорядочиваем элементы по вертикали */
+  padding-top: 20px;
+}
+
+.subscription-card .ant-card-head-title .ant-typography {
+  color: #000 !important;
+}
+
+.card-price {
+  font-size: 1.8em;
+  color: #000 !important;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  /* Убираем margin-bottom, так как flexbox сам будет управлять пространством */
+  flex-grow: 1;
+  /* Позволяет списку занимать всё доступное пространство */
+}
+
+.features-list li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+.features-list li .anticon {
+  color: #000;
+  margin-right: 10px;
+}
+
+.card-button {
+  /* Это "вытолкнет" кнопку в самый низ, независимо от контента выше */
+  margin-top: auto;
+  background-color: #000 !important;
+  border-color: #000 !important;
+  color: #fff !important;
+}
+
+.card-button:hover {
+  background-color: #333 !important;
+  color: #fff !important;
+  border-color: #333 !important;
+}
+
+.ant-space-item {
+  display: flex;
+}
