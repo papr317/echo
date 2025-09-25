@@ -1,5 +1,3 @@
-/* SubscriptionPage.css */
-
 .subscription-container {
   padding: 40px 20px;
   max-width: 1200px;
@@ -37,9 +35,7 @@
   min-height: 330px;
   max-height: 330px;
   display: flex !important;
-  /* Делаем саму карточку flex-контейнером */
   flex-direction: column !important;
-  /* Упорядочиваем элементы по вертикали */
 }
 
 .subscription-card:hover {
@@ -54,12 +50,9 @@
 }
 
 .subscription-card .ant-card-body {
-  /* Занимаем всё доступное пространство внутри карточки */
   flex: 1;
   display: flex;
-  /* Делаем тело карточки flex-контейнером */
   flex-direction: column;
-  /* Упорядочиваем элементы по вертикали */
   padding-top: 20px;
 }
 
@@ -76,9 +69,7 @@
   list-style: none;
   padding: 0;
   text-align: left;
-  /* Убираем margin-bottom, так как flexbox сам будет управлять пространством */
   flex-grow: 1;
-  /* Позволяет списку занимать всё доступное пространство */
 }
 
 .features-list li {
@@ -94,7 +85,6 @@
 }
 
 .card-button {
-  /* Это "вытолкнет" кнопку в самый низ, независимо от контента выше */
   margin-top: auto;
   background-color: #000 !important;
   border-color: #000 !important;

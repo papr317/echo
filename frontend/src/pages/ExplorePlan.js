@@ -1,13 +1,23 @@
 import React from 'react';
-import { Card, Button, Typography, Space } from 'antd';
+import { Card, Button, Typography, Space, message } from 'antd';
 import { CheckCircleOutlined } from '@ant-design/icons';
 import './ExplorePlan.css';
 
 const { Title, Text, Paragraph } = Typography;
 
 const ExplorePlan = () => {
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const handlePurchase = (planName) => {
+    messageApi.warning(
+      `Извините, покупка тарифа "${planName}" временно недоступна. Пожалуйста, попробуйте позже.`,
+    );
+  };
+
   return (
     <div className="subscription-container">
+      {contextHolder}
+
       <Title level={1} className="page-title">
         Стань PRO-пользователем
       </Title>
@@ -21,7 +31,6 @@ const ExplorePlan = () => {
         — все это доступно для PRO-пользователей.
       </Paragraph>
 
-      {/* Горизонтальный скролл */}
       <div className="plans-horizontal-scroll">
         <Space size="large" className="plans-wrapper">
           {/* План на один день */}
@@ -45,7 +54,13 @@ const ExplorePlan = () => {
                 <CheckCircleOutlined /> <Text>МегаЭхо</Text>
               </li>
             </ul>
-            <Button type="primary" size="large" block className="card-button">
+            <Button
+              type="primary"
+              size="large"
+              block
+              className="card-button"
+              onClick={() => handlePurchase('Один день')}
+            >
               Выбрать
             </Button>
           </Card>
@@ -71,7 +86,13 @@ const ExplorePlan = () => {
                 <CheckCircleOutlined /> <Text>Расширенная статистика</Text>
               </li>
             </ul>
-            <Button type="primary" size="large" block className="card-button">
+            <Button
+              type="primary"
+              size="large"
+              block
+              className="card-button"
+              onClick={() => handlePurchase('Месяц')}
+            >
               Выбрать
             </Button>
           </Card>
@@ -97,7 +118,13 @@ const ExplorePlan = () => {
                 <CheckCircleOutlined /> <Text>Экономия 16%</Text>
               </li>
             </ul>
-            <Button type="primary" size="large" block className="card-button">
+            <Button
+              type="primary"
+              size="large"
+              block
+              className="card-button"
+              onClick={() => handlePurchase('Год')}
+            >
               Выбрать
             </Button>
           </Card>
@@ -123,12 +150,16 @@ const ExplorePlan = () => {
                 <CheckCircleOutlined /> <Text>Пожизненный доступ</Text>
               </li>
               <li>
-                <CheckCircleOutlined /> <Text>заморозка после ухода</Text>
+                <CheckCircleOutlined /> <Text>Заморозка после ухода</Text>
               </li>
             </ul>
-            {/* Вот где была проблема: вы добавили лишний div. 
-                Мы просто убираем его, чтобы кнопка была прямо под списком. */}
-            <Button type="primary" size="large" block className="card-button">
+            <Button
+              type="primary"
+              size="large"
+              block
+              className="card-button"
+              onClick={() => handlePurchase('Навсегда')}
+            >
               Выбрать
             </Button>
           </Card>
