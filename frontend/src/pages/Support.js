@@ -47,7 +47,7 @@ const Support = () => {
         {/* Описание проекта */}
         <div className="about-section">
           <Title level={2}>
-            <img src="/logo_2.png" alt="Echo Logo" className="echo-logo" /> Echo: Социальная сеть,
+            <img src="/logo_2.png" alt="Echo Logo" className="echo-logo" /> : Социальная сеть,
             которая живёт и дышит
           </Title>
           <p>

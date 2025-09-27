@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',  # Django REST Framework for API development
     'rest_framework_simplejwt',  # JWT authentication
+    'django_q', # таймер
 ]
 
 from datetime import timedelta
@@ -64,7 +65,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React
-    "https://echo.site.com",  # твой фронт
+    "https://echo.su",  # твой фронт
 ]
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
@@ -171,3 +172,22 @@ POST_LIFETIME_HOURS = 24    # Пост живет 24 часа
 COMMENT_LIFETIME_HOURS = 240 # Коммент живет 10 дней
 ECHO_EXTEND_HOURS = 1      # Лайк продлевает жизнь на 1 час
 DISECHO_REDUCE_HOURS = 1  # Дизлайк уменьшает жизнь на 1 час
+
+
+# --- КОНФИГУРАЦИЯ DJANGO-Q ---
+Q_CLUSTER = {
+    'name': 'DjangOQ',
+    'workers': 4, # Количество рабочих процессов
+    'timeout': 90, # Таймаут задачи
+    'orm': 'default', # Использование базы данных по умолчанию
+    'schedule': [
+        # Наш "будильник" для спасения комментариев
+        {
+            'name': 'float_expired_posts',
+            # Функция, которую нужно запустить. (Формат: app_name.tasks.function_name)
+            'func': 'echo_api.tasks.check_and_float_expired_posts', 
+            'minutes': 60, # Запускать каждые 60 минут (1 час)
+            'repeats': -1, # Повторять бесконечно
+        }
+    ]
+}
