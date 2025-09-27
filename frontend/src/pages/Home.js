@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axiosInstance from '../api/axiosInstance';
-import { Progress, Typography, message } from 'antd';
+import CommentsSection from '../components/CommentsSection'; // Используем новый компонент
+import { Progress, Typography, message, Spin } from 'antd';
 import {
   SoundOutlined,
   SoundFilled,
   MutedOutlined,
   MutedFilled,
-  MessageFilled,
+  // MessageFilled больше не нужен здесь, он в CommentsSection
 } from '@ant-design/icons';
-import './Home.css';
+import './Home.css'; // Стили для Home и PostLifeBar
 
-// ... (PostLifeBar остается без изменений)
-
-// Компонент "Полоса жизни" для поста (Оставляем без изменений)
+// -------------------------------------------------------------
+// Компонент "Полоса жизни" для поста
+// -------------------------------------------------------------
 const PostLifeBar = ({ expiresAt }) => {
-  // ... (весь код PostLifeBar)
   const calculateProgress = useCallback(() => {
     const now = new Date();
     const expires = new Date(expiresAt);
@@ -95,7 +95,9 @@ const PostLifeBar = ({ expiresAt }) => {
   );
 };
 
+// -------------------------------------------------------------
 // Главный компонент Home
+// -------------------------------------------------------------
 function Home() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -122,9 +124,7 @@ function Home() {
       const response = await axiosInstance.get('/echo_api/my/echos/');
 
       const newActions = response.data.reduce((acc, action) => {
-        // Если бэкенд возвращает Echo для Post
         if (action.content_type_model === 'post') {
-          // Обратите внимание: is_echo=True -> 'echo', is_echo=False -> 'disecho'
           const type = action.is_echo ? 'echo' : 'disecho';
           acc[action.object_id] = { type };
         }
@@ -158,32 +158,25 @@ function Home() {
     setUpdatingPosts((prev) => new Set(prev).add(postId));
 
     try {
-      // Фронтенд использует РАЗДЕЛЕННЫЕ URL, которые мы настроили в urls.py
       const endpoint =
         actionType === 'echo'
           ? `/echo_api/posts/${postId}/echo/`
           : `/echo_api/posts/${postId}/disecho/`;
 
-      // ГЛАВНОЕ ИСПРАВЛЕНИЕ: Отправляем POST БЕЗ ТЕЛА.
-      // Бэкэнд получает is_echo=True/False из URL.
       const response = await axiosInstance.post(endpoint);
-      const updatedPost = response.data; // Ожидаем, что бэкэнд возвращает обновленный пост
+      const updatedPost = response.data;
 
-      // 1. Обновляем локальное состояние постов
       setPosts((prevPosts) => prevPosts.map((post) => (post.id === postId ? updatedPost : post)));
 
-      // 2. Обновляем локальное состояние действий пользователя
       const currentAction = userActions[postId]?.type;
 
       let newActions = { ...userActions };
       let successMessage = '';
 
       if (currentAction === actionType) {
-        // Сценарий 1: Действие СНЯТО (userAction[postId] удаляется)
         delete newActions[postId];
         successMessage = actionType === 'echo' ? 'Крик отменен!' : 'Заглушка отменена!';
       } else {
-        // Сценарий 2 и 3: Действие УСТАНОВЛЕНО (новое или заменено)
         newActions[postId] = { type: actionType };
         successMessage =
           actionType === 'echo'
@@ -196,7 +189,6 @@ function Home() {
     } catch (error) {
       console.error('Ошибка при обработке действия:', error);
 
-      // При ошибке - просто перезагружаем посты/действия для синхронизации
       fetchPosts();
       fetchUserEchos();
 
@@ -211,7 +203,6 @@ function Home() {
     }
   };
 
-  // ... (Остальные функции и рендер остаются без изменений)
   const isPostExpired = (expiresAt) => {
     return new Date(expiresAt) < new Date();
   };
@@ -227,7 +218,11 @@ function Home() {
   };
 
   if (loading) {
-    return <h1 style={{ textAlign: 'center', marginTop: '50px' }}>Загрузка...</h1>;
+    return (
+      <h1 style={{ textAlign: 'center', marginTop: '50px' }}>
+        <Spin size="large" /> Загрузка...
+      </h1>
+    );
   }
 
   if (error) {
@@ -300,12 +295,17 @@ function Home() {
                       {isUpdating && '...'}
                     </button>
                   </div>
-                  <div className="comment-count">
-                    <MessageFilled /> комментарии {post.comments_count}
-                  </div>
+
                 </div>
 
                 {expired && <div className="expired-notice">Пост истек ❌</div>}
+
+                {/* Компонент, который включает в себя кнопку, форму и список комментариев */}
+                <CommentsSection
+                  postId={post.id}
+                  postExpired={expired}
+                  initialCommentCount={post.comments_count}
+                />
               </div>
             );
           })
