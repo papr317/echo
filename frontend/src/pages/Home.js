@@ -10,8 +10,11 @@ import {
 } from '@ant-design/icons';
 import './Home.css';
 
-// Компонент "Полоса жизни" для поста (без изменений)
+// ... (PostLifeBar остается без изменений)
+
+// Компонент "Полоса жизни" для поста (Оставляем без изменений)
 const PostLifeBar = ({ expiresAt }) => {
+  // ... (весь код PostLifeBar)
   const calculateProgress = useCallback(() => {
     const now = new Date();
     const expires = new Date(expiresAt);
@@ -100,9 +103,10 @@ function Home() {
   const [updatingPosts, setUpdatingPosts] = useState(new Set());
   const [userActions, setUserActions] = useState({});
 
-  const fetchPosts = async () => {
+  // 1. Получение постов
+  const fetchPosts = useCallback(async () => {
     try {
-      const response = await axiosInstance.get('/echo_api/feed/');
+      const response = await axiosInstance.get('/echo_api/feed/posts/');
       setPosts(response.data);
       setLoading(false);
     } catch (err) {
@@ -110,129 +114,94 @@ function Home() {
       setError(err);
       setLoading(false);
     }
-  };
-
-  useEffect(() => {
-    fetchPosts();
-    const interval = setInterval(fetchPosts, 60000);
-    return () => clearInterval(interval);
   }, []);
 
-  // Упрощенная функция для обработки действий
-  const handleAction = async (postId, newActionType) => {
+  // 2. Получение действий пользователя (лайки/дизлайки)
+  const fetchUserEchos = useCallback(async () => {
+    try {
+      const response = await axiosInstance.get('/echo_api/my/echos/');
+
+      const newActions = response.data.reduce((acc, action) => {
+        // Если бэкенд возвращает Echo для Post
+        if (action.content_type_model === 'post') {
+          // Обратите внимание: is_echo=True -> 'echo', is_echo=False -> 'disecho'
+          const type = action.is_echo ? 'echo' : 'disecho';
+          acc[action.object_id] = { type };
+        }
+        return acc;
+      }, {});
+
+      setUserActions(newActions);
+    } catch (err) {
+      console.error('Ошибка при получении действий пользователя:', err);
+    }
+  }, []);
+
+  // Первичная загрузка и интервальное обновление
+  useEffect(() => {
+    fetchPosts();
+    fetchUserEchos();
+
+    const postsInterval = setInterval(fetchPosts, 60000);
+    const actionsInterval = setInterval(fetchUserEchos, 15000);
+
+    return () => {
+      clearInterval(postsInterval);
+      clearInterval(actionsInterval);
+    };
+  }, [fetchPosts, fetchUserEchos]);
+
+  // Обработка действия (Лайк/Дизлайк)
+  const handleAction = async (postId, actionType) => {
     if (updatingPosts.has(postId)) return;
 
     setUpdatingPosts((prev) => new Set(prev).add(postId));
 
     try {
+      // Фронтенд использует РАЗДЕЛЕННЫЕ URL, которые мы настроили в urls.py
+      const endpoint =
+        actionType === 'echo'
+          ? `/echo_api/posts/${postId}/echo/`
+          : `/echo_api/posts/${postId}/disecho/`;
+
+      // ГЛАВНОЕ ИСПРАВЛЕНИЕ: Отправляем POST БЕЗ ТЕЛА.
+      // Бэкэнд получает is_echo=True/False из URL.
+      const response = await axiosInstance.post(endpoint);
+      const updatedPost = response.data; // Ожидаем, что бэкэнд возвращает обновленный пост
+
+      // 1. Обновляем локальное состояние постов
+      setPosts((prevPosts) => prevPosts.map((post) => (post.id === postId ? updatedPost : post)));
+
+      // 2. Обновляем локальное состояние действий пользователя
       const currentAction = userActions[postId]?.type;
 
-      // Если нажимаем ту же кнопку - отменяем действие
-      if (currentAction === newActionType) {
-        // Отменяем текущее действие
-        let timeChange = 0;
+      let newActions = { ...userActions };
+      let successMessage = '';
 
-        if (newActionType === 'echo') {
-          timeChange = -60 * 60 * 1000; // -1 час
-        } else {
-          timeChange = 60 * 60 * 1000; // +1 час (компенсируем дизлайк)
-        }
-
-        setPosts((prevPosts) =>
-          prevPosts.map((post) =>
-            post.id === postId
-              ? {
-                  ...post,
-                  echo_count:
-                    newActionType === 'echo' ? Math.max(0, post.echo_count - 1) : post.echo_count,
-                  disecho_count:
-                    newActionType === 'disecho'
-                      ? Math.max(0, post.disecho_count - 1)
-                      : post.disecho_count,
-                  expires_at: new Date(
-                    new Date(post.expires_at).getTime() + timeChange,
-                  ).toISOString(),
-                }
-              : post,
-          ),
-        );
-
-        // Удаляем действие
-        setUserActions((prev) => {
-          const newActions = { ...prev };
-          delete newActions[postId];
-          return newActions;
-        });
-
-        message.info(newActionType === 'echo' ? 'Крик отменен!' : 'Заглушка отменена!');
+      if (currentAction === actionType) {
+        // Сценарий 1: Действие СНЯТО (userAction[postId] удаляется)
+        delete newActions[postId];
+        successMessage = actionType === 'echo' ? 'Крик отменен!' : 'Заглушка отменена!';
       } else {
-        // Если нажимаем другую кнопку или ставим новое действие
-        let timeChange = 0;
-        let oppositeActionChange = 0;
-
-        if (newActionType === 'echo') {
-          timeChange = 60 * 60 * 1000; // +1 час
-          // Если был дизлайк - компенсируем его отмену
-          if (currentAction === 'disecho') {
-            timeChange += 60 * 60 * 1000; // дополнительно +1 час за снятие дизлайка
-            oppositeActionChange = -1;
-          }
-        } else {
-          timeChange = -60 * 60 * 1000; // -1 час
-          // Если был лайк - компенсируем его отмену
-          if (currentAction === 'echo') {
-            timeChange -= 60 * 60 * 1000; // дополнительно -1 час за снятие лайка
-            oppositeActionChange = -1;
-          }
-        }
-
-        // Сначала обновляем локальное состояние
-        setPosts((prevPosts) =>
-          prevPosts.map((post) =>
-            post.id === postId
-              ? {
-                  ...post,
-                  echo_count:
-                    newActionType === 'echo'
-                      ? post.echo_count + 1
-                      : Math.max(0, post.echo_count + oppositeActionChange),
-                  disecho_count:
-                    newActionType === 'disecho'
-                      ? post.disecho_count + 1
-                      : Math.max(0, post.disecho_count + oppositeActionChange),
-                  expires_at: new Date(
-                    new Date(post.expires_at).getTime() + timeChange,
-                  ).toISOString(),
-                }
-              : post,
-          ),
-        );
-
-        // Затем делаем запрос к API
-        const endpoint = newActionType === 'echo' ? 'echo' : 'disecho';
-        await axiosInstance.post(`/echo_api/posts/${postId}/${endpoint}/`);
-
-        // Сохраняем новое действие
-        setUserActions((prev) => ({
-          ...prev,
-          [postId]: { type: newActionType, timestamp: Date.now() },
-        }));
-
-        message.success(
-          newActionType === 'echo' ? 'Крик добавлен! +1 час жизни' : 'Заглушено! -1 час жизни',
-        );
+        // Сценарий 2 и 3: Действие УСТАНОВЛЕНО (новое или заменено)
+        newActions[postId] = { type: actionType };
+        successMessage =
+          actionType === 'echo'
+            ? 'Крик добавлен! Время жизни изменено.'
+            : 'Заглушено! Время жизни изменено.';
       }
+
+      setUserActions(newActions);
+      message.success(successMessage);
     } catch (error) {
       console.error('Ошибка при обработке действия:', error);
 
-      // Откатываем изменения при ошибке
-      fetchPosts(); // Перезагружаем посты чтобы синхронизировать состояние
+      // При ошибке - просто перезагружаем посты/действия для синхронизации
+      fetchPosts();
+      fetchUserEchos();
 
-      if (error.response?.data?.error === 'Пост истек') {
-        message.error('Пост истек, действие невозможно');
-      } else {
-        message.error('Ошибка при обработке действия');
-      }
+      const errorMessage = error.response?.data?.error || 'Ошибка при обработке действия';
+      message.error(errorMessage);
     } finally {
       setUpdatingPosts((prev) => {
         const newSet = new Set(prev);
@@ -242,12 +211,11 @@ function Home() {
     }
   };
 
-  // Проверка истек ли пост
+  // ... (Остальные функции и рендер остаются без изменений)
   const isPostExpired = (expiresAt) => {
     return new Date(expiresAt) < new Date();
   };
 
-  // Получить иконку для кнопки
   const getActionIcon = (postId, actionType) => {
     const userAction = userActions[postId];
 
@@ -284,6 +252,7 @@ function Home() {
                 <div className="post-header">
                   <div className="author-info">
                     <div className="avatar">
+                      {/* Убедитесь, что author_details существует */}
                       {post.author_details?.username.charAt(0).toUpperCase()}
                     </div>
                     <p>{post.author_details?.username}</p>

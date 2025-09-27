@@ -136,25 +136,19 @@ class CommentListView(generics.ListCreateAPIView):
         serializer.save(author=self.request.user, post=post)
 
 
-# EchoToggleView (Остается без изменений)
 class EchoToggleView(APIView):
     """
     POST: Переключает (ставит, отменяет или меняет) оценку Echo/DisEcho 
     для заданного поста или комментария.
+    is_echo определяется через URL (is_echo_url_param).
     """
     permission_classes = [permissions.IsAuthenticated]
 
-    def post(self, request, pk, content_type_model):
+    def post(self, request, pk, content_type_model, is_echo_url_param=None): 
         
         user = request.user
-        is_echo = request.data.get('is_echo') 
-
-        if is_echo is None or not isinstance(is_echo, bool):
-            return Response(
-                {"error": "Поле 'is_echo' (True/False) обязательно."}, 
-                status=status.HTTP_400_BAD_REQUEST
-            )
-
+        is_echo = is_echo_url_param 
+        
         if content_type_model == 'post':
             Model = Post
         elif content_type_model == 'comment':
@@ -164,10 +158,12 @@ class EchoToggleView(APIView):
                 {"error": "Недопустимый тип контента. Должен быть 'post' или 'comment'."}, 
                 status=status.HTTP_400_BAD_REQUEST
             )
+            
         content_object = get_object_or_404(Model, pk=pk)
         
+        # Проверка на истечение срока жизни (логика не меняется)
         if content_object.is_expired() and not user.is_staff:
-                return Response(
+            return Response(
                 {"error": f"{content_type_model.capitalize()} истек и не может быть оценен."},
                 status=status.HTTP_400_BAD_REQUEST
             )
@@ -181,9 +177,9 @@ class EchoToggleView(APIView):
                 object_id=content_object.pk
             ).first()
 
-            # --- Сценарий 1: Отмена (удаление) оценки ---
+            
+            # Сценарий 1: Отмена (удаление) оценки (Echo/DisEcho уже стоит и пользователь нажимает его снова)
             if existing_echo and existing_echo.is_echo == is_echo:
-                
                 if is_echo:
                     content_object.echo_count -= 1
                     content_object.expires_at -= timedelta(hours=settings.ECHO_EXTEND_HOURS)
@@ -192,10 +188,8 @@ class EchoToggleView(APIView):
                     content_object.expires_at += timedelta(hours=settings.DISECHO_REDUCE_HOURS)
                 
                 existing_echo.delete()
-                message = f"{'Echo' if is_echo else 'DisEcho'} отменен."
-                new_status = 'cancelled'
-
-            # --- Сценарий 2: Смена оценки ---
+                # ...
+                
             elif existing_echo and existing_echo.is_echo != is_echo:
                 
                 # 1. Откатываем старую оценку
@@ -206,6 +200,7 @@ class EchoToggleView(APIView):
                     content_object.disecho_count -= 1
                     content_object.expires_at += timedelta(hours=settings.DISECHO_REDUCE_HOURS)
 
+                # 2. Применяем новую оценку
                 existing_echo.is_echo = is_echo
                 if is_echo:
                     content_object.echo_count += 1
@@ -215,10 +210,9 @@ class EchoToggleView(APIView):
                     content_object.expires_at -= timedelta(hours=settings.DISECHO_REDUCE_HOURS)
                 
                 existing_echo.save()
-                message = "Оценка изменена."
-                new_status = 'changed'
+                # ...
 
-            # --- Сценарий 3: Создание новой оценки ---
+            # Сценарий 3: Создание новой оценки (ничего не стояло)
             else:
                 Echo.objects.create(
                     user=user,
@@ -228,20 +222,23 @@ class EchoToggleView(APIView):
                 )
                 
                 if is_echo:
-                    content_object.add_echo() 
+
+                    content_object.echo_count += 1
+                    content_object.expires_at += timedelta(hours=settings.ECHO_EXTEND_HOURS) 
                 else:
-                    content_object.add_disecho() 
-                
-                message = f"{'Echo' if is_echo else 'DisEcho'} добавлен."
-                new_status = 'created'
-            
+                    content_object.disecho_count += 1
+                    content_object.expires_at -= timedelta(hours=settings.DISECHO_REDUCE_HOURS)
+                    
             content_object.save(update_fields=['echo_count', 'disecho_count', 'expires_at'])
 
-            # 4. Возвращаем обновленные данные
-            return Response({
-                "message": message,
-                "status": new_status,
-                "echo_count": content_object.echo_count,
-                "disecho_count": content_object.disecho_count,
-                "expires_at": content_object.expires_at
-            }, status=status.HTTP_200_OK)
+            if content_type_model == 'post':
+                serializer = PostSerializer(content_object)
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            else:
+
+                return Response({
+                    "echo_count": content_object.echo_count,
+                    "disecho_count": content_object.disecho_count,
+                    "expires_at": content_object.expires_at,
+
+                }, status=status.HTTP_200_OK)

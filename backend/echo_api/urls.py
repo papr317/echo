@@ -26,11 +26,17 @@ urlpatterns = [
     # GET/POST: Комментарии к конкретному посту
     path('posts/<int:post_id>/comments/', views.CommentListView.as_view(), name='comment_list'),
     
-    # POST: Оценки (Echo/DisEcho)
+    # ОЦЕНКИ (ECHO/DISECHO)
+    # POST: Оценка Echo (is_echo=True)
     path('posts/<int:pk>/echo/', 
-         views.EchoToggleView.as_view(), 
-         {'content_type_model': 'post'}, name='post_echo_toggle'),
-         
+          views.EchoToggleView.as_view(), 
+          {'content_type_model': 'post', 'is_echo_url_param': True}, name='post_echo_toggle'),
+      
+    # POST: Оценка DisEcho (is_echo=False)
+    path('posts/<int:pk>/disecho/', 
+          views.EchoToggleView.as_view(), 
+          {'content_type_model': 'post', 'is_echo_url_param': False}, name='post_disecho_toggle'),
+                              
     path('comments/<int:pk>/echo/', 
          views.EchoToggleView.as_view(), 
          {'content_type_model': 'comment'}, name='comment_echo_toggle'),
