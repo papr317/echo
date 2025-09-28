@@ -12,23 +12,17 @@ from datetime import timedelta
 from django.conf import settings 
 
 from .models import Post, Comment, Echo 
-# !!! Убедитесь, что вы импортируете все сериализаторы
-from .serializers import PostSerializer, CommentSerializer, EchoSerializer 
+from .serializers import PostSerializer, CommentSerializer, EchoSerializer # Предполагается, что они существуют
 
-
-# --- View для проверки владения (Разрешает редактирование/удаление, только если вы автор) ---
 class IsAuthorOrReadOnly(permissions.BasePermission):
     """Разрешение: разрешает полный доступ автору, остальным - только чтение."""
     def has_object_permission(self, request, view, obj):
-        # Разрешение на GET, HEAD или OPTIONS запросы
         if request.method in permissions.SAFE_METHODS:
             return True
         
-        # Разрешение на запись/изменение дается только автору объекта
         return obj.author == request.user
 
-
-# --- ЛЕНТЫ (FEED) ---
+# --- Post Views ---
 
 class PostListView(generics.ListCreateAPIView):
     """GET: Список всех живых постов. POST: Создание нового поста."""
@@ -36,7 +30,7 @@ class PostListView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        # Фильтруем только живые посты
+        # Только живые посты
         return Post.objects.filter(expires_at__gt=timezone.now()).order_by('-created_at')
 
     def perform_create(self, serializer):
@@ -49,7 +43,7 @@ class PostDetailView(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        # Для персонала показываем все посты, для остальных - только живые
+        # Показываем только живые посты
         if self.request.user.is_staff:
             return Post.objects.all()
         return Post.objects.filter(expires_at__gt=timezone.now())
@@ -59,12 +53,11 @@ class PostDetailView(generics.RetrieveAPIView):
 @permission_classes([permissions.IsAuthenticated])
 def friend_feed(request):
     """Лента друзей (заглушка)"""
-    # TODO: Реализовать логику друзей
     posts = Post.objects.filter(expires_at__gt=timezone.now()).order_by('-created_at')
     serializer = PostSerializer(posts, many=True)
     return Response(serializer.data)
     
-    
+# --- Floating Comment View ---
 class FloatingCommentListView(generics.ListAPIView):
     """
     Показывает все комментарии, которые были оторваны от своих постов (is_floating=True)
@@ -76,11 +69,11 @@ class FloatingCommentListView(generics.ListAPIView):
     def get_queryset(self):
         return Comment.objects.filter(
             is_floating=True,
-            expires_at__gt=timezone.now() # Только живые floating комментарии
+            # Плавающий комментарий исчезает, когда истекает его время жизни
+            expires_at__gt=timezone.now() 
         ).order_by('-created_at')
 
-
-# --- ЛИЧНЫЕ ОПЕРАЦИИ (MY) ---
+# --- My Views (без изменений) ---
 
 class MyPostDetailView(generics.RetrieveAPIView): 
     """Просмотр своего поста."""
@@ -110,8 +103,7 @@ class MyEchoListView(generics.ListAPIView):
     def get_queryset(self):
         return Echo.objects.filter(user=self.request.user).order_by('-created_at')
 
-
-# --- КОММЕНТАРИИ К ПОСТУ ---
+# --- Comment Views ---
 
 class CommentListView(generics.ListCreateAPIView):
     """GET: Список комментариев. POST: Создание комментария."""
@@ -120,7 +112,7 @@ class CommentListView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         post_id = self.kwargs['post_id']
-        # Выбираем только комментарии, привязанные к посту и не плавучие
+        # Показываем только комментарии, привязанные к посту и не плавающие
         return Comment.objects.filter(
             post_id=post_id,
             is_floating=False 
@@ -128,7 +120,6 @@ class CommentListView(generics.ListCreateAPIView):
         
     def perform_create(self, serializer):
         post_id = self.kwargs['post_id']
-        # Получаем parent_comment_id из данных запроса, который пришел с фронтенда
         parent_comment_id = self.request.data.get('parent_comment_id') 
         
         try:
@@ -136,6 +127,7 @@ class CommentListView(generics.ListCreateAPIView):
         except Post.DoesNotExist:
             raise APIException({"error": "Пост не найден"}, code=status.HTTP_404_NOT_FOUND)
 
+        # Нельзя комментировать истекший пост
         if post.is_expired() and not self.request.user.is_staff:
             raise APIException(
                 {"error": "Нельзя комментировать истекший пост"},
@@ -145,43 +137,38 @@ class CommentListView(generics.ListCreateAPIView):
         parent_comment = None
         if parent_comment_id:
             try:
-                # Проверяем существование родительского комментария и его привязку к тому же посту
+                # Ищем родительский комментарий, привязанный к этому посту
                 parent_comment = Comment.objects.get(id=parent_comment_id, post=post)
             except Comment.DoesNotExist:
                 raise APIException({"error": "Родительский комментарий не найден или не принадлежит этому посту"}, code=status.HTTP_400_BAD_REQUEST)
+            
+            # ✅ Блокируем ответы на плавающие комментарии
+            if parent_comment.is_floating:
+                raise APIException({"error": "Нельзя ответить на плавающий комментарий."}, code=status.HTTP_400_BAD_REQUEST)
 
 
-        # Сохраняем с учетом родительского комментария
         serializer.save(
             author=self.request.user, 
             post=post, 
             is_floating=False,
-            parent_comment=parent_comment # Передаем объект родительского комментария
+            parent_comment=parent_comment
         )
 
-# --- ОЦЕНКА (ECHO/DISECHO) ---
+# --- Echo/DisEcho Toggle View ---
 
 class EchoToggleView(APIView):
-    """
-    POST: Переключает (ставит, отменяет или меняет) оценку Echo/DisEcho 
-    для заданного поста или комментария.
-    """
     permission_classes = [permissions.IsAuthenticated]
 
-    # --- Вспомогательная функция для получения настроек времени ---
     def get_time_deltas(self, content_type_model):
         if content_type_model == 'post':
             extend_hours = settings.ECHO_EXTEND_HOURS
             reduce_hours = settings.DISECHO_REDUCE_HOURS
-        else: # content_type_model == 'comment'
-            # Используем специальные настройки для комментариев (10 часов)
+        else:
             extend_hours = settings.COMMENT_ECHO_EXTEND_HOURS
             reduce_hours = settings.COMMENT_DISECHO_REDUCE_HOURS
         
         return timedelta(hours=extend_hours), timedelta(hours=reduce_hours)
-    # --- Конец вспомогательной функции ---
-
-
+      
     def post(self, request, pk, content_type_model, is_echo_url_param): 
         
         user = request.user
@@ -201,20 +188,25 @@ class EchoToggleView(APIView):
             
         content_object = get_object_or_404(Model, pk=pk)
         
-        # Проверка на истечение срока жизни
+        # ✅ ПРОВЕРКА 1: Блокировка истекших объектов
         if content_object.is_expired() and not user.is_staff:
             return Response(
                 {"error": f"{content_type_model.capitalize()} истек и не может быть оценен."},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
+        # ✅ ПРОВЕРКА 2: Блокировка плавающих комментариев
+        if content_type_model == 'comment' and content_object.is_floating:
+             return Response(
+                {"error": "Нельзя оценивать плавающий комментарий, так как он оторван от поста."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+            
         content_type = ContentType.objects.get_for_model(Model)
         
-        # Получаем настройки времени в зависимости от типа контента
         echo_delta, disecho_delta = self.get_time_deltas(content_type_model)
 
         with transaction.atomic():
-            # Используем select_for_update для предотвращения гонок
             existing_echo = Echo.objects.select_for_update().filter(
                 user=user, 
                 content_type=content_type, 
@@ -272,5 +264,4 @@ class EchoToggleView(APIView):
                         
             content_object.save(update_fields=['echo_count', 'disecho_count', 'expires_at'])
 
-            # Возвращаем обновленный объект с помощью соответствующего сериализатора
             return Response(Serializer(content_object).data, status=status.HTTP_200_OK)

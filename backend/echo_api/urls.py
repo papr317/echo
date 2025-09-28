@@ -21,6 +21,8 @@ urlpatterns = [
     path('feed/friends/', views.friend_feed, name='feed_friends'),
     
     # --- БАЗОВЫЕ ОПЕРАЦИИ ---
+    path('posts/', views.PostListView.as_view(), name='post_list_create'),
+    
     # GET: Детали любого поста
     path('posts/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),
     
@@ -43,7 +45,7 @@ urlpatterns = [
     path('comments/<int:pk>/echo/', 
          views.EchoToggleView.as_view(), 
          {'content_type_model': 'comment', 'is_echo_url_param': True}, name='comment_echo_toggle'),
-         
+           
     # POST: DisEcho комментария (is_echo=False)
     path('comments/<int:pk>/disecho/', 
          views.EchoToggleView.as_view(), 

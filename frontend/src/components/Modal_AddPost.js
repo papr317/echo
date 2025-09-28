@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Modal, Form, Input, Upload, Button, message } from 'antd';
 import { PlusOutlined, FileImageOutlined } from '@ant-design/icons';
-import axios from 'axios';
+import axiosInstance from '../api/axiosInstance';
 
-// Обновленные стили с более округлыми элементами
 const modalStyles = {
   header: {
     backgroundColor: '#fff',
     borderBottom: '1px solid #000',
     padding: '16px 24px',
-    borderRadius: '16px 16px 0 0', // Округление только верхних углов
+    borderRadius: '16px 16px 0 0',
   },
   title: {
     color: '#000',
@@ -19,36 +18,37 @@ const modalStyles = {
   body: {
     backgroundColor: '#fff',
     padding: '24px',
-    borderRadius: '0 0 16px 16px', // Округление только нижних углов
+    borderRadius: '0 0 16px 16px',
   },
   button: {
     backgroundColor: '#000',
     color: '#fff',
     border: '1px solid #000',
-    borderRadius: '16px', // Круглая кнопка
+    borderRadius: '16px',
     fontWeight: 'bold',
-    transition: 'all 0.3s', // Добавляем плавный переход
+    transition: 'all 0.3s',
   },
   buttonHover: {
     backgroundColor: '#fff',
     color: '#000',
     borderColor: '#000',
-    transform: 'scale(1.05)', // Небольшое увеличение при наведении
+    transform: 'scale(1.05)',
   },
   input: {
     backgroundColor: '#fff',
     border: '1px solid #000',
     color: '#000',
-    borderRadius: '16px', // Круглые поля ввода
+    borderRadius: '16px',
   },
   upload: {
     border: '1px dashed #000',
-    borderRadius: '16px', // Округленный блок загрузки
+    borderRadius: '16px',
     backgroundColor: '#fff',
   },
 };
 
-export default function Modal_AddPost({ isVisible, onClose }) {
+export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
+  // Добавил fetchPosts
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const [fileList, setFileList] = useState([]);
@@ -81,29 +81,22 @@ export default function Modal_AddPost({ isVisible, onClose }) {
       formData.append('image', fileList[0].originFileObj);
     }
 
-    const accessToken = localStorage.getItem('access_token');
-
-    if (!accessToken) {
-      console.error('JWT-токен не найден. Вы не авторизованы.');
-      message.error('Вы не авторизованы. Пожалуйста, войдите в систему.');
-      setLoading(false);
-      return;
-    }
-
     try {
-      await axios.post('http://127.0.0.1:8000/echo_api/posts/', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          Authorization: `Bearer ${accessToken}`,
-        },
+      await axiosInstance.post('/echo_api/posts/', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
       });
+
       message.success('Пост успешно создан!');
       form.resetFields();
       setFileList([]);
+      if (typeof fetchPosts === 'function') {
+        fetchPosts();
+      }
       onClose();
     } catch (error) {
       console.error('Ошибка при создании поста:', error);
-      message.error('Не удалось создать пост.');
+      const errorMessage = error.response?.data?.detail || 'Не удалось создать пост.';
+      message.error(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -124,9 +117,9 @@ export default function Modal_AddPost({ isVisible, onClose }) {
         },
         content: {
           border: '2px solid #000',
-          borderRadius: '16px', // Округление всего модального окна
+          borderRadius: '16px',
           padding: '0',
-          overflow: 'hidden', // Скрываем выходящие за границы элементы
+          overflow: 'hidden',
         },
       }}
       closeIcon={<div style={{ color: '#000' }}>✖</div>}

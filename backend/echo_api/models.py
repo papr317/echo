@@ -27,12 +27,10 @@ class Post(models.Model):
 
     def add_echo(self):
         self.echo_count += 1
-        # Используем настройки поста
         self.expires_at += timedelta(hours=settings.ECHO_EXTEND_HOURS) 
 
     def add_disecho(self):
         self.disecho_count += 1
-        # Используем настройки поста
         self.expires_at -= timedelta(hours=settings.DISECHO_REDUCE_HOURS) 
 
     def is_expired(self):
@@ -65,9 +63,8 @@ class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     text = models.TextField(max_length=300)
     created_at = models.DateTimeField(auto_now_add=True)
-    expires_at = models.DateTimeField(null=True, blank=True) # !!! Изменение: может быть NULL
+    expires_at = models.DateTimeField(null=True, blank=True)
     
-    #Для иерархии комментариев (ответ на другой комментарий)
     parent_comment = models.ForeignKey(
         'self', on_delete=models.CASCADE, related_name='replies',
         null=True, blank=True
@@ -81,13 +78,12 @@ class Comment(models.Model):
     def save(self, *args, **kwargs):
         if not self.id: 
             initial_lifetime = timedelta(hours=settings.COMMENT_LIFETIME_HOURS)
-            if self.post and not self.post.is_expired():
+            # Устанавливаем expires_at, если он не был установлен ранее
+            if self.expires_at is None:
                  self.expires_at = timezone.now() + initial_lifetime
-            else:
-                 self.expires_at = timezone.now() + initial_lifetime 
-                 
+            
         super().save(*args, **kwargs)
-
+        
     def add_echo(self):
         self.echo_count += 1
         self.expires_at += timedelta(hours=settings.COMMENT_ECHO_EXTEND_HOURS) 
@@ -101,17 +97,14 @@ class Comment(models.Model):
              return False
         return timezone.now() > self.expires_at
 
-    # Логика "спасения" - время жизни начинается после смерти поста
     def make_floating(self):
         """
         Открепляет комментарий от поста и помечает его как плавучий.
-        Устанавливает новое время жизни, которое начинается сейчас.
         """
-        initial_lifetime = timedelta(hours=settings.COMMENT_LIFETIME_HOURS)
         self.is_floating = True
         self.post = None
-        self.expires_at = timezone.now() + initial_lifetime 
-        self.save(update_fields=['is_floating', 'post', 'expires_at']) 
+
+        self.save(update_fields=['is_floating', 'post']) 
 
     def __str__(self):
         return f"{self.author.username}: {self.text[:20]}..."

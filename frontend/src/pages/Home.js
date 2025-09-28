@@ -1,20 +1,23 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axiosInstance from '../api/axiosInstance';
-import CommentsSection from '../components/CommentsSection'; // Используем новый компонент
-import { Progress, Typography, message, Spin } from 'antd';
+import CommentsSection from '../components/CommentsSection';
+// ✅ Добавлен Modal и QuestionCircleOutlined
+import { Progress, Typography, message, Spin, Modal } from 'antd';
 import {
   SoundOutlined,
   SoundFilled,
   MutedOutlined,
   MutedFilled,
+  QuestionCircleOutlined, // ✅ Иконка вопросительного знака
 } from '@ant-design/icons';
 import './Home.css';
 
-
+// Компонент PostLifeBar (без изменений)
 const PostLifeBar = ({ expiresAt }) => {
   const calculateProgress = useCallback(() => {
     const now = new Date();
     const expires = new Date(expiresAt);
+    // Предполагаем, что максимальная продолжительность жизни поста (или коммента) 24 часа для прогресс бара.
     const totalDuration = 24 * 60 * 60 * 1000;
     const remainingTime = expires.getTime() - now.getTime();
 
@@ -22,7 +25,7 @@ const PostLifeBar = ({ expiresAt }) => {
       return 0;
     }
 
-    const percent = (remainingTime / totalDuration) * 100;
+    const percent = Math.min((remainingTime / totalDuration) * 100, 100);
     return percent < 0 ? 0 : percent;
   }, [expiresAt]);
 
@@ -92,13 +95,32 @@ const PostLifeBar = ({ expiresAt }) => {
   );
 };
 
+// ====================================================================
+
 function Home() {
   const [posts, setPosts] = useState([]);
+  const [floatingComments, setFloatingComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [updatingPosts, setUpdatingPosts] = useState(new Set());
   const [userActions, setUserActions] = useState({});
 
+  // ✅ НОВОЕ СОСТОЯНИЕ для модального окна
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  // 1. Загрузка постов (без изменений)
   const fetchPosts = useCallback(async () => {
     try {
       const response = await axiosInstance.get('/echo_api/feed/posts/');
@@ -111,6 +133,7 @@ function Home() {
     }
   }, []);
 
+  // 2. Загрузка действий пользователя (Echo/DisEcho) (без изменений)
   const fetchUserEchos = useCallback(async () => {
     try {
       const response = await axiosInstance.get('/echo_api/my/echos/');
@@ -129,20 +152,34 @@ function Home() {
     }
   }, []);
 
+  // 3. Загрузка плавающих комментариев (без изменений)
+  const fetchFloatingComments = useCallback(async () => {
+    try {
+      const response = await axiosInstance.get('/echo_api/feed/floating/');
+      setFloatingComments(response.data);
+    } catch (err) {
+      console.error('Ошибка при получении плавающих комментариев:', err);
+    }
+  }, []);
+
+  // 4. useEffect для запуска и интервалов (без изменений, кроме зависимостей)
   useEffect(() => {
     fetchPosts();
     fetchUserEchos();
+    fetchFloatingComments();
 
     const postsInterval = setInterval(fetchPosts, 60000);
     const actionsInterval = setInterval(fetchUserEchos, 15000);
+    const floatingInterval = setInterval(fetchFloatingComments, 30000);
 
     return () => {
       clearInterval(postsInterval);
       clearInterval(actionsInterval);
+      clearInterval(floatingInterval);
     };
-  }, [fetchPosts, fetchUserEchos]);
+  }, [fetchPosts, fetchUserEchos, fetchFloatingComments]);
 
-  // Обработка действия (Лайк/Дизлайк)
+  // Обработка действия (Лайк/Дизлайк) - без изменений
   const handleAction = async (postId, actionType) => {
     if (updatingPosts.has(postId)) return;
 
@@ -208,6 +245,39 @@ function Home() {
     }
   };
 
+  // Компонент FloatingCommentCard (без изменений)
+  const FloatingCommentCard = ({ comment }) => {
+    const expired = isPostExpired(comment.expires_at);
+
+    return (
+      <div key={comment.id} className="floating-comment-card post-card">
+        <div className="post-header">
+          <div className="author-info">
+            <div className="avatar">{comment.author_details?.username.charAt(0).toUpperCase()}</div>
+            <Typography.Text strong>{comment.author_details?.username}</Typography.Text>
+          </div>
+        </div>
+
+        <Typography.Paragraph
+          className="post-content"
+          style={{ fontSize: '0.9em', margin: '10px 0' }}
+        >
+          {comment.text}
+        </Typography.Paragraph>
+
+        <PostLifeBar expiresAt={comment.expires_at} />
+
+        <div className="floating-footer post-actions-container">
+          <Typography.Text type="secondary" style={{ fontSize: '0.85em' }}>
+            <SoundOutlined /> {comment.echo_count} | <MutedOutlined /> {comment.disecho_count}
+          </Typography.Text>
+        </div>
+
+        {expired && <div className="expired-notice">Истек 💀</div>}
+      </div>
+    );
+  };
+
   if (loading) {
     return (
       <h1 style={{ textAlign: 'center', marginTop: '50px' }}>
@@ -226,6 +296,7 @@ function Home() {
 
   return (
     <div className="home-container">
+      {/* ... (основная лента постов без изменений) ... */}
       <div className="feed-container">
         {posts.length > 0 ? (
           posts.map((post) => {
@@ -283,7 +354,6 @@ function Home() {
                       {isUpdating && '...'}
                     </button>
                   </div>
-
                 </div>
 
                 {expired && <div className="expired-notice">Пост истек ❌</div>}
@@ -300,7 +370,64 @@ function Home() {
           <p className="no-posts-message">Пока нет постов. Будьте первым!</p>
         )}
       </div>
-      <div className="floating-comments">тут будут плавающие комментарии</div>
+
+      <div className="floating-comments">
+        <Typography.Title
+          level={5}
+
+        >
+          Плавучие комментарии {floatingComments.length}
+          <QuestionCircleOutlined
+            onClick={showModal}
+            style={{ marginLeft: 8, cursor: 'pointer', color: '#000000ff' }}
+          />
+        </Typography.Title>
+
+        <div className="comments-floating-list">
+          {floatingComments.length > 0 ? (
+            floatingComments.map((comment) => (
+              <FloatingCommentCard key={comment.id} comment={comment} />
+            ))
+          ) : (
+            <p className="no-floating-message">Сейчас нет активных плавающих комментариев.</p>
+          )}
+        </div>
+      </div>
+
+      <Modal
+        title="Что такое плавучие комментарии?"
+        open={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={null}
+      >
+        <p>
+          **Плавучие комментарии** — это комментарии, которые были **спасены** после того, как пост,
+          к которому они относились, **истёк и исчез**.
+        </p>
+        <ul style={{ paddingLeft: '20px' }}>
+          <li>
+            **Спасение:** Когда время жизни поста заканчивается, он удаляется, но все его
+            комментарии автоматически переводятся в "плавучее" состояние (`is_floating=True`).
+          </li>
+          <li>
+            **Время жизни:** Плавучий комментарий сохраняет то время жизни, которое у него
+            оставалось на момент исчезновения поста, и продолжает отсчитывать его.
+          </li>
+          <li>
+            **Взаимодействие:** На плавучие комментарии **нельзя** ставить Echo/DisEcho и **нельзя**
+            на них отвечать. Они существуют как "память" о посте без контекста , пока не истечет их собственное
+            время.
+          </li>
+        </ul>
+        <div style={{ textAlign: 'right', marginTop: '20px' }}>
+          <button className="modal-ok-button"
+            onClick={handleOk}
+          >
+            Понятно
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 }

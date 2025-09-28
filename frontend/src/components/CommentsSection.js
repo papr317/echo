@@ -1,5 +1,3 @@
-// src/components/CommentsSection.js
-
 import React, { useState, useEffect, useCallback, useRef, memo } from 'react';
 import { Input, Button, Typography, message, Spin } from 'antd';
 import {
@@ -10,6 +8,7 @@ import {
   MutedOutlined,
   MutedFilled,
   CommentOutlined,
+  CloseOutlined,
   DownOutlined,
   UpOutlined,
 } from '@ant-design/icons';
@@ -17,44 +16,51 @@ import axiosInstance from '../api/axiosInstance';
 import './CommentsSection.css';
 
 const { TextArea } = Input;
-// Максимальная высота текста комментария до появления кнопки "Показать полностью"
-const MAX_COMMENT_HEIGHT = 70;
+const MAX_COMMENT_HEIGHT = 50;
 
-// -------------------------------------------------------------
-// Вспомогательный компонент: Время жизни комментария
-// -------------------------------------------------------------
 const CommentLifeTimer = ({ expiresAt }) => {
   const [timeLeft, setTimeLeft] = useState(null);
   const [isExpired, setIsExpired] = useState(false);
 
   useEffect(() => {
+    if (!expiresAt) {
+      setTimeLeft('...');
+      setIsExpired(false);
+      return;
+    }
     const expirationTime = new Date(expiresAt).getTime();
+    let intervalId;
 
     const updateTimer = () => {
       const now = Date.now();
       const remaining = expirationTime - now;
 
       if (remaining <= 0) {
-        setTimeLeft('0с');
+        setTimeLeft('Истёк');
         setIsExpired(true);
+        clearInterval(intervalId);
         return;
       }
 
       const totalSeconds = Math.floor(remaining / 1000);
-      const hours = Math.floor(totalSeconds / 3600);
+      const days = Math.floor(totalSeconds / (3600 * 24));
+      const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
       const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
 
       let timeString = '';
+      if (days > 0) timeString += `${days}д `;
       if (hours > 0) timeString += `${hours}ч `;
       if (minutes > 0) timeString += `${minutes}м `;
-      timeString += `${seconds}с`;
+      if (timeString === '') {
+        const seconds = totalSeconds % 60;
+        timeString += `${seconds}с`;
+      }
 
       setTimeLeft(timeString.trim());
       setIsExpired(false);
     };
 
-    const intervalId = setInterval(updateTimer, 1000);
+    intervalId = setInterval(updateTimer, 1000);
     updateTimer();
 
     return () => clearInterval(intervalId);
@@ -64,14 +70,11 @@ const CommentLifeTimer = ({ expiresAt }) => {
 
   return (
     <Typography.Text className="comment-life-timer" type={isExpired ? 'danger' : 'warning'}>
-      {isExpired ? 'Истёк' : timeLeft}
+      {timeLeft}
     </Typography.Text>
   );
 };
 
-// -------------------------------------------------------------
-// Компонент для отдельного комментария
-// -------------------------------------------------------------
 const CommentCard = memo(({ comment, userAction, onAction, onReply }) => {
   const [isFullContent, setIsFullContent] = useState(false);
   const [isOverflowing, setIsOverflowing] = useState(false);
@@ -81,14 +84,13 @@ const CommentCard = memo(({ comment, userAction, onAction, onReply }) => {
   useEffect(() => {
     const checkOverflow = () => {
       if (contentRef.current) {
-        // Проверяем, превышает ли прокручиваемая высота максимальную (70px)
+        // Используем обновленную константу MAX_COMMENT_HEIGHT
         setIsOverflowing(contentRef.current.scrollHeight > MAX_COMMENT_HEIGHT + 5);
       }
     };
     checkOverflow();
   }, [comment.content]);
 
-  // Определяем, истек ли сам комментарий
   const expired =
     comment.is_expired || (comment.expires_at && new Date(comment.expires_at) < new Date());
   const isUpdating = false;
@@ -106,11 +108,12 @@ const CommentCard = memo(({ comment, userAction, onAction, onReply }) => {
     onAction(comment.id, actionType);
   };
 
-  // Если есть родительский комментарий (для отображения, не для действий)
   const parentUsername = comment.parent_comment_details?.author_details?.username;
+  // Флаг для стилизации ответа
+  const isReply = !!parentUsername;
 
   return (
-    <div className={`comment-card-inline ${expired ? 'expired' : ''}`}>
+    <div className={`comment-card-inline ${expired ? 'expired' : ''} ${isReply ? 'is-reply' : ''}`}>
       <div className="comment-header-inline">
         <div className="avatar-small">
           {comment.author_details?.username.charAt(0).toUpperCase()}
@@ -118,12 +121,10 @@ const CommentCard = memo(({ comment, userAction, onAction, onReply }) => {
         <Typography.Text strong className="comment-author-inline">
           {comment.author_details?.username}
         </Typography.Text>
+        <div className="comment-timer-wrapper">
+          <CommentLifeTimer expiresAt={comment.expires_at} />
+        </div>
       </div>
-
-      {/* Отображение, если это ответ */}
-      {parentUsername && <div className="comment-reply-to-bar">Ответ @{parentUsername}</div>}
-
-      {/* БЛОК КОНТЕНТА */}
       <div
         ref={contentRef}
         className={`comment-content-container ${
@@ -133,7 +134,6 @@ const CommentCard = memo(({ comment, userAction, onAction, onReply }) => {
       >
         <p className="comment-content-inline">{comment.content}</p>
       </div>
-
       {/* Кнопка "Показать полностью" */}
       {isOverflowing && (
         <button className="show-more-button" onClick={() => setIsFullContent(!isFullContent)}>
@@ -148,20 +148,9 @@ const CommentCard = memo(({ comment, userAction, onAction, onReply }) => {
           )}
         </button>
       )}
-
       <div className="comment-footer-inline">
-        {/* Левый блок: Таймер и дата */}
-        <div className="comment-info-left">
-          <CommentLifeTimer expiresAt={comment.expires_at} />
-          <Typography.Text className="comment-date-inline">
-            {new Date(comment.created_at).toLocaleTimeString('ru-RU', {
-              hour: '2-digit',
-              minute: '2-digit',
-            })}
-          </Typography.Text>
-        </div>
+        <div className="comment-info-left"></div>
 
-        {/* Правый блок: Действия */}
         <div className="comment-actions">
           <button
             className="comment-reply-button"
@@ -193,9 +182,6 @@ const CommentCard = memo(({ comment, userAction, onAction, onReply }) => {
   );
 });
 
-// -------------------------------------------------------------
-// Основной компонент секции комментариев
-// -------------------------------------------------------------
 const CommentsSection = ({ postId, postExpired, initialCommentCount }) => {
   const [comments, setComments] = useState([]);
   const [newCommentContent, setNewCommentContent] = useState('');
@@ -326,26 +312,36 @@ const CommentsSection = ({ postId, postExpired, initialCommentCount }) => {
 
   return (
     <div className="comments-section-wrapper">
-      <button className="comments-toggle-button" onClick={toggleComments} disabled={postExpired}>
+      <button
+        className={`comments-toggle-button ${isExpanded ? 'comments-toggle-button-active' : ''}`}
+        onClick={toggleComments}
+        disabled={postExpired}
+      >
         <MessageFilled />
-        Комментарии ({commentCount})
+        Комментарии {commentCount}
       </button>
 
       {isExpanded && (
         <div className="comments-section-inline">
-          {/* Блок ответа (отображается только при ответе) */}
+          
+          {/* Блок ответа */}
           {replyTo && (
-            <div className="reply-info-bar">
-              <Typography.Text type="secondary">
-                Ответ пользователю **@{replyTo.author_details?.username}**
+            <div className="comment-reply-to-bar">
+              <Typography.Text type="secondary" style={{ marginRight: '10px' }}>
+                Ответ пользователю
+                <Typography.Text strong style={{ marginLeft: '5px' }}>
+                  @{replyTo.author_details?.username}
+                </Typography.Text>
               </Typography.Text>
-              <Button size="small" type="link" onClick={handleClearReply}>
-                Отмена
-              </Button>
+              <Button
+                size="small"
+                type="text"
+                onClick={handleClearReply}
+                icon={<CloseOutlined style={{ fontSize: '0.7em', color: '#888' }} />}
+              />
             </div>
           )}
 
-          {/* Форма комментария */}
           <div className={`new-comment-form-inline ${postExpired ? 'disabled' : ''}`}>
             <TextArea
               rows={1}
@@ -365,7 +361,6 @@ const CommentsSection = ({ postId, postExpired, initialCommentCount }) => {
             />
           </div>
 
-          {/* Обертка для горизонтальной прокрутки */}
           <div className="comments-scroll-wrapper">
             {loading ? (
               <div style={{ padding: '10px', textAlign: 'center', minWidth: '100%' }}>
