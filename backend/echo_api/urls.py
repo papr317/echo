@@ -1,12 +1,13 @@
 # echo_api/urls.py
+
 from django.urls import path
 from . import views
 
 urlpatterns = [
     # --- ЛИЧНЫЕ ОБЪЕКТЫ --- 
-    # GET/PUT/PATCH/DELETE: Редактирование и удаление СВОЕГО поста
+    # GET: Детали своего поста
     path('my/posts/<int:pk>/', views.MyPostDetailView.as_view(), name='my_post_detail'),
-    # GET/PUT/PATCH/DELETE: Редактирование и удаление СВОЕГО комментария
+    # GET/PUT/PATCH/DELETE: СВОЙ комментарий
     path('my/comments/<int:pk>/', views.MyCommentDetailView.as_view(), name='my_comment_detail'),
     # GET: Список всех поставленных мной Echo/DisEcho
     path('my/echos/', views.MyEchoListView.as_view(), name='my_echos'),
@@ -20,24 +21,31 @@ urlpatterns = [
     path('feed/friends/', views.friend_feed, name='feed_friends'),
     
     # --- БАЗОВЫЕ ОПЕРАЦИИ ---
-    # GET: Детали любого поста (остаётся для получения отдельного поста по ID)
+    # GET: Детали любого поста
     path('posts/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),
     
     # GET/POST: Комментарии к конкретному посту
     path('posts/<int:post_id>/comments/', views.CommentListView.as_view(), name='comment_list'),
     
-    # ОЦЕНКИ (ECHO/DISECHO)
-    # POST: Оценка Echo (is_echo=True)
+    # --- ОЦЕНКИ ПОСТОВ ---
+    # POST: Echo поста (is_echo=True)
     path('posts/<int:pk>/echo/', 
-          views.EchoToggleView.as_view(), 
-          {'content_type_model': 'post', 'is_echo_url_param': True}, name='post_echo_toggle'),
+         views.EchoToggleView.as_view(), 
+         {'content_type_model': 'post', 'is_echo_url_param': True}, name='post_echo_toggle'),
       
-    # POST: Оценка DisEcho (is_echo=False)
+    # POST: DisEcho поста (is_echo=False)
     path('posts/<int:pk>/disecho/', 
-          views.EchoToggleView.as_view(), 
-          {'content_type_model': 'post', 'is_echo_url_param': False}, name='post_disecho_toggle'),
-                              
+         views.EchoToggleView.as_view(), 
+         {'content_type_model': 'post', 'is_echo_url_param': False}, name='post_disecho_toggle'),
+                         
+    # --- ОЦЕНКИ КОММЕНТАРИЕВ ---
+    # POST: Echo комментария (is_echo=True)
     path('comments/<int:pk>/echo/', 
          views.EchoToggleView.as_view(), 
-         {'content_type_model': 'comment'}, name='comment_echo_toggle'),
+         {'content_type_model': 'comment', 'is_echo_url_param': True}, name='comment_echo_toggle'),
+         
+    # POST: DisEcho комментария (is_echo=False)
+    path('comments/<int:pk>/disecho/', 
+         views.EchoToggleView.as_view(), 
+         {'content_type_model': 'comment', 'is_echo_url_param': False}, name='comment_disecho_toggle'),
 ]

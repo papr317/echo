@@ -168,10 +168,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Настройки жизненного цикла постов и комментариев (в часах)
-POST_LIFETIME_HOURS = 24    # Пост живет 24 часа
-COMMENT_LIFETIME_HOURS = 240 # Коммент живет 10 дней
-ECHO_EXTEND_HOURS = 1      # Лайк продлевает жизнь на 1 час
-DISECHO_REDUCE_HOURS = 1  # Дизлайк уменьшает жизнь на 1 час
+POST_LIFETIME_HOURS = 24       # Пост живет 24 часа
+COMMENT_LIFETIME_HOURS = 240   # Коммент живет 10 дней
+ECHO_EXTEND_HOURS = 1          # Лайк поста продлевает жизнь на 1 час
+DISECHO_REDUCE_HOURS = 1       # Дизлайк поста уменьшает жизнь на 1 час
+
+COMMENT_ECHO_EXTEND_HOURS = 10    # Лайк комментария продлевает жизнь на 10 часов
+COMMENT_DISECHO_REDUCE_HOURS = 10 # Дизлайк комментария уменьшает жизнь на 10 часов
 
 
 # --- КОНФИГУРАЦИЯ DJANGO-Q ---

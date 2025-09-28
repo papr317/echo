@@ -1,15 +1,15 @@
 # echo_api/models.py
+
 from django.db import models
 from django.conf import settings 
 from django.utils import timezone
 from datetime import timedelta
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from django.db import transaction # Нужен для метода kill_and_float_comments
+from django.db import transaction 
 
 # --- Модель поста ---
 class Post(models.Model):
-    # ... (все поля, как у вас) ...
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.TextField(max_length=500)
     image = models.ImageField(upload_to='posts/', blank=True, null=True)
@@ -27,15 +27,18 @@ class Post(models.Model):
 
     def add_echo(self):
         self.echo_count += 1
+        # Используем настройки поста
         self.expires_at += timedelta(hours=settings.ECHO_EXTEND_HOURS) 
 
     def add_disecho(self):
         self.disecho_count += 1
+        # Используем настройки поста
         self.expires_at -= timedelta(hours=settings.DISECHO_REDUCE_HOURS) 
 
     def is_expired(self):
         return timezone.now() > self.expires_at
 
+    @transaction.atomic
     def kill_and_float_comments(self):
         """Убивает пост, открепляет его комментарии и удаляет сам пост."""
         
@@ -55,42 +58,60 @@ class Post(models.Model):
 
 # --- Модель комментария ---
 class Comment(models.Model):
-    # !!! ИЗМЕНЕНИЕ: post теперь может быть NULL
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments', 
-                             null=True, blank=True) 
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comments', 
+        null=True, blank=True
+    ) 
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     text = models.TextField(max_length=300)
     created_at = models.DateTimeField(auto_now_add=True)
-    expires_at = models.DateTimeField()
+    expires_at = models.DateTimeField(null=True, blank=True) # !!! Изменение: может быть NULL
+    
+    #Для иерархии комментариев (ответ на другой комментарий)
+    parent_comment = models.ForeignKey(
+        'self', on_delete=models.CASCADE, related_name='replies',
+        null=True, blank=True
+    )
 
     echo_count = models.IntegerField(default=0)      
     disecho_count = models.IntegerField(default=0)
     
-    # !!! ИЗМЕНЕНИЕ: Новое поле
     is_floating = models.BooleanField(default=False)
     
     def save(self, *args, **kwargs):
         if not self.id: 
             initial_lifetime = timedelta(hours=settings.COMMENT_LIFETIME_HOURS)
-            self.expires_at = timezone.now() + initial_lifetime
+            if self.post and not self.post.is_expired():
+                 self.expires_at = timezone.now() + initial_lifetime
+            else:
+                 self.expires_at = timezone.now() + initial_lifetime 
+                 
         super().save(*args, **kwargs)
 
     def add_echo(self):
         self.echo_count += 1
-        self.expires_at += timedelta(hours=settings.ECHO_EXTEND_HOURS) 
+        self.expires_at += timedelta(hours=settings.COMMENT_ECHO_EXTEND_HOURS) 
 
     def add_disecho(self):
         self.disecho_count += 1
-        self.expires_at -= timedelta(hours=settings.DISECHO_REDUCE_HOURS) 
+        self.expires_at -= timedelta(hours=settings.COMMENT_DISECHO_REDUCE_HOURS) 
 
     def is_expired(self):
+        if not self.expires_at:
+             return False
         return timezone.now() > self.expires_at
 
+    # Логика "спасения" - время жизни начинается после смерти поста
     def make_floating(self):
-        """Открепляет комментарий от поста и помечает его как плавучий."""
+        """
+        Открепляет комментарий от поста и помечает его как плавучий.
+        Устанавливает новое время жизни, которое начинается сейчас.
+        """
+        initial_lifetime = timedelta(hours=settings.COMMENT_LIFETIME_HOURS)
         self.is_floating = True
-        self.post = None # Открепляем от поста
-        self.save(update_fields=['is_floating', 'post']) 
+        self.post = None
+        self.expires_at = timezone.now() + initial_lifetime 
+        self.save(update_fields=['is_floating', 'post', 'expires_at']) 
 
     def __str__(self):
         return f"{self.author.username}: {self.text[:20]}..."
