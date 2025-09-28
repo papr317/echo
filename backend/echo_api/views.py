@@ -22,7 +22,7 @@ class IsAuthorOrReadOnly(permissions.BasePermission):
         
         return obj.author == request.user
 
-# --- Post Views ---
+# -------------------- Post Views --------------------
 
 class PostListView(generics.ListCreateAPIView):
     """GET: Список всех живых постов. POST: Создание нового поста."""
@@ -57,7 +57,7 @@ def friend_feed(request):
     serializer = PostSerializer(posts, many=True)
     return Response(serializer.data)
     
-# --- Floating Comment View ---
+# -------------------- Floating Comment View --------------------
 class FloatingCommentListView(generics.ListAPIView):
     """
     Показывает все комментарии, которые были оторваны от своих постов (is_floating=True)
@@ -73,7 +73,29 @@ class FloatingCommentListView(generics.ListAPIView):
             expires_at__gt=timezone.now() 
         ).order_by('-created_at')
 
-# --- My Views (без изменений) ---
+# -------------------- My Views (для профиля) --------------------
+
+class MyPostListView(generics.ListAPIView):
+    """Список всех постов, созданных текущим пользователем (даже если они истекли)."""
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        # Показываем все посты пользователя, независимо от expires_at
+        return Post.objects.filter(author=self.request.user).order_by('-created_at')
+
+class MyCommentListActiveView(generics.ListAPIView): # ✅ НОВЫЙ КЛАСС
+    """Список всех комментариев, созданных текущим пользователем (только 'живые' и 'плавающие')."""
+    serializer_class = CommentSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        # Показываем все комментарии пользователя, которые еще не истекли
+        # (они могут быть прикреплены к посту или быть плавающими)
+        return Comment.objects.filter(
+            author=self.request.user, 
+            expires_at__gt=timezone.now()
+        ).order_by('-created_at')
 
 class MyPostDetailView(generics.RetrieveAPIView): 
     """Просмотр своего поста."""
@@ -103,7 +125,7 @@ class MyEchoListView(generics.ListAPIView):
     def get_queryset(self):
         return Echo.objects.filter(user=self.request.user).order_by('-created_at')
 
-# --- Comment Views ---
+# -------------------- Comment Views --------------------
 
 class CommentListView(generics.ListCreateAPIView):
     """GET: Список комментариев. POST: Создание комментария."""
@@ -154,7 +176,7 @@ class CommentListView(generics.ListCreateAPIView):
             parent_comment=parent_comment
         )
 
-# --- Echo/DisEcho Toggle View ---
+# -------------------- Echo/DisEcho Toggle View --------------------
 
 class EchoToggleView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -168,7 +190,7 @@ class EchoToggleView(APIView):
             reduce_hours = settings.COMMENT_DISECHO_REDUCE_HOURS
         
         return timedelta(hours=extend_hours), timedelta(hours=reduce_hours)
-      
+        
     def post(self, request, pk, content_type_model, is_echo_url_param): 
         
         user = request.user
@@ -188,16 +210,14 @@ class EchoToggleView(APIView):
             
         content_object = get_object_or_404(Model, pk=pk)
         
-        # ✅ ПРОВЕРКА 1: Блокировка истекших объектов
         if content_object.is_expired() and not user.is_staff:
             return Response(
                 {"error": f"{content_type_model.capitalize()} истек и не может быть оценен."},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        # ✅ ПРОВЕРКА 2: Блокировка плавающих комментариев
         if content_type_model == 'comment' and content_object.is_floating:
-             return Response(
+              return Response(
                 {"error": "Нельзя оценивать плавающий комментарий, так как он оторван от поста."},
                 status=status.HTTP_400_BAD_REQUEST
             )
