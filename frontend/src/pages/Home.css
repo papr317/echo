@@ -1,5 +1,3 @@
-/* Home.css */
-
 .home-container {
   padding: 20px;
   background-color: #f8f8f8;
@@ -25,6 +23,9 @@ h1 {
   background-color: #f0f0f0;
   border-radius: 15px;
   padding: 20px;
+
+  /* ГЛАВНОЕ ИЗМЕНЕНИЕ: Запрещаем посту растягиваться вбок */
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;
@@ -75,28 +76,23 @@ h1 {
   flex-grow: 1;
 }
 
-/* Home.css */
-
 .post-lifebar-container {
   display: flex;
   align-items: center;
-  /* Выравнивает элементы по центру по вертикали */
   gap: 10px;
   margin: 15px 0;
 }
 
 .post-lifebar-container .ant-progress {
   flex-grow: 1;
-  /* Полоса прогресса будет занимать всё доступное пространство */
 }
 
 .time-left-text {
   font-weight: bold;
   font-size: 0.9em;
   white-space: nowrap;
-  /* Запрещает перенос строки для времени */
 }
-/* Основной контейнер, который будет располагать элементы вертикально */
+
 .post-actions-container {
   display: flex;
   flex-direction: column;
@@ -106,7 +102,6 @@ h1 {
   width: 100%;
 }
 
-/* Контейнер для кнопок */
 .likes-actions {
   display: flex;
   justify-content: flex-start;
@@ -114,7 +109,6 @@ h1 {
   width: 100%;
 }
 
-/* Общие стили для всех кнопок и счетчиков */
 .echo-button,
 .disecho-button,
 .comment-count {
@@ -139,16 +133,12 @@ h1 {
 @keyframes press-wave {
   0% {
     transform: scale(0.7);
-    /* Начинается чуть меньше */
     opacity: 1;
-    /* Полностью видимая */
   }
 
   100% {
     transform: scale(2.5);
-    /* Расходится на большее расстояние */
     opacity: 0;
-    /* Полностью исчезает */
   }
 }
 

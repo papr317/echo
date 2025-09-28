@@ -7,13 +7,10 @@ import {
   SoundFilled,
   MutedOutlined,
   MutedFilled,
-  // MessageFilled больше не нужен здесь, он в CommentsSection
 } from '@ant-design/icons';
-import './Home.css'; // Стили для Home и PostLifeBar
+import './Home.css';
 
-// -------------------------------------------------------------
-// Компонент "Полоса жизни" для поста
-// -------------------------------------------------------------
+
 const PostLifeBar = ({ expiresAt }) => {
   const calculateProgress = useCallback(() => {
     const now = new Date();
@@ -95,9 +92,6 @@ const PostLifeBar = ({ expiresAt }) => {
   );
 };
 
-// -------------------------------------------------------------
-// Главный компонент Home
-// -------------------------------------------------------------
 function Home() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -105,7 +99,6 @@ function Home() {
   const [updatingPosts, setUpdatingPosts] = useState(new Set());
   const [userActions, setUserActions] = useState({});
 
-  // 1. Получение постов
   const fetchPosts = useCallback(async () => {
     try {
       const response = await axiosInstance.get('/echo_api/feed/posts/');
@@ -118,7 +111,6 @@ function Home() {
     }
   }, []);
 
-  // 2. Получение действий пользователя (лайки/дизлайки)
   const fetchUserEchos = useCallback(async () => {
     try {
       const response = await axiosInstance.get('/echo_api/my/echos/');
@@ -137,7 +129,6 @@ function Home() {
     }
   }, []);
 
-  // Первичная загрузка и интервальное обновление
   useEffect(() => {
     fetchPosts();
     fetchUserEchos();
@@ -247,7 +238,6 @@ function Home() {
                 <div className="post-header">
                   <div className="author-info">
                     <div className="avatar">
-                      {/* Убедитесь, что author_details существует */}
                       {post.author_details?.username.charAt(0).toUpperCase()}
                     </div>
                     <p>{post.author_details?.username}</p>
@@ -269,7 +259,6 @@ function Home() {
 
                 <div className="post-actions-container">
                   <div className="likes-actions">
-                    {/* Кнопка лайка */}
                     <button
                       className={`echo-button ${userAction?.type === 'echo' ? 'active' : ''} ${
                         expired ? 'disabled' : ''
@@ -282,7 +271,6 @@ function Home() {
                       {isUpdating && '...'}
                     </button>
 
-                    {/* Кнопка дизлайка */}
                     <button
                       className={`disecho-button ${
                         userAction?.type === 'disecho' ? 'active' : ''
@@ -300,7 +288,6 @@ function Home() {
 
                 {expired && <div className="expired-notice">Пост истек ❌</div>}
 
-                {/* Компонент, который включает в себя кнопку, форму и список комментариев */}
                 <CommentsSection
                   postId={post.id}
                   postExpired={expired}

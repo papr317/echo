@@ -1,6 +1,7 @@
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.exceptions import APIException 
 from rest_framework.views import APIView 
 from django.utils import timezone
 from django.db.models import Q
@@ -107,6 +108,7 @@ class MyEchoListView(generics.ListAPIView):
     def get_queryset(self):
         return Echo.objects.filter(user=self.request.user).order_by('-created_at')
 
+# ... (Импорты и другой код)
 
 # Комментарии к посту
 class CommentListView(generics.ListCreateAPIView):
@@ -116,26 +118,28 @@ class CommentListView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         post_id = self.kwargs['post_id']
-        # Здесь мы намеренно не фильтруем по is_floating, т.к. этот View
-        # используется для комментариев, прикрепленных к живому посту.
-        return Comment.objects.filter(post_id=post_id).order_by('-created_at')
+        # --- КРИТИЧЕСКОЕ ИЗМЕНЕНИЕ: Добавляем фильтр is_floating=False ---
+        return Comment.objects.filter(
+            post_id=post_id,
+            is_floating=False # <--- ФИЛЬТР ДЛЯ ПОСТА
+        ).order_by('-created_at')
         
     def perform_create(self, serializer):
         post_id = self.kwargs['post_id']
         try:
             post = Post.objects.get(id=post_id)
         except Post.DoesNotExist:
-            raise Response({"error": "Пост не найден"}, status=status.HTTP_404_NOT_FOUND)
-        
+            # Используем raise Http404 или Response с ошибкой, в зависимости от того, как вы хотите обрабатывать
+            # Поскольку это API View, лучше использовать Response
+            raise APIException({"error": "Пост не найден"}, code=status.HTTP_404_NOT_FOUND)
+
         if post.is_expired() and not self.request.user.is_staff:
-            raise Response(
+            raise APIException(
                 {"error": "Нельзя комментировать истекший пост"},
-                status=status.HTTP_400_BAD_REQUEST
+                code=status.HTTP_400_BAD_REQUEST
             )
         
-        serializer.save(author=self.request.user, post=post)
-
-
+        serializer.save(author=self.request.user, post=post, is_floating=False)
 class EchoToggleView(APIView):
     """
     POST: Переключает (ставит, отменяет или меняет) оценку Echo/DisEcho 
