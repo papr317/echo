@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.contenttypes.models import ContentType
 from .models import Post, Comment, Echo
-from users_api.serializers import UserSerializer 
+from backend.users_api.serializers import UserSerializer 
 
 class ContentObjectSerializer(serializers.Serializer):
     """

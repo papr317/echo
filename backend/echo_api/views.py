@@ -12,7 +12,7 @@ from datetime import timedelta
 from django.conf import settings 
 
 from .models import Post, Comment, Echo 
-from .serializers import PostSerializer, CommentSerializer, EchoSerializer # Предполагается, что они существуют
+from .serializers import PostSerializer, CommentSerializer, EchoSerializer
 
 class IsAuthorOrReadOnly(permissions.BasePermission):
     """Разрешение: разрешает полный доступ автору, остальным - только чтение."""

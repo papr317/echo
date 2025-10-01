@@ -1,0 +1,29 @@
+from django.urls import path
+from .views import ChatListView, MessageListView, MemberManagementViewSet 
+
+app_name = 'messenger_api' 
+
+urlpatterns = [
+    # Список чатов
+    path('chats/', ChatListView.as_view(), name='chat-list'),
+         
+    # Сообщения внутри конкретного чата
+    path('chats/<int:chat_id>/messages/', MessageListView.as_view(), name='message-list'),
+    
+    # МАРШРУТЫ ДЛЯ УПРАВЛЕНИЯ УЧАСТНИКАМИ И АДМИНАМИ
+    path('chats/<int:pk>/members/add/', 
+         MemberManagementViewSet.as_view({'post': 'add_member'}), 
+         name='chat-member-add'),
+         
+    path('chats/<int:pk>/members/remove/', 
+         MemberManagementViewSet.as_view({'post': 'remove_member'}), 
+         name='chat-member-remove'),
+         
+    path('chats/<int:pk>/admin/set/', 
+         MemberManagementViewSet.as_view({'post': 'set_admin'}), 
+         name='chat-admin-set'),
+         
+    path('chats/<int:pk>/admin/remove/', 
+         MemberManagementViewSet.as_view({'post': 'remove_admin'}), 
+         name='chat-admin-remove'),
+]

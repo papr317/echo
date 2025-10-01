@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from datetime import timedelta
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,9 +24,16 @@ ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'users_api.CustomUser'
 
-ASGI_APPLICATION = 'config.asgi.application'
+ASGI_APPLICATION = 'backend.config.asgi.application'
 
 INSTALLED_APPS = [
+    'daphne',         # ASGI-сервер
+    'channels',       # Django Channels
+    'corsheaders',
+    'rest_framework',  # Django REST Framework for API development
+    'rest_framework_simplejwt',  # JWT authentication
+    'django_q', # таймер
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,18 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'users_api',  # Custom user app
-    'echo_api', # Echo API app backend
-    # 'messenger',
-    # 'subscription',
-    
-    'corsheaders',
-    'rest_framework',  # Django REST Framework for API development
-    'rest_framework_simplejwt',  # JWT authentication
-    'django_q', # таймер
+    'backend.users_api',
+    'backend.echo_api',
+    'backend.messenger_api',
+    # 'subscription_api', # подписки на пользователей
 ]
-
-from datetime import timedelta
+    
 
 # жизненный цикл токенов
 SIMPLE_JWT = {
@@ -76,8 +78,17 @@ REST_FRAMEWORK = {
     )
 }
 
+# Конфигурация слоев каналов (Channel Layers)
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.pubsub.RedisPubSubChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],  # Убедитесь, что Redis запущен на этом порту
+        },
+    },
+}
 
-ROOT_URLCONF = 'config.urls'
+ROOT_URLCONF = 'backend.config.urls'
 
 TEMPLATES = [
     {
@@ -96,8 +107,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 # Database
+# основная база данных PostgreSQL
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 DATABASES = {
     'default': {
@@ -110,15 +121,15 @@ DATABASES = {
     }
 }
 
-# MONGODB_DATABASE = {
-#     'name': config('MONGODB_NAME', default='echo_chat'),
-#     'host': config('MONGODB_HOST', default='localhost'),
-#     'port': config('MONGODB_PORT', default=27017, cast=int),
-#     'username': config('MONGODB_USER', default=''),
-#     'password': config('MONGODB_PASS', default=''),
-# }
-
-
+MONGODB_DATABASE = {
+    'host': config('MONGODB_HOST', default='localhost'), 
+    
+    'port': config('MONGODB_PORT', default=27017, cast=int), 
+    'name': config('MONGODB_NAME', default='echo_messenger'), 
+    
+    'username': config('MONGODB_USER', default=''),
+    'password': config('MONGODB_PASS', default=''),
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -182,12 +193,11 @@ Q_CLUSTER = {
     'name': 'DjangOQ',
     'workers': 4, # Количество рабочих процессов
     'timeout': 90, # Таймаут задачи
-    'orm': 'default', # Использование базы данных по умолчанию
+    'orm': 'default',
     'schedule': [
         # Наш "будильник" для спасения комментариев
         {
             'name': 'float_expired_posts',
-            # Функция, которую нужно запустить. (Формат: app_name.tasks.function_name)
             'func': 'echo_api.tasks.check_and_float_expired_posts', 
             'minutes': 60, # Запускать каждые 60 минут (1 час)
             'repeats': -1, # Повторять бесконечно

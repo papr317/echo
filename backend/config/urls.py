@@ -4,6 +4,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('echo_api/', include('echo_api.urls')),
-    path('users_api/', include('users_api.urls')),
+    path('echo_api/', include('backend.echo_api.urls')),
+    path('users_api/', include('backend.users_api.urls')),
+    path('messenger_api/', include('backend.messenger_api.urls')),
 ]
