@@ -54,6 +54,7 @@ class Chat(models.Model):
     )
 
     class Meta:
+        app_label = 'messenger_api' 
         verbose_name = _('Чат')
         verbose_name_plural = _('Чаты')
         indexes = [

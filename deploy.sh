@@ -28,7 +28,7 @@ echo ""
 echo "✅ ВСЕ КОМПОНЕНТЫ ЗАПУЩЕНЫ:"
 echo "   - REST API:   http://127.0.0.1:8000/ (PID: $RUNSERVER_PID)"
 echo "   - CHANNELS:   http://127.0.0.1:8001/ (PID: $DAPHNE_PID)"
-echo "   - FRONTEND:   (Порт обычно 3000, PID: $FRONTEND_PID)"
+echo "   - FRONTEND:   (3000, PID: $FRONTEND_PID)"
 echo ""
 echo "Нажмите Enter для остановки всех серверов и выхода..."
 

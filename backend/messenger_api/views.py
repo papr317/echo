@@ -30,24 +30,17 @@ class ChatListView(generics.ListCreateAPIView):
 
 class MessageListView(generics.ListAPIView):
     """API для получения списка сообщений в конкретном чате."""
-    # Укажите ваш реальный MessageSerializer
-    # serializer_class = MessageSerializer 
+    serializer_class = MessageSerializer 
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
         chat_id = self.kwargs['chat_id']
-        # Проверка, что пользователь является участником чата
         get_object_or_404(Chat, pk=chat_id, participants=self.request.user)
         
-        # Здесь должна быть ваша реальная логика получения сообщений из MongoDB
-        # return MongoMessage.objects.filter(chat_id=chat_id).order_by('timestamp')
-        
-        return Chat.objects.none() # Возвращаем пустой QuerySet для корректной работы Django
+        return Chat.objects.none() 
 
     def list(self, request, *args, **kwargs):
-        # Временная заглушка, пока нет логики MongoDB
-        return Response({"detail": f"Messages for chat {self.kwargs['chat_id']} endpoint is working."}, status=status.HTTP_200_OK)
-
+        return Response([], status=status.HTTP_200_OK)
 
 # -------------------------------------------------------------
 # 2. VIEWSET ДЛЯ УПРАВЛЕНИЯ УЧАСТНИКАМИ И АДМИНАМИ
