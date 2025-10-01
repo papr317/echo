@@ -1,13 +1,15 @@
-# messenger_api/models.py
+# backend/messenger_api/models.py
 from django.db import models
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
+# import uuid - удален, т.к. PK будет IntegerField
 
 class Chat(models.Model):
     """
-    Основная модель Чата. Хранится в PostgreSQL.
-    Может быть личным (is_group=False) или групповым (is_group=True).
+    Основная модель Чата. Использует Integer PK, соответствующий CustomUser.
     """
+    # ID чата (pk) является стандартным IntegerField, унаследованным от models.Model.
+    
     participants = models.ManyToManyField(
         settings.AUTH_USER_MODEL, 
         related_name='chats', 
@@ -53,6 +55,13 @@ class Chat(models.Model):
         verbose_name=_('Владелец/Админ')
     )
 
+    administrators = models.ManyToManyField(
+        settings.AUTH_USER_MODEL, 
+        related_name='admin_chats', 
+        blank=True,
+        verbose_name=_('Администраторы')
+    )
+
     class Meta:
         app_label = 'messenger_api' 
         verbose_name = _('Чат')
@@ -63,3 +72,9 @@ class Chat(models.Model):
         
     def __str__(self):
         return self.name if self.name else f"Чат ID {self.pk}"
+
+    def is_owner(self, user):
+        return self.owner == user
+
+    def is_admin(self, user):
+        return self.is_owner(user) or self.administrators.filter(pk=user.pk).exists()

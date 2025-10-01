@@ -1,20 +1,32 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
-const getAuthToken = () => {
-  const token = localStorage.getItem('access_token');
-  return token;
+// Предполагаем, что этот ID хранится где-то
+// Для демо-целей, захардкодим его, но в реальном приложении он будет в стейте пользователя
+const getAuthToken = () => localStorage.getItem('access_token');
+const getUserId = () => {
+  // В реальном приложении нужно декодировать JWT или получать из контекста/Redux
+  // Для теста, захардкодим ID пользователя, который будет отправлять сообщения (например, 1)
+  return 1;
 };
 
 const CHAT_ID = 1;
-const API_BASE_URL = 'http://127.0.0.1:8000/messenger_api';
+const API_BASE_URL = 'http://127.0.0.1:8000/messenger_api'; // ИСПРАВЛЕННЫЙ ПУТЬ
 
 function Messages() {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [connectionStatus, setConnectionStatus] = useState('disconnected');
   const chatSocket = useRef(null);
+  const messagesEndRef = useRef(null); // Для автоскролла
   const isUnmounting = useRef(false);
+  const currentUserId = getUserId(); // Получаем ID текущего пользователя
 
+  // Автоматический скролл вниз
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // 1. Загрузка истории сообщений (REST API)
   const fetchMessages = useCallback(async () => {
     const token = getAuthToken();
     if (!token) {
@@ -24,6 +36,7 @@ function Messages() {
 
     try {
       console.log('📡 Загружаю историю сообщений...');
+      // ИСПОЛЬЗУЕМ API_BASE_URL/chats/{chat_id}/messages/
       const response = await fetch(`${API_BASE_URL}/chats/${CHAT_ID}/messages/`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -37,17 +50,16 @@ function Messages() {
 
       const data = await response.json();
       console.log('✅ История загружена:', data.length, 'сообщений');
-      // Убедись что сообщения правильно форматируются
-      const formattedMessages = data.map((msg) => ({
-        ...msg,
-        text: msg.text, // Unicode символы должны автоматически конвертироваться
-      }));
-      setMessages(formattedMessages.reverse());
+
+      // Сообщения приходят в обратном порядке (DESC), поэтому переворачиваем
+      setMessages(data.reverse());
+      scrollToBottom();
     } catch (error) {
       console.error('❌ Ошибка загрузки истории сообщений:', error);
     }
   }, []);
 
+  // 2. Установка и управление WebSocket-соединением
   useEffect(() => {
     isUnmounting.current = false;
 
@@ -57,17 +69,19 @@ function Messages() {
       return;
     }
 
-    const url = `ws://127.0.0.1:8000/ws/chat/${CHAT_ID}/?token=${encodeURIComponent(token)}`;
-    console.log('🔗 Подключаюсь к:', url);
+    // ВАЖНО: WebSocket должен использовать WSS/WS. У нас WS.
+    // Передаем токен в URL-параметрах
+    const wsUrl = `ws://127.0.0.1:8000/ws/chat/${CHAT_ID}/?token=${encodeURIComponent(token)}`;
+    console.log('🔗 Подключаюсь к:', wsUrl);
 
-    const socket = new WebSocket(url);
+    const socket = new WebSocket(wsUrl);
     chatSocket.current = socket;
 
     socket.onopen = () => {
       if (isUnmounting.current) return;
       console.log('✅ WebSocket: Соединение установлено.');
       setConnectionStatus('connected');
-      fetchMessages();
+      fetchMessages(); // Загрузка истории после подключения
     };
 
     socket.onmessage = (e) => {
@@ -76,8 +90,14 @@ function Messages() {
         const data = JSON.parse(e.data);
         console.log('📨 WebSocket: Получено сообщение:', data);
 
-        // Unicode символы должны автоматически правильно отображаться
-        setMessages((prevMessages) => [...prevMessages, data]);
+        // ВАЖНО: Добавляем новое сообщение в конец
+        setMessages((prevMessages) => {
+          // Убедимся, что не дублируем сообщение, если оно было отправлено REST API
+          const isDuplicate = prevMessages.some((msg) => msg.id === data.id);
+          return isDuplicate ? prevMessages : [...prevMessages, data];
+        });
+
+        scrollToBottom();
       } catch (error) {
         console.error('❌ Ошибка парсинга сообщения:', error);
       }
@@ -85,7 +105,7 @@ function Messages() {
 
     socket.onclose = (e) => {
       if (isUnmounting.current) return;
-      console.log(`🔌 WebSocket: Соединение закрыто. Код: ${e.code}, Причина: ${e.reason}`);
+      console.log(`🔌 WebSocket: Соединение закрыто. Код: ${e.code}`);
       setConnectionStatus('disconnected');
     };
 
@@ -104,10 +124,12 @@ function Messages() {
     };
   }, [fetchMessages]);
 
+  // 3. Обработчик отправки сообщения (WebSocket)
   const handleSend = (e) => {
     e.preventDefault();
 
-    if (newMessage.trim() === '') {
+    const trimmedMessage = newMessage.trim();
+    if (trimmedMessage === '' || connectionStatus !== 'connected') {
       return;
     }
 
@@ -116,17 +138,17 @@ function Messages() {
       return;
     }
 
-    const messageToSend = {
-      text: newMessage.trim(),
-    };
+    // Отправляем только текст, остальное добавляет сервер
+    const messageToSend = { text: trimmedMessage };
 
     console.log('📤 Отправляю сообщение:', messageToSend);
     chatSocket.current.send(JSON.stringify(messageToSend));
     setNewMessage('');
   };
 
-  const getStatusColor = () => {
-    switch (connectionStatus) {
+  // 4. Логика отображения
+  const getStatusColor = (status) => {
+    switch (status) {
       case 'connected':
         return '#4CAF50';
       case 'disconnected':
@@ -139,9 +161,8 @@ function Messages() {
         return '#9e9e9e';
     }
   };
-
-  const getStatusText = () => {
-    switch (connectionStatus) {
+  const getStatusText = (status) => {
+    switch (status) {
       case 'connected':
         return 'Подключено ✅';
       case 'disconnected':
@@ -155,10 +176,6 @@ function Messages() {
     }
   };
 
-  const handleReconnect = () => {
-    window.location.reload(); // Простой способ переподключения
-  };
-
   return (
     <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
       <h1>Чат ID: {CHAT_ID}</h1>
@@ -167,7 +184,7 @@ function Messages() {
       <div
         style={{
           padding: '10px',
-          backgroundColor: getStatusColor(),
+          backgroundColor: getStatusColor(connectionStatus),
           color: 'white',
           borderRadius: '5px',
           marginBottom: '10px',
@@ -178,14 +195,14 @@ function Messages() {
           alignItems: 'center',
         }}
       >
-        <span>Статус: {getStatusText()}</span>
+        <span>Статус: {getStatusText(connectionStatus)}</span>
         {connectionStatus !== 'connected' && (
           <button
-            onClick={handleReconnect}
+            onClick={() => window.location.reload()}
             style={{
               padding: '5px 10px',
               backgroundColor: 'white',
-              color: getStatusColor(),
+              color: getStatusColor(connectionStatus),
               border: 'none',
               borderRadius: '3px',
               cursor: 'pointer',
@@ -211,49 +228,56 @@ function Messages() {
           marginBottom: '10px',
         }}
       >
-        {messages.length === 0 ? (
-          <div
-            style={{
-              textAlign: 'center',
-              color: '#666',
-              marginTop: '50%',
-              transform: 'translateY(-50%)',
-            }}
-          >
-            {connectionStatus === 'connected' ? 'Нет сообщений. Начните общение!' : 'Загрузка...'}
+        {messages.length === 0 && connectionStatus === 'connected' ? (
+          <div style={{ textAlign: 'center', color: '#666', marginTop: '150px' }}>
+            Нет сообщений. Начните общение!
           </div>
         ) : (
-          messages.map((msg, index) => (
-            <div
-              key={msg.id || index}
-              style={{
-                alignSelf: msg.sender_id === 1 ? 'flex-end' : 'flex-start',
-                backgroundColor: msg.sender_id === 1 ? '#dcf8c6' : '#ffffff',
-                margin: '5px',
-                padding: '8px 12px',
-                borderRadius: '15px',
-                maxWidth: '80%',
-                border: '1px solid #e0e0e0',
-                boxShadow: '0 1px 2px rgba(0,0,0,0.1)',
-              }}
-            >
-              <div style={{ fontWeight: 'bold', fontSize: '12px', marginBottom: '2px' }}>
-                {msg.sender_username || `Пользователь ${msg.sender_id}`}
-              </div>
-              <div style={{ marginBottom: '5px', wordBreak: 'break-word' }}>{msg.text}</div>
+          messages.map((msg, index) => {
+            // КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: Используем msg.sender.id
+            const isMyMessage = msg.sender && msg.sender.id === currentUserId;
+
+            return (
               <div
+                key={msg.id || index}
                 style={{
-                  fontSize: '10px',
-                  textAlign: 'right',
-                  color: '#666',
-                  opacity: 0.7,
+                  alignSelf: isMyMessage ? 'flex-end' : 'flex-start',
+                  backgroundColor: isMyMessage ? '#dcf8c6' : '#ffffff',
+                  margin: '5px',
+                  padding: '8px 12px',
+                  borderRadius: '15px',
+                  maxWidth: '80%',
+                  border: '1px solid #e0e0e0',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.1)',
                 }}
               >
-                {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString() : 'только что'}
+                <div
+                  style={{
+                    fontWeight: 'bold',
+                    fontSize: '12px',
+                    marginBottom: '2px',
+                    color: isMyMessage ? '#075e54' : '#666',
+                  }}
+                >
+                  {/* Используем sender.username */}
+                  {msg.sender ? msg.sender.username : `Пользователь ${msg.sender_id}`}
+                </div>
+                <div style={{ marginBottom: '5px', wordBreak: 'break-word' }}>{msg.text}</div>
+                <div
+                  style={{
+                    fontSize: '10px',
+                    textAlign: 'right',
+                    color: '#666',
+                    opacity: 0.7,
+                  }}
+                >
+                  {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString() : 'только что'}
+                </div>
               </div>
-            </div>
-          ))
+            );
+          })
         )}
+        <div ref={messagesEndRef} /> {/* Якорь для скролла */}
       </div>
 
       {/* Форма отправки */}
@@ -278,11 +302,15 @@ function Messages() {
           type="submit"
           style={{
             padding: '10px 20px',
-            backgroundColor: connectionStatus === 'connected' ? '#4CAF50' : '#ccc',
+            backgroundColor:
+              connectionStatus === 'connected' && newMessage.trim() !== '' ? '#4CAF50' : '#ccc',
             color: 'white',
             border: 'none',
             borderRadius: '5px',
-            cursor: connectionStatus === 'connected' ? 'pointer' : 'not-allowed',
+            cursor:
+              connectionStatus === 'connected' && newMessage.trim() !== ''
+                ? 'pointer'
+                : 'not-allowed',
             fontSize: '14px',
             fontWeight: 'bold',
           }}
@@ -291,24 +319,6 @@ function Messages() {
           Отправить
         </button>
       </form>
-
-      {/* Отладочная информация */}
-      <div
-        style={{
-          marginTop: '10px',
-          fontSize: '12px',
-          color: '#666',
-          padding: '10px',
-          backgroundColor: '#f5f5f5',
-          borderRadius: '5px',
-        }}
-      >
-        <div>Сообщений: {messages.length}</div>
-        <div>Статус: {connectionStatus}</div>
-        <div>
-          Последнее сообщение: {messages.length > 0 ? messages[messages.length - 1].text : 'нет'}
-        </div>
-      </div>
     </div>
   );
 }
