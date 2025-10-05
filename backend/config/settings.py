@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'rest_framework',  # Django REST Framework for API development
     'rest_framework_simplejwt',  # JWT authentication
     'django_q', # таймер
+    'django_redis', # кэширование
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -86,6 +87,20 @@ CHANNEL_LAYERS = {
             "hosts": [('127.0.0.1', 6379)],  # Убедитесь, что Redis запущен на этом порту
         },
     },
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        # Используем тот же хост и порт, что и для Channels. 
+        # '/1' указывает на базу данных Redis под номером 1, чтобы отделить кэш от Channels (который обычно использует /0)
+        'LOCATION': 'redis://127.0.0.1:6379/1', 
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            # Установим таймаут по умолчанию на 1 час (3600 секунд)
+            'TIMEOUT': 3600, 
+        },
+    }
 }
 
 ROOT_URLCONF = 'backend.config.urls'
@@ -187,12 +202,33 @@ DISECHO_REDUCE_HOURS = 1       # Дизлайк поста уменьшает ж
 COMMENT_ECHO_EXTEND_HOURS = 10    # Лайк комментария продлевает жизнь на 10 часов
 COMMENT_DISECHO_REDUCE_HOURS = 10 # Дизлайк комментария уменьшает жизнь на 10 часов
 
+# валидатор пароля 
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        # Минимальная длина пароля - 6 символов
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 6,
+        }
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
 
 # --- КОНФИГУРАЦИЯ DJANGO-Q ---
 Q_CLUSTER = {
     'name': 'DjangOQ',
     'workers': 4, # Количество рабочих процессов
     'timeout': 90, # Таймаут задачи
+    'retry': 120,  # Повтор через 120 секунд, если задача не удалась
+
     'orm': 'default',
     'schedule': [
         # Наш "будильник" для спасения комментариев

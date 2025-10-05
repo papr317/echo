@@ -11,6 +11,7 @@ import {
   Tabs,
   Button,
   Space,
+  Modal,
 } from 'antd';
 import {
   UserOutlined,
@@ -20,12 +21,13 @@ import {
   WomanOutlined,
   CalendarOutlined,
   GlobalOutlined,
+  CreditCardOutlined,
+  LockOutlined,
 } from '@ant-design/icons';
 import axiosInstance from '../../api/axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 
-// Импортируем под-компоненты
 import UserPosts from './UserPosts';
 import UserComments from './UserComments';
 
@@ -38,6 +40,7 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [tabLoading, setTabLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
+  const [personalModal, setPersonalModal] = useState(false);
   const navigate = useNavigate();
 
   const fetchUserData = async () => {
@@ -67,7 +70,6 @@ const Profile = () => {
     }
   };
 
-  // Функция загрузки данных для вкладок (вызывается только при первом клике на вкладку)
   const fetchDataForTab = useCallback(
     async (key) => {
       setTabLoading(true);
@@ -96,7 +98,6 @@ const Profile = () => {
     [myPosts.length, myComments.length, setMyPosts, setMyComments, messageApi],
   );
 
-  // Обработчик смены вкладок: вызывает загрузку только если данные еще не загружены
   const handleTabChange = (key) => {
     fetchDataForTab(key);
   };
@@ -122,7 +123,30 @@ const Profile = () => {
   };
 
   const handlePersonalInfo = () => {
+    setPersonalModal(true);
+  };
+
+  const handleModalClose = () => {
+    setPersonalModal(false);
+  };
+
+  const handleChangePassword = () => {
+    setPersonalModal(false);
     navigate('/profile/change-password');
+  };
+
+  const handleChangeEmail = () => {
+    setPersonalModal(false);
+    messageApi.info('Изменение email будет доступно в следующей версии.');
+  };
+
+  const handleChangePhone = () => {
+    setPersonalModal(false);
+    messageApi.info('Изменение номера телефона будет доступно в следующей версии.');
+  };
+
+  const handleChangeCard = () => {
+    messageApi.warning('Изменение карты временно недоступно.');
   };
 
   if (loading) {
@@ -141,7 +165,6 @@ const Profile = () => {
     );
   }
 
-  // ✅ ОПРЕДЕЛЕНИЕ ВКЛАДОК ЧЕРЕЗ МАССИВ items
   const tabItems = [
     {
       key: '1',
@@ -160,7 +183,6 @@ const Profile = () => {
                 </div>
               </div>
             </Col>
-            {/* ... (Остальные детали пользователя, как в исходном коде) ... */}
             {userData.phone && (
               <Col span={24}>
                 <div className="detail-item">
@@ -258,7 +280,7 @@ const Profile = () => {
               style={{ backgroundColor: '#262626', color: '#fff', borderColor: '#434343' }}
               onClick={handlePersonalInfo}
             >
-              Личная информация
+              изменить личную информацию
             </Button>
           </Space>
         </div>
@@ -334,6 +356,49 @@ const Profile = () => {
           Выйти
         </Button>
       </Card>
+
+      <Modal
+        open={personalModal}
+        onCancel={handleModalClose}
+        footer={null}
+        title="Изменить личную информацию"
+        centered
+      >
+        <Space direction="vertical" style={{ width: '100%' }}>
+          <Button
+            icon={<MailOutlined />}
+            block
+            onClick={handleChangeEmail}
+            style={{ textAlign: 'left' }}
+          >
+            Сменить email
+          </Button>
+          <Button
+            icon={<PhoneOutlined />}
+            block
+            onClick={handleChangePhone}
+            style={{ textAlign: 'left' }}
+          >
+            Сменить номер телефона
+          </Button>
+          <Button
+            icon={<LockOutlined />}
+            block
+            onClick={handleChangePassword}
+            style={{ textAlign: 'left' }}
+          >
+            Сменить пароль
+          </Button>
+          <Button
+            icon={<CreditCardOutlined />}
+            block
+            onClick={handleChangeCard}
+            style={{ textAlign: 'left' }}
+          >
+            Привязать/сменить карту
+          </Button>
+        </Space>
+      </Modal>
     </div>
   );
 };

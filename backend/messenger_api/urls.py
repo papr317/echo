@@ -1,7 +1,16 @@
 from django.urls import path
-from .views import ChatListView, MessageListView, MemberManagementViewSet 
+from rest_framework.routers import DefaultRouter
 
-app_name = 'messenger_api' 
+from .views import ChatListView, MessageListView, MemberManagementViewSet, FriendshipViewSet, UserSearchView, search_users
+
+app_name = 'messenger_api'
+
+
+router = DefaultRouter()
+# 1. Friendship ViewSet
+router.register(r'friends', FriendshipViewSet, basename='friendship')
+
+
 
 urlpatterns = [
     # Список чатов
@@ -26,4 +35,13 @@ urlpatterns = [
     path('chats/<int:pk>/admin/remove/', 
          MemberManagementViewSet.as_view({'post': 'remove_admin'}), 
          name='chat-admin-remove'),
+         
+      # Добавление нескольких участников сразу
+    path('chats/<int:pk>/members/add-multiple/', 
+         MemberManagementViewSet.as_view({'post': 'add_multiple_members'}), 
+         name='chat-members-add-multiple'),
+         
+    path('users/search/', 
+         search_users, 
+         name='users-search'),
 ]

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef, memo } from 'react';
-import { Input, Button, Typography, message, Spin } from 'antd';
+import { Input, Button, Typography, message, Spin, Avatar } from 'antd';
 import {
   MessageFilled,
   SendOutlined,
@@ -115,9 +115,16 @@ const CommentCard = memo(({ comment, userAction, onAction, onReply }) => {
   return (
     <div className={`comment-card-inline ${expired ? 'expired' : ''} ${isReply ? 'is-reply' : ''}`}>
       <div className="comment-header-inline">
-        <div className="avatar-small">
-          {comment.author_details?.username.charAt(0).toUpperCase()}
-        </div>
+        <Avatar
+          size={32}
+          src={comment.author_details?.avatar}
+          icon={
+            !comment.author_details?.avatar && comment.author_details?.username
+              ? comment.author_details.username.charAt(0).toUpperCase()
+              : undefined
+          }
+          style={{ backgroundColor: '#434343', color: '#fff', marginRight: 8 }}
+        />
         <Typography.Text strong className="comment-author-inline">
           {comment.author_details?.username}
         </Typography.Text>
@@ -323,7 +330,6 @@ const CommentsSection = ({ postId, postExpired, initialCommentCount }) => {
 
       {isExpanded && (
         <div className="comments-section-inline">
-          
           {/* Блок ответа */}
           {replyTo && (
             <div className="comment-reply-to-bar">

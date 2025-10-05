@@ -1,0 +1,217 @@
+/* src/styles/MessengerPage.css */
+
+/* Основной контейнер, имитирующий разделение */
+.messenger-page-container {
+  display: flex;
+  height: calc(100vh - 80px);
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  margin-left: 180px;
+}
+
+/* Вертикальная разбивка на 2 зоны */
+.column-layout {
+  flex-direction: column;
+}
+
+.top-messages-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 55%;
+  background-color: #333;
+}
+
+.bottom-chats-area {
+  flex: 0 0 45%;
+  min-height: 260px;
+  background-color: #2b2b2b;
+  border-top: 1px solid #555;
+  overflow: hidden;
+}
+
+/* --- ЛЕВАЯ КОЛОНКА (СПИСОК ЧАТОВ) --- */
+
+.chat-list-panel {
+  width: 300px;
+  /* Фиксированная ширина */
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #555;
+  /* Разделитель */
+  background-color: #2b2b2b;
+  /* Цвет, отличающийся от основного фона */
+  flex-shrink: 0;
+}
+
+.chat-list-header {
+  padding: 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-bottom: 1px solid #555;
+  text-align: center;
+}
+
+.chat-list-footer {
+  padding: 10px 15px;
+  border-top: 1px solid #555;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.9em;
+  color: #888;
+  transition: color 0.2s;
+}
+
+.chat-list-footer:hover {
+  color: #fff;
+  background-color: #3e3e3e;
+}
+
+/* --- ПРАВАЯ КОЛОНКА (СООБЩЕНИЯ) --- */
+
+/* messages-panel больше не используется в новой разбивке */
+
+/* "ГОЛОВА" - Заголовок чата */
+.messages-header {
+  padding: 15px 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-bottom: 1px solid #555;
+  background-color: #2b2b2b;
+  /* Темнее, как в макете */
+  /* Стиль для аватара и имени */
+  display: flex;
+  align-items: center;
+  /* Можете добавить здесь место для аватара */
+}
+
+.chat-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #444;
+}
+
+.chat-avatar.placeholder {
+  border: 2px solid #666;
+}
+
+.chat-title {
+  font-weight: 600;
+}
+
+/* Заглушка, если чат не выбран */
+.messages-placeholder {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  color: #888;
+}
+
+/* Состояние загрузки */
+.loading-state {
+  padding: 20px;
+  text-align: center;
+  color: #888;
+}
+
+/* --- Стили для компонента Messages (для соответствия вашему UI) --- */
+
+/* Контейнер сообщений в Messages.js */
+.messages-window {
+  flex-grow: 1;
+  padding: 12px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Две горизонтальные ленты */
+.lane {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.lane-top {
+  justify-content: flex-start;
+}
+
+.lane-bottom {
+  justify-content: flex-end;
+}
+
+.lane-separator {
+  height: 1px;
+  background-color: #555;
+}
+
+/* Стиль для отдельного сообщения (мой/другого) */
+.message-bubble {
+  max-width: 45%;
+  padding: 8px 12px;
+  border-radius: 15px;
+  word-wrap: break-word;
+  border: 1px solid #4a4a4a;
+}
+
+.message-mine {
+  background-color: #1f1f1f;
+  color: #e8e8e8;
+  border-bottom-right-radius: 0;
+  outline: 1px solid #1f7a1f;
+  /* зеленый акцент */
+}
+
+.message-other {
+  background-color: #3a3a3a;
+  color: #f1f1f1;
+  border-bottom-left-radius: 0;
+  outline: 1px solid #7a1f1f;
+  /* красный акцент */
+}
+
+/* Поле ввода сообщения и кнопка отправки */
+.message-input-form {
+  display: flex;
+  padding: 15px 20px;
+  border-top: 1px solid #555;
+  background-color: #2b2b2b;
+}
+
+.message-input-form input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #666;
+  border-radius: 20px;
+  margin-right: 10px;
+  background-color: #444;
+  color: #fff;
+}
+
+.message-input-form button {
+  padding: 10px 20px;
+  background-color: #1f7a1f;
+  /* зеленый акцент */
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.message-input-form button:hover {
+  background-color: #2b9b2b;
+}

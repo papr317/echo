@@ -8,6 +8,8 @@ import {
   PhoneOutlined,
   GoogleOutlined,
   AppleOutlined,
+  EyeInvisibleOutlined,
+  EyeTwoTone,
 } from '@ant-design/icons';
 import './LoginForm.css';
 
@@ -19,6 +21,7 @@ const LoginForm = () => {
   });
   const [loginMethod, setLoginMethod] = useState('email');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -34,7 +37,6 @@ const LoginForm = () => {
     setLoading(true);
 
     try {
-      // Отправляем простой JSON объект
       const response = await axiosInstance.post(
         'http://127.0.0.1:8000/users_api/login/',
         {
@@ -43,40 +45,26 @@ const LoginForm = () => {
         },
         {
           headers: {
-            'Content-Type': 'application/json', // Явно указываем JSON
+            'Content-Type': 'application/json',
           },
         },
       );
 
-      console.log('Успешный вход:', response.data);
-
-      // Сохраняем токены и данные пользователя
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
       localStorage.setItem('userData', JSON.stringify(response.data.user));
 
-      // Показываем успешное сообщение
       messageApi.success('Вход выполнен успешно!');
-
-      // Переходим на главную страницу
       navigate('/');
     } catch (err) {
-      console.error('Ошибка входа:', err);
-
-      // Обрабатываем разные типы ошибок
       let errorMessage = 'Произошла ошибка при входе';
-
       if (err.response) {
-        // Ошибка от сервера (4xx, 5xx)
         errorMessage = err.response.data?.error || 'Неверные учетные данные';
       } else if (err.request) {
-        // Ошибка сети (нет ответа от сервера)
         errorMessage = 'Нет соединения с сервером';
       } else {
-        // Другие ошибки
         errorMessage = err.message;
       }
-
       messageApi.error(errorMessage);
     } finally {
       setLoading(false);
@@ -110,16 +98,18 @@ const LoginForm = () => {
   return (
     <div className="login-page">
       {contextHolder}
-
       <form className="login-form" onSubmit={handleSubmit}>
-        <img src="/logo_2.png" alt="Echo Logo" className="form-logo" />
-
-        {/* Селектор метода входа */}
+        <div className="form-header">
+          <img src="/logo_2.png" alt="Echo Logo" className="form-logo" />
+          <h2>Вход</h2>
+        </div>
         <div className="login-method-selector">
           <button
             type="button"
             className={`method-button ${loginMethod === 'email' ? 'active' : ''}`}
             onClick={() => setLoginMethod('email')}
+            tabIndex={0}
+            aria-label="Вход по email"
           >
             <MailOutlined />
           </button>
@@ -127,6 +117,8 @@ const LoginForm = () => {
             type="button"
             className={`method-button ${loginMethod === 'username' ? 'active' : ''}`}
             onClick={() => setLoginMethod('username')}
+            tabIndex={0}
+            aria-label="Вход по никнейму"
           >
             <UserOutlined />
           </button>
@@ -134,42 +126,49 @@ const LoginForm = () => {
             type="button"
             className={`method-button ${loginMethod === 'phone' ? 'active' : ''}`}
             onClick={() => setLoginMethod('phone')}
+            tabIndex={0}
+            aria-label="Вход по телефону"
           >
             <PhoneOutlined />
           </button>
         </div>
-
-        {/* Поле для ввода (email/username/phone) */}
-        <input
-          name="credential"
-          type={getInputType()}
-          placeholder={getPlaceholderText()}
-          required
-          onChange={handleChange}
-          value={credentials.credential}
-          disabled={loading}
-        />
-
-        {/* Поле для пароля */}
-        <input
-          name="password"
-          type="password"
-          placeholder="Пароль"
-          required
-          onChange={handleChange}
-          value={credentials.password}
-          disabled={loading}
-        />
-
-        {/* Кнопка входа */}
+        <div className="input-group">
+          <input
+            name="credential"
+            type={getInputType()}
+            placeholder={getPlaceholderText()}
+            required
+            onChange={handleChange}
+            value={credentials.credential}
+            disabled={loading}
+            autoComplete="username"
+          />
+        </div>
+        <div className="input-group password-group">
+          <input
+            name="password"
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Пароль"
+            required
+            onChange={handleChange}
+            value={credentials.password}
+            disabled={loading}
+            autoComplete="current-password"
+          />
+          <span
+            className="input-icon password-eye"
+            onClick={() => setShowPassword((v) => !v)}
+            tabIndex={0}
+            role="button"
+            aria-label={showPassword ? 'Скрыть пароль' : 'Показать пароль'}
+          >
+            {showPassword ? <EyeTwoTone /> : <EyeInvisibleOutlined />}
+          </span>
+        </div>
         <button type="submit" className="main-button" disabled={loading}>
           {loading ? 'Вход...' : 'Войти'}
         </button>
-
-        {/* Разделитель */}
         <div className="divider">или</div>
-
-        {/* Кнопки соцсетей */}
         <Space className="social-login-buttons-compact" size="middle">
           <Button
             type="default"
@@ -190,8 +189,6 @@ const LoginForm = () => {
             disabled={loading}
           />
         </Space>
-
-        {/* Ссылка на регистрацию */}
         <div className="register-options">
           <p>Нет аккаунта?</p>
           <div className="register-options-vertical">

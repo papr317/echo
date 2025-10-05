@@ -65,23 +65,29 @@ class CommentSerializer(serializers.ModelSerializer):
         parent_comment_id = validated_data.pop('parent_comment_id', None)
         return super().create(validated_data)
 
-
 class PostSerializer(serializers.ModelSerializer):
     author_details = UserSerializer(source='author', read_only=True)
     is_expired = serializers.ReadOnlyField()
     comments_count = serializers.SerializerMethodField()
     
+    image = serializers.ImageField(required=False, allow_null=True) 
+    
     class Meta:
         model = Post
-        fields = ['id', 'author', 'author_details', 'content', 'image', 
-                  'created_at', 'expires_at', 'is_expired', 
-                  'echo_count', 'disecho_count', 'comments_count', 'is_floating']
-        read_only_fields = ['author', 'created_at', 'expires_at', 
-                            'echo_count', 'disecho_count', 'is_floating', 'is_expired']
+        fields = [
+            'id', 'author', 'author_details', 'content', 'image', 
+            'created_at', 'expires_at', 'is_expired', 
+            'echo_count', 'disecho_count', 'comments_count', 'is_floating', 
+            'updated_at' 
+        ]
+        read_only_fields = [
+            'author', 'created_at', 'expires_at', 'is_expired',
+            'echo_count', 'disecho_count', 'is_floating', 'updated_at'
+        ]
     
     def get_comments_count(self, obj):
         return obj.comments.filter(is_floating=False).count()
-        
+
 class EchoSerializer(serializers.ModelSerializer):
     user_details = UserSerializer(source='user', read_only=True)
     

@@ -1,4 +1,3 @@
-# mongo_models.py
 from pymongo import MongoClient, ASCENDING, DESCENDING
 from django.conf import settings
 from datetime import datetime
@@ -102,7 +101,6 @@ class MongoMessage:
         
         messages_list = list(cursor)
         
-        # Форматируем ObjectId в строку 'id' для удобства DRF
         for msg in messages_list:
              msg['id'] = str(msg.pop('_id'))
              

@@ -7,8 +7,10 @@ import ChangePassword from './pages/profile/ChangePassword';
 
 import Home from './pages/Home';
 import Search from './pages/Search';
+
 import Friends from './pages/Friends';
-import Messages from './pages/Messages';
+import Messages from './pages/MessengerPage'; // Обновлено для использования MessengerPage
+
 import ExplorePlan from './pages/ExplorePlan';
 import Support from './pages/Support';
 

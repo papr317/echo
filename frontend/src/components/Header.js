@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Avatar, Modal } from 'antd'; // Import Modal
+import { Avatar, Modal } from 'antd';
 import { UserOutlined, BellOutlined } from '@ant-design/icons'; // Import BellOutlined
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
@@ -77,18 +77,19 @@ const AppHeader = () => {
       </a>
 
       <div className="header-icons">
-        {/* Notifications Icon */}
+        {/* уведомления */}
         <BellOutlined
           className="header-icon"
           onClick={handleShowModal}
           style={{ cursor: 'pointer', fontSize: '24px', marginRight: '20px' }} // Stylize the icon
         />
 
-        {/* User Avatar */}
+        {/* аватарка */}
         <Avatar
           size="large"
           icon={<UserOutlined />}
-          src={userData?.avatar_url || undefined}
+          src={userData?.avatar}
+
           onClick={handleAvatarClick}
           style={
             !userData?.avatar_url
@@ -98,7 +99,7 @@ const AppHeader = () => {
         />
       </div>
 
-      {/* The Modal Component */}
+      {/* модалка уведомлений */}
       <NotificationsModal isModalOpen={isModalOpen} handleCloseModal={handleCloseModal} />
     </div>
   );

@@ -1,23 +1,25 @@
-#!/bin/bash
-
 # КОМАНДА ЗАПУСКА ВСЕХ КОМПОНЕНТОВ ПРОЕКТА
 # ./deploy.sh
 
 # Устанавливаем переменные окружения для бэкенда
 export DJANGO_SETTINGS_MODULE=backend.config.settings
 
+# # запуск (venv)
+# ./ venv/bin/activate
+# echo " Виртуальное окружение активировано."
+
 # --- 1. ЗАПУСК DAPHNE (ASGI/Channels) на 8001 ---
-echo "▶️ Запускаем Daphne (Channels) на порту 8001..."
+echo " Запускаем Daphne (Channels) на порту 8001..."
 python manage.py runserver 8001 &
 DAPHNE_PID=$!
 
 # --- 2. ЗАПУСК RUNSERVER (REST API) на 8000 ---
-echo "▶️ Запускаем Django Runserver (REST API) на порту 8000..."
+echo " Запускаем Django Runserver (REST API) на порту 8000..."
 python manage.py runserver 8000 &
 RUNSERVER_PID=$!
 
 # --- 3. ЗАПУСК ФРОНТЕНДА (npm start) ---
-echo "▶️ Запускаем фронтенд (npm start)..."
+echo " Запускаем фронтенд (npm start)..."
 # Переходим в папку frontend и запускаем npm start
 (cd frontend && npm start) & 
 FRONTEND_PID=$!
@@ -25,7 +27,7 @@ FRONTEND_PID=$!
 # чтобы скрипт мог продолжить.
 
 echo ""
-echo "✅ ВСЕ КОМПОНЕНТЫ ЗАПУЩЕНЫ:"
+echo " ВСЕ КОМПОНЕНТЫ ЗАПУЩЕНЫ:"
 echo "   - REST API:   http://127.0.0.1:8000/ (PID: $RUNSERVER_PID)"
 echo "   - CHANNELS:   http://127.0.0.1:8001/ (PID: $DAPHNE_PID)"
 echo "   - FRONTEND:   (3000, PID: $FRONTEND_PID)"

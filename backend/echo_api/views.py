@@ -74,7 +74,6 @@ class FloatingCommentListView(generics.ListAPIView):
         ).order_by('-created_at')
 
 # -------------------- My Views (для профиля) --------------------
-
 class MyPostListView(generics.ListAPIView):
     """Список всех постов, созданных текущим пользователем (даже если они истекли)."""
     serializer_class = PostSerializer
@@ -164,7 +163,6 @@ class CommentListView(generics.ListCreateAPIView):
             except Comment.DoesNotExist:
                 raise APIException({"error": "Родительский комментарий не найден или не принадлежит этому посту"}, code=status.HTTP_400_BAD_REQUEST)
             
-            # ✅ Блокируем ответы на плавающие комментарии
             if parent_comment.is_floating:
                 raise APIException({"error": "Нельзя ответить на плавающий комментарий."}, code=status.HTTP_400_BAD_REQUEST)
 
@@ -282,6 +280,6 @@ class EchoToggleView(APIView):
                     content_object.disecho_count += 1
                     content_object.expires_at -= disecho_delta 
                         
-            content_object.save(update_fields=['echo_count', 'disecho_count', 'expires_at'])
+            content_object.save(update_fields=['echo_count', 'disecho_count', 'expires_at', 'updated_at'])
 
             return Response(Serializer(content_object).data, status=status.HTTP_200_OK)

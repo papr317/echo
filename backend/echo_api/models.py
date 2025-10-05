@@ -12,6 +12,7 @@ class Post(models.Model):
     content = models.TextField(max_length=500)
     image = models.ImageField(upload_to='posts/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True) 
     expires_at = models.DateTimeField() 
     echo_count = models.IntegerField(default=0)      
     disecho_count = models.IntegerField(default=0)

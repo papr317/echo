@@ -4,31 +4,41 @@ body {
 }
 
 .login-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  padding: 20px;
-  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f7f8fa 100%);
 }
 
 .login-form {
   background: #fff;
-  padding: 40px;
-  max-width: 400px;
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.10);
+  padding: 38px 34px 26px 34px;
+  width: 370px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
+  position: relative;
+}
+
+.form-header {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .form-logo {
-  width: 100px;
-  margin: 0 auto 20px;
+  width: 72px;
+  margin: 0 auto 10px auto;
+  display: block;
+}
+
+.form-header h2 {
+  margin: 0;
+  font-weight: 700;
+  color: #2d3a4a;
+  font-size: 1.5rem;
 }
 
 input {
@@ -44,18 +54,15 @@ input:focus {
   border-color: #333;
 }
 
-/* Изменения здесь: установим белый цвет текста */
 .main-button {
   padding: 12px;
-  background: #000;
   color: #fff;
-  /* Теперь текст на кнопке будет белым */
   border: none;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 500;
   border-radius: 8px;
   font-size: 16px;
-  transition: background-color 0.3s;
+  transition: background 0.2s;
   width: 100%;
 }
 
@@ -64,10 +71,7 @@ input:focus {
 }
 
 .register-options {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
+  text-align: center;
   margin-top: 10px;
 }
 
@@ -80,71 +84,96 @@ input:focus {
 }
 
 .link-button {
-  background: none;
   border: none;
   color: #ffffff !important;
-  font-weight: bold;
+  font-size: 15px;
   cursor: pointer;
-  text-decoration: none;
-  padding: 0;
-  font-size: 14px;
+  text-decoration: underline;
+  margin-left: 4px;
 }
 
 .link-button:hover {
-  color: #000 !important;
+  color: #000000;
 }
 
 .login-method-selector {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .method-button {
-  background: #f0f0f0;
-  color: #888;
-  border: 1px solid #ddd;
+  background: #f3f4f6;
+  border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 38px;
+  height: 38px;
   font-size: 18px;
+  color: #888;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.method-button.active {
-  background: #000;
+.method-button.active,
+.method-button:hover {
+  background: #000000;
   color: #fff;
-  border-color: #000;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.input-group input[type="password"],
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="tel"] {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 15px;
+  padding: 6px 0;
+}
+
+.password-group .password-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 0;
+  z-index: 2;
+  cursor: pointer;
+  color: #bfbfbf;
 }
 
 .divider {
-  display: flex;
-  align-items: center;
   text-align: center;
-  color: #888;
-  font-size: 14px;
-  margin: 16px 0;
-  width: 100%;
+  color: #bfbfbf;
+  margin: 12px 0;
+  font-size: 13px;
+  position: relative;
 }
 
-.divider::before,
-.divider::after {
+.divider:before,
+.divider:after {
   content: '';
-  flex: 1;
-  border-bottom: 1px solid #ddd;
-}
-
-.divider:not(:empty)::before {
-  margin-right: 1em;
-}
-
-.divider:not(:empty)::after {
-  margin-left: 1em;
+  display: inline-block;
+  width: 40%;
+  height: 1px;
+  background: #e5e7eb;
+  vertical-align: middle;
+  margin: 0 8px;
 }
 
 .social-login-buttons-compact {
@@ -153,17 +182,23 @@ input:focus {
   gap: 10px;
   width: 100%;
 }
-.ant-space-item:hover{
+
+.ant-space-item:hover {
   color: rgb(255, 255, 255) !important;
   border-radius: 0% !important;
 }
 
 .social-login-buttons-compact .ant-btn {
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
   font-size: 18px;
+  background: #f3f4f6;
+  border: none;
+  transition: background 0.2s;
+}
+
+.social-login-buttons-compact .ant-btn:hover {
+  background: #e0e7ff;
 }

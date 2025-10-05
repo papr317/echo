@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import check_password
-from django.db.models import Q # Импортируем Q для сложных запросов
+from django.db.models import Q
 
 from .models import CustomUser
 from .serializers import RegisterSerializer, UserSerializer

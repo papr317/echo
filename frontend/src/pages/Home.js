@@ -1,23 +1,20 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axiosInstance from '../api/axiosInstance';
 import CommentsSection from '../components/CommentsSection';
-// ✅ Добавлен Modal и QuestionCircleOutlined
-import { Progress, Typography, message, Spin, Modal } from 'antd';
+import { Progress, Typography, message, Spin, Modal, Avatar } from 'antd';
 import {
   SoundOutlined,
   SoundFilled,
   MutedOutlined,
   MutedFilled,
-  QuestionCircleOutlined, // ✅ Иконка вопросительного знака
+  QuestionCircleOutlined,
 } from '@ant-design/icons';
 import './Home.css';
 
-// Компонент PostLifeBar (без изменений)
 const PostLifeBar = ({ expiresAt }) => {
   const calculateProgress = useCallback(() => {
     const now = new Date();
     const expires = new Date(expiresAt);
-    // Предполагаем, что максимальная продолжительность жизни поста (или коммента) 24 часа для прогресс бара.
     const totalDuration = 24 * 60 * 60 * 1000;
     const remainingTime = expires.getTime() - now.getTime();
 
@@ -95,8 +92,6 @@ const PostLifeBar = ({ expiresAt }) => {
   );
 };
 
-// ====================================================================
-
 function Home() {
   const [posts, setPosts] = useState([]);
   const [floatingComments, setFloatingComments] = useState([]);
@@ -105,7 +100,6 @@ function Home() {
   const [updatingPosts, setUpdatingPosts] = useState(new Set());
   const [userActions, setUserActions] = useState({});
 
-  // ✅ НОВОЕ СОСТОЯНИЕ для модального окна
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -120,11 +114,11 @@ function Home() {
     setIsModalVisible(false);
   };
 
-  // 1. Загрузка постов (без изменений)
   const fetchPosts = useCallback(async () => {
     try {
       const response = await axiosInstance.get('/echo_api/feed/posts/');
-      setPosts(response.data);
+      // Создаём новый массив с новыми объектами
+      setPosts(response.data.map((post) => ({ ...post })));
       setLoading(false);
     } catch (err) {
       console.error('Ошибка при получении постов:', err);
@@ -133,7 +127,6 @@ function Home() {
     }
   }, []);
 
-  // 2. Загрузка действий пользователя (Echo/DisEcho) (без изменений)
   const fetchUserEchos = useCallback(async () => {
     try {
       const response = await axiosInstance.get('/echo_api/my/echos/');
@@ -152,7 +145,6 @@ function Home() {
     }
   }, []);
 
-  // 3. Загрузка плавающих комментариев (без изменений)
   const fetchFloatingComments = useCallback(async () => {
     try {
       const response = await axiosInstance.get('/echo_api/feed/floating/');
@@ -162,7 +154,6 @@ function Home() {
     }
   }, []);
 
-  // 4. useEffect для запуска и интервалов (без изменений, кроме зависимостей)
   useEffect(() => {
     fetchPosts();
     fetchUserEchos();
@@ -179,7 +170,15 @@ function Home() {
     };
   }, [fetchPosts, fetchUserEchos, fetchFloatingComments]);
 
-  // Обработка действия (Лайк/Дизлайк) - без изменений
+  // После первого рендера обновить посты через 1.5 секунды
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      fetchPosts();
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [fetchPosts]);
+
+  // Обработка действия (Лайк/Дизлайк)
   const handleAction = async (postId, actionType) => {
     if (updatingPosts.has(postId)) return;
 
@@ -253,7 +252,16 @@ function Home() {
       <div key={comment.id} className="floating-comment-card post-card">
         <div className="post-header">
           <div className="author-info">
-            <div className="avatar">{comment.author_details?.username.charAt(0).toUpperCase()}</div>
+            <Avatar
+              size={32}
+              src={comment.author_details?.avatar}
+              icon={
+                !comment.author_details?.avatar && comment.author_details?.username
+                  ? comment.author_details.username.charAt(0).toUpperCase()
+                  : undefined
+              }
+              style={{ backgroundColor: '#434343', color: '#fff', marginRight: 8 }}
+            />
             <Typography.Text strong>{comment.author_details?.username}</Typography.Text>
           </div>
         </div>
@@ -305,12 +313,19 @@ function Home() {
             const userAction = userActions[post.id];
 
             return (
-              <div key={post.id} className="post-card">
+              <div key={post.id + '-' + post.echo_count} className="post-card">
                 <div className="post-header">
                   <div className="author-info">
-                    <div className="avatar">
-                      {post.author_details?.username.charAt(0).toUpperCase()}
-                    </div>
+                    <Avatar
+                      size={40}
+                      src={post.author_details?.avatar}
+                      icon={
+                        !post.author_details?.avatar && post.author_details?.username
+                          ? post.author_details.username.charAt(0).toUpperCase()
+                          : undefined
+                      }
+                      style={{ backgroundColor: '#434343', color: '#fff', marginRight: 8 }}
+                    />
                     <p>{post.author_details?.username}</p>
                   </div>
                 </div>
@@ -318,13 +333,12 @@ function Home() {
                 {post.image ? (
                   <img
                     src={`http://127.0.0.1:8000${post.image}`}
-                    alt="Содержимое поста"
+                    alt="Post"
                     className="post-image"
                   />
                 ) : (
                   <div className="post-image-placeholder">Содержимое поста</div>
                 )}
-
                 <p className="post-content">{post.content}</p>
                 <PostLifeBar expiresAt={post.expires_at} />
 
@@ -372,10 +386,7 @@ function Home() {
       </div>
 
       <div className="floating-comments">
-        <Typography.Title
-          level={5}
-
-        >
+        <Typography.Title level={5}>
           Плавучие комментарии {floatingComments.length}
           <QuestionCircleOutlined
             onClick={showModal}
@@ -416,14 +427,12 @@ function Home() {
           </li>
           <li>
             **Взаимодействие:** На плавучие комментарии **нельзя** ставить Echo/DisEcho и **нельзя**
-            на них отвечать. Они существуют как "память" о посте без контекста , пока не истечет их собственное
-            время.
+            на них отвечать. Они существуют как "память" о посте без контекста , пока не истечет их
+            собственное время.
           </li>
         </ul>
         <div style={{ textAlign: 'right', marginTop: '20px' }}>
-          <button className="modal-ok-button"
-            onClick={handleOk}
-          >
+          <button className="modal-ok-button" onClick={handleOk}>
             Понятно
           </button>
         </div>

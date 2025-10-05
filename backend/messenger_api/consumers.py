@@ -41,8 +41,6 @@ def save_message_and_get_data(chat_id, text, user):
     serializer = MessageSerializer(data=data, context=context)
     
     if serializer.is_valid(raise_exception=True):
-        # 🚨 ИСПРАВЛЕНИЕ: Вызываем .save() БЕЗ ДОПОЛНИТЕЛЬНЫХ АРГУМЕНТОВ.
-        # Serializer сам возьмет chat_id и sender_id из context.
         serializer.save() 
         
         # 4. Возвращаем сериализованные данные для рассылки

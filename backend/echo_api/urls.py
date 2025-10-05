@@ -4,10 +4,10 @@ from . import views
 urlpatterns = [
     # -------------------- ЛИЧНЫЕ ОБЪЕКТЫ (для профиля) --------------------
     
-    # GET: Список всех своих постов ✅ НОВЫЙ МАРШРУТ
+    # GET: Список всех своих постов
     path('my/posts/', views.MyPostListView.as_view(), name='my_post_list'),
     
-    # GET: Список всех своих активных комментариев ✅ НОВЫЙ МАРШРУТ
+    # GET: Список всех своих активных комментариев
     path('my/comments/active/', views.MyCommentListActiveView.as_view(), name='my_comment_list_active'),
     
     # GET: Детали своего поста

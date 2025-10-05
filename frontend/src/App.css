@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: auto;
   font-family: sans-serif;
   background: #f0f2f5;
 }
@@ -21,3 +21,8 @@ body {
   background: #fafafa;
 }
 
+.ant-layout-content {
+  padding: 0 !important;
+  flex: 1 1 0% !important;
+  transition: 0.3s !important;
+}
