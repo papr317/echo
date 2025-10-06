@@ -7,7 +7,6 @@
   width: 100%;
   background-color: #fff;
   color: #000;
-  margin-left: 180px;
 }
 
 /* Вертикальная разбивка на 2 зоны */
@@ -35,14 +34,14 @@
 
 .chat-list-panel {
   width: 300px;
-  /* Фиксированная ширина */
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #555;
-  /* Разделитель */
-  background-color: #2b2b2b;
-  /* Цвет, отличающийся от основного фона */
+  border-right: 1px solid #eee;
+  background-color: #fafbfc;
   flex-shrink: 0;
+  padding: 0 0 60px 0;
+  /* место для навигации снизу */
+  overflow-y: auto;
 }
 
 .chat-list-header {
@@ -68,24 +67,85 @@
   background-color: #3e3e3e;
 }
 
+.chats-list-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.chat-list-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+  border: 1px solid #e0e0e0;
+}
+
+.chat-list-item.selected,
+.chat-list-item:hover {
+  background: #e6f2ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-color: #b3d8ff;
+}
+
 /* --- ПРАВАЯ КОЛОНКА (СООБЩЕНИЯ) --- */
 
 /* messages-panel больше не используется в новой разбивке */
 
 /* "ГОЛОВА" - Заголовок чата */
 .messages-header {
+  flex: 0 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #fff;
+  /* Белый фон */
+  border-bottom: 1px solid #ddd;
   padding: 15px 20px;
-  font-size: 1.2em;
-  font-weight: bold;
-  border-bottom: 1px solid #555;
-  background-color: #2b2b2b;
-  /* Темнее, как в макете */
-  /* Стиль для аватара и имени */
   display: flex;
   align-items: center;
-  /* Можете добавить здесь место для аватара */
+  color: #222;
 }
 
+/* Контейнер для всего окна сообщений */
+.messages-area-fixed-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+  position: relative;
+  background: #333;
+}
+
+/* Лента сообщений занимает максимум пространства */
+.messages-window {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 12px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  min-height: 0;
+  background: #333;
+}
+
+/* Форма ввода закреплена снизу */
+.message-input-form {
+  flex: 0 0 auto;
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background-color: #2b2b2b;
+  border-top: 1px solid #555;
+  padding: 15px 20px;
+}
+
+/* Стиль для аватара и имени */
 .chat-header-left {
   display: flex;
   align-items: center;
@@ -126,15 +186,6 @@
 
 /* --- Стили для компонента Messages (для соответствия вашему UI) --- */
 
-/* Контейнер сообщений в Messages.js */
-.messages-window {
-  flex-grow: 1;
-  padding: 12px 20px 0 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
 /* Две горизонтальные ленты */
 .lane {
   display: flex;
@@ -160,37 +211,35 @@
 
 /* Стиль для отдельного сообщения (мой/другого) */
 .message-bubble {
-  max-width: 45%;
+  max-width: 70%;
+  min-width: 60px;
+  max-height: 50px;
+  /* Ограничение по высоте */
+  overflow-y: auto;
   padding: 8px 12px;
   border-radius: 15px;
   word-wrap: break-word;
-  border: 1px solid #4a4a4a;
+  border: 1px solid #e0e0e0;
+  background: #f8f8f8;
+  color: #222;
+  font-size: 15px;
 }
 
 .message-mine {
-  background-color: #1f1f1f;
-  color: #e8e8e8;
+  background-color: #e6f2ff;
+  color: #222;
   border-bottom-right-radius: 0;
-  outline: 1px solid #1f7a1f;
-  /* зеленый акцент */
+  outline: none;
 }
 
 .message-other {
-  background-color: #3a3a3a;
-  color: #f1f1f1;
+  background-color: #f1f1f1;
+  color: #222;
   border-bottom-left-radius: 0;
-  outline: 1px solid #7a1f1f;
-  /* красный акцент */
+  outline: none;
 }
 
 /* Поле ввода сообщения и кнопка отправки */
-.message-input-form {
-  display: flex;
-  padding: 15px 20px;
-  border-top: 1px solid #555;
-  background-color: #2b2b2b;
-}
-
 .message-input-form input {
   flex-grow: 1;
   padding: 10px;
@@ -215,3 +264,45 @@
 .message-input-form button:hover {
   background-color: #2b9b2b;
 }
+/* 
+
+.bottom-navigation {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  background: #fff;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 10px 0;
+  z-index: 10;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 16px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: #e6f2ff;
+  color: #0056b3;
+}
+
+.nav-btn-create {
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.nav-btn-create:hover {
+  background: #0056b3;
+} */

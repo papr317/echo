@@ -73,6 +73,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
         # Аутентификация
         self.user = self.scope.get("user", AnonymousUser())
         if not self.user.is_authenticated:
+            print("--- CONSUMER: User not authenticated, closing connection ---")
+
             await self.authenticate_via_token()
         
         # Получаем ID чата из URL

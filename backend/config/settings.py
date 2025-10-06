@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     
     'backend.users_api',
     'backend.echo_api',
+    'backend.friends_api',
     'backend.messenger_api',
     # 'subscription_api', # подписки на пользователей
 ]

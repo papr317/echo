@@ -1,6 +1,6 @@
-// src/components/Messages.js
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+// 💡 Используем иконки из Ant Design
+import { PaperClipOutlined, PictureOutlined } from '@ant-design/icons';
 
 const API_BASE_URL = 'http://127.0.0.1:8000/messenger_api';
 
@@ -9,9 +9,6 @@ const getAuthToken = () => localStorage.getItem('access_token');
 
 /**
  * Компонент для отображения и отправки сообщений в конкретный чат.
- * @param {object} props
- * @param {number} props.chatId - ID текущего выбранного чата.
- * @param {number} props.currentUserId - ID текущего авторизованного пользователя.
  */
 function Messages({ chatId, currentUserId }) {
   const [messages, setMessages] = useState([]);
@@ -20,15 +17,6 @@ function Messages({ chatId, currentUserId }) {
   const chatSocket = useRef(null);
   const messagesEndRef = useRef(null);
   const isUnmounting = useRef(false);
-
-  // Сброс сообщений и статуса при смене чата
-  useEffect(() => {
-    setMessages([]);
-    setConnectionStatus('disconnected');
-    if (chatSocket.current) {
-      chatSocket.current.close(1000, 'Chat ID changed');
-    }
-  }, [chatId]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -52,8 +40,10 @@ function Messages({ chatId, currentUserId }) {
         }
 
         const data = await response.json();
-        setMessages(data.reverse());
-        scrollToBottom();
+        if (!isUnmounting.current) {
+          setMessages(data.reverse());
+          scrollToBottom();
+        }
       } catch (error) {
         console.error('Ошибка загрузки истории сообщений:', error);
       }
@@ -63,6 +53,14 @@ function Messages({ chatId, currentUserId }) {
 
   // 2. Установка и управление WebSocket-соединением
   useEffect(() => {
+    if (chatSocket.current) {
+      chatSocket.current.close(1000, 'Chat ID change or cleanup');
+      chatSocket.current = null;
+    }
+
+    setMessages([]);
+    setConnectionStatus('disconnected');
+
     if (!chatId) return;
 
     isUnmounting.current = false;
@@ -73,7 +71,9 @@ function Messages({ chatId, currentUserId }) {
       return;
     }
 
-    const wsUrl = `ws://127.0.0.1:8000/ws/chat/${chatId}/?token=${encodeURIComponent(token)}`;
+    setConnectionStatus('connecting');
+
+    const wsUrl = `ws://127.0.0.1:8001/ws/chat/${chatId}/?token=${encodeURIComponent(token)}`;
     const socket = new WebSocket(wsUrl);
     chatSocket.current = socket;
 
@@ -97,21 +97,26 @@ function Messages({ chatId, currentUserId }) {
       }
     };
 
-    socket.onclose = () => {
+    socket.onclose = (e) => {
+      if (e.code !== 1000 && !isUnmounting.current) {
+        console.error(`WebSocket закрыт: Код ${e.code}. Причина: ${e.reason || 'Неизвестно'}`);
+      }
       if (isUnmounting.current) return;
       setConnectionStatus('disconnected');
     };
 
-    socket.onerror = () => {
+    socket.onerror = (e) => {
       if (isUnmounting.current) return;
+      console.error('WebSocket ошибка:', e);
       setConnectionStatus('error');
     };
 
     return () => {
       isUnmounting.current = true;
-      if (chatSocket.current) {
+      if (chatSocket.current && chatSocket.current.readyState === WebSocket.OPEN) {
         chatSocket.current.close(1000, 'Component cleanup');
       }
+      chatSocket.current = null;
     };
   }, [chatId, fetchMessages]);
 
@@ -126,20 +131,29 @@ function Messages({ chatId, currentUserId }) {
     setNewMessage('');
   };
 
+  // 4. Заглушки для кнопок вложения
+  const handleAttachFile = () => {
+    alert('Функционал прикрепления файла (скрепки) будет добавлен в следующей версии!');
+  };
+
+  const handleAttachPhoto = () => {
+    alert('Функционал прикрепления фото/изображения будет добавлен в следующей версии!');
+  };
+
   if (!chatId) {
     return <div className="messages-placeholder">Выберите чат для просмотра сообщений.</div>;
   }
 
   return (
-    <>
-      {/* Окно сообщений: две горизонтальные ленты */}
+    <div className="messages-area-fixed-layout">
       <div className="messages-window">
-        {/* Верхняя лента: сообщения других пользователей */}
-        <div className="lane lane-top">
-          {messages
-            .filter((m) => !(m.sender && m.sender.id === currentUserId))
-            .map((msg, index) => (
-              <div key={msg.id || `top-${index}`} className="message-bubble message-other">
+        {messages.map((msg, index) => {
+          const isMine = msg.sender && msg.sender.id === currentUserId;
+          const messageClass = isMine ? 'message-mine' : 'message-other';
+
+          return (
+            <div key={msg.id || `msg-${index}`} className={`message-bubble ${messageClass}`}>
+              {!isMine && (
                 <div
                   style={{
                     fontWeight: 'bold',
@@ -150,54 +164,57 @@ function Messages({ chatId, currentUserId }) {
                 >
                   {msg.sender ? msg.sender.username : `Пользователь ${msg.sender_id}`}
                 </div>
-                <div style={{ wordBreak: 'break-word' }}>{msg.text}</div>
-                <div
-                  style={{ fontSize: '10px', textAlign: 'right', opacity: 0.7, marginTop: '4px' }}
-                >
-                  {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString() : 'только что'}
-                </div>
+              )}
+              <div style={{ wordBreak: 'break-word' }}>{msg.text}</div>
+              <div
+                style={{
+                  fontSize: '10px',
+                  textAlign: 'right',
+                  opacity: 0.7,
+                  marginTop: '4px',
+                }}
+              >
+                {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString() : 'только что'}
               </div>
-            ))}
-        </div>
+            </div>
+          );
+        })}
 
-        <div className="lane-separator" />
-
-        {/* Нижняя лента: мои сообщения */}
-        <div className="lane lane-bottom">
-          {messages
-            .filter((m) => m.sender && m.sender.id === currentUserId)
-            .map((msg, index) => (
-              <div key={msg.id || `bottom-${index}`} className="message-bubble message-mine">
-                <div
-                  style={{
-                    fontWeight: 'bold',
-                    fontSize: '12px',
-                    marginBottom: '4px',
-                    opacity: 0.9,
-                  }}
-                >
-                  {msg.sender ? msg.sender.username : `Пользователь ${msg.sender_id}`}
-                </div>
-                <div style={{ wordBreak: 'break-word' }}>{msg.text}</div>
-                <div
-                  style={{ fontSize: '10px', textAlign: 'right', opacity: 0.7, marginTop: '4px' }}
-                >
-                  {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString() : 'только что'}
-                </div>
-              </div>
-            ))}
-          <div ref={messagesEndRef} />
-        </div>
+        <div ref={messagesEndRef} />
       </div>
 
-      {/* Форма отправки */}
+      {/* Форма отправки закреплена снизу */}
       <form className="message-input-form" onSubmit={handleSend}>
+        {/* Кнопка-скрепка (Вложение) - AntD Icon */}
+        <button
+          type="button"
+          className="attach-btn"
+          onClick={handleAttachFile}
+          disabled={connectionStatus !== 'connected'}
+        >
+          <PaperClipOutlined style={{ fontSize: '16px' }} />
+        </button>
+
+        {/* Кнопка-фото (Изображение) - AntD Icon */}
+        <button
+          type="button"
+          className="attach-btn"
+          onClick={handleAttachPhoto}
+          disabled={connectionStatus !== 'connected'}
+        >
+          <PictureOutlined style={{ fontSize: '16px' }} />
+        </button>
+
         <input
           type="text"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           placeholder={
-            connectionStatus === 'connected' ? 'Напишите сообщение...' : 'Соединение отсутствует...'
+            connectionStatus === 'connected'
+              ? 'Напишите сообщение...'
+              : connectionStatus === 'connecting'
+              ? 'Подключение...'
+              : 'Соединение отсутствует...'
           }
           disabled={connectionStatus !== 'connected'}
         />
@@ -208,7 +225,7 @@ function Messages({ chatId, currentUserId }) {
           Отправить
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

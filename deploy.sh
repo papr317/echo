@@ -5,8 +5,9 @@
 export DJANGO_SETTINGS_MODULE=backend.config.settings
 
 # # запуск (venv)
-# ./ venv/bin/activate
-# echo " Виртуальное окружение активировано."
+# # Если вы используете venv, раскомментируйте и измените путь при необходимости.
+# # source venv/bin/activate
+# # echo " Виртуальное окружение активировано."
 
 # --- 1. ЗАПУСК DAPHNE (ASGI/Channels) на 8001 ---
 echo " Запускаем Daphne (Channels) на порту 8001..."
@@ -18,7 +19,29 @@ echo " Запускаем Django Runserver (REST API) на порту 8000..."
 python manage.py runserver 8000 &
 RUNSERVER_PID=$!
 
-# --- 3. ЗАПУСК ФРОНТЕНДА (npm start) ---
+# --- 3. ЗАПУСК ПЛАНИРОВЩИКА КОМАНДЫ float_expired_posts (каждую минуту) ---
+# Запускаем команду в фоновом режиме в цикле с задержкой в 60 секунд.
+echo " Запускаем планировщик команды float_expired_posts (каждую минуту)..."
+
+# Имя вашей команды, основанное на имени файла float_expired_posts.py
+COMMAND_NAME="float_expired_posts" 
+# Логируем выполнение в файл
+LOG_FILE="./float_expired_posts.log" 
+
+# Цикл для запуска команды каждую минуту
+(
+    while true; do
+        echo "($(date '+%Y-%m-%d %H:%M:%S')) Запуск команды $COMMAND_NAME..." >> "$LOG_FILE"
+        python manage.py "$COMMAND_NAME" >> "$LOG_FILE" 2>&1
+        echo "($(date '+%Y-%m-%d %H:%M:%S')) Команда $COMMAND_NAME завершена." >> "$LOG_FILE"
+        # Пауза 60 секунд
+        sleep 60
+    done
+) &
+SCHEDULER_PID=$!
+echo " Планировщик запущен в фоне (PID: $SCHEDULER_PID). Логирование в $LOG_FILE"
+
+# --- 4. ЗАПУСК ФРОНТЕНДА (npm start) ---
 echo " Запускаем фронтенд (npm start)..."
 # Переходим в папку frontend и запускаем npm start
 (cd frontend && npm start) & 
@@ -28,20 +51,22 @@ FRONTEND_PID=$!
 
 echo ""
 echo " ВСЕ КОМПОНЕНТЫ ЗАПУЩЕНЫ:"
-echo "   - REST API:   http://127.0.0.1:8000/ (PID: $RUNSERVER_PID)"
-echo "   - CHANNELS:   http://127.0.0.1:8001/ (PID: $DAPHNE_PID)"
-echo "   - FRONTEND:   (3000, PID: $FRONTEND_PID)"
+echo "   - REST API:   http://127.0.0.1:8000/ (PID: $RUNSERVER_PID)"
+echo "   - CHANNELS:   http://127.0.0.1:8001/ (PID: $DAPHNE_PID)"
+echo "   - SCHEDULER:   float_expired_posts (PID: $SCHEDULER_PID, log: $LOG_FILE)"
+echo "   - FRONTEND:   (3000, PID: $FRONTEND_PID)"
 echo ""
 echo "Нажмите Enter для остановки всех серверов и выхода..."
 
 # Ожидание ввода пользователя
 read
 
-# --- 4. ОСТАНОВКА ВСЕХ ПРОЦЕССОВ ---
+# --- 5. ОСТАНОВКА ВСЕХ ПРОЦЕССОВ ---
 echo "🛑 Останавливаем серверы и фронтенд..."
 
 kill $DAPHNE_PID 2>/dev/null
 kill $RUNSERVER_PID 2>/dev/null
+kill $SCHEDULER_PID 2>/dev/null
 kill $FRONTEND_PID 2>/dev/null
 
 echo "Все компоненты остановлены. Выход."

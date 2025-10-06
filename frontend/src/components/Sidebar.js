@@ -46,7 +46,10 @@ function Sidebar({ collapsed, onToggle, position, onSideChange, onAddPostClick }
         </li>
 
         <li>
-          <NavLink to="/messages" className={({ isActive }) => (isActive ? 'active' : '')}>
+          <NavLink
+            to="messenger"
+            className={({ isActive }) => (isActive ? 'active' : '')}
+          >
             <MessageOutlined />
             {!collapsed && 'общение'}
           </NavLink>

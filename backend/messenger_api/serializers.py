@@ -7,59 +7,11 @@ from backend.echo_api import models
 from backend.users_api.serializers import UserSerializer 
 from backend.users_api.models import CustomUser 
 
-from .models import Chat, Friendship
+from .models import Chat
 from .mongo_models import MongoMessage 
 
 # Кэш для избежания N+1 проблемы при загрузке истории сообщений
 USER_CACHE = {} 
-
-
-class FriendshipSerializer(serializers.ModelSerializer):
-    """Сериализатор для модели Friendship."""
-    
-    sender = UserSerializer(read_only=True)
-    receiver = UserSerializer(read_only=True)
-    
-    receiver_id = serializers.IntegerField(write_only=True)
-
-    class Meta:
-        model = Friendship
-        fields = ('id', 'sender', 'receiver', 'receiver_id', 'status', 'created_at')
-        read_only_fields = ('sender', 'status', 'created_at')
-        
-    def validate(self, data):
-        receiver_id = data.get('receiver_id')
-        user = self.context['request'].user
-        
-        # 1. Проверка на отправку самому себе
-        if receiver_id == user.id:
-            raise serializers.ValidationError("Вы не можете отправить запрос на дружбу самому себе.")
-
-        # 2. Проверка, существует ли пользователь-получатель
-        try:
-            receiver = User.objects.get(pk=receiver_id)
-        except User.DoesNotExist:
-            raise serializers.ValidationError("Пользователь, которому вы пытаетесь отправить запрос, не существует.")
-        
-        # 3. Проверка, существует ли уже запрос (в любом направлении)
-        # Это предотвратит дублирование и обратные запросы, если статус уже 'accepted'
-        exists = Friendship.objects.filter(
-            models.Q(sender=user, receiver=receiver) | models.Q(sender=receiver, receiver=user)
-        ).exclude(status__in=['rejected', 'blocked']).exists()
-        
-        if exists:
-            raise serializers.ValidationError("Запрос на дружбу с этим пользователем уже существует или уже принят.")
-
-        data['receiver'] = receiver
-        return data
-
-    def create(self, validated_data):
-        # sender берется из request, receiver установлен в validate
-        receiver = validated_data.pop('receiver')
-        sender = self.context['request'].user
-        
-        return Friendship.objects.create(sender=sender, receiver=receiver, status='pending')
-
 class ChatSerializer(serializers.ModelSerializer):
     """Сериализатор для модели Chat."""
     participants = UserSerializer(many=True, read_only=True)

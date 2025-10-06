@@ -4,13 +4,13 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Profile from './pages/profile/Profile';
 import EditProfile from './pages/profile/EditProfile';
 import ChangePassword from './pages/profile/ChangePassword';
+import OtherProfile from './pages/profile/OtherProfile';
 
 import Home from './pages/Home';
 import Search from './pages/Search';
 
 import Friends from './pages/Friends';
-import Messages from './pages/MessengerPage'; // Обновлено для использования MessengerPage
-
+import Messenger from './pages/MessengerPage'; 
 import ExplorePlan from './pages/ExplorePlan';
 import Support from './pages/Support';
 
@@ -68,9 +68,10 @@ function App() {
         <Route path="profile" element={<Profile />} />
         <Route path="profile/edit" element={<EditProfile />} />
         <Route path="profile/change-password" element={<ChangePassword />} />
+        <Route path="profile/:id" element={<OtherProfile />} />
         <Route path="search" element={<Search />} />
         <Route path="friends" element={<Friends />} />
-        <Route path="messages" element={<Messages />} />
+        <Route path="messenger" element={<Messenger />} />
         <Route path="explore-plan" element={<ExplorePlan />} />
         <Route path="support" element={<Support />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />

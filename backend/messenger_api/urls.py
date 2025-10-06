@@ -1,16 +1,9 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from .views import ChatListView, MessageListView, MemberManagementViewSet, FriendshipViewSet, UserSearchView, search_users
+from .views import ChatListView, MessageListView, MemberManagementViewSet
 
 app_name = 'messenger_api'
-
-
-router = DefaultRouter()
-# 1. Friendship ViewSet
-router.register(r'friends', FriendshipViewSet, basename='friendship')
-
-
 
 urlpatterns = [
     # Список чатов
@@ -40,8 +33,4 @@ urlpatterns = [
     path('chats/<int:pk>/members/add-multiple/', 
          MemberManagementViewSet.as_view({'post': 'add_multiple_members'}), 
          name='chat-members-add-multiple'),
-         
-    path('users/search/', 
-         search_users, 
-         name='users-search'),
 ]

@@ -11,13 +11,12 @@ from builtins import ConnectionError
 from backend.config.jwt_auth_middleware import User
 from backend.users_api.serializers import UserSerializer # Используем стандартное исключение
 
-from .models import Chat, Friendship
+from .models import Chat
 from backend.users_api.models import CustomUser 
-from .serializers import ChatSerializer, FriendshipSerializer, MessageSerializer 
+from .serializers import ChatSerializer, MessageSerializer 
 # Импорт сервиса для работы с MongoDB
 from .mongo_models import MongoMessage 
 from django.db.models import Q 
-from rest_framework import permissions
 
 
 
@@ -27,7 +26,6 @@ from rest_framework import permissions
 
 class ChatListView(generics.ListCreateAPIView):
     """API для получения списка чатов и создания нового чата."""
-    # Убираем заглушку, используем ваш готовый ChatSerializer
     serializer_class = ChatSerializer 
     permission_classes = [IsAuthenticated]
     
@@ -39,6 +37,36 @@ class ChatListView(generics.ListCreateAPIView):
         # Передаем request в сериализатор для логики определения партнера/создания
         return {'request': self.request}
 
+    def create(self, request, *args, **kwargs):
+        user = request.user
+        participants = request.data.get('participants', [])
+        is_private = request.data.get('is_private', False)
+
+        # Преобразуем к int
+        participants = [int(pid) for pid in participants if str(pid).isdigit()]
+        if user.id not in participants:
+            participants.append(user.id)
+
+        if is_private and len(participants) == 2:
+            # Проверяем, есть ли уже приватный чат между этими пользователями
+            existing = Chat.objects.filter(is_private=True, participants__id=participants[0]) \
+                                   .filter(participants__id=participants[1]).distinct()
+            if existing.exists():
+                serializer = self.get_serializer(existing.first())
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            # Если нет — создаём новый
+            chat = Chat.objects.create(is_private=True)
+            chat.participants.set(participants)
+            chat.save()
+            serializer = self.get_serializer(chat)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            # Групповой чат или некорректный запрос
+            serializer = self.get_serializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 class MessageListView(generics.ListCreateAPIView): 
     # ListCreateAPIView для возможности GET (список) и POST (создание)
@@ -246,142 +274,3 @@ class MemberManagementViewSet(viewsets.ViewSet):
             response_data["detail"] += f", не найдено: {len(not_found)}"
             
         return Response(response_data, status=status.HTTP_200_OK)
-          
-          
-
-
-class FriendshipViewSet(viewsets.ModelViewSet):
-    queryset = Friendship.objects.all().select_related('sender', 'receiver')
-    serializer_class = FriendshipSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    
-    # Фильтруем запросы: показываем только те, которые касаются текущего пользователя
-    def get_queryset(self):
-        user = self.request.user
-        return Friendship.objects.filter(Q(sender=user) | Q(receiver=user)).order_by('-created_at')
-
-    # При создании запроса, sender устанавливается автоматически
-    def perform_create(self, serializer):
-        serializer.save(sender=self.request.user)
-
-    # Кастомный Action: Ответить на запрос (Принять/Отклонить)
-    @action(detail=True, methods=['post'], url_path='respond')
-    def respond_request(self, request, pk=None):
-        friendship = self.get_object()
-        action_type = request.data.get('action') # 'accept' или 'reject'
-        
-        if friendship.receiver != request.user:
-            return Response({"detail": "Вы не можете ответить на этот запрос."}, 
-                            status=status.HTTP_403_FORBIDDEN)
-
-        if action_type == 'accept':
-            friendship.status = 'accepted'
-            friendship.save()
-            
-            # 🚨 ДОБАВЛЕНИЕ ЛОГИКИ СОЗДАНИЯ ЧАТА ПРИ ПРИНЯТИИ ДРУЖБЫ
-            # Здесь можно автоматически создать личный чат (Chat)
-            # if friendship.status == 'accepted':
-            #     Chat.objects.create_private_chat(friendship.sender, friendship.receiver)
-            
-            return Response({"status": "Запрос принят"}, status=status.HTTP_200_OK)
-        
-        elif action_type == 'reject':
-            friendship.status = 'rejected'
-            friendship.save()
-            return Response({"status": "Запрос отклонен"}, status=status.HTTP_200_OK)
-            
-        return Response({"detail": "Недопустимое действие"}, status=status.HTTP_400_BAD_REQUEST)
-
-    # Кастомный Action: Поиск пользователей для добавления в друзья
-    @action(detail=False, methods=['get'], url_path='search')
-    def search_users(self, request):
-        query = request.query_params.get('q', '')
-        user = request.user
-        
-        if not query:
-            return Response({"detail": "Введите поисковый запрос."}, status=status.HTTP_400_BAD_REQUEST)
-
-        # 1. Ищем пользователей, которые соответствуют запросу
-        search_results = CustomUser.objects.filter(
-            Q(username__icontains=query) | Q(email__icontains=query)
-        ).exclude(pk=user.pk) # Исключаем самого себя
-
-        # 2. Исключаем тех, с кем уже есть активные/ожидающие отношения
-        existing_relations = Friendship.objects.filter(
-            Q(sender=user) | Q(receiver=user)
-        ).values_list('sender__pk', 'receiver__pk')
-        
-        # Собираем все PK пользователей, с которыми уже есть связь
-        related_user_ids = set()
-        for s, r in existing_relations:
-            related_user_ids.add(s if s != user.pk else r)
-            
-        final_users = search_results.exclude(pk__in=list(related_user_ids))
-        
-        # 3. Сериализуем результаты
-        serializer = UserSerializer(final_users, many=True)
-        return Response(serializer.data)
-
-
-# Простой View для поиска пользователей
-class UserSearchView(generics.ListAPIView):
-    """API для поиска пользователей"""
-    serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
-    
-    def get_queryset(self):
-        query = self.request.query_params.get('q', '')
-        user = self.request.user
-        
-        if not query:
-            return CustomUser.objects.none()
-
-        # Ищем пользователей по имени и email
-        search_results = CustomUser.objects.filter(
-            Q(username__icontains=query) | Q(email__icontains=query)
-        ).exclude(pk=user.pk)  # Исключаем самого себя
-
-        # Исключаем тех, с кем уже есть активные/ожидающие отношения
-        existing_relations = Friendship.objects.filter(
-            Q(sender=user) | Q(receiver=user)
-        ).values_list('sender__pk', 'receiver__pk')
-        
-        # Собираем все PK пользователей, с которыми уже есть связь
-        related_user_ids = set()
-        for s, r in existing_relations:
-            related_user_ids.add(s if s != user.pk else r)
-            
-        return search_results.exclude(pk__in=list(related_user_ids))
-
-
-# Простая функция-представление для поиска пользователей
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def search_users(request):
-    """Простой API для поиска пользователей"""
-    query = request.query_params.get('q', '')
-    user = request.user
-    
-    if not query:
-        return Response({"detail": "Введите поисковый запрос."}, status=status.HTTP_400_BAD_REQUEST)
-
-    # Ищем пользователей по имени и email
-    search_results = CustomUser.objects.filter(
-        Q(username__icontains=query) | Q(email__icontains=query)
-    ).exclude(pk=user.pk)  # Исключаем самого себя
-
-    # Исключаем тех, с кем уже есть активные/ожидающие отношения
-    existing_relations = Friendship.objects.filter(
-        Q(sender=user) | Q(receiver=user)
-    ).values_list('sender__pk', 'receiver__pk')
-    
-    # Собираем все PK пользователей, с которыми уже есть связь
-    related_user_ids = set()
-    for s, r in existing_relations:
-        related_user_ids.add(s if s != user.pk else r)
-        
-    final_users = search_results.exclude(pk__in=list(related_user_ids))
-    
-    # Сериализуем результаты
-    serializer = UserSerializer(final_users, many=True)
-    return Response(serializer.data)

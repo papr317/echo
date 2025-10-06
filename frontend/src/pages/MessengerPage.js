@@ -1,11 +1,9 @@
-// src/pages/MessengerPage.js (ОБНОВЛЕННЫЙ)
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
 import { useAuth } from '../contexts/AuthContext';
 import ChatsList from '../components/ChatsList';
-import Messages from '../components/Messeges'; // Используем Messages вместо Messeges
+import Messages from '../components/Messeges';
 import Modal_AddUsersToChat from '../components/Modal_AddUsersToChat';
 import './MessengerPage.css';
 
@@ -25,7 +23,7 @@ function MessengerPage() {
   const [messages, setMessages] = useState([]);
   const [loadingChats, setLoadingChats] = useState(true);
   const [loadingMessages, setLoadingMessages] = useState(false);
-  const [Modal_AddUsersToChat, setShowAddMembersModal] = useState(false);
+  const [showAddMembersModal, setShowAddMembersModal] = useState(false);
 
   // --- ЗАГРУЗКА ЧАТОВ ---
   const fetchChats = useCallback(async () => {
@@ -140,23 +138,7 @@ function MessengerPage() {
                     )}
                     <div className="chat-title">{chatName}</div>
                   </div>
-                  <div className="chat-header-right">
-                    <button
-                      onClick={() => setShowAddMembersModal(true)}
-                      style={{
-                        padding: '8px 12px',
-                        backgroundColor: '#007bff',
-                        color: 'white',
-                        border: 'none',
-                        borderRadius: '4px',
-                        cursor: 'pointer',
-                        fontSize: '12px',
-                      }}
-                      title="Добавить участников"
-                    >
-                      + Добавить
-                    </button>
-                  </div>
+                  <div className="chat-header-right"></div>
                 </div>
               );
             })()}
@@ -182,17 +164,26 @@ function MessengerPage() {
         {loadingChats ? (
           <div className="loading-state">Загрузка чатов...</div>
         ) : (
-          <ChatsList
-            chats={chats}
-            currentSelectedChatId={selectedChatId}
-            onChatSelect={handleSelectChat}
-          />
+          <div className="chats-list-block">
+            <ChatsList
+              chats={chats}
+              currentSelectedChatId={selectedChatId}
+              onChatSelect={handleSelectChat}
+            />
+          </div>
         )}
-        <div className="chat-list-footer">Создать новый чат или группу +</div>
       </div>
 
-      {/* Модальное окно для добавления участников */}
-      {Modal_AddUsersToChat && (
+      {/* Навигация снизу */}
+      <div className="bottom-navigation">
+        <button className="nav-btn">Чаты</button>
+        <button className="nav-btn">Группы</button>
+        <button className="nav-btn">Избранные</button>
+        <button className="nav-btn nav-btn-create" onClick={() => setShowAddMembersModal(true)}>
+          + добавить
+        </button>
+      </div>
+      {showAddMembersModal && (
         <Modal_AddUsersToChat
           chatId={selectedChatId}
           onClose={() => setShowAddMembersModal(false)}

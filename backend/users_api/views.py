@@ -85,10 +85,10 @@ class UserListView(generics.ListAPIView):
     permission_classes = [permissions.IsAdminUser]
 
 # Детальная информация по пользователю по id (только для админа)
-class UserByIdView(generics.RetrieveUpdateDestroyAPIView):
+class UserByIdView(generics.RetrieveAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [] 
 
 # Смена пароля
 class ResetPasswordView(APIView):
@@ -129,3 +129,22 @@ class DeleteUserView(APIView):
     def delete(self, request):
         request.user.delete()
         return Response({"сообщение": "Аккаунт удалён"}, status=status.HTTP_204_NO_CONTENT)
+
+# Поиск пользователей
+class UserSearchView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        query = request.query_params.get('q', '').strip()
+        if not query:
+            return Response([], status=200)
+
+        users = CustomUser.objects.filter(
+            Q(username__icontains=query) 
+            |
+            Q(email__icontains=query) |
+            Q(phone__icontains=query)
+        ).exclude(id=request.user.id)[:20]  # Исключаем себя, ограничиваем выдачу
+
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data, status=200)
