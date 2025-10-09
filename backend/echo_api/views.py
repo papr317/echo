@@ -278,7 +278,7 @@ class EchoToggleView(APIView):
                     content_object.expires_at += echo_delta 
                 else:
                     content_object.disecho_count += 1
-                    content_object.expires_at -= disecho_delta 
+                    content_object.expires_at -= disecho_delta
                         
             content_object.save(update_fields=['echo_count', 'disecho_count', 'expires_at', 'updated_at'])
 
