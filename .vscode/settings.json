@@ -22,5 +22,6 @@
     "stylesheet",
     "Wechat",
     "xcopy"
-  ]
+  ],
+  "markdown.validate.enabled": true
 }

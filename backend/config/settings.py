@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',  # JWT authentication
     'django_q', # таймер
     'django_redis', # кэширование
+    'import_export', # импорт экспорт в админке
 
     'django.contrib.admin',
     'django.contrib.auth',

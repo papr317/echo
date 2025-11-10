@@ -15,9 +15,11 @@ import ExplorePlan from './pages/ExplorePlan';
 import Support from './pages/Support';
 
 import Welcome from './pages/Welcome';
-import PrivacyPolicy from './pages/PrivacyPolicy';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
+
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import CommunityRules from './pages/CommunityRules';
 
 import Layout from './components/Layout';
 import ProtectedRoute from './api/ProtectedRoute';
@@ -54,6 +56,7 @@ function App() {
       />
 
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/community-rules" element={<CommunityRules/>} />
 
       {/* Protected routes with Layout */}
       <Route

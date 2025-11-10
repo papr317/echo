@@ -7,9 +7,6 @@ from django.utils.translation import gettext_lazy as _
 from backend.config.jwt_auth_middleware import User
 
 class Chat(models.Model):
-    """
-    Основная модель Чата. Использует Integer PK, соответствующий CustomUser.
-    """    
     participants = models.ManyToManyField(
         settings.AUTH_USER_MODEL, 
         related_name='chats', 

@@ -71,6 +71,7 @@ class Comment(models.Model):
 
     echo_count = models.IntegerField(default=0)      
     disecho_count = models.IntegerField(default=0)
+    is_toxic = models.BooleanField(default=False, verbose_name='Токсичный')
     
     is_floating = models.BooleanField(default=False)
     
