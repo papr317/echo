@@ -237,3 +237,18 @@ body {
 .checkbox-label .link:hover {
   color: #4b4b4b;
 }
+
+/*  */
+.nickname-validation-message {
+  font-size: 12px;
+  margin-top: 4px;
+  transition: all 0.3s;
+}
+
+.nickname-validation-message.error {
+  color: #ff4d4f;
+}
+
+.nickname-validation-message.success {
+  color: #52c41a;
+}

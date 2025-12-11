@@ -1,11 +1,11 @@
+// файл для 
+
 import React, { useEffect, useState } from 'react';
 import { Card, Avatar, Typography, Spin, Row, Col, Divider, Tabs } from 'antd';
 import {
   UserOutlined,
   ManOutlined,
-  WomanOutlined,
-  CalendarOutlined,
-  GlobalOutlined,
+  WomanOutlined
 } from '@ant-design/icons';
 import axiosInstance from '../../api/axiosInstance';
 import { useParams } from 'react-router-dom';
@@ -18,11 +18,9 @@ const CARD_COLOR = '#2c2c2c'; // Более светлый фон для кар�
 const TEXT_COLOR = '#f0f0f0'; // Светлый текст
 const SECONDARY_TEXT_COLOR = '#a0a0a0'; // Серый текст для деталей
 const HIGHLIGHT_COLOR = '#3a3a3a'; // Цвет для фона аватара или раздела
-const ACCENT_COLOR = '#87e8de'; // Цвет для иконок или активных элементов
 
-// --- Вспомогательная функция для URL аватара (если нужно) ---
-// Вставьте ваш BASE_URL сюда, если ваш API возвращает относительные пути.
-const BASE_URL = 'http://127.0.0.1:8000'; // Замените на ваш реальный базовый URL, если он другой
+
+const BASE_URL = 'http://127.0.0.1:8000';
 
 const getFullAvatarUrl = (relativePath) => {
   if (!relativePath) return undefined;
@@ -153,7 +151,7 @@ const OtherProfile = () => {
         </div>
       ),
     },
-    // Здесь могут быть другие вкладки
+
   ];
 
   return (
@@ -162,7 +160,7 @@ const OtherProfile = () => {
       style={{
         background: BACKGROUND_COLOR,
         minHeight: '100vh',
-        padding: '40px 20px', // Добавим padding для центрирования
+        padding: '40px 20px',
         display: 'flex',
         justifyContent: 'center',
       }}
@@ -179,7 +177,8 @@ const OtherProfile = () => {
           width: '100%',
           padding: 0,
         }}
-        bodyStyle={{ padding: 0 }}
+
+        body={{ padding: 0 }}
       >
         <div
           className="profile-avatar-section"

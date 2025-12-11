@@ -23,6 +23,7 @@ import {
   GlobalOutlined,
   CreditCardOutlined,
   LockOutlined,
+  EditOutlined,
 } from '@ant-design/icons';
 import axiosInstance from '../../api/axiosInstance';
 import { useNavigate } from 'react-router-dom';
@@ -104,7 +105,7 @@ const Profile = () => {
 
   useEffect(() => {
     fetchUserData();
-  }, [navigate]);
+  }, [fetchUserData, navigate]);
 
   const getGenderIcon = (gender) => {
     if (gender === 'male') return <ManOutlined style={{ color: '#fff' }} />;
@@ -272,6 +273,7 @@ const Profile = () => {
               block
               style={{ backgroundColor: '#262626', color: '#fff', borderColor: '#434343' }}
               onClick={handleEditProfile}
+              icon={<EditOutlined />}
             >
               Изменить
             </Button>
