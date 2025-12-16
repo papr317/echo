@@ -359,6 +359,7 @@ const CommentsSection = ({ postId, postExpired, initialCommentCount }) => {
               maxLength={200}
             />
             <Button
+              style={{backgroundColor: '#000000', borderColor: '#000000', color: '#fff'}}
               type="primary"
               icon={<SendOutlined />}
               onClick={handleAddComment}

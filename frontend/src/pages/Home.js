@@ -2,11 +2,11 @@ import React, { useState, useEffect, useCallback, memo } from 'react';
 import axiosInstance from '../api/axiosInstance';
 import CommentsSection from '../components/CommentsSection';
 import getAvatarUrl from '../utils/avatarUtils';
-import { Progress, Typography, message, Spin, Avatar } from 'antd';
+import { Progress, Typography, message, Spin, Avatar, Modal } from 'antd';
 import { SoundOutlined, SoundFilled, MutedOutlined, MutedFilled } from '@ant-design/icons';
 import './Home.css';
 
-// --- КОМПОНЕНТ 1: ПОЛОСКА (Обновляется сама внутри себя) ---
+// --- КОМПОНЕНТ 1: ПОЛОСКА ЖИЗНИ ---
 const PostLifeBar = ({ expiresAt, onExpire }) => {
   const calculateProgress = useCallback(() => {
     const now = new Date();
@@ -36,9 +36,8 @@ const PostLifeBar = ({ expiresAt, onExpire }) => {
       const currentPercent = calculateProgress();
       setPercent(currentPercent);
       setFormattedTime(formatTimeLeft());
-
       if (currentPercent <= 0 && onExpire) {
-        onExpire(); // Скрываем пост, когда время вышло
+        onExpire();
         clearInterval(interval);
       }
     }, 1000);
@@ -62,18 +61,25 @@ const PostLifeBar = ({ expiresAt, onExpire }) => {
         strokeColor={{ '0%': '#ff4d4f', '100%': '#000000' }}
         style={{ flex: 1 }}
       />
-      <Typography.Text className="time-left-text" style={{ color: getTextColor(), marginLeft: 8 }}>
+      <Typography.Text className="time-left-text" style={{ color: getTextColor() }}>
         {formattedTime}
       </Typography.Text>
     </div>
   );
 };
 
-// --- КОМПОНЕНТ 2: КАРТОЧКА ПОСТА (Защищает картинку от ререндера) ---
+// --- КОМПОНЕНТ 2: КАРТОЧКА ПОСТА ---
 const PostCard = memo(({ post, userAction, isUpdating, onAction, getActionIcon }) => {
   const [isVisible, setIsVisible] = useState(new Date(post.expires_at) > new Date());
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState('');
 
-  if (!isVisible) return null; // Если время вышло, пост просто исчезает
+  const handleImageClick = (url) => {
+    setPreviewImage(url);
+    setPreviewOpen(true);
+  };
+
+  if (!isVisible) return null;
 
   return (
     <div className="post-card">
@@ -82,23 +88,45 @@ const PostCard = memo(({ post, userAction, isUpdating, onAction, getActionIcon }
           <Avatar
             size={40}
             src={post.author_details?.avatar}
-            style={{ backgroundColor: '#434343', marginRight: 8 }}
+            style={{ backgroundColor: '#434343' }}
           >
             {!post.author_details?.avatar && post.author_details?.username?.charAt(0).toUpperCase()}
           </Avatar>
-          <p>{post.author_details?.username}</p>
+          <span className="author-name">{post.author_details?.username}</span>
         </div>
       </div>
 
-      {post.image ? (
-        <img src={getAvatarUrl(post.image)} alt="Post" className="post-image" loading="lazy" />
+      {post.files && post.files.length > 0 ? (
+        <div className={`post-media-grid files-count-${post.files.length}`}>
+          {post.files.map((fileItem) => {
+            const fileUrl = getAvatarUrl(fileItem.file);
+            const isVideo = ['mp4', 'webm', 'mov'].includes(
+              fileItem.file.split('.').pop().toLowerCase(),
+            );
+
+            return (
+              <div
+                key={fileItem.id}
+                className="media-item-wrapper"
+                onClick={() => !isVideo && handleImageClick(fileUrl)}
+              >
+                {isVideo ? (
+                  <video controls src={fileUrl} className="post-video" />
+                ) : (
+                  <img src={fileUrl} alt="Post" className="post-image" loading="lazy" />
+                )}
+              </div>
+            );
+          })}
+        </div>
       ) : (
-        <div className="post-image-placeholder">Содержимое поста</div>
+        <div className="post-image-placeholder">
+          <h4>Текстовый пост</h4>
+        </div>
       )}
 
       <p className="post-content">{post.content}</p>
 
-      {/* Передаем функцию скрытия */}
       <PostLifeBar expiresAt={post.expires_at} onExpire={() => setIsVisible(false)} />
 
       <div className="post-actions-container">
@@ -108,7 +136,7 @@ const PostCard = memo(({ post, userAction, isUpdating, onAction, getActionIcon }
             onClick={() => onAction(post.id, 'echo')}
             disabled={isUpdating}
           >
-            {getActionIcon(post.id, 'echo')} крикнуть {post.echo_count}
+            {getActionIcon(post.id, 'echo')} <span>Крикнуть {post.echo_count}</span>
           </button>
 
           <button
@@ -116,7 +144,7 @@ const PostCard = memo(({ post, userAction, isUpdating, onAction, getActionIcon }
             onClick={() => onAction(post.id, 'disecho')}
             disabled={isUpdating}
           >
-            {getActionIcon(post.id, 'disecho')} заглушить {post.disecho_count}
+            {getActionIcon(post.id, 'disecho')} <span>Глушить {post.disecho_count}</span>
           </button>
         </div>
       </div>
@@ -126,11 +154,20 @@ const PostCard = memo(({ post, userAction, isUpdating, onAction, getActionIcon }
         postExpired={!isVisible}
         initialCommentCount={post.comments_count}
       />
+
+      <Modal
+        open={previewOpen}
+        footer={null}
+        onCancel={() => setPreviewOpen(false)}
+        centered
+        width="90%"
+        styles={{ body: { padding: 0, backgroundColor: 'transparent' } }}
+      >
+        <img src={previewImage} alt="Preview" className="full-res-image" />
+      </Modal>
     </div>
   );
 });
-
-// --- КОМПОНЕНТ 3: ГЛАВНАЯ СТРАНИЦА ---
 function Home() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -166,9 +203,7 @@ function Home() {
     fetchPosts();
     fetchUserEchos();
     const aInt = setInterval(fetchUserEchos, 15000);
-    return () => {
-      clearInterval(aInt);
-    };
+    return () => clearInterval(aInt);
   }, [fetchPosts, fetchUserEchos]);
 
   const handleAction = async (postId, actionType) => {
@@ -202,13 +237,18 @@ function Home() {
 
   if (loading)
     return (
-      <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <Spin size="large" />
-        <h1>Загрузка...</h1>
+      <div className="home-loading">
+        <Spin
+          size="large"
+          style={{
+            '--ant-color-primary': '#464646ff',
+          }}
+        />
+        <h1>Загрузка ленты...</h1>
       </div>
     );
 
-  if (error) return <h1 style={{ color: 'red', textAlign: 'center' }}>Ошибка загрузки.</h1>;
+  if (error) return <h1 className="home-error">Ошибка загрузки.</h1>;
 
   return (
     <div className="home-container">
@@ -225,7 +265,7 @@ function Home() {
             />
           ))
         ) : (
-          <p className="no-posts-message">Пока нет постов...</p>
+          <p className="no-posts-message">Пока нет постов или они закончились ...</p>
         )}
       </div>
     </div>

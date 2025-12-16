@@ -10,22 +10,25 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
   const navigate = useNavigate();
 
   const handleBeforeUpload = (file) => {
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-    if (!isJpgOrPng) {
-      message.error('Вы можете загружать только JPG/PNG файлы!');
+    const isAllowedFileType = file.type.startsWith('image/') || file.type.startsWith('video/');
+    if (!isAllowedFileType) {
+      message.error('Вы можете загружать только изображения (JPG, PNG, GIF) или видео (MP4, WebM, MOV)!');
     }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-      message.error('Изображение должно быть меньше 2MB!');
+    const isLt5M = file.size / 1024 / 1024 < 5;
+    if (!isLt5M) {
+      message.error('Файл должен быть меньше 5MB!');
     }
-    return isJpgOrPng && isLt2M;
+    return isAllowedFileType && isLt5M;
   };
 
   const normFile = (e) => {
     if (Array.isArray(e)) {
       return e;
     }
-    return e?.fileList;
+    if (e?.fileList) {
+      return e.fileList.filter(file => file.status !== 'removed');
+    }
+    return [];
   };
 
   const onFinish = async (values) => {
@@ -33,8 +36,10 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
     const formData = new FormData();
     formData.append('content', values.content);
 
-    if (values.image && values.image.length > 0) {
-      formData.append('image', values.image[0].originFileObj);
+    if (values.file && values.file.length > 0) {
+      values.file.forEach((fileItem) => {
+        formData.append('files', fileItem.originFileObj);
+      });
     }
 
     try {
@@ -76,13 +81,13 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
           />
         </Form.Item>
 
-        <Form.Item name="image" valuePropName="fileList" getValueFromEvent={normFile}>
+        <Form.Item name="file" valuePropName="fileList" getValueFromEvent={normFile}>
           <Upload
             listType="picture-card"
             beforeUpload={handleBeforeUpload}
             customRequest={({ onSuccess }) => onSuccess()} // Простая заглушка
-            maxCount={1}
-            accept=".jpg,.jpeg,.png"
+            maxCount={5}
+            accept="image/*,video/*"
           >
             <div>
               <FileImageOutlined />

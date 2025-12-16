@@ -195,6 +195,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Максимальный размер файла для загрузки (2 MB)
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880 # 5 MB
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880 # 5 MB
+
 # Настройки жизненного цикла постов и комментариев (в часах)
 POST_LIFETIME_HOURS = 24       # Пост живет 24 часа
 COMMENT_LIFETIME_HOURS = 240   # Коммент живет 10 дней

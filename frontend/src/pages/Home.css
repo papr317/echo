@@ -1,223 +1,231 @@
+/* ОБЩИЕ КОНТЕЙНЕРЫ */
 .home-container {
   padding: 20px;
-  background-color: #f8f8f8;
+  background-color: #f0f2f5;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  color: #333;
-  margin-bottom: 20px;
-  text-align: center;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
 }
 
 .feed-container {
   display: flex;
   overflow-x: auto;
-  gap: 20px;
-  padding: 30px 0;
+  gap: 25px;
+  padding: 40px 10px;
+  scroll-snap-type: x mandatory;
 }
 
+/* КАРТОЧКА */
 .post-card {
-  flex: 0 0 350px;
-  background-color: #f0f0f0;
-  border-radius: 15px;
+flex: 1 1 400px;
+min-width: 350px;
+  max-width: 350px;
+  width: 100%;
+  border-radius: 20px;
   padding: 20px;
-
-  /* ГЛАВНОЕ ИЗМЕНЕНИЕ: Запрещаем посту растягиваться вбок */
-  overflow: hidden;
-
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
 }
 
 .author-info {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  gap: 12px;
 }
 
-.author-info p {
-  margin: 0;
-  font-weight: bold;
-  color: #333;
+.author-name {
+  font-weight: 800;
+  color: #1a1a1a;
+  font-size: 1.1em;
 }
 
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #6c757d;
-  /* Цвет аватара */
+/* WHATSAPP СЕТКА МЕДИА */
+.post-media-grid {
+  display: grid;
+  gap: 4px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  background: #f0f0f0;
+}
+
+.media-item-wrapper {
+  position: relative;
+  cursor: zoom-in;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
-  color: #fff;
-  margin-right: 10px;
-  font-size: 1.2em;
+  background: #000;
 }
 
-.post-image {
+/* Логика размеров */
+.files-count-1 .post-image {
   width: 100%;
-  max-height: 200px;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.files-count-2 {
+  grid-template-columns: 1fr 1fr;
+  aspect-ratio: 16/10;
+}
+
+.files-count-3 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.files-count-3 .media-item-wrapper:first-child {
+  grid-column: span 2;
+  aspect-ratio: 16/9;
+}
+
+.files-count-3 .media-item-wrapper:not(:first-child) {
+  aspect-ratio: 1/1;
+}
+
+.files-count-4,
+.files-count-5 {
+  grid-template-columns: 1fr 1fr;
+  aspect-ratio: 1/1;
+}
+
+.post-image,
+.post-video {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  /* Обрезает изображение, чтобы оно поместилось */
-  border-radius: 10px;
-  margin-bottom: 15px;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
+.media-item-wrapper:hover .post-image {
+  transform: scale(1.05);
+}
+
+/* КОНТЕНТ */
 .post-content {
-  font-size: 0.95em;
-  color: #555;
-  line-height: 1.5;
+  font-size: 1.05em;
+  color: #444;
+  line-height: 1.6;
   margin-bottom: 15px;
   flex-grow: 1;
 }
 
-.post-lifebar-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 15px 0;
-}
-
-.post-lifebar-container .ant-progress {
-  flex-grow: 1;
-}
-
-.time-left-text {
-  font-weight: bold;
-  font-size: 0.9em;
-  white-space: nowrap;
-}
-
+/* КНОПКИ (СОЧНЫЕ С АНИМАЦИЕЙ) */
 .post-actions-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding-top: 10px;
-  border-top: 1px solid #000000;
-  width: 100%;
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
 }
 
 .likes-actions {
   display: flex;
-  justify-content: flex-start;
-  gap: 20px;
+  gap: 15px;
   width: 100%;
 }
 
 .echo-button,
-.disecho-button,
-.comment-count {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 15px;
-  border-radius: 25px;
-  font-size: 1em;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-  text-decoration: none;
+.disecho-button {
+  flex: 1;
   position: relative;
   overflow: hidden;
-  z-index: 1;
-  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 50px;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  color: white;
+  transition: all 0.2s ease;
 }
 
+/* Эффект волны при нажатии */
+.echo-button::after,
+.disecho-button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  left: 0;
+  top: 0;
+  transform: scale(0);
+  opacity: 0;
+  border-radius: inherit;
+}
 
-/* Ключевые кадры для медленной и заметной анимации волны */
-@keyframes press-wave {
+.echo-button:active::after,
+.disecho-button:active::after {
+  animation: ripple 0.4s ease-out;
+}
+
+@keyframes ripple {
   0% {
-    transform: scale(0.7);
+    transform: scale(0);
     opacity: 1;
   }
 
   100% {
-    transform: scale(2.5);
+    transform: scale(2);
     opacity: 0;
   }
 }
 
-/* Псевдоэлемент, который создаёт волну*/
-.echo-button::after,
-.disecho-button::after,
-.comment-count::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 25px;
-  background-color: rgba(255, 255, 255, 0.6);
-  transform: scale(0);
-  opacity: 0;
-  z-index: -1;
-}
-
-.echo-button:hover::after,
-.disecho-button:hover::after,
-.comment-count:hover::after {
-  animation: press-wave 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-
 .echo-button {
-  background-color: #2ECC71;
-  color: white;
-  box-shadow: 0 4px 6px rgba(46, 204, 113, 0.3);
-}
-
-.echo-button:hover {
-  background-color: #27AE60;
-  box-shadow: 0 6px 12px rgba(46, 204, 113, 0.4);
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
 }
 
 .disecho-button {
-  background-color: #E74C3C;
-  color: white;
-  box-shadow: 0 4px 6px rgba(231, 76, 60, 0.3);
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
 }
 
+.echo-button:hover,
 .disecho-button:hover {
-  background-color: #C0392B;
-  box-shadow: 0 6px 12px rgba(231, 76, 60, 0.4);
+  transform: translateY(-2px);
+  filter: brightness(1.1);
 }
 
-.comment-count {
-  background-color: #3498DB;
-  color: white;
-  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
-  align-self: flex-start;
-}
-
-.comment-count:hover {
-  background-color: #2980B9;
-  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
-}
-
-.post-image-placeholder {
-  width: 100%;
-  height: 150px;
-  background-color: #e0e0e0;
-  border-radius: 10px;
-  margin-bottom: 15px;
+/* ПОЛОСКА ВРЕМЕНИ */
+.post-lifebar-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: #888;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.time-left-text {
+  font-weight: 800;
   font-size: 0.9em;
 }
 
-.modal-ok-button {
-  padding: 8px 15px;
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #fff;
-  transition: background-color 0.2s, border-color 0.2s;
+/* МОДАЛКА ПРОСМОТРА */
+.full-res-image {
+  width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* СОСТОЯНИЯ */
+.home-loading,
+.home-error {
+  text-align: center;
+  margin-top: 100px;
 }

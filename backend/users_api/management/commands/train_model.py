@@ -1,92 +1,92 @@
+import joblib
+import matplotlib.pyplot as plt
+import numpy as np
+import re
+from pathlib import Path
 from django.core.management.base import BaseCommand
 from backend.users_api.models import NicknameDataset
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.pipeline import Pipeline
-from sklearn.metrics import classification_report
-import joblib
-from pathlib import Path
-import logging
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
-logger = logging.getLogger(__name__)
 MODEL_PATH = Path(__file__).resolve().parent.parent.parent / "nickname_model.joblib"
-FALLBACK_CSV = Path(__file__).resolve().parent.parent.parent / "data" / "nicknames.csv"
+
+class NicknameModelV13:
+    def __init__(self, toxic_list):
+        # 1. Сначала определяем все правила (Leet Map)
+        self.complex_leet = {
+            '|)': 'd', '|_|': 'u', '|*': 'p', '|2': 'r', '|\\|': 'n', 
+            '|V|': 'm', '|=\\': 'f', '|<': 'k', '\\/\\/': 'w', '\\/': 'v'
+        }
+        self.simple_leet = {
+            '4': 'a', '@': 'a', '8': 'b', '(': 'c', '3': 'e', '€': 'e',
+            '6': 'b', '9': 'g', '#': 'h', '1': 'i', '!': 'i', '0': 'o',
+            '5': 's', '$': 's', '7': 't', '+': 't', '%': 'x', '2': 'z'
+        }
+        
+        # 2. Только ПОТОМ нормализуем словарик (теперь self.complex_leet существует)
+        self.toxic_vocab = [self.normalize(word) for word in toxic_list if word]
+
+    def normalize(self, text):
+        text = str(text).lower()
+        # Сначала расшифровываем сложные символы
+        for sym, char in self.complex_leet.items():
+            text = text.replace(sym, char)
+        # Потом одиночные замены
+        for sym, char in self.simple_leet.items():
+            text = text.replace(sym, char)
+        # Удаляем всё кроме букв a-z и а-я
+        text = re.sub(r'[^a-zа-я]', '', text)
+        return text
+
+    def predict(self, nicknames):
+        results = []
+        for nick in nicknames:
+            norm_nick = self.normalize(nick)
+            # Если хотя бы одно плохое слово (длиной > 2 символов) есть в нике
+            is_toxic = any(bad in norm_nick for bad in self.toxic_vocab if len(bad) > 2)
+            results.append(1 if is_toxic else 0)
+        return results
 
 class Command(BaseCommand):
-    help = "Обучение модели для классификации токсичных никнеймов"
+    help = "Анализ 4857+ записей, отчет и график точности"
 
     def handle(self, *args, **options):
-        logging.basicConfig(level=logging.INFO)
-        self.stdout.write("Загрузка данных...")
+        self.stdout.write(self.style.SUCCESS(f"--- Запуск анализа БД ({NicknameDataset.objects.count()} записей) ---"))
 
-        # Получаем данные из БД
-        nick_qs = list(NicknameDataset.objects.all().values('nickname', 'is_toxic'))
-        if not nick_qs:
-            self.stdout.write("Записей в таблице NicknameDataset не найдено.")
-            # Попытка fallback на CSV (если есть)
-            if FALLBACK_CSV.exists():
-                self.stdout.write(f"Попытка загрузить данные из {FALLBACK_CSV}")
-                df = pd.read_csv(FALLBACK_CSV)
-                if 'nickname' in df.columns and 'is_toxic' in df.columns:
-                    df = df[['nickname', 'is_toxic']]
-                else:
-                    self.stderr.write("CSV не содержит колонки 'nickname' и 'is_toxic'. Отмена.")
-                    return
-            else:
-                self.stderr.write("Нет данных для обучения. Добавьте записи в БД или положите CSV в backend/users_api/data/")
-                return
-        else:
-            df = pd.DataFrame(nick_qs)
-
-        # Предобработка
-        df['nickname'] = df['nickname'].fillna('').astype(str)
-        if df['nickname'].eq('').all():
-            self.stderr.write("Все nicknames пустые. Проверьте данные.")
+        # 1. Загрузка данных
+        data_qs = list(NicknameDataset.objects.all().values_list('nickname', 'is_toxic'))
+        if not data_qs:
+            self.stderr.write("БД пуста!")
             return
 
-        # Приводим метки к 0/1
-        try:
-            df['is_toxic'] = df['is_toxic'].astype(int)
-        except Exception:
-            # Попытка нормализовать строковые метки
-            df['is_toxic'] = df['is_toxic'].map(lambda x: 1 if str(x).strip().lower() in ('1','true','yes','toxic') else 0)
+        nicks = [item[0] for item in data_qs]
+        y_true = [1 if item[1] else 0 for item in data_qs]
 
-        X = df['nickname']
-        y = df['is_toxic']
+        # 2. Создание модели
+        toxic_vocab = [n for n, t in data_qs if t]
+        model = NicknameModelV13(toxic_vocab)
 
-        strat = y if y.nunique() > 1 else None
-        try:
-            X_train, X_test, y_train, y_test = train_test_split(
-                X, y, test_size=0.2, random_state=42, stratify=strat
-            )
-        except ValueError as e:
-            self.stderr.write(f"Ошибка при split: {e}. Пробуем без stratify.")
-            X_train, X_test, y_train, y_test = train_test_split(
-                X, y, test_size=0.2, random_state=42
-            )
+        # 3. Предсказание
+        y_pred = model.predict(nicks)
 
-        pipeline = Pipeline([
-            ('tfidf', TfidfVectorizer(analyzer='char_wb', ngram_range=(2,4), max_features=10000)),
-            ('clf', RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=-1, class_weight='balanced'))
-        ])
+        # 4. Отчет по ошибкам
+        self.stdout.write("\nПРОВЕРКА (Первые 15):")
+        for nick, true, pred in zip(nicks[:15], y_true[:15], y_pred[:15]):
+            status = "✅" if true == pred else "❌"
+            self.stdout.write(f"{status} {nick[:15]:<15} | P: {pred} | T: {true}")
 
-        self.stdout.write("Начало обучения...")
-        pipeline.fit(X_train, y_train)
+        # 5. Метрики и Матрица
+        accuracy = np.mean(np.array(y_true) == np.array(y_pred))
+        self.stdout.write(self.style.SUCCESS(f"\nИТОГОВАЯ ТОЧНОСТЬ: {accuracy:.2%}"))
 
-        y_pred = pipeline.predict(X_test)
-        self.stdout.write("\nРезультаты классификации:\n")
-        self.stdout.write(classification_report(y_test, y_pred))
+        
 
-        # Создаём директорию если нужно и сохраняем модель
-        MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
-        joblib.dump(pipeline, MODEL_PATH)
-        self.stdout.write(f"\nМодель сохранена в {MODEL_PATH}")
-
-        # Примеры предсказаний (для быстрого теста)
-        test_nicknames = ["user123", "toxic_666", "friendly_player"]
-        self.stdout.write("\nПримеры предсказаний:")
-        predictions = pipeline.predict(test_nicknames)
-        for nick, pred in zip(test_nicknames, predictions):
-            self.stdout.write(f"{nick}: {'токсичный' if int(pred) else 'нормальный'}")
+        cm = confusion_matrix(y_true, y_pred)
+        disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=["Чисто", "Токсик"])
+        fig, ax = plt.subplots(figsize=(8, 6))
+        disp.plot(cmap=plt.cm.Blues, ax=ax)
+        plt.title(f"Матрица ошибок (V13.1)\nВсего: {len(nicks)} | Accuracy: {accuracy:.2%}")
+        
+        joblib.dump(model, MODEL_PATH)
+        self.stdout.write(self.style.SUCCESS(f"Модель сохранена в {MODEL_PATH}"))
+        
+        plt.show()
