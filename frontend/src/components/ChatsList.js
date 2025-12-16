@@ -1,5 +1,3 @@
-// ChatsList.js
-
 import React, { useState, useEffect, useCallback } from 'react';
 
 const API_BASE_URL = 'http://127.0.0.1:8000/messenger_api';

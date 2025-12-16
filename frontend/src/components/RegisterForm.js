@@ -251,6 +251,7 @@ const RegisterForm = () => {
             </Space>
           </>
         )}
+        {/* шаг личные данные */}
         {step === 2 && (
           <>
             <div className="input-group">

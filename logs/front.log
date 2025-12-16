@@ -1,0 +1,3267 @@
+
+> frontend@0.1.0 start
+> react-scripts start
+
+(node:32252) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:32252) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\pages\Friends.js
+Syntax error: Unexpected token (83:0) (83:undefined)
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/pages/Friends.js[39m[22m
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\user\Desktop\echo\frontend\src\pages\Friends.js: Unexpected token (83:0)
+
+[0m [90m 81 |[39m       {loading [33m?[39m (
+ [90m 82 |[39m
+[31m[1m>[22m[39m[90m 83 |[39m ) [33m:[39m (
+ [90m    |[39m [31m[1m^[22m[39m
+ [90m 84 |[39m         [33m<[39m[33m>[39m
+ [90m 85 |[39m           [33m<[39m[33mdiv[39m style[33m=[39m{{ marginBottom[33m:[39m [35m32[39m }}[33m>[39m
+ [90m 86 |[39m             [33m<[39m[33mTypography[39m[33m.[39m[33mTitle[39m level[33m=[39m{[35m3[39m}[33m>[39m[0m
+    at constructor (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+    at FlowParserMixin.raise (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6627:19)
+    at FlowParserMixin.unexpected (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6647:16)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11691:12)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.tryParseConditionalConsequent (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3051:29)
+    at FlowParserMixin.parseConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3012:14)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10880:17)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at FlowParserMixin.parseExpressionBase (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10779:23)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:17)
+    at FlowParserMixin.jsxParseExpressionContainer (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4662:31)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4741:36)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12494:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11674:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\pages\Friends.js
+  Line 83:  Parsing [1m[31merror[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (83:0)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\pages\Friends.js
+Syntax error: Unexpected token (83:0) (83:undefined)
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/pages/Friends.js[39m[22m
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\user\Desktop\echo\frontend\src\pages\Friends.js: Unexpected token (83:0)
+
+[0m [90m 81 |[39m       {loading [33m?[39m (
+ [90m 82 |[39m
+[31m[1m>[22m[39m[90m 83 |[39m ) [33m:[39m (
+ [90m    |[39m [31m[1m^[22m[39m
+ [90m 84 |[39m         [33m<[39m[33m>[39m
+ [90m 85 |[39m           [33m<[39m[33mdiv[39m style[33m=[39m{{ marginBottom[33m:[39m [35m32[39m }}[33m>[39m
+ [90m 86 |[39m             [33m<[39m[33mTypography[39m[33m.[39m[33mTitle[39m level[33m=[39m{[35m3[39m}[33m>[39m[0m
+    at constructor (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+    at FlowParserMixin.raise (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6627:19)
+    at FlowParserMixin.unexpected (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6647:16)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11691:12)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.tryParseConditionalConsequent (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3051:29)
+    at FlowParserMixin.parseConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3012:14)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10880:17)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at FlowParserMixin.parseExpressionBase (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10779:23)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:17)
+    at FlowParserMixin.jsxParseExpressionContainer (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4662:31)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4741:36)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12494:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11674:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\pages\Friends.js
+  Line 83:  Parsing [1m[31merror[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (83:0)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\pages\Friends.js
+Syntax error: JSX value should be either an expression or a quoted JSX text. (82:55) (82:55)
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/pages/Friends.js[39m[22m
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\user\Desktop\echo\frontend\src\pages\Friends.js: JSX value should be either an expression or a quoted JSX text. (82:55)
+
+[0m [90m 80 |[39m [33m<[39m[33m/[39m[33mTypography[39m[33m.[39m[33mTitle[39m[33m>[39m
+ [90m 81 |[39m       {loading [33m?[39m (
+[31m[1m>[22m[39m[90m 82 |[39m         [33m<[39m[33mSpin[39m tip[33m=[39m[32m"Загрузка данных о дружбе..."[39m style[33m=[39m [33m/[39m[33m>[39m
+ [90m    |[39m                                                        [31m[1m^[22m[39m
+ [90m 83 |[39m       ) [33m:[39m (
+ [90m 84 |[39m         [33m<[39m[33m>[39m
+ [90m 85 |[39m           [33m<[39m[33mdiv[39m style[33m=[39m{{ marginBottom[33m:[39m [35m32[39m }}[33m>[39m[0m
+    at constructor (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+    at FlowParserMixin.raise (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6627:19)
+    at FlowParserMixin.jsxParseAttributeValue (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4643:20)
+    at FlowParserMixin.jsxParseAttribute (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4683:38)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4697:28)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4098:18)
+    at FlowParserMixin.jsxParseOpeningElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4692:17)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4716:33)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12494:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11674:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.tryParseConditionalConsequent (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3051:29)
+    at FlowParserMixin.parseConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3012:14)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10880:17)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at FlowParserMixin.parseExpressionBase (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10779:23)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:17)
+    at FlowParserMixin.jsxParseExpressionContainer (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4662:31)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4741:36)
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\pages\Friends.js
+  Line 82:55:  Parsing [1m[31merror[39m[22m[1m: JSX value should be either an expression or a quoted JSX text. (82:55)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\pages\Friends.js
+Syntax error: Unexpected token (81:77) (81:77)
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/pages/Friends.js[39m[22m
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\user\Desktop\echo\frontend\src\pages\Friends.js: Unexpected token (81:77)
+
+[0m [90m 79 |[39m [33m<[39m[33m/[39m[33mTypography[39m[33m.[39m[33mTitle[39m[33m>[39m
+ [90m 80 |[39m       {loading [33m?[39m (
+[31m[1m>[22m[39m[90m 81 |[39m         [33m<[39m[33mSpin[39m tip[33m=[39m[32m"Загрузка данных о дружбе..."[39m style[33m=[39m{{ marginTop[33m:[39m [32m'20px'[39m[33m,[39m  [33m/[39m[33m>[39m
+ [90m    |[39m                                                                              [31m[1m^[22m[39m
+ [90m 82 |[39m       ) [33m:[39m (
+ [90m 83 |[39m         [33m<[39m[33m>[39m
+ [90m 84 |[39m           [33m<[39m[33mdiv[39m style[33m=[39m{{ marginBottom[33m:[39m [35m32[39m }}[33m>[39m[0m
+    at constructor (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+    at FlowParserMixin.raise (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6627:19)
+    at FlowParserMixin.unexpected (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6647:16)
+    at FlowParserMixin.parsePropertyName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12025:18)
+    at FlowParserMixin.parsePropertyDefinition (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11890:10)
+    at FlowParserMixin.parseObjectLike (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11831:21)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11334:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at FlowParserMixin.parseExpressionBase (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10779:23)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:17)
+    at FlowParserMixin.jsxParseExpressionContainer (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4662:31)
+    at FlowParserMixin.jsxParseAttributeValue (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4634:21)
+    at FlowParserMixin.jsxParseAttribute (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4683:38)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4697:28)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4098:18)
+    at FlowParserMixin.jsxParseOpeningElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4692:17)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4716:33)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12494:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11674:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\pages\Friends.js
+  Line 81:77:  Parsing [1m[31merror[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (81:77)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\pages\Friends.js
+Syntax error: Unexpected token (81:77) (81:77)
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/pages/Friends.js[39m[22m
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\user\Desktop\echo\frontend\src\pages\Friends.js: Unexpected token (81:77)
+
+[0m [90m 79 |[39m [33m<[39m[33m/[39m[33mTypography[39m[33m.[39m[33mTitle[39m[33m>[39m
+ [90m 80 |[39m       {loading [33m?[39m (
+[31m[1m>[22m[39m[90m 81 |[39m         [33m<[39m[33mSpin[39m tip[33m=[39m[32m"Загрузка данных о дружбе..."[39m style[33m=[39m{{ marginTop[33m:[39m [32m'20px'[39m[33m,[39m  [33m/[39m[33m>[39m
+ [90m    |[39m                                                                              [31m[1m^[22m[39m
+ [90m 82 |[39m       ) [33m:[39m (
+ [90m 83 |[39m         [33m<[39m[33m>[39m
+ [90m 84 |[39m           [33m<[39m[33mdiv[39m style[33m=[39m{{ marginBottom[33m:[39m [35m32[39m }}[33m>[39m[0m
+    at constructor (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+    at FlowParserMixin.raise (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6627:19)
+    at FlowParserMixin.unexpected (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6647:16)
+    at FlowParserMixin.parsePropertyName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12025:18)
+    at FlowParserMixin.parsePropertyDefinition (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11890:10)
+    at FlowParserMixin.parseObjectLike (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11831:21)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11334:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at FlowParserMixin.parseExpressionBase (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10779:23)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:17)
+    at FlowParserMixin.jsxParseExpressionContainer (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4662:31)
+    at FlowParserMixin.jsxParseAttributeValue (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4634:21)
+    at FlowParserMixin.jsxParseAttribute (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4683:38)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4697:28)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4098:18)
+    at FlowParserMixin.jsxParseOpeningElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4692:17)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4716:33)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12494:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11674:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\pages\Friends.js
+  Line 81:77:  Parsing [1m[31merror[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (81:77)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\pages\Friends.js
+Syntax error: Unexpected token (81:77) (81:77)
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/pages/Friends.js[39m[22m
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\user\Desktop\echo\frontend\src\pages\Friends.js: Unexpected token (81:77)
+
+[0m [90m 79 |[39m [33m<[39m[33m/[39m[33mTypography[39m[33m.[39m[33mTitle[39m[33m>[39m
+ [90m 80 |[39m       {loading [33m?[39m (
+[31m[1m>[22m[39m[90m 81 |[39m         [33m<[39m[33mSpin[39m tip[33m=[39m[32m"Загрузка данных о дружбе..."[39m style[33m=[39m{{ marginTop[33m:[39m [32m'20px'[39m[33m,[39m  [33m/[39m[33m>[39m
+ [90m    |[39m                                                                              [31m[1m^[22m[39m
+ [90m 82 |[39m       ) [33m:[39m (
+ [90m 83 |[39m         [33m<[39m[33m>[39m
+ [90m 84 |[39m           [33m<[39m[33mdiv[39m style[33m=[39m{{ marginBottom[33m:[39m [35m32[39m }}[33m>[39m[0m
+    at constructor (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+    at FlowParserMixin.raise (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6627:19)
+    at FlowParserMixin.unexpected (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6647:16)
+    at FlowParserMixin.parsePropertyName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12025:18)
+    at FlowParserMixin.parsePropertyDefinition (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11890:10)
+    at FlowParserMixin.parseObjectLike (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11831:21)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11334:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at FlowParserMixin.parseExpressionBase (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10779:23)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:17)
+    at FlowParserMixin.jsxParseExpressionContainer (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4662:31)
+    at FlowParserMixin.jsxParseAttributeValue (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4634:21)
+    at FlowParserMixin.jsxParseAttribute (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4683:38)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4697:28)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4098:18)
+    at FlowParserMixin.jsxParseOpeningElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4692:17)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4716:33)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12494:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11674:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\pages\Friends.js
+  Line 81:77:  Parsing [1m[31merror[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (81:77)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\pages\Friends.js
+Syntax error: Unexpected token (81:78) (81:78)
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/pages/Friends.js[39m[22m
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\user\Desktop\echo\frontend\src\pages\Friends.js: Unexpected token (81:113)
+
+[0m [90m 79 |[39m [33m<[39m[33m/[39m[33mTypography[39m[33m.[39m[33mTitle[39m[33m>[39m
+ [90m 80 |[39m       {loading [33m?[39m (
+[31m[1m>[22m[39m[90m 81 |[39m         [33m<[39m[33mSpin[39m tip[33m=[39m[32m"Загрузка данных о дружбе..."[39m style[33m=[39m{{ marginTop[33m:[39m [32m'20px'[39m[33m,[39m [32m'--ant-color-primary'[39m[33m:[39m [32m'#2e2e2eff'[39m  [33m/[39m[33m>[39m
+ [90m    |[39m                                                                                                                  [31m[1m^[22m[39m
+ [90m 82 |[39m       ) [33m:[39m (
+ [90m 83 |[39m         [33m<[39m[33m>[39m
+ [90m 84 |[39m           [33m<[39m[33mdiv[39m style[33m=[39m{{ marginBottom[33m:[39m [35m32[39m }}[33m>[39m[0m
+    at constructor (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+    at FlowParserMixin.raise (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6627:19)
+    at FlowParserMixin.unexpected (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6647:16)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11442:16)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOpBaseRightExpr (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10981:34)
+    at FlowParserMixin.parseExprOpRightExpr (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10976:21)
+    at FlowParserMixin.parseExprOp (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10942:27)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10903:17)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12494:17)
+    at FlowParserMixin.parseObjectProperty (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11951:83)
+    at FlowParserMixin.parseObjPropValue (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11979:100)
+    at FlowParserMixin.parseObjPropValue (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3369:26)
+    at FlowParserMixin.parsePropertyDefinition (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11916:17)
+    at FlowParserMixin.parseObjectLike (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11831:21)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11334:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at FlowParserMixin.parseExpressionBase (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10779:23)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:17)
+    at FlowParserMixin.jsxParseExpressionContainer (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4662:31)
+    at FlowParserMixin.jsxParseAttributeValue (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4634:21)
+    at FlowParserMixin.jsxParseAttribute (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4683:38)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4697:28)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4098:18)
+    at FlowParserMixin.jsxParseOpeningElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4692:17)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4716:33)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\pages\Friends.js
+  Line 81:78:  Parsing [1m[31merror[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (81:78)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\pages\Friends.js
+Syntax error: Unexpected token (81:78) (81:78)
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/pages/Friends.js[39m[22m
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\user\Desktop\echo\frontend\src\pages\Friends.js: Unexpected token (81:78)
+
+[0m [90m 79 |[39m [33m<[39m[33m/[39m[33mTypography[39m[33m.[39m[33mTitle[39m[33m>[39m
+ [90m 80 |[39m       {loading [33m?[39m (
+[31m[1m>[22m[39m[90m 81 |[39m         [33m<[39m[33mSpin[39m tip[33m=[39m[32m"Загрузка данных о дружбе..."[39m style[33m=[39m{{ marginTop[33m:[39m [32m'20px'[39m[33m,[39m   [33m/[39m[33m>[39m
+ [90m    |[39m                                                                               [31m[1m^[22m[39m
+ [90m 82 |[39m       ) [33m:[39m (
+ [90m 83 |[39m         [33m<[39m[33m>[39m
+ [90m 84 |[39m           [33m<[39m[33mdiv[39m style[33m=[39m{{ marginBottom[33m:[39m [35m32[39m }}[33m>[39m[0m
+    at constructor (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+    at FlowParserMixin.raise (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6627:19)
+    at FlowParserMixin.unexpected (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6647:16)
+    at FlowParserMixin.parsePropertyName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12025:18)
+    at FlowParserMixin.parsePropertyDefinition (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11890:10)
+    at FlowParserMixin.parseObjectLike (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11831:21)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11334:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at FlowParserMixin.parseExpressionBase (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10779:23)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:17)
+    at FlowParserMixin.jsxParseExpressionContainer (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4662:31)
+    at FlowParserMixin.jsxParseAttributeValue (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4634:21)
+    at FlowParserMixin.jsxParseAttribute (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4683:38)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4697:28)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4098:18)
+    at FlowParserMixin.jsxParseOpeningElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4692:17)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4716:33)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12494:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11674:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\pages\Friends.js
+  Line 81:78:  Parsing [1m[31merror[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (81:78)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+(node:32252) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:40:  'Alert' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:40:  'Alert' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\Search.js
+  Line 2:63:  'Spin' is defined but never used  no-unused-vars
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Layout.js
+  Line 119:7:  Imported JSX component Modal_AddPost [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+src\pages\profile\OtherProfile.js
+  Line 5:24:  'ManOutlined' is defined but never used    no-unused-vars
+  Line 5:37:  'WomanOutlined' is defined but never used  no-unused-vars
+
+src\pages\profile\Profile.js
+  Line 47:9:  The 'fetchUserData' function makes the dependencies of useEffect Hook (at line 108) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'fetchUserData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+src\pages\profile\UserPosts.js
+  Line 39:9:  'fetchMyPosts' is assigned a value but never used  no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m

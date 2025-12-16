@@ -1,14 +1,12 @@
-// файл для 
+// файл для
 
-import React, { useEffect, useState } from 'react';
-import { Card, Avatar, Typography, Spin, Row, Col, Divider, Tabs } from 'antd';
-import {
-  UserOutlined,
-  ManOutlined,
-  WomanOutlined
-} from '@ant-design/icons';
+import React, { useEffect, useState, useCallback } from 'react';
+import { Card, Avatar, Typography, Spin, Row, Col, Divider, Tabs, message } from 'antd';
+import { UserOutlined, ManOutlined, WomanOutlined } from '@ant-design/icons';
 import axiosInstance from '../../api/axiosInstance';
 import { useParams } from 'react-router-dom';
+import OtherUserPosts from './OtherUserPosts';
+import OtherUserComments from './OtherUserComments';
 
 const { Title, Text } = Typography;
 
@@ -18,7 +16,6 @@ const CARD_COLOR = '#2c2c2c'; // Более светлый фон для кар�
 const TEXT_COLOR = '#f0f0f0'; // Светлый текст
 const SECONDARY_TEXT_COLOR = '#a0a0a0'; // Серый текст для деталей
 const HIGHLIGHT_COLOR = '#3a3a3a'; // Цвет для фона аватара или раздела
-
 
 const BASE_URL = 'http://127.0.0.1:8000';
 
@@ -35,6 +32,10 @@ const OtherProfile = () => {
   const { id } = useParams();
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [userPosts, setUserPosts] = useState([]);
+  const [userComments, setUserComments] = useState([]);
+  const [tabLoading, setTabLoading] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -51,11 +52,29 @@ const OtherProfile = () => {
     fetchUserData();
   }, [id]);
 
-  const getGenderIcon = (gender) => {
-    const iconStyle = { color: TEXT_COLOR };
-    if (gender === 'male') return <ManOutlined style={iconStyle} />;
-    if (gender === 'female') return <WomanOutlined style={iconStyle} />;
-    return <UserOutlined style={iconStyle} />;
+  const fetchDataForTab = useCallback(
+    async (key) => {
+      setTabLoading(true);
+      try {
+        if (key === '2' && userPosts.length === 0) {
+          // Посты загружаются в OtherUserPosts
+        } else if (key === '3' && userComments.length === 0) {
+          // Комментарии загружаются в OtherUserComments
+        }
+      } catch (error) {
+        messageApi.error(
+          `Не удалось загрузить данные для вкладки ${key === '2' ? 'Посты' : 'Комментарии'}.`,
+        );
+        console.error('Tab data fetch error:', error);
+      } finally {
+        setTabLoading(false);
+      }
+    },
+    [userPosts.length, userComments.length, messageApi],
+  );
+
+  const handleTabChange = (key) => {
+    fetchDataForTab(key);
   };
 
   if (loading) {
@@ -151,7 +170,32 @@ const OtherProfile = () => {
         </div>
       ),
     },
-
+    {
+      key: '2',
+      label: <span style={{ color: TEXT_COLOR }}>Посты ({userPosts.length})</span>,
+      children: (
+        <OtherUserPosts
+          userPosts={userPosts}
+          setUserPosts={setUserPosts}
+          tabLoading={tabLoading}
+          setTabLoading={setTabLoading}
+          userId={id}
+        />
+      ),
+    },
+    {
+      key: '3',
+      label: <span style={{ color: TEXT_COLOR }}>Комментарии ({userComments.length})</span>,
+      children: (
+        <OtherUserComments
+          userComments={userComments}
+          setUserComments={setUserComments}
+          tabLoading={tabLoading}
+          setTabLoading={setTabLoading}
+          userId={id}
+        />
+      ),
+    },
   ];
 
   return (
@@ -165,6 +209,7 @@ const OtherProfile = () => {
         justifyContent: 'center',
       }}
     >
+      {contextHolder}
       <Card
         className="profile-card"
         style={{
@@ -177,7 +222,6 @@ const OtherProfile = () => {
           width: '100%',
           padding: 0,
         }}
-
         body={{ padding: 0 }}
       >
         <div
@@ -218,6 +262,7 @@ const OtherProfile = () => {
           defaultActiveKey="1"
           centered
           items={tabItems}
+          onChange={handleTabChange}
           tabBarStyle={{
             borderBottom: `1px solid ${HIGHLIGHT_COLOR}`,
             color: SECONDARY_TEXT_COLOR,

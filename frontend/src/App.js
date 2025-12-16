@@ -7,6 +7,7 @@ import ChangePassword from './pages/profile/ChangePassword';
 import OtherProfile from './pages/profile/OtherProfile';
 
 import Home from './pages/Home';
+import FloatingComment from './pages/FloatingComments';
 import Search from './pages/Search';
 
 import Friends from './pages/Friends';
@@ -68,6 +69,7 @@ function App() {
         }
       >
         <Route index element={<Home />} />
+        <Route path="floating-comment" element={<FloatingComment />} />
         <Route path="profile" element={<Profile />} />
         <Route path="profile/edit" element={<EditProfile />} />
         <Route path="profile/change-password" element={<ChangePassword />} />

@@ -92,11 +92,13 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
         </Form.Item>
 
         <Form.Item style={{ textAlign: 'right', marginBottom: 0 }}>
-          <Button type="primary" htmlType="submit" loading={loading}>
+          <h4>перед тем как создать пост ознакомся с правилами сообщества!</h4>
+          <Button style={{margin: '10px'}} onClick={rulesForCommunityNavigate}> правила </Button>
+
+          <Button style={{ backgroundColor: '#000000', borderRadius: '50px' }} type="primary" htmlType="submit" loading={loading}>
             <PlusOutlined /> Создать пост
           </Button>
-          <p>перед тем как создать пост ознакомся с правилами сообщества</p>
-          <Button onClick={rulesForCommunityNavigate}> правила </Button>
+
         </Form.Item>
       </Form>
     </Modal>
