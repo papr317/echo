@@ -1,46 +1,48 @@
-// файл для
-
 import React, { useEffect, useState, useCallback } from 'react';
-import { Card, Avatar, Typography, Spin, Row, Col, Divider, Tabs, message } from 'antd';
-import { UserOutlined, ManOutlined, WomanOutlined } from '@ant-design/icons';
+import { Card, Avatar, Typography, Spin, Row, Col, Divider, message, Tabs } from 'antd';
+import {
+  UserOutlined,
+  ManOutlined,
+  WomanOutlined,
+  CalendarOutlined,
+  GlobalOutlined,
+} from '@ant-design/icons';
 import axiosInstance from '../../api/axiosInstance';
 import { useParams } from 'react-router-dom';
+import getAvatarUrl from '../../utils/avatarUtils';
+import './Profile.css';
+
 import OtherUserPosts from './OtherUserPosts';
 import OtherUserComments from './OtherUserComments';
 
 const { Title, Text } = Typography;
 
-// --- Константы для темной темы ---
-const BACKGROUND_COLOR = '#1e1e1e'; // Очень темный фон
-const CARD_COLOR = '#2c2c2c'; // Более светлый фон для карточки
-const TEXT_COLOR = '#f0f0f0'; // Светлый текст
-const SECONDARY_TEXT_COLOR = '#a0a0a0'; // Серый текст для деталей
-const HIGHLIGHT_COLOR = '#3a3a3a'; // Цвет для фона аватара или раздела
-
-const BASE_URL = 'http://127.0.0.1:8000';
-
-const getFullAvatarUrl = (relativePath) => {
-  if (!relativePath) return undefined;
-  if (relativePath.startsWith('http://') || relativePath.startsWith('https://')) {
-    return relativePath;
-  }
-  const normalizedPath = relativePath.startsWith('/') ? relativePath : `/${relativePath}`;
-  return `${BASE_URL}${normalizedPath}`;
-};
-
 const OtherProfile = () => {
+  // Added a comment to trigger re-evaluation
   const { id } = useParams();
   const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [userPosts, setUserPosts] = useState([]);
   const [userComments, setUserComments] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [tabLoading, setTabLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
+
+  const getGenderIcon = (gender) => {
+    if (gender === 'male') return <ManOutlined style={{ color: '#fff' }} />;
+    if (gender === 'female') return <WomanOutlined style={{ color: '#fff' }} />;
+    return <UserOutlined style={{ color: '#fff' }} />;
+  };
 
   useEffect(() => {
     const fetchUserData = async () => {
       setLoading(true);
       try {
+        if (!id) {
+          console.warn('User ID not found in URL parameters.');
+          setUserData(null);
+          setLoading(false);
+          return;
+        }
         const response = await axiosInstance.get(`/users_api/users/${id}`);
         setUserData(response.data);
       } catch (error) {
@@ -79,90 +81,106 @@ const OtherProfile = () => {
 
   if (loading) {
     return (
-      <div
-        className="profile-container loading"
-        style={{
-          background: BACKGROUND_COLOR,
-          minHeight: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Spin size="large" style={{ color: TEXT_COLOR }} />
+      <div className="profile-container loading">
+        <Spin size="large" />
       </div>
     );
   }
 
   if (!userData) {
     return (
-      <div
-        className="profile-container error"
-        style={{ background: BACKGROUND_COLOR, minHeight: '100vh', padding: 20 }}
-      >
-        <p style={{ color: TEXT_COLOR, textAlign: 'center' }}>Пользователь не найден.</p>
+      <div className="profile-container error">
+        <p>Не удалось загрузить данные пользователя. Пожалуйста, попробуйте снова.</p>
       </div>
     );
   }
 
-  const detailItemStyle = {
-    marginBottom: 12,
-    color: SECONDARY_TEXT_COLOR,
-  };
-  const detailTitleStyle = {
-    fontWeight: 'bold',
-    color: TEXT_COLOR,
-    marginRight: 8,
-  };
-
   const tabItems = [
     {
       key: '1',
-      label: <span style={{ color: TEXT_COLOR }}>Информация</span>,
+      label: <span className="tab-text">Информация</span>,
       children: (
-        <div className="profile-details-section" style={{ padding: 24 }}>
+        <div className="profile-details-section">
           <Row gutter={[16, 16]}>
             {userData.first_name && (
               <Col span={24}>
-                <div style={detailItemStyle}>
-                  <span style={detailTitleStyle}>Имя:</span> {userData.first_name}
+                <div className="detail-item">
+                  <UserOutlined className="detail-icon" style={{ color: '#fff' }} />
+                  <div>
+                    <Text strong style={{ color: '#fff' }}>
+                      Имя:
+                    </Text>
+                    <Text style={{ color: '#fff' }}>{userData.first_name}</Text>
+                  </div>
                 </div>
               </Col>
             )}
             {userData.last_name && (
               <Col span={24}>
-                <div style={detailItemStyle}>
-                  <span style={detailTitleStyle}>Фамилия:</span> {userData.last_name}
+                <div className="detail-item">
+                  <UserOutlined className="detail-icon" style={{ color: '#fff' }} />
+                  <div>
+                    <Text strong style={{ color: '#fff' }}>
+                      Фамилия:
+                    </Text>
+                    <Text style={{ color: '#fff' }}>{userData.last_name}</Text>
+                  </div>
                 </div>
               </Col>
             )}
             {userData.nickname && (
               <Col span={24}>
-                <div style={detailItemStyle}>
-                  <span style={detailTitleStyle}>Псевдоним:</span> {userData.nickname}
+                <div className="detail-item">
+                  <GlobalOutlined className="detail-icon" style={{ color: '#fff' }} />
+                  <div>
+                    <Text strong style={{ color: '#fff' }}>
+                      Псевдоним:
+                    </Text>
+                    <Text style={{ color: '#fff' }}>{userData.nickname}</Text>
+                  </div>
                 </div>
               </Col>
             )}
             {userData.gender && (
               <Col span={24}>
-                <div style={detailItemStyle}>
-                  <span style={detailTitleStyle}>Пол:</span>{' '}
-                  {userData.gender === 'male' ? 'Мальчик' : 'Девочка'}
+                <div className="detail-item">
+                  {getGenderIcon(userData.gender)}
+                  <div>
+                    <Text strong style={{ color: '#fff' }}>
+                      Пол:
+                    </Text>
+                    <Text style={{ color: '#fff' }}>
+                      {userData.gender === 'male' ? 'Мальчик' : 'Девочка'}
+                    </Text>
+                  </div>
                 </div>
               </Col>
             )}
             {userData.date_of_birth && (
               <Col span={24}>
-                <div style={detailItemStyle}>
-                  <span style={detailTitleStyle}>Дата рождения:</span>{' '}
-                  {new Date(userData.date_of_birth).toLocaleDateString()}
+                <div className="detail-item">
+                  <CalendarOutlined className="detail-icon" style={{ color: '#fff' }} />
+                  <div>
+                    <Text strong style={{ color: '#fff' }}>
+                      Дата рождения:
+                    </Text>
+                    <Text style={{ color: '#fff' }}>
+                      {new Date(userData.date_of_birth).toLocaleDateString()}
+                    </Text>
+                  </div>
                 </div>
               </Col>
             )}
             {userData.location && (
               <Col span={24}>
-                <div style={detailItemStyle}>
-                  <span style={detailTitleStyle}>Местоположение:</span> {userData.location}
+                <div className="detail-item">
+                  <GlobalOutlined className="detail-icon" style={{ color: '#fff' }} />
+                  <div>
+                    <Text strong style={{ color: '#fff' }}>
+                      Местоположение:
+                    </Text>
+                    <Text style={{ color: '#fff' }}>{userData.location}</Text>
+                  </div>
                 </div>
               </Col>
             )}
@@ -172,7 +190,7 @@ const OtherProfile = () => {
     },
     {
       key: '2',
-      label: <span style={{ color: TEXT_COLOR }}>Посты ({userPosts.length})</span>,
+      label: <span className="tab-text">Посты ({userPosts.length})</span>,
       children: (
         <OtherUserPosts
           userPosts={userPosts}
@@ -185,7 +203,7 @@ const OtherProfile = () => {
     },
     {
       key: '3',
-      label: <span style={{ color: TEXT_COLOR }}>Комментарии ({userComments.length})</span>,
+      label: <span className="tab-text">Комментарии ({userComments.length})</span>,
       children: (
         <OtherUserComments
           userComments={userComments}
@@ -199,74 +217,32 @@ const OtherProfile = () => {
   ];
 
   return (
-    <div
-      className="profile-container"
-      style={{
-        background: BACKGROUND_COLOR,
-        minHeight: '100vh',
-        padding: '40px 20px',
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
+    <div className="profile-container">
       {contextHolder}
-      <Card
-        className="profile-card"
-        style={{
-          background: CARD_COLOR,
-          color: TEXT_COLOR,
-          borderRadius: 16,
-          boxShadow: '0 4px 30px rgba(0,0,0,0.5)', // Более выраженная тень для темной темы
-          minWidth: 340,
-          maxWidth: 420,
-          width: '100%',
-          padding: 0,
-        }}
-        body={{ padding: 0 }}
-      >
-        <div
-          className="profile-avatar-section"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            // Темный градиент или сплошной цвет для шапки
-            background: HIGHLIGHT_COLOR,
-            borderTopLeftRadius: 16,
-            borderTopRightRadius: 16,
-            padding: '32px 24px 16px 24px',
-          }}
-        >
+      <Card className="profile-card" style={{ backgroundColor: '#141414', color: '#fff' }}>
+        <div className="profile-avatar-section">
           <Avatar
             size={120}
-            icon={<UserOutlined style={{ color: TEXT_COLOR }} />}
-            // Используем вспомогательную функцию для корректного пути
-            src={getFullAvatarUrl(userData.avatar)}
-            style={{
-              backgroundColor: SECONDARY_TEXT_COLOR,
-              color: TEXT_COLOR,
-              border: '3px solid ' + CARD_COLOR, // Обводка цветом карточки
-              marginBottom: 16,
-              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-            }}
+            icon={<UserOutlined />}
+            src={getAvatarUrl(userData.avatar)}
+            style={{ backgroundColor: '#434343', color: '#fff', border: '2px solid #fff' }}
           />
-          <Title level={2} style={{ color: TEXT_COLOR, marginBottom: 0 }}>
+          <Title level={2} style={{ color: '#fff' }}>
             {userData.username}
           </Title>
-          <Text style={{ color: SECONDARY_TEXT_COLOR, marginBottom: 8 }}>
+          <Text type="secondary" style={{ color: '#a6a6a6' }}>
             {userData.bio || 'Биография не указана'}
           </Text>
         </div>
-        <Divider style={{ margin: 0, background: SECONDARY_TEXT_COLOR }} />
+
+        <Divider style={{ borderColor: '#434343' }} />
+
         <Tabs
           defaultActiveKey="1"
           centered
-          items={tabItems}
+          className="profile-tabs"
           onChange={handleTabChange}
-          tabBarStyle={{
-            borderBottom: `1px solid ${HIGHLIGHT_COLOR}`,
-            color: SECONDARY_TEXT_COLOR,
-          }}
+          items={tabItems}
         />
       </Card>
     </div>

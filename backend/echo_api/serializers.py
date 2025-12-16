@@ -70,20 +70,26 @@ class PostSerializer(serializers.ModelSerializer):
     is_expired = serializers.ReadOnlyField()
     comments_count = serializers.SerializerMethodField()
     
-    image = serializers.ImageField(required=False, allow_null=True) 
-    
+    image = serializers.SerializerMethodField()
+
     class Meta:
         model = Post
         fields = [
-            'id', 'author', 'author_details', 'content', 'image', 
-            'created_at', 'expires_at', 'is_expired', 
-            'echo_count', 'disecho_count', 'comments_count', 'is_floating', 
-            'updated_at' 
+            'id', 'author', 'author_details', 'content', 'image',
+            'created_at', 'expires_at', 'is_expired',
+            'echo_count', 'disecho_count', 'comments_count', 'is_floating',
+            'updated_at'
         ]
         read_only_fields = [
             'author', 'created_at', 'expires_at', 'is_expired',
             'echo_count', 'disecho_count', 'is_floating', 'updated_at'
         ]
+
+    def get_image(self, obj):
+        if obj.image:
+            # Возвращаем только относительный путь к файлу
+            return obj.image.url
+        return None
     
     def get_comments_count(self, obj):
         return obj.comments.filter(is_floating=False).count()

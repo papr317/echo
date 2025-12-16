@@ -1,20 +1,59 @@
 Watching for file changes with StatReloader
-WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:57432]
-WebSocket CONNECT /ws/chat/14/ [127.0.0.1:57432]
-WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:57448]
-WebSocket CONNECT /ws/chat/14/ [127.0.0.1:57448]
-WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:57432]
-WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:57448]
-WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:57295]
-WebSocket CONNECT /ws/chat/14/ [127.0.0.1:57295]
-WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:57295]
-WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:64120]
-WebSocket CONNECT /ws/chat/14/ [127.0.0.1:64120]
-WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:64128]
-WebSocket CONNECT /ws/chat/14/ [127.0.0.1:64128]
-WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:64128]
-WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:64120]
-WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:55995]
-WebSocket CONNECT /ws/chat/14/ [127.0.0.1:55995]
-WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:56001]
-WebSocket CONNECT /ws/chat/14/ [127.0.0.1:56001]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:61417]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:61417]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:61429]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:61429]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:61429]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:61417]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:61475]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:61475]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:61483]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:61483]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:61475]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:61483]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:53457]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:53457]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:53465]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:53465]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:53465]
+C:\Users\user\Desktop\echo\backend\echo_api\serializers.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2025 - 19:44:22
+Django version 5.2.3, using settings 'backend.config.settings'
+Starting ASGI/Daphne version 4.2.1 development server at http://127.0.0.1:8001/
+Quit the server with CTRL-BREAK.
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Disconnected with code: 1001 ---
+--- CONSUMER: Disconnected with code: 1001 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Disconnected with code: 1001 ---
+--- CONSUMER: Disconnected with code: 1001 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Disconnected with code: 1000 ---
+Watching for file changes with StatReloader
+C:\Users\user\Desktop\echo\backend\echo_api\serializers.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2025 - 19:59:02
+Django version 5.2.3, using settings 'backend.config.settings'
+Starting ASGI/Daphne version 4.2.1 development server at http://127.0.0.1:8001/
+Quit the server with CTRL-BREAK.
+Watching for file changes with StatReloader

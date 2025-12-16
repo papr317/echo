@@ -19,6 +19,7 @@ import { UserOutlined, UploadOutlined, DeleteOutlined, EditOutlined } from '@ant
 import axiosInstance from '../../api/axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
+import getAvatarUrl from '../../utils/avatarUtils';
 
 import './Profile.css';
 
@@ -68,7 +69,7 @@ const EditProfile = () => {
     }
     return Promise.resolve();
   };
-  
+
   const checkNickname = async (username) => {
     if (!username || username.length < 3) {
       return { isToxic: false, message: '' };
@@ -83,11 +84,10 @@ const EditProfile = () => {
 
       const isToxic = response.data.is_toxic;
       const messageText = response.data.message;
-      
-      setNicknameValidation({ isChecking: false, isToxic: isToxic, message: messageText });
-      
-      return { isToxic: isToxic, message: messageText };
 
+      setNicknameValidation({ isChecking: false, isToxic: isToxic, message: messageText });
+
+      return { isToxic: isToxic, message: messageText };
     } catch (error) {
       setNicknameValidation({
         isChecking: false,
@@ -96,10 +96,9 @@ const EditProfile = () => {
       });
       message.error('Ошибка проверки Имени пользователя. Попробуйте снова.');
       // Возвращаем, что проверка не удалась (считаем нетоксичным, но выводим ошибку)
-      return { isToxic: false, message: 'Ошибка проверки' }; 
+      return { isToxic: false, message: 'Ошибка проверки' };
     }
   };
-
 
   const disableFutureDates = (current) => {
     return current && current.valueOf() > moment().endOf('day');
@@ -116,14 +115,15 @@ const EditProfile = () => {
         const response = await axiosInstance.get('http://127.0.0.1:8000/users_api/me/', {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
-        
+
         const userData = response.data;
         form.setFieldsValue({
           ...userData,
           date_of_birth: userData.date_of_birth ? moment(userData.date_of_birth) : null,
         });
         if (userData.avatar) {
-          setAvatarUrl(userData.avatar);
+          const fullAvatarUrl = getAvatarUrl(userData.avatar);
+          setAvatarUrl(fullAvatarUrl);
         }
       } catch (error) {
         message.error('Не удалось загрузить данные профиля.');
@@ -132,7 +132,6 @@ const EditProfile = () => {
       }
     };
     fetchUserData();
-
 
     return () => {
       if (avatarObjectUrl) {
@@ -170,7 +169,11 @@ const EditProfile = () => {
   // --- ОБНОВЛЕННАЯ ФУНКЦИЯ onFinish ---
   const onFinish = async (values) => {
     setIsSaving(true);
-    setNicknameValidation({ isChecking: true, isToxic: false, message: 'Проверка Имени пользователя...' });
+    setNicknameValidation({
+      isChecking: true,
+      isToxic: false,
+      message: 'Проверка Имени пользователя...',
+    });
 
     // 1. ПРОВЕРКА НИКНЕЙМА
     const currentUsername = values.username || '';
@@ -178,10 +181,12 @@ const EditProfile = () => {
 
     // Дополнительный вызов валидации Ant Design, чтобы обновить сообщение
     // о токсичности, если она была обнаружена.
-    form.validateFields(['username']); 
+    form.validateFields(['username']);
 
     if (isToxic) {
-      message.error(toxicityMessage || 'Нельзя сохранить профиль: Имя пользователя признано токсичным.');
+      message.error(
+        toxicityMessage || 'Нельзя сохранить профиль: Имя пользователя признано токсичным.',
+      );
       setIsSaving(false);
       return;
     }
@@ -202,7 +207,8 @@ const EditProfile = () => {
     );
 
     if (avatarFile === null) {
-      formData.append('avatar', '');
+      // Если avatarFile === null, это означает, что пользователь нажал "Удалить"
+      formData.append('clear_avatar', 'true');
     } else if (avatarFile instanceof File) {
       formData.append('avatar', avatarFile, avatarFile.name);
     }
@@ -215,7 +221,7 @@ const EditProfile = () => {
         },
       });
       if (response.data.avatar) {
-        setAvatarUrl(response.data.avatar);
+        setAvatarUrl(getAvatarUrl(response.data.avatar));
       }
       setAvatarFile(undefined);
       message.success('Профиль успешно обновлён!');
@@ -239,8 +245,8 @@ const EditProfile = () => {
     } finally {
       setIsSaving(false);
       // Сбрасываем сообщение "Проверка...", если оно осталось висеть
-      if(nicknameValidation.isChecking) {
-          setNicknameValidation(prev => ({ ...prev, isChecking: false }));
+      if (nicknameValidation.isChecking) {
+        setNicknameValidation((prev) => ({ ...prev, isChecking: false }));
       }
     }
   };
@@ -319,7 +325,7 @@ const EditProfile = () => {
         </Title>
         <Divider style={{ borderColor: '#6e6e6eff' }} />
         <Form
-          form={form}
+          form={form} // Added a comment to trigger re-evaluation
           layout="vertical"
           onFinish={onFinish}
           onFinishFailed={() => message.error('Проверьте правильность заполнения формы')}
@@ -327,12 +333,13 @@ const EditProfile = () => {
         >
           {/*начало формы */}
           <Form.Item
-            color='#ffffffff' label="Имя пользователя"
+            color="#ffffffff"
+            label="Имя пользователя"
             name="username"
             rules={[
               { required: true, message: 'Имя пользователя обязательно.' },
               // Теперь эта функция просто проверяет последнее известное состояние
-              { validator: validateNicknameToxicity }, 
+              { validator: validateNicknameToxicity },
             ]}
           >
             <Input
@@ -367,7 +374,11 @@ const EditProfile = () => {
           </Form.Item>
           <Form.Item label="Фамилия" name="last_name">
             <Input
-              style={{ backgroundColor: '#ffffffff', color: 'rgba(0, 0, 0, 1)', border: '1px solid #434343' }}
+              style={{
+                backgroundColor: '#ffffffff',
+                color: 'rgba(0, 0, 0, 1)',
+                border: '1px solid #434343',
+              }}
             />
           </Form.Item>
           <Form.Item label="Биография" name="bio">

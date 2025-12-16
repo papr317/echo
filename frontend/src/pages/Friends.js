@@ -78,7 +78,7 @@ function FriendsPage() {
   Управление друзьями
 </Typography.Title>
       {loading ? (
-        <Spin tip="Загрузка данных о дружбе..." style={{ marginTop: '20px',  '--ant-color-primary': '#2e2e2eff' }}  />
+        <Spin size="large" tip="Загрузка друзей..."></Spin>
       ) : (
         <>
           <div style={{ marginBottom: 32 }}>

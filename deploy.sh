@@ -1,77 +1,97 @@
 #!/bin/bash
 
-# команда для запуска:
-# bash deploy.sh
+# КОМАНДА ЗАПУСКА ВСЕХ КОМПОНЕНТОВ ПРОЕКТА
+# ./deploy.sh
 
 # не забудь запустить redis-server в wsl перед этим!
 # sudo service redis-server start
 # redis-cli ping
 # sudo service redis-server stop
 
-
 # --- НАСТРОЙКИ ---
 VENV_PATH="./venv"
 FRONTEND_DIR="frontend"
 LOG_DIR="./logs"
+COMMAND_NAME="float_expired_posts"
 
-# Цвета
-G='\033[0;32m'
-R='\033[0;31m'
-Y='\033[1;33m'
-B='\033[0;34m'
+# Упрощенные цвета для стабильности в Git Bash (Windows)
+G='\033[32m' # Зеленый (Front)
+R='\033[31m' # Красный (System)
+Y='\033[33m' # Желтый (WS/Daphne)
+B='\033[34m' # Синий (API)
+P='\033[35m' # Пурпурный (Scheduler)
 NC='\033[0m'
 
-# Создаем папку для логов, если её нет
-mkdir -p $LOG_DIR
+mkdir -p "$LOG_DIR"
+export DJANGO_SETTINGS_MODULE=backend.config.settings
+
+# Очистка старых логов
+echo "" > "$LOG_DIR/api.log"
+echo "" > "$LOG_DIR/ws.log"
+echo "" > "$LOG_DIR/front.log"
+echo "" > "$LOG_DIR/scheduler.log"
 
 cleanup() {
     echo -e "\n${R}[!] Остановка всех систем...${NC}"
+    # Убиваем tail
+    if [ ! -z "$TAIL_PID" ]; then kill $TAIL_PID 2>/dev/null; fi
+    # Убиваем планировщик (цикл bash)
+    if [ ! -z "$SCHEDULER_PID" ]; then kill $SCHEDULER_PID 2>/dev/null; fi
+    # Чистим порты Windows
     taskkill //F //IM python.exe //T 2>/dev/null
     taskkill //F //IM node.exe //T 2>/dev/null
-    echo -e "${G}Логи сохранены в папке $LOG_DIR${NC}"
+    echo -e "${G}Все компоненты остановлены.${NC}"
     exit 0
 }
 trap cleanup SIGINT
 
-echo -e "${B}          ECHO PROJECT : FAST DEPLOY (LOGS ON)      ${NC}"
+echo -e "${B}=== ECHO PROJECT : STABLE DEPLOY ===${NC}"
 
-# 0. Чистка портов
-echo -e "${Y}[*] Освобождаем порты...${NC}"
+# 0. Предварительная очистка портов
 taskkill //F //IM python.exe //T 2>/dev/null
 taskkill //F //IM node.exe //T 2>/dev/null
 
-# 1. Активация VENV
+# 1. Активация Venv
 if [ -f "$VENV_PATH/Scripts/activate" ]; then
     source "$VENV_PATH/Scripts/activate"
-    echo -e "${G}[OK] Venv активирован.${NC}"
+    echo -e "${G}[OK] Виртуальное окружение активировано.${NC}"
 else
-    echo -e "${R}[!] Ошибка: Venv не найден в $VENV_PATH${NC}"
+    echo -e "${R}[!] Внимание: Venv не найден в $VENV_PATH. Пробуем без него...${NC}"
 fi
 
-# 2. Запуск Backend API (8000)
-echo -e "${Y}[*] Запуск API (Лог: $LOG_DIR/api.log)...${NC}"
+# 2. ЗАПУСК КОМПОНЕНТОВ (Логирование через файлы)
+
+echo -e "${Y}[*] Запуск сервисов...${NC}"
+
+# API (8000)
 python manage.py runserver 8000 > "$LOG_DIR/api.log" 2>&1 &
 
-# 3. Запуск Frontend (3000)
+# Channels/Daphne (8001)
+python manage.py runserver 8001 > "$LOG_DIR/ws.log" 2>&1 &
+
+
+# Фронтенд
 if [ -d "$FRONTEND_DIR" ]; then
-    echo -e "${Y}[*] Запуск Frontend (Лог: $LOG_DIR/front.log)...${NC}"
     (cd "$FRONTEND_DIR" && npm start > "../$LOG_DIR/front.log" 2>&1 &)
 fi
 
-# 4. Запуск WebSockets (8001)
-echo -e "\n${Y}==================================================${NC}"
-echo -e "${G} ВСЕ СИСТЕМЫ ВКЛЮЧЕНЫ! ${NC}"
-echo -e " API: http://127.0.0.1:8000"
-echo -e " WS:  ws://127.0.0.1:8001"
-echo -e " Frontend: http://127.0.0.1:3000"
-echo -e "${Y}==================================================${NC}"
-echo -e "${B}Нажми ENTER для завершения работы.${NC}"
-echo -e "${R}Ошибки WebSocket будут дублироваться здесь и в ws.log:${NC}\n"
+echo -e "${G}[OK] Все системы в работе!${NC}"
+echo -e "--------------------------------------------------"
+echo -e " ЛОГИ (API=${B}Blue${NC}, WS=${Y}Yellow${NC}, SCHED=${P}Purple${NC}, FRONT=${G}Green${NC})"
+echo -e "--------------------------------------------------"
 
-# Запускаем WS и используем tee, чтобы писать и в файл, и в консоль одновременно!
-python manage.py runserver 8001 2>&1 | tee "$LOG_DIR/ws.log" &
+# 3. ЕДИНЫЙ ВЫВОД ЛОГОВ С ПРЕФИКСАМИ (через sed для раскраски)
+# Мы запускаем чтение всех файлов сразу
+tail -f "$LOG_DIR/api.log" | sed "s/^/${B}[API]${NC} /" &
+tail -f "$LOG_DIR/ws.log" | sed "s/^/${Y}[WS ]${NC} /" &
+tail -f "$LOG_DIR/scheduler.log" | sed "s/^/${P}[SCHED]${NC} /" &
+tail -f "$LOG_DIR/front.log" | sed "s/^/${G}[FRONT]${NC} /" &
 
-# Ожидание нажатия Enter
+TAIL_PID=$!
+
+echo -e "\n${Y}Нажми [ENTER] для завершения работы.${NC}\n"
+
+# Ждем ввода
 read -p ""
 
 cleanup

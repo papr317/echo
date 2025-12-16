@@ -27,6 +27,7 @@ import {
 } from '@ant-design/icons';
 import axiosInstance from '../../api/axiosInstance';
 import { useNavigate } from 'react-router-dom';
+import getAvatarUrl from '../../utils/avatarUtils';
 import './Profile.css';
 
 import UserPosts from './UserPosts';
@@ -268,7 +269,7 @@ const Profile = () => {
             )}
           </Row>
 
-          <Space direction="vertical" style={{ width: '100%', marginTop: '24px' }}>
+          <Space orientation="vertical" style={{ width: '100%', marginTop: '24px' }}>
             <Button
               block
               style={{ backgroundColor: '#262626', color: '#fff', borderColor: '#434343' }}
@@ -322,7 +323,7 @@ const Profile = () => {
           <Avatar
             size={120}
             icon={<UserOutlined />}
-            src={userData.avatar}
+            src={getAvatarUrl(userData.avatar)}
             style={{ backgroundColor: '#434343', color: '#fff', border: '2px solid #fff' }}
           />
           <Title level={2} style={{ color: '#fff' }}>
@@ -366,7 +367,7 @@ const Profile = () => {
         title="Изменить личную информацию"
         centered
       >
-        <Space direction="vertical" style={{ width: '100%' }}>
+        <Space orientation="vertical" style={{ width: '100%' }}>
           <Button
             icon={<MailOutlined />}
             block
