@@ -2,6 +2,7 @@
 > frontend@0.1.0 start
 > react-scripts start
 
+<<<<<<< HEAD
 (node:25440) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 (node:25440) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
@@ -499,12 +500,29 @@ Failed to compile.
 [eslint] 
 src\components\Modal_AddPost.js
 Syntax error: Expected corresponding JSX closing tag for <h4>. (96:12) (96:12)
+=======
+(node:43228) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:43228) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+>>>>>>> AI
 [1m[33mWARNING[39m[22m in [1m[eslint] 
 src\pages\MessengerPage.js
   Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
 
 [39m[22m
 
+<<<<<<< HEAD
 [1m[31mERROR[39m[22m in [1m./src/components/Modal_AddPost.js[39m[22m
 Module build failed (from ./node_modules/babel-loader/lib/index.js):
 SyntaxError: C:\Users\user\Desktop\echo\frontend\src\components\Modal_AddPost.js: Expected corresponding JSX closing tag for <h4>. (96:12)
@@ -1003,3 +1021,7 @@ src\pages\MessengerPage.js
 [39m[22m
 
 webpack compiled with [1m[33m1 warning[39m[22m
+=======
+webpack compiled with [1m[33m1 warning[39m[22m
+(node:43228) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+>>>>>>> AI
