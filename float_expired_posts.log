@@ -4135,3 +4135,7 @@ Type 'manage.py help' for usage.
 Unknown command: 'float_expired_posts'
 Type 'manage.py help' for usage.
 (2025-10-09 20:30:04) Команда float_expired_posts завершена.
+(2025-12-17 15:33:07) Запуск команды float_expired_posts...
+Unknown command: 'float_expired_posts'
+Type 'manage.py help' for usage.
+(2025-12-17 15:33:12) Команда float_expired_posts завершена.
