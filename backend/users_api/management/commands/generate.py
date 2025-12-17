@@ -15,13 +15,13 @@ class Command(BaseCommand):
             'nigger', 'coon', 'kike', 'spic', 'chink', 'gook', 'wop', 'dago', 'kraut', 'jap',
             'faggot', 'dyke', 'tranny', 'queer', 'homo', 'pedo', 'retard', 'cripple', 'mongoloid', 'spaz',
             'nazi', 'hitler', 'ss', 'aryan', 'holocaustdenier', 'whitepower', 'kkk', 'swastika', 'gestapo', 'fuhrer',
-            'slut', 'whore', 'cunt', 'bitch', 'bastard', 'asshole', 'dickhead', 'motherfucker', 'cocksucker', 'wanker'
+            'slut', 'whore', 'cunt', 'bitch', 'bastard', 'asshole', 'dickhead', 'motherfucker', 'cocksucker', 'wanker','negr', 'niger'
         ]
 
         ru_bad = [
             'пидор', 'гомик', 'жид', 'хохол', 'чурка', 'черножопый', 'хач', 'нерусский', 'москаль', 'кацап',
             'дебил', 'идиот', 'даун', 'урод', 'выродок', 'нацист', 'фашист', 'гитлер', 'сс', 'свастика',
-            'блядь', 'сука', 'пизда', 'хуй', 'еблан', 'долбоеб', 'мудак', 'пиздюк', 'хуесос', 'пиздолиз'
+            'блядь', 'сука', 'пизда', 'хуй', 'еблан', 'долбоеб', 'мудак', 'пиздюк', 'хуесос', 'пиздолиз','негр'
         ]
 
         cn_bad = [
