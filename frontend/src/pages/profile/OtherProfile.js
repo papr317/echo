@@ -221,19 +221,22 @@ const OtherProfile = () => {
       {contextHolder}
       <Card className="profile-card" style={{ backgroundColor: '#141414', color: '#fff' }}>
         <div className="profile-avatar-section">
-          <Avatar
-            size={120}
-            icon={<UserOutlined />}
-            src={getAvatarUrl(userData.avatar)}
-            style={{ backgroundColor: '#434343', color: '#fff', border: '2px solid #fff' }}
-          />
-          <Title level={2} style={{ color: '#fff' }}>
-            {userData.username}
-          </Title>
-          <Text type="secondary" style={{ color: '#a6a6a6' }}>
-            {userData.bio || 'Биография не указана'}
-          </Text>
+          <div className="profile-avatar-section">
+            <Avatar
+              size={120}
+              icon={<UserOutlined />}
+              src={getAvatarUrl(userData.avatar)}
+              style={{ backgroundColor: '#434343', color: '#fff', border: '2px solid #fff' }}
+            />
+            <Title level={2} style={{ color: '#fff' }}>
+              {userData.username}
+            </Title>
+            <Text type="secondary" style={{ color: '#a6a6a6' }}>
+              {userData.bio || 'Биография не указана'}
+            </Text>
+          </div>
         </div>
+        
 
         <Divider style={{ borderColor: '#434343' }} />
 

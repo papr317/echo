@@ -146,14 +146,36 @@ function Messages({ chatId, currentUserId }) {
 
   return (
     <div className="messages-area-fixed-layout">
-      <div className="messages-window">
-        {messages.map((msg, index) => {
-          const isMine = msg.sender && msg.sender.id === currentUserId;
-          const messageClass = isMine ? 'message-mine' : 'message-other';
+      <div className="messages-content-area">
+        {/* Лента для моих сообщений (сверху) */}
+        <div className="my-messages-lane">
+          {messages
+            .filter((msg) => msg.sender && String(msg.sender.id) === String(currentUserId))
+            .map((msg, index) => (
+              <div key={msg.id || `msg-mine-${index}`} className="message-bubble message-mine">
+                <div style={{ wordBreak: 'break-word' }}>{msg.text}</div>
+                <div
+                  style={{
+                    fontSize: '10px',
+                    textAlign: 'right',
+                    opacity: 0.7,
+                    marginTop: '4px',
+                  }}
+                >
+                  {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString() : 'только что'}
+                </div>
+              </div>
+            ))}
+        </div>
 
-          return (
-            <div key={msg.id || `msg-${index}`} className={`message-bubble ${messageClass}`}>
-              {!isMine && (
+        <div className="lane-separator"></div> {/* Разделитель между лентами */}
+
+        {/* Лента для сообщений других пользователей (снизу) */}
+        <div className="other-messages-lane">
+          {messages
+            .filter((msg) => msg.sender && String(msg.sender.id) !== String(currentUserId))
+            .map((msg, index) => (
+              <div key={msg.id || `msg-other-${index}`} className="message-bubble message-other">
                 <div
                   style={{
                     fontWeight: 'bold',
@@ -164,23 +186,21 @@ function Messages({ chatId, currentUserId }) {
                 >
                   {msg.sender ? msg.sender.username : `Пользователь ${msg.sender_id}`}
                 </div>
-              )}
-              <div style={{ wordBreak: 'break-word' }}>{msg.text}</div>
-              <div
-                style={{
-                  fontSize: '10px',
-                  textAlign: 'right',
-                  opacity: 0.7,
-                  marginTop: '4px',
-                }}
-              >
-                {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString() : 'только что'}
+                <div style={{ wordBreak: 'break-word' }}>{msg.text}</div>
+                <div
+                  style={{
+                    fontSize: '10px',
+                    textAlign: 'right',
+                    opacity: 0.7,
+                    marginTop: '4px',
+                  }}
+                >
+                  {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString() : 'только что'}
+                </div>
               </div>
-            </div>
-          );
-        })}
-
-        <div ref={messagesEndRef} />
+            ))}
+        </div>
+        <div ref={messagesEndRef} /> {/* messagesEndRef теперь здесь, чтобы прокручивать оба контейнера */} 
       </div>
 
       {/* Форма отправки закреплена снизу */}

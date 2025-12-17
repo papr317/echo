@@ -119,7 +119,7 @@ function MessengerPage() {
 
   return (
     <div className="messenger-page-container column-layout">
-      {/* Верх: сообщения в две горизонтальные ленты */}
+      {/* Вверху: сообщения в горизонтальной ленте */}
       <div className="top-messages-area">
         {selectedChatId ? (
           <>
@@ -158,7 +158,7 @@ function MessengerPage() {
         )}
       </div>
 
-      {/* Низ: список чатов */}
+      {/* Внизу: список чатов в горизонтальной ленте */}
       <div className="bottom-chats-area">
         <div className="chat-list-header">Ваши Чаты</div>
         {loadingChats ? (
