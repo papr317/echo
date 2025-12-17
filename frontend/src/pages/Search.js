@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Input, Radio, Space, message, Alert, Avatar, Button, Spin, Typography } from 'antd';
+import { Input, Radio, Space, message, Alert, Avatar, Button, Typography } from 'antd';
 import axiosInstance from '../api/axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import './Search.css';
 import { useAuth } from '../contexts/AuthContext';
-import { MessageOutlined, UserAddOutlined, UserSwitchOutlined } from '@ant-design/icons'; // Добавлен MessageOutlined
+import {
+  SearchOutlined, MessageOutlined,
+  UserAddOutlined,
+  UserSwitchOutlined,
+} from '@ant-design/icons';
 
 const { Search } = Input;
-const { Text } = Typography; // Добавлен Typography для более чистого текста
+const { Text } = Typography;
 
 function SearchPage() {
   const { user } = useAuth();
@@ -277,31 +281,42 @@ function SearchPage() {
       </div>
     );
   };
-
   return (
-    <div className="search-page-container">
-      <h1>Поиск</h1>
-      <div className="search-controls">
-        <Search
-          placeholder="Введите имя, тег или ключевое слово..."
-          allowClear
-          enterButton="Найти"
-          size="large"
-          onSearch={handleSearch}
-          loading={loading}
-          style={{ width: '100%', maxWidth: '500px' }}
-        />
-        <Radio.Group onChange={(e) => setSearchType(e.target.value)} value={searchType}>
-          <Space direction="horizontal">
-            <Radio.Button value="all">Все</Radio.Button>
-            <Radio.Button value="posts">Посты</Radio.Button>
-            <Radio.Button value="users">Пользователи</Radio.Button>
-            <Radio.Button value="contats">Контакты</Radio.Button>
-            <Radio.Button value="support">Помощь</Radio.Button>
-          </Space>
-        </Radio.Group>
+    <div className="search-page-wrapper">
+      <div className="search-page-container">
+        <div className="search-controls">
+          <h1>Поиск</h1>
+
+          <Search
+            placeholder="Введите имя, тег или ключевое слово..."
+            enterButton={
+              <Button className="search-button">
+                <SearchOutlined /> Найти
+              </Button>
+            }
+            size="large"
+            onSearch={handleSearch}
+            loading={loading}
+          />
+
+          <Radio.Group
+            onChange={(e) => setSearchType(e.target.value)}
+            value={searchType}
+            buttonStyle="solid"
+          >
+            {/* Space убираем или настраиваем, чтобы не ломал рамки */}
+            <Radio.Button value="all">ВСЕ</Radio.Button>
+            <Radio.Button value="posts">ПОСТЫ</Radio.Button>
+            <Radio.Button value="users">ПОЛЬЗОВАТЕЛИ</Radio.Button>
+            <Radio.Button value="contats">КОНТАКТЫ</Radio.Button>
+            <Radio.Button value="support">ПОМОЩЬ</Radio.Button>
+          </Radio.Group>
+        </div>
+
+        <div className="search-results-container" style={{ marginTop: '40px' }}>
+          {renderResults()}
+        </div>
       </div>
-      {renderResults()}
     </div>
   );
 }

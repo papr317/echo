@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   HomeOutlined,
+  // PushpinOutlined,
   SearchOutlined,
-  MessageOutlined,
   TeamOutlined,
   CrownOutlined,
   MenuFoldOutlined,
@@ -11,6 +11,7 @@ import {
   SwapOutlined,
   PlusOutlined,
   QuestionCircleOutlined,
+  CommentOutlined,
 } from '@ant-design/icons';
 import './Sidebar.css';
 
@@ -24,13 +25,12 @@ function Sidebar({ collapsed, onToggle, position, onSideChange, onAddPostClick }
     <nav className={`sidebar ${collapsed ? 'sidebar-collapsed' : ''} sidebar-${position}`}>
       <ul className="sidebar-nav">
         <div className="sidebar-button-container">
-          {/* Добавляем обработчик onClick, который вызывает функцию, переданную через props */}
+          {/* кнопка нового поста */}
           <button className="public-post-button" onClick={onAddPostClick}>
             <PlusOutlined />
             {!collapsed && 'Новый пост'}
           </button>
         </div>
-
         <li>
           <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
             <HomeOutlined />
@@ -38,30 +38,31 @@ function Sidebar({ collapsed, onToggle, position, onSideChange, onAddPostClick }
           </NavLink>
         </li>
 
+        {/* TODO: доделать страницу открепленных комментариев */}
+        {/* <li>
+          <NavLink to="/floating-comment" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <PushpinOutlined /> {!collapsed && 'открепленные '}
+          </NavLink>
+        </li> */}
+
         <li>
           <NavLink to="/search" className={({ isActive }) => (isActive ? 'active' : '')}>
             <SearchOutlined />
             {!collapsed && 'Поиск'}
           </NavLink>
         </li>
-
         <li>
-          <NavLink
-            to="messenger"
-            className={({ isActive }) => (isActive ? 'active' : '')}
-          >
-            <MessageOutlined />
+          <NavLink to="messenger" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <CommentOutlined />
             {!collapsed && 'общение'}
           </NavLink>
         </li>
-
         <li>
           <NavLink to="/friends" className={({ isActive }) => (isActive ? 'active' : '')}>
             <TeamOutlined />
             {!collapsed && 'Друзья'}
           </NavLink>
         </li>
-
         <li>
           <NavLink to="/explore-plan" className={({ isActive }) => (isActive ? 'active' : '')}>
             <CrownOutlined />

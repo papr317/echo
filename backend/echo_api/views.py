@@ -96,6 +96,29 @@ class MyCommentListActiveView(generics.ListAPIView): # ✅ НОВЫЙ КЛАСС
             expires_at__gt=timezone.now()
         ).order_by('-created_at')
 
+class UserPostListView(generics.ListAPIView):
+    """Список всех постов, созданных указанным пользователем (даже если они истекли)."""
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        user_id = self.kwargs['user_id']
+        # Показываем все посты пользователя, независимо от expires_at
+        return Post.objects.filter(author_id=user_id).order_by('-created_at')
+
+class UserCommentListActiveView(generics.ListAPIView):
+    """Список всех активных комментариев, созданных указанным пользователем."""
+    serializer_class = CommentSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        user_id = self.kwargs['user_id']
+        # Показываем все комментарии пользователя, которые еще не истекли
+        return Comment.objects.filter(
+            author_id=user_id,
+            expires_at__gt=timezone.now()
+        ).order_by('-created_at')
+
 class MyPostDetailView(generics.RetrieveAPIView): 
     """Просмотр своего поста."""
     serializer_class = PostSerializer

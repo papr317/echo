@@ -5,9 +5,14 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import check_password
 from django.db.models import Q
+import logging
 
-from .models import CustomUser
+# Важные импорты:
+from .models import CustomUser, NicknameDataset
 from .serializers import RegisterSerializer, UserSerializer
+from .services import check_nickname_toxicity
+
+logger = logging.getLogger(__name__)
 
 # Вход пользователя с JWT
 class LoginView(APIView):
@@ -148,3 +153,35 @@ class UserSearchView(APIView):
 
         serializer = UserSerializer(users, many=True)
         return Response(serializer.data, status=200)
+
+# Проверка никнейма на токсичность
+class CheckNicknameView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request):
+        nickname = request.data.get('nickname')
+        if not nickname:
+            return Response({'error': 'Nickname is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        is_toxic, probability, debug = check_nickname_toxicity(nickname)
+        # Логируем для отладки (после стабилизации можно убрать)
+        logger.debug("check_nickname result: nickname=%s is_toxic=%s prob=%s debug=%s",
+                     nickname, is_toxic, probability, debug)
+
+        # Если модель отсутствует или возникла ошибка — возвращаем 503 или явно запрещаем
+        if debug.get("error") == "model_not_found":
+            return Response({
+                'nickname': nickname,
+                'is_toxic': True,
+                'probability': probability,
+                'message': 'Проверка недоступна — псевдоним временно заблокирован',
+                'debug': debug
+            }, status=status.HTTP_503_SERVICE_UNAVAILABLE)
+
+        return Response({
+            'nickname': nickname,
+            'is_toxic': bool(is_toxic),
+            'probability': probability,
+            'message': 'Никнейм недопустим' if is_toxic else 'Никнейм допустим',
+            'debug': debug
+        }, status=status.HTTP_200_OK)

@@ -10,6 +10,12 @@ urlpatterns = [
     # GET: Список всех своих активных комментариев
     path('my/comments/active/', views.MyCommentListActiveView.as_view(), name='my_comment_list_active'),
     
+    # GET: Список постов другого пользователя
+    path('users/<int:user_id>/posts/', views.UserPostListView.as_view(), name='user_post_list'),
+    
+    # GET: Список активных комментариев другого пользователя
+    path('users/<int:user_id>/comments/active/', views.UserCommentListActiveView.as_view(), name='user_comment_list_active'),
+    
     # GET: Детали своего поста
     path('my/posts/<int:pk>/', views.MyPostDetailView.as_view(), name='my_post_detail'),
     

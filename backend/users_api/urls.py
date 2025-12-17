@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import ResetPasswordView, RegisterView, LoginView, LogoutView, UserByIdView, UserDetailView, DeleteUserView, UserListView, UserSearchView
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
+from .views import (
+    LoginView, RegisterView, LogoutView, UserListView, 
+    UserByIdView, ResetPasswordView, UserDetailView,
+    DeleteUserView, UserSearchView, CheckNicknameView
 )
 
 urlpatterns = [
@@ -20,9 +20,6 @@ urlpatterns = [
     # поиск
     path('search/', UserSearchView.as_view(), name='user-search'),
 
-    # JWT энд поинты
-    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-
+    path('check-nickname/', CheckNicknameView.as_view(), name='check-nickname'),
 ]
 

@@ -7,6 +7,7 @@ import ChangePassword from './pages/profile/ChangePassword';
 import OtherProfile from './pages/profile/OtherProfile';
 
 import Home from './pages/Home';
+import FloatingComment from './pages/FloatingComments';
 import Search from './pages/Search';
 
 import Friends from './pages/Friends';
@@ -15,9 +16,11 @@ import ExplorePlan from './pages/ExplorePlan';
 import Support from './pages/Support';
 
 import Welcome from './pages/Welcome';
-import PrivacyPolicy from './pages/PrivacyPolicy';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
+
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import CommunityRules from './pages/CommunityRules';
 
 import Layout from './components/Layout';
 import ProtectedRoute from './api/ProtectedRoute';
@@ -54,6 +57,7 @@ function App() {
       />
 
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/community-rules" element={<CommunityRules/>} />
 
       {/* Protected routes with Layout */}
       <Route
@@ -65,6 +69,7 @@ function App() {
         }
       >
         <Route index element={<Home />} />
+        <Route path="floating-comment" element={<FloatingComment />} />
         <Route path="profile" element={<Profile />} />
         <Route path="profile/edit" element={<EditProfile />} />
         <Route path="profile/change-password" element={<ChangePassword />} />

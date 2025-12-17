@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',  # JWT authentication
     'django_q', # таймер
     'django_redis', # кэширование
+    'import_export', # импорт экспорт в админке
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -193,6 +194,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Максимальный размер файла для загрузки (2 MB)
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880 # 5 MB
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880 # 5 MB
 
 # Настройки жизненного цикла постов и комментариев (в часах)
 POST_LIFETIME_HOURS = 24       # Пост живет 24 часа

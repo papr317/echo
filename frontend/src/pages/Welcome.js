@@ -24,8 +24,8 @@ function Welcome() {
         <Title level={2}>Добро пожаловать в Echo</Title>
         <Text>Социальная сеть, где всё течёт, всё изменяется, и ничто не вечно</Text>
 
-        <Space direction="vertical" style={{ width: '100%' }}>
-          <Button
+<Space orientation="vertical" style={{ width: '100%' }}>
+            <Button
             type="primary"
             size="large"
             className="main-button ant-btn-primary" // Добавим класс для стилизации

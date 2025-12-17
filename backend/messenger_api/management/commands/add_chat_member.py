@@ -1,14 +1,9 @@
-# backend/messenger_api/management/commands/add_chat_member.py
-
 from django.core.management.base import BaseCommand
-# ИСПРАВЛЕНИЕ: Добавляем 'backend.' к пути импорта, чтобы указать правильный корень.
 from backend.messenger_api.models import Chat 
-# --------------------------------------------------------------------------
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 
 class Command(BaseCommand):
-    # ... (весь остальной код остается прежним)
     help = 'Ensures User 1 is a participant of Chat 1 to fix 403 errors.'
 
     def handle(self, *args, **options):

@@ -63,10 +63,22 @@ function FriendsPage() {
 
   return (
     <div className="friends-page-container" style={{ padding: '20px' }}>
-      <Typography.Title level={2}>Управление друзьями</Typography.Title>
-
+<Typography.Title 
+  level={2} 
+  style={{ 
+    color: '#1a1a1a', 
+    textTransform: 'uppercase', 
+    letterSpacing: '2px',
+    fontFamily: 'monospace',
+    borderBottom: '2px solid #1a1a1a',
+    display: 'inline-block',
+    paddingBottom: '4px'
+  }}
+>
+  Управление друзьями
+</Typography.Title>
       {loading ? (
-        <Spin tip="Загрузка данных о дружбе..." style={{ marginTop: '20px' }} />
+        <Spin size="large" tip="Загрузка друзей..."></Spin>
       ) : (
         <>
           <div style={{ marginBottom: 32 }}>

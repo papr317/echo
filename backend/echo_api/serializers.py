@@ -1,7 +1,19 @@
 from rest_framework import serializers
 from django.contrib.contenttypes.models import ContentType
-from .models import Post, Comment, Echo
+from .models import Post, Comment, Echo, PostFile
 from backend.users_api.serializers import UserSerializer 
+
+class PostFileSerializer(serializers.ModelSerializer):
+    file = serializers.SerializerMethodField()
+
+    class Meta:
+        model = PostFile
+        fields = ['id', 'file', 'order']
+
+    def get_file(self, obj):
+        if obj.file:
+            return obj.file.url
+        return None
 
 class ContentObjectSerializer(serializers.Serializer):
     """
@@ -69,24 +81,30 @@ class PostSerializer(serializers.ModelSerializer):
     author_details = UserSerializer(source='author', read_only=True)
     is_expired = serializers.ReadOnlyField()
     comments_count = serializers.SerializerMethodField()
-    
-    image = serializers.ImageField(required=False, allow_null=True) 
-    
+    files = PostFileSerializer(many=True, read_only=True) # Добавлено для получения файлов
+
     class Meta:
         model = Post
         fields = [
-            'id', 'author', 'author_details', 'content', 'image', 
-            'created_at', 'expires_at', 'is_expired', 
-            'echo_count', 'disecho_count', 'comments_count', 'is_floating', 
-            'updated_at' 
+            'id', 'author', 'author_details', 'content', 'files',
+            'created_at', 'expires_at', 'is_expired',
+            'echo_count', 'disecho_count', 'comments_count', 'is_floating',
+            'updated_at'
         ]
         read_only_fields = [
             'author', 'created_at', 'expires_at', 'is_expired',
             'echo_count', 'disecho_count', 'is_floating', 'updated_at'
         ]
-    
+
     def get_comments_count(self, obj):
         return obj.comments.filter(is_floating=False).count()
+
+    def create(self, validated_data):
+        files_data = self.context['request'].FILES.getlist('files') # Получаем список файлов
+        post = Post.objects.create(**validated_data)
+        for i, file_data in enumerate(files_data):
+            PostFile.objects.create(post=post, file=file_data, order=i)
+        return post
 
 class EchoSerializer(serializers.ModelSerializer):
     user_details = UserSerializer(source='user', read_only=True)

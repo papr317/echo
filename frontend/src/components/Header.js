@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Avatar, Modal } from 'antd';
+import { Avatar } from 'antd';
 import { UserOutlined, BellOutlined } from '@ant-design/icons'; // Import BellOutlined
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';

@@ -1,7 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
-import { message, Space, Button, Typography } from 'antd';
+import { message, Space, Button, Typography, Spin } from 'antd';
 import {
   MailOutlined,
   UserOutlined,
@@ -39,9 +39,17 @@ const RegisterForm = () => {
     accepted_privacy_policy: false,
   });
 
+  const [nicknameValidation, setNicknameValidation] = useState({
+    isChecking: false,
+    isToxic: false,
+    message: '',
+  });
+
   const avatarFileName = useMemo(() => {
     return formData.avatar ? formData.avatar.name : 'Файл не выбран';
   }, [formData.avatar]);
+
+  const nicknameCheckTimeout = useRef(null);
 
   const handleChange = (e) => {
     const { name, type, value, files, checked } = e.target;
@@ -49,6 +57,46 @@ const RegisterForm = () => {
       ...prev,
       [name]: type === 'checkbox' ? checked : type === 'file' ? files[0] : value,
     }));
+  };
+
+  const checkNickname = async (nickname) => {
+    if (!nickname) return;
+
+    setNicknameValidation((prev) => ({ ...prev, isChecking: true }));
+    try {
+      const response = await axiosInstance.post('/users_api/check-nickname/', {
+        nickname: nickname,
+      });
+
+      setNicknameValidation({
+        isChecking: false,
+        isToxic: response.data.is_toxic,
+        message: response.data.message,
+      });
+
+      if (response.data.is_toxic) {
+        messageApi.warning('Пожалуйста, выберите другой никнейм');
+      }
+    } catch (error) {
+      setNicknameValidation({
+        isChecking: false,
+        isToxic: false,
+        message: 'Ошибка проверки никнейма',
+      });
+    }
+  };
+
+  const handleNicknameChange = (e) => {
+    const value = e.target.value;
+    handleChange(e);
+
+    if (nicknameCheckTimeout.current) {
+      clearTimeout(nicknameCheckTimeout.current);
+    }
+
+    nicknameCheckTimeout.current = setTimeout(() => {
+      checkNickname(value);
+    }, 500);
   };
 
   const handleNext = () => {
@@ -59,8 +107,14 @@ const RegisterForm = () => {
     setStep(2);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (nicknameValidation.isToxic) {
+      messageApi.error('Пожалуйста, выберите другой никнейм');
+      return;
+    }
+
     setShowPolicy(true);
   };
 
@@ -197,6 +251,7 @@ const RegisterForm = () => {
             </Space>
           </>
         )}
+        {/* шаг личные данные */}
         {step === 2 && (
           <>
             <div className="input-group">
@@ -208,9 +263,22 @@ const RegisterForm = () => {
                 type="text"
                 placeholder="Никнейм (username)"
                 required
-                onChange={handleChange}
+                onChange={handleNicknameChange}
                 value={formData.username}
+                style={{
+                  borderColor: nicknameValidation.isToxic ? '#ff4d4f' : undefined,
+                }}
               />
+              {nicknameValidation.isChecking && <Spin size="small" style={{ marginLeft: 8 }} />}
+              {nicknameValidation.message && (
+                <div
+                  className={`nickname-validation-message ${
+                    nicknameValidation.isToxic ? 'error' : 'success'
+                  }`}
+                >
+                  {nicknameValidation.message}
+                </div>
+              )}
             </div>
             <div className="input-group">
               <input

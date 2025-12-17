@@ -10,6 +10,7 @@ import {
   AppleOutlined,
   EyeInvisibleOutlined,
   EyeTwoTone,
+  WechatOutlined,
 } from '@ant-design/icons';
 import './LoginForm.css';
 
@@ -184,10 +185,11 @@ const LoginForm = () => {
           />
           <Button
             type="default"
-            icon={<UserOutlined />}
-            onClick={() => handleSocialLogin('VK')}
+            icon={<WechatOutlined />}
+            onClick={() => handleSocialLogin('WeChat')}
             disabled={loading}
           />
+
         </Space>
         <div className="register-options">
           <p>Нет аккаунта?</p>

@@ -1,47 +1,45 @@
 import React, { useState } from 'react';
 import { Modal, Form, Input, Upload, Button, message } from 'antd';
 import { PlusOutlined, FileImageOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
-
-// 🛑 УДАЛИТЕ ОБЪЕКТ modalStyles (он был причиной проблемы с дизайном)
-// const modalStyles = { ... };
 
 export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  // Вспомогательная функция для проверки и ограничения файла
   const handleBeforeUpload = (file) => {
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-    if (!isJpgOrPng) {
-      message.error('Вы можете загружать только JPG/PNG файлы!');
+    const isAllowedFileType = file.type.startsWith('image/') || file.type.startsWith('video/');
+    if (!isAllowedFileType) {
+      message.error('Вы можете загружать только изображения (JPG, PNG, GIF) или видео (MP4, WebM, MOV)!');
     }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-      message.error('Изображение должно быть меньше 2MB!');
+    const isLt5M = file.size / 1024 / 1024 < 5;
+    if (!isLt5M) {
+      message.error('Файл должен быть меньше 5MB!');
     }
-    return isJpgOrPng && isLt2M;
+    return isAllowedFileType && isLt5M;
   };
 
-  // Вспомогательная функция AntD для передачи fileList в Form values
   const normFile = (e) => {
     if (Array.isArray(e)) {
       return e;
     }
-    return e?.fileList;
+    if (e?.fileList) {
+      return e.fileList.filter(file => file.status !== 'removed');
+    }
+    return [];
   };
 
-  // ✅ ИСПРАВЛЕННАЯ ФУНКЦИЯ onFinish для работы с FormData
   const onFinish = async (values) => {
     setLoading(true);
     const formData = new FormData();
     formData.append('content', values.content);
 
-    // 1. Проверяем, есть ли файл
-    // values.image теперь является массивом fileList благодаря normFile
-    if (values.image && values.image.length > 0) {
-      // 2. Берем сам объект файла и добавляем его в FormData
-      formData.append('image', values.image[0].originFileObj);
+    if (values.file && values.file.length > 0) {
+      values.file.forEach((fileItem) => {
+        formData.append('files', fileItem.originFileObj);
+      });
     }
 
     try {
@@ -58,7 +56,6 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
     } catch (error) {
       console.error('Ошибка при создании поста:', error);
       const errorData = error.response?.data;
-      // Улучшенный вывод ошибок валидации от DRF
       const errorMessage =
         errorData?.detail || errorData?.content?.[0] || 'Не удалось создать пост.';
       message.error(errorMessage);
@@ -66,17 +63,12 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
       setLoading(false);
     }
   };
-
+    const rulesForCommunityNavigate = () => {
+      navigate('/community-rules');
+      onClose();
+    };
   return (
-    <Modal
-      title="Создать новый пост" // Возвращаем стандартный заголовок
-      open={isVisible}
-      onCancel={onClose}
-      footer={null}
-      centered
-      // 🛑 УДАЛИТЕ ВСЕ СТРОКИ styles={{...}}
-      // Это вернет стандартный/наследуемый вид модалки
-    >
+    <Modal title="Создать новый пост" open={isVisible} onCancel={onClose} footer={null} centered>
       <Form form={form} name="create_post" onFinish={onFinish} initialValues={{ content: '' }}>
         <Form.Item
           name="content"
@@ -86,24 +78,17 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
             rows={4}
             placeholder="Что у вас на уме? (макс. 500 символов)"
             maxLength={500}
-            // 🛑 УДАЛИТЕ style={modalStyles.input}
           />
         </Form.Item>
 
-        <Form.Item
-          name="image"
-          valuePropName="fileList"
-          getValueFromEvent={normFile} // ✅ ГЛАВНОЕ ИСПРАВЛЕНИЕ ДЛЯ ФАЙЛОВ
-        >
+        <Form.Item name="file" valuePropName="fileList" getValueFromEvent={normFile}>
           <Upload
             listType="picture-card"
             beforeUpload={handleBeforeUpload}
             customRequest={({ onSuccess }) => onSuccess()} // Простая заглушка
-            maxCount={1}
-            accept=".jpg,.jpeg,.png"
-            // 🛑 УДАЛИТЕ style={modalStyles.upload}
+            maxCount={5}
+            accept="image/*,video/*"
           >
-            {/* Логика отображения кнопки загрузки */}
             <div>
               <FileImageOutlined />
               <div style={{ marginTop: 8 }}>Загрузить изображение</div>
@@ -112,13 +97,13 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
         </Form.Item>
 
         <Form.Item style={{ textAlign: 'right', marginBottom: 0 }}>
-          <Button
-            type="primary"
-            htmlType="submit"
-            loading={loading}
-          >
+          <h4>перед тем как создать пост ознакомся с правилами сообщества!</h4>
+          <Button style={{margin: '10px'}} onClick={rulesForCommunityNavigate}> правила </Button>
+
+          <Button style={{ backgroundColor: '#000000', borderRadius: '50px' }} type="primary" htmlType="submit" loading={loading}>
             <PlusOutlined /> Создать пост
           </Button>
+
         </Form.Item>
       </Form>
     </Modal>

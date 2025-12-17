@@ -10,7 +10,6 @@ from django.db import transaction
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.TextField(max_length=500)
-    image = models.ImageField(upload_to='posts/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True) 
     expires_at = models.DateTimeField() 
@@ -53,6 +52,19 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.author.username}: {self.content[:20]}..."
 
+
+class PostFile(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='files')
+    file = models.FileField(upload_to='post_files/')
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+        unique_together = ('post', 'order')
+
+    def __str__(self):
+        return f"File for Post {self.post.id} (Order: {self.order})"
+
 # --- Модель комментария ---
 class Comment(models.Model):
     post = models.ForeignKey(
@@ -71,6 +83,7 @@ class Comment(models.Model):
 
     echo_count = models.IntegerField(default=0)      
     disecho_count = models.IntegerField(default=0)
+    is_toxic = models.BooleanField(default=False, verbose_name='Токсичный')
     
     is_floating = models.BooleanField(default=False)
     
