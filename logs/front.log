@@ -2,3 +2,1004 @@
 > frontend@0.1.0 start
 > react-scripts start
 
+(node:25440) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:25440) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+(node:25440) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\components\Modal_AddPost.js
+  Line 93:16:  'FileImageOutlined' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Modal_AddPost.js
+  Line 3:24:  'FileAddOutlined' is defined but never used  no-unused-vars
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\components\Modal_AddPost.js
+  Line 93:16:  'FileImageOutlined' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each [1m[31merror[39m[22m[1m.[39m[22m
+
+webpack compiled with [1m[31m1 error[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\components\Modal_AddPost.js
+  Line 93:16:  'FileImageOutlined' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Modal_AddPost.js
+  Line 3:24:  'FileAddOutlined' is defined but never used  no-unused-vars
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\components\Modal_AddPost.js
+  Line 93:16:  'FileImageOutlined' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each [1m[31merror[39m[22m[1m.[39m[22m
+
+webpack compiled with [1m[31m1 error[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\components\Modal_AddPost.js
+Syntax error: Unexpected token (96:12) (96:12)
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/components/Modal_AddPost.js[39m[22m
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\user\Desktop\echo\frontend\src\components\Modal_AddPost.js: Unexpected token (96:12)
+
+[0m [90m 94 |[39m               [33m<[39m[33mdiv[39m style[33m=[39m{{ marginTop[33m:[39m [35m8[39m }}[33m>[39m[33mЗагрузить[39m файл [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 95 |[39m               [33m<[39m
+[31m[1m>[22m[39m[90m 96 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m    |[39m             [31m[1m^[22m[39m
+ [90m 97 |[39m           [33m<[39m[33m/[39m[33mUpload[39m[33m>[39m
+ [90m 98 |[39m         [33m<[39m[33m/[39m[33mForm[39m[33m.[39m[33mItem[39m[33m>[39m
+ [90m 99 |[39m[0m
+    at constructor (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+    at FlowParserMixin.raise (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6627:19)
+    at FlowParserMixin.unexpected (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6647:16)
+    at FlowParserMixin.jsxParseIdentifier (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4599:12)
+    at FlowParserMixin.jsxParseNamespacedName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4606:23)
+    at FlowParserMixin.jsxParseElementName (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4615:21)
+    at FlowParserMixin.jsxParseOpeningElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4691:22)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4716:33)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12494:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11674:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at FlowParserMixin.parseExpressionBase (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10779:23)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12422:16)
+    at FlowParserMixin.parseExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:17)
+    at FlowParserMixin.parseReturnStatement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:13142:28)
+    at FlowParserMixin.parseStatementContent (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12798:21)
+    at FlowParserMixin.parseStatementLike (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12767:17)
+    at FlowParserMixin.parseStatementLike (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:2946:24)
+    at FlowParserMixin.parseStatementListItem (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12747:17)
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\components\Modal_AddPost.js
+  Line 96:12:  Parsing [1m[31merror[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (96:12)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\components\Modal_AddPost.js
+Syntax error: Expected corresponding JSX closing tag for <h4>. (96:12) (96:12)
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/components/Modal_AddPost.js[39m[22m
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\user\Desktop\echo\frontend\src\components\Modal_AddPost.js: Expected corresponding JSX closing tag for <h4>. (96:12)
+
+[0m [90m 94 |[39m               [33m<[39m[33mdiv[39m style[33m=[39m{{ marginTop[33m:[39m [35m8[39m }}[33m>[39m[33mЗагрузить[39m файл [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 95 |[39m               [33m<[39m[33mh4[39m[33m>[39m
+[31m[1m>[22m[39m[90m 96 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m    |[39m             [31m[1m^[22m[39m
+ [90m 97 |[39m           [33m<[39m[33m/[39m[33mUpload[39m[33m>[39m
+ [90m 98 |[39m         [33m<[39m[33m/[39m[33mForm[39m[33m.[39m[33mItem[39m[33m>[39m
+ [90m 99 |[39m[0m
+    at constructor (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+    at FlowParserMixin.raise (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6627:19)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4757:16)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12494:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11674:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3579:18)
+    at FlowParserMixin.parseExpressionBase (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10779:23)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12422:16)
+    at FlowParserMixin.parseExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:17)
+    at FlowParserMixin.parseReturnStatement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:13142:28)
+    at FlowParserMixin.parseStatementContent (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12798:21)
+    at FlowParserMixin.parseStatementLike (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12767:17)
+    at FlowParserMixin.parseStatementLike (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:2946:24)
+    at FlowParserMixin.parseStatementListItem (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12747:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:13316:61)
+    at FlowParserMixin.parseBlockBody (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:13309:10)
+    at FlowParserMixin.parseBlock (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:13297:10)
+    at FlowParserMixin.parseFunctionBody (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12101:24)
+    at FlowParserMixin.parseFunctionBody (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:2923:11)
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\components\Modal_AddPost.js
+  Line 96:12:  Parsing [1m[31merror[39m[22m[1m: Expected corresponding JSX closing tag for <h4>. (96:12)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Modal_AddPost.js
+  Line 95:15:  Headings must have content and the content must be accessible by a screen reader  jsx-a11y/heading-has-content
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Modal_AddPost.js
+  Line 95:15:  Headings [1m[33mmust[39m[22m[1m have content and the content [1m[33mmust[39m[22m[1m be accessible by a screen reader  jsx-a11y/heading-has-content
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\components\Modal_AddPost.js
+Syntax error: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (97:10) (97:10)
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/components/Modal_AddPost.js[39m[22m
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\user\Desktop\echo\frontend\src\components\Modal_AddPost.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (97:10)
+
+[0m [90m  95 |[39m               [33m<[39m[33mdiv[39m style[33m=[39m{{ marginTop[33m:[39m [35m8[39m }}[33m>[39m[33mЗагрузить[39m файл [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m  96 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m  97 |[39m           [33m<[39m[33m/[39m[33mUpload[39m[33m>[39m
+ [90m     |[39m           [31m[1m^[22m[39m
+ [90m  98 |[39m         [33m<[39m[33m/[39m[33mForm[39m[33m.[39m[33mItem[39m[33m>[39m
+ [90m  99 |[39m
+ [90m 100 |[39m         [33m<[39m[33mForm[39m[33m.[39m[33mItem[39m style[33m=[39m{{ textAlign[33m:[39m [32m'right'[39m[33m,[39m marginBottom[33m:[39m [35m0[39m }}[33m>[39m[0m
+    at constructor (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+    at FlowParserMixin.raise (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6627:19)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4772:18)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at FlowParserMixin.parseExpressionBase (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10779:23)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:17)
+    at FlowParserMixin.jsxParseExpressionContainer (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4662:31)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4741:36)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12494:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11674:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\components\Modal_AddPost.js
+  Line 97:10:  Parsing [1m[31merror[39m[22m[1m: Adjacent JSX elements [1m[33mmust[39m[22m[1m be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (97:10)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\components\Modal_AddPost.js
+Syntax error: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (97:10) (97:10)
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/components/Modal_AddPost.js[39m[22m
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\user\Desktop\echo\frontend\src\components\Modal_AddPost.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (97:10)
+
+[0m [90m  95 |[39m               [33m<[39m[33mdiv[39m style[33m=[39m{{ marginTop[33m:[39m [35m8[39m }}[33m>[39m[33mЗагрузить[39m файл [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m  96 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m  97 |[39m           [33m<[39m[33m/[39m[33mUpload[39m[33m>[39m
+ [90m     |[39m           [31m[1m^[22m[39m
+ [90m  98 |[39m         [33m<[39m[33m/[39m[33mForm[39m[33m.[39m[33mItem[39m[33m>[39m
+ [90m  99 |[39m
+ [90m 100 |[39m         [33m<[39m[33mForm[39m[33m.[39m[33mItem[39m style[33m=[39m{{ textAlign[33m:[39m [32m'right'[39m[33m,[39m marginBottom[33m:[39m [35m0[39m }}[33m>[39m[0m
+    at constructor (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+    at FlowParserMixin.raise (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6627:19)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4772:18)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at FlowParserMixin.parseExpressionBase (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10779:23)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10775:17)
+    at FlowParserMixin.jsxParseExpressionContainer (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4662:31)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4741:36)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElementAt (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4728:32)
+    at FlowParserMixin.jsxParseElement (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10826:21)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:39
+    at FlowParserMixin.tryParse (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3528:18)
+    at C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:39
+    at FlowParserMixin.allowInAnd (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:12494:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11674:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11076:23)
+    at FlowParserMixin.parseUpdate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10894:61)
+    at FlowParserMixin.parseExprOps (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (C:\Users\user\Desktop\echo\frontend\node_modules\@babel\parser\lib\index.js:10876:23)
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\components\Modal_AddPost.js
+  Line 97:10:  Parsing [1m[31merror[39m[22m[1m: Adjacent JSX elements [1m[33mmust[39m[22m[1m be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (97:10)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\components\Modal_AddPost.js
+  Line 91:12:  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\components\Modal_AddPost.js
+  Line 91:12:  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat must be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\pages\MessengerPage.js
+  Line 187:9:  Imported JSX component Modal_AddUsersToChat [1m[33mmust[39m[22m[1m be in PascalCase or SCREAMING_SNAKE_CASE  react/jsx-pascal-case
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m

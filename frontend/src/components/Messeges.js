@@ -10,7 +10,7 @@ const getAuthToken = () => localStorage.getItem('access_token');
 /**
  * Компонент для отображения и отправки сообщений в конкретный чат.
  */
-function Messages({ chatId, currentUserId }) {
+function Messages({ chatId, currentUserId, onSendMessage }) {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [connectionStatus, setConnectionStatus] = useState('disconnected');
@@ -18,9 +18,13 @@ function Messages({ chatId, currentUserId }) {
   const messagesEndRef = useRef(null);
   const isUnmounting = useRef(false);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  // Изменим scrollToBottom, чтобы он прокручивал только содержимое, если нужно
+  const scrollToBottom = useCallback(() => {
+    // В случае горизонтальных лент, возможно, потребуется прокручивать каждую ленту отдельно
+    // или общий контейнер, если он имеет горизонтальный overflow.
+    // Пока оставим его для вертикальной прокрутки, если messages-content-area будет скроллируемым
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, []);
 
   // 1. Загрузка истории сообщений (REST API)
   const fetchMessages = useCallback(
@@ -48,7 +52,7 @@ function Messages({ chatId, currentUserId }) {
         console.error('Ошибка загрузки истории сообщений:', error);
       }
     },
-    [chatId],
+    [chatId, scrollToBottom],
   );
 
   // 2. Установка и управление WebSocket-соединением
@@ -118,7 +122,7 @@ function Messages({ chatId, currentUserId }) {
       }
       chatSocket.current = null;
     };
-  }, [chatId, fetchMessages]);
+  }, [chatId, fetchMessages, scrollToBottom]);
 
   // 3. Обработчик отправки сообщения (WebSocket)
   const handleSend = (e) => {
@@ -129,6 +133,7 @@ function Messages({ chatId, currentUserId }) {
 
     chatSocket.current.send(JSON.stringify({ text: trimmedMessage }));
     setNewMessage('');
+    onSendMessage(chatId, trimmedMessage); // Отправляем сообщение через пропс для обновления чатов
   };
 
   // 4. Заглушки для кнопок вложения
@@ -200,7 +205,7 @@ function Messages({ chatId, currentUserId }) {
               </div>
             ))}
         </div>
-        <div ref={messagesEndRef} /> {/* messagesEndRef теперь здесь, чтобы прокручивать оба контейнера */} 
+        <div ref={messagesEndRef} /> {/* messagesEndRef теперь здесь, чтобы прокручивать обе ленты, если messages-content-area будет скроллируемым */}
       </div>
 
       {/* Форма отправки закреплена снизу */}

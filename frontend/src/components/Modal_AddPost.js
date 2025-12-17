@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Form, Input, Upload, Button, message } from 'antd';
-import { PlusOutlined, FileImageOutlined } from '@ant-design/icons';
+import { PlusOutlined, FileAddOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
 
@@ -89,9 +89,10 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
             maxCount={5}
             accept="image/*,video/*"
           >
-            <div>
-              <FileImageOutlined />
-              <div style={{ marginTop: 8 }}>Загрузить изображение</div>
+            {/* <h4>не более 5мб!</h4> */}
+              <div>
+                <FileAddOutlined />
+              <div style={{ marginTop: 8 }}>Загрузить файл </div>
             </div>
           </Upload>
         </Form.Item>

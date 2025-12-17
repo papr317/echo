@@ -1,10 +1,9 @@
 /* src/styles/MessengerPage.css */
 
+/* Основной контейнер, имитирующий разделение */
 .messenger-page-container {
-  display: grid;
-  grid-template-rows: 1fr auto auto;
-  /* Основной контент, чаты, навигация */
-  gap: 0;
+  display: flex;
+  flex-direction: column;
   height: calc(100vh - 80px);
   width: 100%;
   background-color: #f5f5f5;
@@ -12,123 +11,46 @@
   color: #000;
 }
 
-.main-messenger-content {
+/* Вертикальная разбивка на 2 зоны */
+.column-layout {
+  flex-direction: column;
+  /* Вертикально: верх - сообщения, низ - чаты */
+}
+
+.top-messages-area {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  background-color: #ffffff;
-  overflow: hidden;
-}
-
-.messages-header {
-  flex: 0 0 auto;
-  position: sticky;
-  top: 0;
-  z-index: 2;
+  flex: 1 1 auto;
+  min-height: 55%;
+  /* Изменено, чтобы дать место для списка чатов */
   background-color: #ffffff;
   /* Светлый фон */
-  border-bottom: 1px solid #ddd;
-  padding: 15px 20px;
-  display: flex;
-  align-items: center;
-  color: #222;
-}
-
-.my-messages-lane,
-.other-messages-lane {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  padding: 8px 20px;
-  overflow-x: auto;
-  flex-shrink: 0;
-  height: 100px;
-  /* Фиксированная высота для каждой ленты, можно настроить */
-}
-
-.my-messages-lane {
-  justify-content: flex-end;
-  /* Мои сообщения справа */
-  border-bottom: 1px dashed #eee;
-  padding-bottom: 12px;
-  align-items: flex-start;
-}
-
-.other-messages-lane {
-  justify-content: flex-start;
-  /* Чужие сообщения слева */
-  border-top: 1px dashed #eee;
-  padding-top: 12px;
-  align-items: flex-start;
-}
-
-.lane-separator {
-  height: 1px;
-  background-color: #eee;
-  margin: 0 20px;
-}
-
-/* Стилизация полосы прокрутки для горизонтальных лент */
-.my-messages-lane::-webkit-scrollbar,
-.other-messages-lane::-webkit-scrollbar {
-  height: 6px;
-}
-
-.my-messages-lane::-webkit-scrollbar-thumb,
-.other-messages-lane::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 3px;
-}
-
-.my-messages-lane::-webkit-scrollbar-track,
-.other-messages-lane::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-}
-
-.message-input-form {
-  flex: 0 0 auto;
-  background-color: #f9f9f9;
-  /* Светлый фон */
-  border-top: 1px solid #ddd;
-  padding: 15px 20px;
-  display: flex;
-  /* Добавлено для расположения input и button в ряд */
-  gap: 10px;
-  /* Промежуток между input и button */
-}
-
-.message-input-form input {
-  flex-grow: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  background-color: #ffffff;
-  color: #000;
-}
-
-.message-input-form button {
-  padding: 10px 20px;
-  background-color: #000000;
-  /* Черный */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.message-input-form button:hover {
-  background-color: #333;
 }
 
 .bottom-chats-area {
-  height: 200px;
+  flex: 0 0 200px;
   /* Фиксированная высота для чатов внизу */
   background-color: #f9f9f9;
   /* Светлый фон */
   border-top: 1px solid #ddd;
   overflow-y: auto;
-  /* Прокрутка только по вертикали для списка чатов */
+  /* Вертикальная прокрутка для списка чатов */
+}
+
+/* --- СПИСОК ЧАТОВ --- */
+
+.chat-list-panel {
+  /* Этот блок не используется в текущей структуре MessengerPage.js, но сохраняю на случай, если вы используете его в другом месте */
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #eee;
+  background-color: #ffffff;
+  /* Светлый фон */
+  flex-shrink: 0;
+  padding: 0 0 60px 0;
+  /* место для навигации снизу */
+  overflow-y: auto;
 }
 
 .chat-list-header {
@@ -137,6 +59,23 @@
   font-weight: bold;
   border-bottom: 1px solid #ddd;
   text-align: center;
+}
+
+.chat-list-footer {
+  /* Этот блок не используется в текущей структуре MessengerPage.js, но сохраняю на случай, если вы используете его в другом месте */
+  padding: 10px 15px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.9em;
+  color: #888;
+  transition: color 0.2s;
+}
+
+.chat-list-footer:hover {
+  /* Этот блок не используется в текущей структуре MessengerPage.js, но сохраняю на случай, если вы используете его в другом месте */
+  color: #000;
+  background-color: #f0f0f0;
 }
 
 .chats-list-block {
@@ -166,49 +105,94 @@
   border-color: #ccc;
 }
 
-.bottom-navigation {
-  position: relative;
-  /* Изменено на relative, чтобы он был частью grid-контейнера */
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  /* Занимает всю ширину grid-ячейки */
-  background: #ffffff;
-  border-top: 1px solid #eee;
+/* --- СООБЩЕНИЯ --- */
+
+/* "ГОЛОВА" - Заголовок чата */
+.messages-header {
+  flex: 0 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #ffffff;
+  /* Светлый фон */
+  border-bottom: 1px solid #ddd;
+  padding: 15px 20px;
   display: flex;
-  justify-content: center;
-  gap: 24px;
-  padding: 10px 0;
-  z-index: 10;
+  align-items: center;
+  color: #222;
 }
 
-.nav-btn {
-  background: none;
-  border: none;
-  color: #000000;
-  /* Черный */
-  font-size: 16px;
-  padding: 8px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-
-.nav-btn:hover,
-.nav-btn.active {
+/* Контейнер для всего окна сообщений */
+.messages-area-fixed-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Занимает всю доступную высоту в top-messages-area */
+  min-height: 0;
+  flex: 1 1 auto;
+  position: relative;
   background: #f0f0f0;
-  color: #333;
+  /* Более светлый фон для области сообщений */
+  padding: 10px 0;
+  /* Отступы для общего вида */
 }
 
-.nav-btn-create {
-  background: #000000;
+/* Лента сообщений занимает максимум пространства */
+.messages-window {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  /* Вертикальная прокрутка */
+  padding: 0 20px;
+  /* Боковые отступы */
+  display: flex;
+  flex-direction: column;
+  /* Вертикальное расположение сообщений */
+  justify-content: flex-start;
+  /* Начинаем сверху */
+  gap: 8px;
+  /* Промежутки между сообщениями */
+  min-height: 0;
+  background: transparent;
+  /* Прозрачный, чтобы фон messages-area-fixed-layout был виден */
+}
+
+/* Форма ввода закреплена снизу */
+.message-input-form {
+  flex: 0 0 auto;
+  background-color: #f9f9f9;
+  /* Светлый фон */
+  border-top: 1px solid #ddd;
+  padding: 10px 20px;
+  /* Уменьшаем отступ для более компактного вида */
+  display: flex;
+  align-items: center;
+  /* Выравнивание элементов формы по центру */
+  gap: 10px;
+}
+
+.message-input-form input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: #000;
+}
+
+.message-input-form button {
+  padding: 10px 15px;
+  /* Немного уменьшил padding */
+  background-color: #000000;
   /* Черный */
   color: #fff;
-  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.nav-btn-create:hover {
-  background: #333;
+.message-input-form button:hover {
+  background-color: #333;
 }
 
 /* Стиль для аватара и имени */
@@ -253,20 +237,21 @@
 
 /* --- Стили для компонента Messages (для соответствия вашему UI) --- */
 
-/* Стиль для отдельного сообщения (мой/другого) */
 .message-bubble {
-  max-width: 250px;
-  /* Ограничиваем ширину сообщения */
-  min-width: 60px;
+  max-width: 70%;
+  /* Ограничиваем ширину сообщения для переноса текста */
   padding: 8px 12px;
   border-radius: 15px;
   word-wrap: break-word;
+  /* Перенос слов */
   border: 1px solid #e0e0e0;
   background: #f8f8f8;
   color: #222;
   font-size: 15px;
-  flex-shrink: 0;
-  /* Не сжимать сообщения */
+  flex-shrink: 1;
+  /* Разрешаем сжиматься */
+  align-self: flex-start;
+  /* По умолчанию выравнивание слева */
 }
 
 .message-mine {
@@ -274,6 +259,8 @@
   color: #222;
   border-bottom-right-radius: 0;
   outline: none;
+  align-self: flex-end;
+  /* Мои сообщения выравниваем справа */
 }
 
 .message-other {
@@ -281,4 +268,50 @@
   color: #222;
   border-bottom-left-radius: 0;
   outline: none;
+  align-self: flex-start;
+  /* Чужие сообщения выравниваем слева */
+}
+
+/* Навигация снизу */
+.bottom-navigation {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  background: #ffffff;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 10px 0;
+  z-index: 10;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #000000;
+  /* Черный */
+  font-size: 16px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.nav-btn-create {
+  background: #000000;
+  /* Черный */
+  color: #fff;
+  font-weight: bold;
+}
+
+.nav-btn-create:hover {
+  background: #333;
 }

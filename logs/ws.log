@@ -1,1 +1,90 @@
 Watching for file changes with StatReloader
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:57578]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:57578]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:57590]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:57590]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:57590]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:57629]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:57629]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:57637]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:57637]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:57637]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:51922]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:51922]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:51931]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:51931]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:51931]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:51922]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:57629]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:58121]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:58121]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:58131]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:58131]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:58131]
+C:\Users\user\Desktop\echo\backend\echo_api\serializers.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 17, 2025 - 23:22:26
+Django version 5.2.3, using settings 'backend.config.settings'
+Starting ASGI/Daphne version 4.2.1 development server at http://127.0.0.1:8001/
+Quit the server with CTRL-BREAK.
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_15 ---
+--- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Accepted. Joining group: chat_15 ---
+--- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Disconnected with code: 1000 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_15 ---
+--- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_15 ---
+--- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Disconnected with code: 1000 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_15 ---
+--- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_15 ---
+--- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Disconnected with code: 1000 ---
+--- CONSUMER: Disconnected with code: 1001 ---
+--- CONSUMER: Disconnected with code: 1001 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_15 ---
+--- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_15 ---
+--- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Disconnected with code: 1000 ---
+Watching for file changes with StatReloader
+C:\Users\user\Desktop\echo\backend\echo_api\serializers.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 17, 2025 - 23:36:24
+Django version 5.2.3, using settings 'backend.config.settings'
+Starting ASGI/Daphne version 4.2.1 development server at http://127.0.0.1:8001/
+Quit the server with CTRL-BREAK.
+Watching for file changes with StatReloader
+C:\Users\user\Desktop\echo\backend\echo_api\serializers.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 17, 2025 - 23:37:11
+Django version 5.2.3, using settings 'backend.config.settings'
+Starting ASGI/Daphne version 4.2.1 development server at http://127.0.0.1:8001/
+Quit the server with CTRL-BREAK.
+Watching for file changes with StatReloader
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:61726]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:61726]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:61748]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:61748]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:61755]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:61755]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:61755]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:61726]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:61748]

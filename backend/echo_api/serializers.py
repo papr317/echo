@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.contenttypes.models import ContentType
-from .models import Post, Comment, Echo
+from .models import Post, Comment, Echo, PostFile # Added PostFile
 from backend.users_api.serializers import UserSerializer 
 
 class ContentObjectSerializer(serializers.Serializer):
@@ -16,7 +16,7 @@ class ContentObjectSerializer(serializers.Serializer):
             return {
                 'id': instance.id,
                 'type': 'post',
-                'content': instance.content[:50] + '...',
+                'content': instance.content[:50] + '...', 
             }
         elif isinstance(instance, Comment):
             return {
@@ -65,34 +65,52 @@ class CommentSerializer(serializers.ModelSerializer):
         parent_comment_id = validated_data.pop('parent_comment_id', None)
         return super().create(validated_data)
 
+# New PostFileSerializer
+class PostFileSerializer(serializers.ModelSerializer):
+    file = serializers.SerializerMethodField()
+
+    class Meta:
+        model = PostFile
+        fields = ['id', 'file', 'order']
+
+    def get_file(self, obj):
+        if obj.file:
+            return obj.file.url
+        return None
+
 class PostSerializer(serializers.ModelSerializer):
     author_details = UserSerializer(source='author', read_only=True)
     is_expired = serializers.ReadOnlyField()
     comments_count = serializers.SerializerMethodField()
-    
-    image = serializers.SerializerMethodField()
+    files = PostFileSerializer(many=True, read_only=True) # For reading files
+    uploaded_files = serializers.ListField(
+        child=serializers.FileField(allow_empty_file=False, use_url=False),
+        write_only=True,
+        required=False
+    )
 
     class Meta:
         model = Post
         fields = [
-            'id', 'author', 'author_details', 'content', 'image',
+            'id', 'author', 'author_details', 'content', 'files', 'uploaded_files',
             'created_at', 'expires_at', 'is_expired',
             'echo_count', 'disecho_count', 'comments_count', 'is_floating',
             'updated_at'
         ]
         read_only_fields = [
             'author', 'created_at', 'expires_at', 'is_expired',
-            'echo_count', 'disecho_count', 'is_floating', 'updated_at'
+            'echo_count', 'disecho_count', 'is_floating', 'updated_at', 'files'
         ]
 
-    def get_image(self, obj):
-        if obj.image:
-            # Возвращаем только относительный путь к файлу
-            return obj.image.url
-        return None
-    
     def get_comments_count(self, obj):
         return obj.comments.filter(is_floating=False).count()
+
+    def create(self, validated_data):
+        uploaded_files = validated_data.pop('uploaded_files', [])
+        post = Post.objects.create(**validated_data)
+        for i, file_data in enumerate(uploaded_files):
+            PostFile.objects.create(post=post, file=file_data, order=i)
+        return post
 
 class EchoSerializer(serializers.ModelSerializer):
     user_details = UserSerializer(source='user', read_only=True)

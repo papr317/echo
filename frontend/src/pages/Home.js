@@ -98,7 +98,7 @@ const PostCard = memo(({ post, userAction, isUpdating, onAction, getActionIcon }
 
       {post.files && post.files.length > 0 ? (
         <div className={`post-media-grid files-count-${post.files.length}`}>
-          {post.files.map((fileItem) => {
+          {post.files.map((fileItem, index) => {
             const fileUrl = getAvatarUrl(fileItem.file);
             const isVideo = ['mp4', 'webm', 'mov'].includes(
               fileItem.file.split('.').pop().toLowerCase(),
@@ -106,7 +106,7 @@ const PostCard = memo(({ post, userAction, isUpdating, onAction, getActionIcon }
 
             return (
               <div
-                key={fileItem.id}
+                key={fileItem.id || `file-${index}`}
                 className="media-item-wrapper"
                 onClick={() => !isVideo && handleImageClick(fileUrl)}
               >
