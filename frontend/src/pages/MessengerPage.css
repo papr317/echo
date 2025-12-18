@@ -1,317 +1,267 @@
-/* src/styles/MessengerPage.css */
-
-/* Основной контейнер, имитирующий разделение */
+/* Главный контейнер страницы */
 .messenger-page-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 80px);
-  width: 100%;
-  background-color: #f5f5f5;
-  /* Светлый фон */
+  height: 100vh;
+  background: #fff;
   color: #000;
+  overflow: hidden;
 }
 
-/* Вертикальная разбивка на 2 зоны */
-.column-layout {
-  flex-direction: column;
-  /* Вертикально: верх - сообщения, низ - чаты */
-}
-
+/* ОБЛАСТЬ СООБЩЕНИЙ (Верхняя часть, скроллится горизонтально) */
 .top-messages-area {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
-  min-height: 55%;
-  /* Изменено, чтобы дать место для списка чатов */
-  background-color: #ffffff;
-  /* Светлый фон */
+  min-height: 0;
+  border-bottom: 2px solid #000;
 }
 
-.bottom-chats-area {
-  flex: 0 0 200px;
-  /* Фиксированная высота для чатов внизу */
-  background-color: #f9f9f9;
-  /* Светлый фон */
-  border-top: 1px solid #ddd;
-  overflow-y: auto;
-  /* Вертикальная прокрутка для списка чатов */
-}
-
-/* --- СПИСОК ЧАТОВ --- */
-
-.chat-list-panel {
-  /* Этот блок не используется в текущей структуре MessengerPage.js, но сохраняю на случай, если вы используете его в другом месте */
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid #eee;
-  background-color: #ffffff;
-  /* Светлый фон */
-  flex-shrink: 0;
-  padding: 0 0 60px 0;
-  /* место для навигации снизу */
-  overflow-y: auto;
-}
-
-.chat-list-header {
-  padding: 15px;
-  font-size: 1.2em;
-  font-weight: bold;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
-}
-
-.chat-list-footer {
-  /* Этот блок не используется в текущей структуре MessengerPage.js, но сохраняю на случай, если вы используете его в другом месте */
-  padding: 10px 15px;
-  border-top: 1px solid #ddd;
-  text-align: center;
-  cursor: pointer;
-  font-size: 0.9em;
-  color: #888;
-  transition: color 0.2s;
-}
-
-.chat-list-footer:hover {
-  /* Этот блок не используется в текущей структуре MessengerPage.js, но сохраняю на случай, если вы используете его в другом месте */
-  color: #000;
-  background-color: #f0f0f0;
-}
-
-.chats-list-block {
-  display: flex;
-  flex-direction: row;
-  /* Горизонтальная лента */
-  gap: 12px;
-  padding: 16px;
-  overflow-x: auto;
-  /* Прокрутка по горизонтали */
-}
-
-.chat-list-item {
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  padding: 12px 16px;
-  cursor: pointer;
-  transition: box-shadow 0.2s, background 0.2s;
-  border: 1px solid #e0e0e0;
-}
-
-.chat-list-item.selected,
-.chat-list-item:hover {
-  background: #f0f0f0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-color: #ccc;
-}
-
-/* --- СООБЩЕНИЯ --- */
-
-/* "ГОЛОВА" - Заголовок чата */
-.messages-header {
-  flex: 0 0 auto;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  background-color: #ffffff;
-  /* Светлый фон */
-  border-bottom: 1px solid #ddd;
-  padding: 15px 20px;
-  display: flex;
-  align-items: center;
-  color: #222;
-}
-
-/* Контейнер для всего окна сообщений */
-.messages-area-fixed-layout {
+.bw-messenger-layout {
   display: flex;
   flex-direction: column;
   height: 100%;
-  /* Занимает всю доступную высоту в top-messages-area */
-  min-height: 0;
-  flex: 1 1 auto;
-  position: relative;
-  background: #f0f0f0;
-  /* Более светлый фон для области сообщений */
-  padding: 10px 0;
-  /* Отступы для общего вида */
 }
 
-/* Лента сообщений занимает максимум пространства */
-.messages-window {
-  flex: 1 1 auto;
-  overflow-y: auto;
-  /* Вертикальная прокрутка */
-  padding: 0 20px;
-  /* Боковые отступы */
-  display: flex;
-  flex-direction: column;
-  /* Вертикальное расположение сообщений */
-  justify-content: flex-start;
-  /* Начинаем сверху */
-  gap: 8px;
-  /* Промежутки между сообщениями */
-  min-height: 0;
-  background: transparent;
-  /* Прозрачный, чтобы фон messages-area-fixed-layout был виден */
-}
-
-/* Форма ввода закреплена снизу */
-.message-input-form {
-  flex: 0 0 auto;
-  background-color: #f9f9f9;
-  /* Светлый фон */
-  border-top: 1px solid #ddd;
-  padding: 10px 20px;
-  /* Уменьшаем отступ для более компактного вида */
+.horizontal-scroll-viewport {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
   display: flex;
   align-items: center;
-  /* Выравнивание элементов формы по центру */
-  gap: 10px;
+  padding: 0 50px;
 }
 
-.message-input-form input {
-  flex-grow: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  background-color: #ffffff;
+.messages-inline-row {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  height: 80%;
+  /* Чтобы было место для верхних и нижних */
+  align-items: center;
+}
+
+/* КАРТОЧКА СООБЩЕНИЯ */
+.msg-card-wrapper {
+  min-width: 280px;
+  display: flex;
+}
+
+.msg-bubble {
+  border: 4px solid #000;
+  padding: 20px 30px;
+  border-radius: 50px;
+  /* Твои 50px */
+  background: #fff;
   color: #000;
+  width: 100%;
 }
 
-.message-input-form button {
-  padding: 10px 15px;
-  /* Немного уменьшил padding */
-  background-color: #000000;
-  /* Черный */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.message-input-form button:hover {
-  background-color: #333;
-}
-
-/* Стиль для аватара и имени */
-.chat-header-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.chat-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #ddd;
-  /* Светлый фон */
-}
-
-.chat-avatar.placeholder {
-  border: 2px solid #ccc;
-}
-
-.chat-title {
-  font-weight: 600;
-}
-
-/* Заглушка, если чат не выбран */
-.messages-placeholder {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1em;
-  color: #888;
-}
-
-/* Состояние загрузки */
-.loading-state {
-  padding: 20px;
-  text-align: center;
-  color: #888;
-}
-
-/* --- Стили для компонента Messages (для соответствия вашему UI) --- */
-
-.message-bubble {
-  max-width: 70%;
-  /* Ограничиваем ширину сообщения для переноса текста */
-  padding: 8px 12px;
-  border-radius: 15px;
-  word-wrap: break-word;
-  /* Перенос слов */
-  border: 1px solid #e0e0e0;
-  background: #f8f8f8;
-  color: #222;
-  font-size: 15px;
-  flex-shrink: 1;
-  /* Разрешаем сжиматься */
+/* Мои сверху */
+.msg-card-wrapper.mine {
   align-self: flex-start;
-  /* По умолчанию выравнивание слева */
 }
 
-.message-mine {
-  background-color: #e6f2ff;
-  color: #222;
-  border-bottom-right-radius: 0;
-  outline: none;
+.msg-card-wrapper.mine .msg-bubble {
+  background: #000;
+  color: #fff;
+}
+
+/* Чужие снизу */
+.msg-card-wrapper.other {
   align-self: flex-end;
-  /* Мои сообщения выравниваем справа */
 }
 
-.message-other {
-  background-color: #f1f1f1;
-  color: #222;
-  border-bottom-left-radius: 0;
-  outline: none;
-  align-self: flex-start;
-  /* Чужие сообщения выравниваем слева */
+.msg-author {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 5px;
 }
 
-/* Навигация снизу */
-.bottom-navigation {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100vw;
-  background: #ffffff;
-  border-top: 1px solid #eee;
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  padding: 10px 0;
-  z-index: 10;
-}
-
-.nav-btn {
-  background: none;
-  border: none;
-  color: #000000;
-  /* Черный */
-  font-size: 16px;
-  padding: 8px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-
-.nav-btn:hover,
-.nav-btn.active {
-  background: #f0f0f0;
-  color: #333;
-}
-
-.nav-btn-create {
-  background: #000000;
-  /* Черный */
-  color: #fff;
+.msg-text {
+  font-size: 18px;
   font-weight: bold;
 }
 
-.nav-btn-create:hover {
-  background: #333;
+.msg-time {
+  font-size: 10px;
+  text-align: right;
+  margin-top: 5px;
+}
+
+/* НИЖНЯЯ ЧАСТЬ (ЗАКРЕПЛЕНА) */
+.bottom-chats-area {
+  height: 150px;
+  /* Фиксированная высота для списка чатов */
+  background: #fff;
+  border-top: 4px solid #000;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+.bw-bottom-bar {
+  padding: 15px 50px;
+  background: #fff;
+  border-top: 4px solid #000;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fff;
+}
+
+.main-input {
+  flex: 1;
+  border: 4px solid #000;
+  border-radius: 50px;
+  /* 50px закругление инпута */
+  padding: 12px 25px;
+  font-weight: 900;
+  outline: none;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.send-btn-circle {
+  background: #000;
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Скроллбары */
+::-webkit-scrollbar {
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Глобальный контейнер */
+.bw-messenger-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Верхняя секция с сообщениями */
+.bw-top-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-bottom: 4px solid #000;
+}
+
+.bw-empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+/* ФИКСИРОВАННАЯ НИЖНЯЯ ПАНЕЛЬ */
+.bw-bottom-fixed-panel {
+  height: 220px; /* Фиксированная высота */
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+/* Горизонтальная лента чатов */
+.bw-chats-horizontal-strip {
+  flex: 1;
+  border-bottom: 4px solid #000;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  padding: 10px 20px;
+  gap: 15px;
+}
+
+/* ВАЖНО: Твой компонент ChatsList должен выводить элементы в ряд (flex-direction: row) */
+.bw-chats-horizontal-strip > div {
+    display: flex;
+    flex-direction: row !important; 
+}
+
+/* НАВИГАЦИЯ В САМОМ НИЗУ */
+.bw-nav-bar {
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+  background: #fff;
+}
+
+.bw-nav-item {
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 50px; /* Закругление 50px */
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.bw-nav-item:hover, .bw-nav-item.active {
+  background: #000;
+  color: #fff;
+}
+
+.bw-create-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  min-width: 60px;
+  justify-content: center;
+}
+
+/* СТИЛИЗАЦИЯ СООБЩЕНИЙ В MESSAGES.JS (поддержка 50px) */
+/* Эти стили должны быть доступны Messages.js */
+.horizontal-message-wrapper .msg-bubble {
+  border-radius: 50px !important; /* Ультимативное закругление */
+  border: 4px solid #000 !important;
+}
+
+/* Скроллбары - черные */
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 10px;
 }

@@ -1,46 +1,48 @@
 Watching for file changes with StatReloader
-<<<<<<< HEAD
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:57578]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:57578]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:57590]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:57590]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:57590]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:57629]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:57629]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:57637]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:57637]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:57637]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:51922]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:51922]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:51931]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:51931]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:51931]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:51922]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:57629]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:58121]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:58121]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:58131]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:58131]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:58131]
-C:\Users\user\Desktop\echo\backend\echo_api\serializers.py changed, reloading.
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:53421]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:53421]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:53421]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:54668]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:54668]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:54675]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:54675]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:54675]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:54696]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:54696]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:54696]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:54704]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:54704]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:54633]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:54633]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:54633]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:54930]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:54930]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:54930]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:59786]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:59786]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:59792]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:59792]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:59792]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:59427]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:59427]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:59433]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:59433]
+C:\Users\user\Desktop\echo\backend\messenger_api\serializers.py changed, reloading.
 Performing system checks...
 
 System check identified no issues (0 silenced).
-December 17, 2025 - 23:22:26
+December 17, 2025 - 23:52:10
 Django version 5.2.3, using settings 'backend.config.settings'
 Starting ASGI/Daphne version 4.2.1 development server at http://127.0.0.1:8001/
 Quit the server with CTRL-BREAK.
 --- CONSUMER: Attempting connection ---
---- CONSUMER: Attempting connection ---
 --- CONSUMER: Accepted. Joining group: chat_15 ---
 --- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Disconnected with code: None ---
+--- CONSUMER: Attempting connection ---
 --- CONSUMER: Accepted. Joining group: chat_15 ---
 --- CONSUMER: Successfully added to group chat_15 ---
 --- CONSUMER: Disconnected with code: 1006 ---
---- CONSUMER: Disconnected with code: 1000 ---
---- CONSUMER: Attempting connection ---
---- CONSUMER: Accepted. Joining group: chat_15 ---
---- CONSUMER: Successfully added to group chat_15 ---
 --- CONSUMER: Attempting connection ---
 --- CONSUMER: Accepted. Joining group: chat_15 ---
 --- CONSUMER: Successfully added to group chat_15 ---
@@ -48,82 +50,563 @@ Quit the server with CTRL-BREAK.
 --- CONSUMER: Attempting connection ---
 --- CONSUMER: Accepted. Joining group: chat_15 ---
 --- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Disconnected with code: 1000 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Attempting to save message from user 13: привет ---
+--- CONSUMER: Message saved. Sending to group... ---
+--- CONSUMER: Disconnected with code: 1000 ---
 --- CONSUMER: Attempting connection ---
 --- CONSUMER: Accepted. Joining group: chat_15 ---
 --- CONSUMER: Successfully added to group chat_15 ---
---- CONSUMER: Disconnected with code: 1000 ---
 --- CONSUMER: Disconnected with code: 1001 ---
---- CONSUMER: Disconnected with code: 1001 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Attempting to save message from user 13: привет ---
+--- CONSUMER: Message saved. Sending to group... ---
+--- CONSUMER: Disconnected with code: None ---
 --- CONSUMER: Attempting connection ---
 --- CONSUMER: Accepted. Joining group: chat_15 ---
 --- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Disconnected with code: 1006 ---
 --- CONSUMER: Attempting connection ---
 --- CONSUMER: Accepted. Joining group: chat_15 ---
 --- CONSUMER: Successfully added to group chat_15 ---
---- CONSUMER: Disconnected with code: 1000 ---
 Watching for file changes with StatReloader
-C:\Users\user\Desktop\echo\backend\echo_api\serializers.py changed, reloading.
+C:\Users\user\Desktop\echo\backend\messenger_api\serializers.py changed, reloading.
 Performing system checks...
 
 System check identified no issues (0 silenced).
-December 17, 2025 - 23:36:24
+December 18, 2025 - 16:10:23
 Django version 5.2.3, using settings 'backend.config.settings'
 Starting ASGI/Daphne version 4.2.1 development server at http://127.0.0.1:8001/
 Quit the server with CTRL-BREAK.
 Watching for file changes with StatReloader
-C:\Users\user\Desktop\echo\backend\echo_api\serializers.py changed, reloading.
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\django\core\checks\urls.py", line 136, in check_custom_error_handlers
+    handler = resolver.resolve_error_handler(status_code)
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\django\urls\resolvers.py", line 732, in resolve_error_handler
+    callback = getattr(self.urlconf_module, "handler%s" % view_type, None)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\django\urls\resolvers.py", line 711, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python314\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1398, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1342, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 938, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 762, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\user\Desktop\echo\backend\config\urls.py", line 12, in <module>
+    path('messenger_api/', include('backend.messenger_api.urls')),
+                           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\django\urls\conf.py", line 39, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python314\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1398, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1342, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 938, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 762, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\user\Desktop\echo\backend\messenger_api\urls.py", line 4, in <module>
+    from .views import ChatListView, MessageListView, MemberManagementViewSet
+  File "C:\Users\user\Desktop\echo\backend\messenger_api\views.py", line 16, in <module>
+    from .serializers import ChatSerializer, MessageSerializer
+ImportError: cannot import name 'MessageSerializer' from 'backend.messenger_api.serializers' (C:\Users\user\Desktop\echo\backend\messenger_api\serializers.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python314\Lib\threading.py", line 1081, in _bootstrap_inner
+    self._context.run(self.run)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python314\Lib\threading.py", line 1023, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\django\utils\autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\daphne\management\commands\runserver.py", line 109, in inner_run
+    self.check(display_num_errors=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\django\core\management\base.py", line 492, in check
+    all_issues = checks.run_checks(
+        app_configs=app_configs,
+    ...<2 lines>...
+        databases=databases,
+    )
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\django\core\checks\registry.py", line 89, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\django\core\checks\urls.py", line 138, in check_custom_error_handlers
+    path = getattr(resolver.urlconf_module, "handler%s" % status_code)
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\django\urls\resolvers.py", line 711, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python314\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1398, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1342, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 938, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 762, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\user\Desktop\echo\backend\config\urls.py", line 12, in <module>
+    path('messenger_api/', include('backend.messenger_api.urls')),
+                           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\echo\venv\Lib\site-packages\django\urls\conf.py", line 39, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python314\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1398, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1342, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 938, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 762, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\user\Desktop\echo\backend\messenger_api\urls.py", line 4, in <module>
+    from .views import ChatListView, MessageListView, MemberManagementViewSet
+  File "C:\Users\user\Desktop\echo\backend\messenger_api\views.py", line 16, in <module>
+    from .serializers import ChatSerializer, MessageSerializer
+ImportError: cannot import name 'MessageSerializer' from 'backend.messenger_api.serializers' (C:\Users\user\Desktop\echo\backend\messenger_api\serializers.py)
+C:\Users\user\Desktop\echo\backend\messenger_api\serializers.py changed, reloading.
+Performing system checks...
+
+Watching for file changes with StatReloader
+C:\Users\user\Desktop\echo\backend\messenger_api\serializers.py changed, reloading.
 Performing system checks...
 
 System check identified no issues (0 silenced).
-December 17, 2025 - 23:37:11
+December 18, 2025 - 16:11:07
 Django version 5.2.3, using settings 'backend.config.settings'
 Starting ASGI/Daphne version 4.2.1 development server at http://127.0.0.1:8001/
 Quit the server with CTRL-BREAK.
 Watching for file changes with StatReloader
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:61726]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:61726]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:61748]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:61748]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:61755]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:61755]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:61755]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:61726]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:61748]
-=======
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:54629]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:54629]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:51560]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:51560]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:51604]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:51604]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:51871]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:51871]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:51871]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:53301]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:53301]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:53309]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:53309]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:53309]
-WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:53314]
-WebSocket CONNECT /ws/chat/14/ [127.0.0.1:53314]
-WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:53321]
-WebSocket CONNECT /ws/chat/14/ [127.0.0.1:53321]
-WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:53321]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:53328]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:53328]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:53334]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:53334]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:53334]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:53328]
-WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:53314]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:53301]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:51604]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:51560]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:54629]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:54852]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:54852]
-WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:54859]
-WebSocket CONNECT /ws/chat/15/ [127.0.0.1:54859]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:54859]
-WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:54852]
->>>>>>> AI
+C:\Users\user\Desktop\echo\backend\messenger_api\serializers.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 18, 2025 - 16:11:28
+Django version 5.2.3, using settings 'backend.config.settings'
+Starting ASGI/Daphne version 4.2.1 development server at http://127.0.0.1:8001/
+Quit the server with CTRL-BREAK.
+Watching for file changes with StatReloader
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:56002]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:56002]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:56002]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:56031]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:56031]
+WebSocket HANDSHAKING /ws/chat/15/ [127.0.0.1:56045]
+WebSocket CONNECT /ws/chat/15/ [127.0.0.1:56045]
+WebSocket DISCONNECT /ws/chat/15/ [127.0.0.1:56045]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:54842]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:54842]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:54849]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:54849]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:54849]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:58835]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:58835]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:56816]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:56816]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:56816]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:59835]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:59835]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:62080]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:62080]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:62080]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:59824]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:59824]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:59830]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:59830]
+C:\Users\user\Desktop\echo\backend\users_api\serializers.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 18, 2025 - 16:13:33
+Django version 5.2.3, using settings 'backend.config.settings'
+Starting ASGI/Daphne version 4.2.1 development server at http://127.0.0.1:8001/
+Quit the server with CTRL-BREAK.
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Disconnected with code: None ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_15 ---
+--- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_15 ---
+--- CONSUMER: Successfully added to group chat_15 ---
+--- CONSUMER: Attempting to save message from user 13: привет ---
+--- CONSUMER FATAL ERROR IN RECEIVE (Saving failed): `create()` must be implemented. ---
+--- CONSUMER: Disconnected with code: 1001 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Disconnected with code: None ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Attempting to save message from user 18: привет ---
+--- CONSUMER FATAL ERROR IN RECEIVE (Saving failed): `create()` must be implemented. ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Disconnected with code: None ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_14 ---
+--- CONSUMER: Successfully added to group chat_14 ---
+--- CONSUMER: Disconnected with code: None ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+Watching for file changes with StatReloader
+C:\Users\user\Desktop\echo\backend\users_api\serializers.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 18, 2025 - 16:30:32
+Django version 5.2.3, using settings 'backend.config.settings'
+Starting ASGI/Daphne version 4.2.1 development server at http://127.0.0.1:8001/
+Quit the server with CTRL-BREAK.
+Watching for file changes with StatReloader
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:60017]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:60017]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:55722]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:55722]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:64708]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:64708]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:64708]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:49219]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:49219]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:49226]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:49226]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:55831]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:55831]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:55836]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:55836]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:55836]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:62066]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:62066]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:51889]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:51889]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:51889]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:55347]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:55347]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:50241]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:50241]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:50241]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:51890]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:51890]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:51894]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:51894]
+Not Found: /
+HTTP GET / 404 [1.10, 127.0.0.1:60999]
+Not Found: /favicon.ico
+HTTP GET /favicon.ico 404 [0.30, 127.0.0.1:60999]
+HTTP GET /admin 301 [0.03, 127.0.0.1:51536]
+HTTP GET /admin/ 200 [2.19, 127.0.0.1:51536]
+HTTP GET /static/admin/js/theme.js 200 [1.56, 127.0.0.1:61936]
+HTTP GET /static/admin/css/base.css 200 [1.59, 127.0.0.1:51536]
+HTTP GET /static/admin/css/responsive.css 200 [1.27, 127.0.0.1:64977]
+HTTP GET /static/admin/css/dashboard.css 200 [1.27, 127.0.0.1:64976]
+HTTP GET /static/admin/css/dark_mode.css 200 [1.61, 127.0.0.1:51540]
+HTTP GET /static/admin/css/nav_sidebar.css 200 [1.28, 127.0.0.1:64975]
+HTTP GET /static/admin/js/nav_sidebar.js 200 [0.01, 127.0.0.1:51540]
+HTTP GET /static/admin/img/icon-addlink.svg 200 [0.04, 127.0.0.1:64977]
+HTTP GET /static/admin/img/icon-changelink.svg 200 [0.04, 127.0.0.1:64975]
+HTTP GET /static/admin/img/icon-deletelink.svg 200 [0.02, 127.0.0.1:51540]
+C:\Users\user\Desktop\echo\backend\messenger_api\serializers.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 18, 2025 - 16:31:12
+Django version 5.2.3, using settings 'backend.config.settings'
+Starting ASGI/Daphne version 4.2.1 development server at http://127.0.0.1:8001/
+Quit the server with CTRL-BREAK.
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Disconnected with code: None ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Attempting to save message from user 13: привет ---
+--- CONSUMER FATAL ERROR IN RECEIVE (Saving failed): `create()` must be implemented. ---
+--- CONSUMER: Disconnected with code: None ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Disconnected with code: 1006 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Disconnected with code: 1001 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Disconnected with code: 1000 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Attempting connection ---
+--- CONSUMER: Accepted. Joining group: chat_16 ---
+--- CONSUMER: Successfully added to group chat_16 ---
+--- CONSUMER: Attempting to save message from user 13: привет ---
+--- CONSUMER FATAL ERROR IN RECEIVE (Saving failed): `create()` must be implemented. ---
+Watching for file changes with StatReloader
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:57361]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:57361]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:64399]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:64399]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:62180]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:62180]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:53330]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:53330]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:64399]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:53426]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:53426]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:53433]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:53433]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:53433]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:52856]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:52856]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:52856]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:56054]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:56054]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:56054]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:64485]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:64485]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:64485]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:65235]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:65235]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:65239]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:65239]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:65239]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:64283]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:64283]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:64289]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:64289]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:53330]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:53519]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:53519]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:64289]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:63165]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:63165]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:53519]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:56121]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:56121]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:63165]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:59932]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:59932]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:56121]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:62542]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:62542]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:59932]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:62542]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:59669]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:62332]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:59669]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:62332]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:57361]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:53426]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:65235]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:64283]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:59669]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:58836]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:58836]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:58841]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:58841]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:58841]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:61937]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:61937]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:62332]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:57500]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:57500]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:61937]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:63088]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:63088]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:63095]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:63095]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:63095]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:54640]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:54640]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:50747]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:50747]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:50747]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:57500]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:49523]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:49523]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:49523]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:62580]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:62580]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:59018]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:59018]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:59018]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:49411]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:49411]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:62580]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:49411]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:52686]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:52686]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:62301]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:62304]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:62301]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:62304]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:62304]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:54626]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:54626]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:54635]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:54635]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:54635]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:60018]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:60018]
+WebSocket HANDSHAKING /ws/chat/14/ [127.0.0.1:58173]
+WebSocket CONNECT /ws/chat/14/ [127.0.0.1:58173]
+WebSocket DISCONNECT /ws/chat/14/ [127.0.0.1:58173]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:61729]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:61729]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:62301]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:61729]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:57059]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:57059]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:60534]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:60534]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:60534]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:57651]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:57651]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:54628]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:54628]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:54628]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:57059]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:58193]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:60684]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:60684]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:58193]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:49749]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:49749]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:49749]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:64467]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:58193]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:64467]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:54624]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:54624]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:64467]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:64265]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:64265]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:64265]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:54628]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:54624]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:62839]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:54628]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:62839]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:54628]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:64815]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:64815]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:64821]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:64821]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:62839]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:62180]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:64821]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:50493]
+WebSocket REJECT /ws/chat/16/ [127.0.0.1:50493]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:50493]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:51541]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:51541]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:51549]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:51549]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:52173]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:52173]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:64156]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:64156]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:64156]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:51549]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:54625]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:54625]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:63108]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:63108]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:63112]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:63112]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:54625]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:63112]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:63108]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:52239]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:52239]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:52239]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:63127]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:63127]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:63127]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:63956]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:63956]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:63956]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:56929]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:56929]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:56929]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:63812]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:63812]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:63812]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:54630]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:54630]
+WebSocket DISCONNECT /ws/chat/16/ [127.0.0.1:54630]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:53684]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:53684]
+WebSocket HANDSHAKING /ws/chat/16/ [127.0.0.1:56418]
+WebSocket CONNECT /ws/chat/16/ [127.0.0.1:56418]

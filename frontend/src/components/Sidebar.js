@@ -4,7 +4,7 @@ import {
   HomeOutlined,
   // PushpinOutlined,
   SearchOutlined,
-  TeamOutlined,
+  // TeamOutlined,
   CrownOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -38,7 +38,7 @@ function Sidebar({ collapsed, onToggle, position, onSideChange, onAddPostClick }
           </NavLink>
         </li>
 
-        {/* TODO: доделать страницу открепленных комментариев */}
+        {/* TODO: доделать страницу открепленных комментариев  и друзей*/}
         {/* <li>
           <NavLink to="/floating-comment" className={({ isActive }) => (isActive ? 'active' : '')}>
             <PushpinOutlined /> {!collapsed && 'открепленные '}
@@ -57,12 +57,12 @@ function Sidebar({ collapsed, onToggle, position, onSideChange, onAddPostClick }
             {!collapsed && 'общение'}
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/friends" className={({ isActive }) => (isActive ? 'active' : '')}>
             <TeamOutlined />
             {!collapsed && 'Друзья'}
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink to="/explore-plan" className={({ isActive }) => (isActive ? 'active' : '')}>
             <CrownOutlined />

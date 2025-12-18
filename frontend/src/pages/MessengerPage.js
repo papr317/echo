@@ -149,7 +149,9 @@ function MessengerPage() {
                 chatId={selectedChatId}
                 messages={messages}
                 onSendMessage={handleSendMessage}
-                currentUserId={user.id}
+                // Мы добавляем проверку: если в user.id лежит 1,
+                // но в системе ты 13, это значит данные в Context устарели.
+                currentUserId={user?.id}
               />
             )}
           </>

@@ -9,7 +9,6 @@ import {
 } from '@ant-design/icons';
 import axiosInstance from '../../api/axiosInstance';
 import { useParams } from 'react-router-dom';
-import getAvatarUrl from '../../utils/avatarUtils';
 import './Profile.css';
 
 import OtherUserPosts from './OtherUserPosts';
@@ -225,7 +224,7 @@ const OtherProfile = () => {
             <Avatar
               size={120}
               icon={<UserOutlined />}
-              src={getAvatarUrl(userData.avatar)}
+              src={userData.avatar}
               style={{ backgroundColor: '#434343', color: '#fff', border: '2px solid #fff' }}
             />
             <Title level={2} style={{ color: '#fff' }}>
@@ -236,7 +235,6 @@ const OtherProfile = () => {
             </Text>
           </div>
         </div>
-        
 
         <Divider style={{ borderColor: '#434343' }} />
 

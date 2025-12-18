@@ -12,11 +12,13 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
   const handleBeforeUpload = (file) => {
     const isAllowedFileType = file.type.startsWith('image/') || file.type.startsWith('video/');
     if (!isAllowedFileType) {
-      message.error('Вы можете загружать только изображения (JPG, PNG, GIF) или видео (MP4, WebM, MOV)!');
+      message.error(
+        'Вы можете загружать только изображения (JPG, PNG, GIF) или видео (MP4, WebM, MOV)!',
+      );
     }
-    const isLt5M = file.size / 1024 / 1024 < 5;
+    const isLt5M = file.size / 1024 / 1024 < 10;
     if (!isLt5M) {
-      message.error('Файл должен быть меньше 5MB!');
+      message.error('Файл должен быть меньше 10MB!');
     }
     return isAllowedFileType && isLt5M;
   };
@@ -26,7 +28,7 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
       return e;
     }
     if (e?.fileList) {
-      return e.fileList.filter(file => file.status !== 'removed');
+      return e.fileList.filter((file) => file.status !== 'removed');
     }
     return [];
   };
@@ -38,7 +40,7 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
 
     if (values.file && values.file.length > 0) {
       values.file.forEach((fileItem) => {
-        formData.append('files', fileItem.originFileObj);
+        formData.append('uploaded_files', fileItem.originFileObj);
       });
     }
 
@@ -63,10 +65,10 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
       setLoading(false);
     }
   };
-    const rulesForCommunityNavigate = () => {
-      navigate('/community-rules');
-      onClose();
-    };
+  const rulesForCommunityNavigate = () => {
+    navigate('/community-rules');
+    onClose();
+  };
   return (
     <Modal title="Создать новый пост" open={isVisible} onCancel={onClose} footer={null} centered>
       <Form form={form} name="create_post" onFinish={onFinish} initialValues={{ content: '' }}>
@@ -90,8 +92,8 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
             accept="image/*,video/*"
           >
             {/* <h4>не более 5мб!</h4> */}
-              <div>
-                <FileAddOutlined />
+            <div>
+              <FileAddOutlined />
               <div style={{ marginTop: 8 }}>Загрузить файл </div>
             </div>
           </Upload>
@@ -99,12 +101,19 @@ export default function Modal_AddPost({ isVisible, onClose, fetchPosts }) {
 
         <Form.Item style={{ textAlign: 'right', marginBottom: 0 }}>
           <h4>перед тем как создать пост ознакомся с правилами сообщества!</h4>
-          <Button style={{margin: '10px'}} onClick={rulesForCommunityNavigate}> правила </Button>
-
-          <Button style={{ backgroundColor: '#000000', borderRadius: '50px' }} type="primary" htmlType="submit" loading={loading}>
-            <PlusOutlined /> Создать пост
+          <Button style={{ margin: '10px' }} onClick={rulesForCommunityNavigate}>
+            {' '}
+            правила{' '}
           </Button>
 
+          <Button
+            style={{ backgroundColor: '#000000', borderRadius: '50px' }}
+            type="primary"
+            htmlType="submit"
+            loading={loading}
+          >
+            <PlusOutlined /> Создать пост
+          </Button>
         </Form.Item>
       </Form>
     </Modal>

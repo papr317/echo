@@ -60,54 +60,59 @@ class ChatSerializer(serializers.ModelSerializer):
         return chat
 
 class MessageSerializer(serializers.Serializer):
-    """Сериализатор для документов сообщений MongoDB."""
-    id = serializers.CharField(read_only=True) # ID MongoDB
-    chat_id = serializers.IntegerField(read_only=True) # Integer ID чата (PostgreSQL)
+    id = serializers.CharField(read_only=True)
+    chat_id = serializers.IntegerField(read_only=True)
     sender_id = serializers.IntegerField(read_only=True)
     timestamp = serializers.DateTimeField(read_only=True)
     text = serializers.CharField(max_length=5000)
-    attachments = serializers.ListField(child=serializers.CharField(), required=False, default=list)
     
-    # Поле для встраивания данных отправителя
+    # Поле sender будет содержать объект с id, username и avatar
     sender = serializers.SerializerMethodField()
-    
+
     def get_sender(self, obj):
-        """Получает данные отправителя, используя кэш."""
-        sender_id = obj['sender_id'] 
-        if sender_id in USER_CACHE: return USER_CACHE[sender_id]
+        # Используем sender_id из данных MongoDB
+        sid = obj.get('sender_id')
+        if not sid:
+            return None
+            
+        # Кэширование для предотвращения N+1 запросов к базе
+        if sid in USER_CACHE:
+            return USER_CACHE[sid]
         
         try:
-            # Оптимизация: получаем только нужные поля из PostgreSQL
-            user = CustomUser.objects.only('id', 'username', 'avatar').get(id=sender_id)
-            user_data = UserSerializer(user).data
-            USER_CACHE[sender_id] = user_data
-            return user_data
+            user = CustomUser.objects.only('id', 'username', 'avatar').get(id=sid)
+            # Если avatar — это ImageField, .url вернет полный путь
+            data = {
+                "id": user.id,
+                "username": user.username,
+                "avatar": user.avatar.url if user.avatar else None
+            }
+            USER_CACHE[sid] = data
+            return data
         except CustomUser.DoesNotExist:
-            return {'id': sender_id, 'username': 'Deleted User', 'avatar': None}
-
-    def to_representation(self, instance):
-        # Преобразуем chat_id из строки (как в Mongo) обратно в Integer
-        instance['chat_id'] = int(instance['chat_id'])
-        data = super().to_representation(instance)
-        # Вставляем данные отправителя
-        data['sender'] = self.get_sender(instance) 
-        return data
+            return {"id": sid, "username": "Удаленный пользователь", "avatar": None}
 
     def create(self, validated_data):
-        chat_id = self.context.get('chat_id')
+        chat_id = self.context['chat_id']
         sender_id = self.context['request'].user.id
-        
-        # 1. Сохранение в MongoDB
-        message_instance = MongoMessage(chat_id=chat_id, sender_id=sender_id, text=validated_data['text'], attachments=validated_data.get('attachments'))
-        
-        try:
-            message_id = message_instance.save()
-            timestamp = message_instance.timestamp
-        except ConnectionError as e:
-            raise serializers.ValidationError({"detail": str(e)}, code='service_unavailable')
+        text = validated_data['text']
 
-        # 2. Обновление PostgreSQL (синхронизация данных)
-        Chat.objects.filter(pk=chat_id).update(last_message_text=validated_data['text'][:255], last_message_date=timestamp)
+        mongo_message = MongoMessage(chat_id=chat_id, sender_id=sender_id, text=text)
+        message_id = mongo_message.save()
 
-        # 3. Возврат данных нового сообщения
-        return {'id': message_id, 'chat_id': chat_id, 'sender_id': sender_id, **validated_data, 'timestamp': timestamp}
+        # Возвращаем данные, которые будут сериализованы
+        return {
+            'id': message_id,
+            'chat_id': chat_id,
+            'sender_id': sender_id,
+            'text': text,
+            'timestamp': mongo_message.timestamp.isoformat(),
+        }
+
+    def to_representation(self, instance):
+        # Превращаем данные из Mongo в чистый словарь для фронтенда
+        instance['chat_id'] = int(instance['chat_id'])
+        data = super().to_representation(instance)
+        # Явно прокидываем sender в итоговый JSON
+        data['sender'] = self.get_sender(instance)
+        return data

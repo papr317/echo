@@ -5,7 +5,7 @@
 
 # не забудь запустить redis-server в wsl перед этим!
 # sudo service redis-server start
-# redis-cli ping
+redis-cli ping
 # sudo service redis-server stop
 
 # --- НАСТРОЙКИ ---

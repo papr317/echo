@@ -6,7 +6,7 @@ import { Progress, Typography, message, Spin, Avatar, Modal } from 'antd';
 import { SoundOutlined, SoundFilled, MutedOutlined, MutedFilled } from '@ant-design/icons';
 import './Home.css';
 
-// --- КОМПОНЕНТ 1: ПОЛОСКА ЖИЗНИ ---
+// ПОЛОСКА ЖИЗНИ
 const PostLifeBar = ({ expiresAt, onExpire }) => {
   const calculateProgress = useCallback(() => {
     const now = new Date();

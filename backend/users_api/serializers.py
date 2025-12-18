@@ -44,6 +44,8 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
+    avatar = serializers.SerializerMethodField()
+
     class Meta:
         model = CustomUser
         fields = (
@@ -52,6 +54,14 @@ class UserSerializer(serializers.ModelSerializer):
             'date_of_birth', 'nickname', 'avatar',
             'accepted_privacy_policy', 'bio'
         )
+
+    def get_avatar(self, obj):
+        if obj.avatar and hasattr(obj.avatar, 'url'):
+            request = self.context.get('request')
+            if request is not None:
+                return request.build_absolute_uri(obj.avatar.url)
+            return obj.avatar.url
+        return None
 
     # Валидация даты рождения (нужна при PUT/обновлении профиля)
     def validate_date_of_birth(self, value):
